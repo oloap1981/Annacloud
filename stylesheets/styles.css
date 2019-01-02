@@ -12710,13 +12710,13 @@ a.link {
   width: 100px;
   height: 50px;
   text-align: center;
-  background-image: url(../images/logonew-big.png?1540558018);
+  background-image: url(../images/logonew-big.png?1546424865);
   background: url("/images/logonew-big.png") no-repeat center center;
   background-size: contain;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .logo-small {
-    background-image: url(../images/logonew-big@2.png?1540558001);
+    background-image: url(../images/logonew-big@2.png?1546424865);
     background-size: 140 50;
   }
 }
@@ -12735,14 +12735,14 @@ a.link {
   width: 130px;
   height: 24px;
   text-align: center;
-  background-image: url(../images/logonew-big.png?1540558018);
+  background-image: url(../images/logonew-big.png?1546424865);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: contain;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .logo-big {
-    background-image: url(../images/logonew-big@2.png?1540558001);
+    background-image: url(../images/logonew-big@2.png?1546424865);
     background-size: 180 127;
   }
 }
@@ -14503,9 +14503,12 @@ a.link {
 .configuratore .accessori-thumb img {
   height: 57px;
   cursor: pointer;
+  border: solid 1px transparent;
+  padding: 2px;
 }
 .configuratore .accessori-thumb img.thumb-colori {
-  padding-bottom: 8px;
+  margin-bottom: 8px;
+  height: 49px;
 }
 .configuratore .accessori-thumb .itemNameX {
   font-size: 8px;
@@ -14530,14 +14533,12 @@ a.link {
   color: black;
   text-align: center;
   line-height: 1.8em;
-  background-color: rgba(255, 255, 255, 0.85);
 }
 .configuratore .accessori-thumb a {
   position: relative;
   border: solid 1px transparent;
-  padding: 2px;
 }
-.configuratore .accessori-thumb a:hover, .configuratore .accessori-thumb a.added, .configuratore .accessori-thumb a.activeAccessorio {
+.configuratore .accessori-thumb a:hover img, .configuratore .accessori-thumb a.added img, .configuratore .accessori-thumb a.activeAccessorio img {
   border: solid 1px #bfbfbf;
   opacity: 1;
   text-decoration: none;
@@ -14564,8 +14565,8 @@ a.link {
 .configuratore .accessori-thumb .closeItem {
   display: none;
   position: absolute;
-  top: -1px;
-  right: -1px;
+  top: -0px;
+  right: -0px;
   background: #fff;
   border: solid 1px #bfbfbf;
   border-top: none;
@@ -14699,7 +14700,7 @@ footer .logo-footer {
   height: 50px;
   margin-bottom: 10px;
   text-align: center;
-  background-image: url(../images/logonew-footer-big.png?1540567887);
+  background-image: url(../images/logonew-footer-big.png?1546424865);
   background: url("/images/logonew-footer-big.png") no-repeat center left;
   background-repeat: center left;
   background-repeat: no-repeat;
@@ -14707,7 +14708,7 @@ footer .logo-footer {
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   footer .logo-footer {
-    background-image: url(../images/logonew-footer-big@2.png?1540567881);
+    background-image: url(../images/logonew-footer-big@2.png?1546424865);
     background-size: 166 36;
   }
 }
