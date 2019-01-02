@@ -1,0 +1,153 @@
+<div ng-controller="carrelloController as carrelloContr" class="container text-center ">
+    <div class="row">
+        <div class="col-sm-12 clearfix top-buffer">
+            <h3 class="title section">Carrello</h3>
+            <!--<p>in questa area puoi verificare i tuoi ordini, visualizzare e modificare i tuoi preferiti.</p>-->
+        </div>
+    </div>
+    <div ng-if="getCarrello().length == 0">
+        <div class="row">
+            <div class="col-sm-12 clearfix bottom-buffer wow fadeIn" data-wow-delay=".4s">
+                <p class="subtitle">Non hai ancora aggiunto nessun articolo al Carrello.</p>
+                    <a href="#!/configura" class="btn btn-default btn-lg follow anim" style="margin-top: 1em;">Configura adesso</a>
+            </div>
+        </div>
+        <div class="row bottom-buffer hidden">
+            <section class="swipe swipe-featured wow fadeIn" data-wow-delay=".4s">
+                <swiper class="" grab-cursor="true" keyboard-control="true" slides-per-view="4" breakpoints="{ &quot;320&quot;: { &quot;slidesPerView&quot;: &quot;2&quot; },  &quot;480&quot;: { &quot;slidesPerView&quot;: &quot;3&quot; },  &quot;768&quot;: { &quot;slidesPerView&quot;: &quot;3&quot; },  &quot;992&quot;: { &quot;slidesPerView&quot;: &quot;4&quot; },  &quot;1200&quot;: { &quot;slidesPerView&quot;: &quot;4&quot; }}">
+                    <slides>
+                        <slide><a href="javascript:void(0);" class="bag-box home-content">
+                                <div><img src="images/borsa-dummy-1.jpg" /></div><span>Crossbody #1</span>
+                            </a></slide>
+                        <slide><a href="javascript:void(0);" class="bag-box home-content">
+                                <div><img src="images/borsa-dummy-2.jpg" /></div><span>Shoulderbag #2</span>
+                            </a></slide>
+                        <slide><a href="javascript:void(0);" class="bag-box home-content">
+                                <div><img src="images/borsa-dummy-3.jpg" /></div><span>Shoppingbag #3</span>
+                            </a></slide>
+                        <slide><a href="javascript:void(0);" class="bag-box home-content">
+                                <div><img src="images/borsa-dummy-4.jpg" /></div><span>Shoulderbag #4</span>
+                            </a></slide>
+                        <slide><a href="javascript:void(0);" class="bag-box home-content">
+                                <div><img src="images/borsa-dummy-1.jpg" /></div><span>Crossbody #1</span>
+                            </a></slide>
+                        <slide><a href="javascript:void(0);" class="bag-box home-content">
+                                <div><img src="images/borsa-dummy-2.jpg" /></div><span>Shoulderbag #2</span>
+                            </a></slide>
+                        <slide><a href="javascript:void(0);" class="bag-box home-content">
+                                <div><img src="images/borsa-dummy-3.jpg" /></div><span>Shoppingbag #3</span>
+                            </a></slide>
+                        <slide><a href="javascript:void(0);" class="bag-box home-content">
+                                <div><img src="images/borsa-dummy-4.jpg" /></div><span>Shoulderbag #4</span>
+                            </a></slide>
+                    </slides>
+                    <prev></prev>
+                    <next></next>
+                </swiper>
+            </section>
+        </div>
+    </div>
+    <div ng-if="getCarrello().length != 0" class="row bag-list">
+        <div class="col-sm-12 no-padding">
+            <div class="col-sm-8 no-padding">
+                <div ng-repeat="conf in getCarrello()" class="col-sm-12 bag-item clearfix">
+                    
+                    <div class="col-sm-8 no-padding visible-xs">
+                        <div class="col-sm-3">
+                            <img  ng-src="{{conf.thumbnail}}" class="bag-sample">
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="col-sm-12">
+                                <p ng-click="rimuoviDaCarrello(conf)" class="remove">elimina <small><i class="unaicon-remove"></i></small></p>
+                                <h4 class="bag">{{conf.nome}} - {{conf.codice}}</h4>
+                            </div>
+                            <div class="col-sm-6 base">
+                                <h5 class="section-small left">Base </h5>
+                                <table>
+                                    <tr ng-repeat="base in conf.elencoEntita" ng-if="base.categoria == 'modello'">
+                                        <td><span>modello:</span></td>
+                                        <td>{{base.descrizione}}</td>
+                                    </tr>
+                                    <tr>
+                                </table>
+                            </div>
+                            <div class="col-sm-6 accessori">
+                                <h5 class="section-small left">Accessori</h5>
+                                <table>
+                                    <tr ng-repeat="base in conf.elencoEntita" ng-if="base.categoria == 'accessori'">
+                                        <td><span>{{base.categoria}}:</span></td>
+                                        <td>{{traduciNomiOrdini(base)}}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-sm-12 hidden-xs">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="javascript:void(0);">
+                                    <img  ng-src="{{conf.thumbnail}}" class="media-object bag-sample">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <div class="col-sm-12">
+                                    <p ng-click="rimuoviDaCarrello(conf)" class="remove">elimina <small><i class="unaicon-remove"></i></small></p>
+                                    <h4 class="media-heading bag">{{conf.nome}} - {{conf.codice}}</h4>
+                                </div>
+                                <div class="col-xs-6 base">
+                                    <h5 class="section-small left">Base </h5>
+                                    <table>
+                                        <tr ng-repeat="base in conf.elencoEntita" ng-if="base.categoria == 'modello'">
+                                            <td><span><b>modello:</b></span></td>
+                                            <td>{{base.descrizione}}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="col-xs-6 accessori">
+                                    <h5 class="section-small left">Accessori</h5>
+                                    <table>
+                                        <tr ng-repeat="base in conf.elencoEntita" ng-if="base.categoria != 'modello'">
+                                                <td><span><b>{{base.categoria}}:</b> </span></td>
+                                                <td>{{traduciNomiOrdini(base)}}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-sm-4 bag-item clearfix">
+                <div class="col-sm-12 action">
+                    <div class="order-state one summary">
+                        <div class="row">
+                            <div class="col-sm-12 text-left">
+                                <span>Subtotale</span>
+                                <span class="single-price"><b>{{getTotalAmount()}}&euro;</b></span>
+                            </div>
+                            <div class="col-sm-12 text-left">
+                                <span>spedizione</span>
+                                <span class="single-price"><b>{{getCostoSpedizione()}}&euro;</b></span>
+                            </div>
+                        </div>
+                    <hr>
+                        <div class="row">
+                            <div class="col-sm-12 text-left">
+                                <span>TOTALE</span>
+                                <span class="single-price"><b>{{getTotalAmount() + getCostoSpedizione()}}&euro;</b></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-buttons" style="margin-top: 20px;">
+                        <a href="javascript:void(0);" class="btn  btn-lg btn-block btn-save" ng-click="getCheckout()" style="width:auto;">
+                            Procedi al
+                            checkout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

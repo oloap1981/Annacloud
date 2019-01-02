@@ -1,0 +1,25 @@
+{
+    "liveSassCompile.settings.formats": [
+        {
+            "format": "expanded",
+            "extensionName": ".css",
+            "savePath": "/stylesheets"
+        },
+        /*{
+            "format": "compressed",
+            "extensionName": ".min.css",
+            "savePath": "/stylesheets"
+        }*/
+    ],
+    "liveSassCompile.settings.excludeList": [
+        "**/node_modules/**",
+        ".vscode/**",
+        "_*"
+    ],
+    "liveSassCompile.settings.generateMap": true,
+    "liveSassCompile.settings.autoprefix": [
+        "> 1%",
+        "last 2 versions"
+    ],
+    "html.format.wrapLineLength": 0
+}

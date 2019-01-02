@@ -1,0 +1,93 @@
+<div ng-controller="preferitiController">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-sm-12 clearfix top-buffer">
+                <h3 class="title section mot"><span>Preferiti</span></h3>
+            </div>
+        </div>
+        <div ng-if="getPreferiti().length == 0">
+            <div class="row">
+                <div class="col-sm-12 clearfix bottom-buffer wow fadeIn" data-wow-delay=".4s">
+                    <p class="subtitle">Non hai ancora nessun prodotto salvato nei Preferiti.</p>
+                        <a href="#!/configura" class="btn btn-default btn-lg follow anim" style="margin-top: 1em;">Configura adesso</a>
+                </div>
+            </div>
+            
+        </div>
+        <div ng-if="getPreferiti().length != 0" class="row bag-list tab-pane fade in active" id="preferiti">
+            <div ng-repeat="conf in getPreferiti()" class="col-sm-12 bag-item clearfix">
+                <div class="col-sm-8 no-padding visible-xs">
+                    <div class="col-sm-3">
+                        <a href="javascript: void(0)" ng-click="goToPage(conf)">
+                            <img ng-src="{{conf.thumbnail}}" class="bag-sample">
+                        </a>
+                    </div>
+                    <div class="col-sm-9">
+                        <div class="col-sm-12">
+                            <p ng-click="eliminaConfigurazione(conf.codice)" class="remove">elimina <small><i class="unaicon-remove"></i></small></p>
+                            <h4 class="bag">{{conf.nome}}</h4>
+                        </div>
+                        <div class="col-sm-6 base">
+                            <h5 class="section-small left">Base </h5>
+                            <table>
+                                <tr ng-repeat="base in conf.elencoEntita" ng-if="base.categoria == 'modello'">
+                                    <td><span>modello:</span></td>
+                                    <td>{{base.descrizione}}</td>
+                                </tr>
+                                <tr>
+                            </table>
+                        </div>
+                        <div class="col-sm-6 accessori">
+                            <h5 class="section-small left">Accessori</h5>
+                            <table>
+                                <tr ng-repeat="base in conf.elencoEntita" ng-if="base.categoria == 'accessori'">
+                                    <td><span>{{base.categoria}}:</span></td>
+                                    <td>{{traduciNomiOrdini(base)}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-8 hidden-xs">
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="javascript: void(0)" ng-click="goToPage(conf)">
+                                <img ng-src="{{conf.thumbnail}}" class="media-object bag-sample">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <div class="col-sm-12">
+                                <p ng-click="eliminaConfigurazione(conf.codice)" class="remove">elimina <small><i class="unaicon-remove"></i></small></p>
+                                <h4 class="media-heading bag">{{conf.nome}}</h4>
+                            </div>
+                            <div class="col-xs-6 base">
+                                <h5 class="section-small left">Base </h5>
+                                <table>
+                                    <tr ng-repeat="base in conf.elencoEntita" ng-if="base.categoria == 'modello'">
+                                        <td><span><b>modello:</b></span></td>
+                                        <td>{{base.descrizione}}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-xs-6 accessori">
+                                <h5 class="section-small left">Accessori</h5>
+                                <table>
+                                    <tr ng-repeat="base in conf.elencoEntita" ng-if="base.categoria != 'modello'">
+                                            <td><span><b>{{base.categoria}}:</b> </span></td>
+                                            <td>{{traduciNomiOrdini(base)}}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 action">
+                    <div class="order-buttons">
+                        <a href="javascript:void(0)" class="btn btn-default " ng-click="goToPage(conf)">modifica il modello</a>            
+                        <a href="javascript:void(0)" class="btn  btn-action" ng-click="addToCart(conf)">aggiungi al carrello</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

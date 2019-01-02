@@ -1,0 +1,133 @@
+<div ng-controller="checkoutController" ng-init="initCheckOut()">
+    <div class="row">
+        <div class="col-sm-12 clearfix top-buffer text-center">
+            <h3 class="title section mot"><span>Checkout</span></h3>
+        </div>
+    </div>
+    <div class="container top-buffer bottom-buffer ">
+        <div class="row ">
+            <div class="col-sm-6 hidden">
+                
+                <h4 class="title-tertiary ">Informazioni di contatto e consegna</h4>
+                <hr>
+                <div class="hidden">
+                    <form>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="nome" class="sr-only hidden"></label>
+                                    <input ng-model="nome" type="text" class="form-control" id="nome" placeholder="Nome">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="cognome" class="sr-only hidden"></label>
+                                    <input ng-model="cognome" type="text" class="form-control" id="cognome" placeholder="Cognome">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="email" class="sr-only hidden"></label>
+                                    <input ng-model="email" type="email" class="form-control" id="email" placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="telefono" class="sr-only hidden"></label>
+                                    <input ng-model="telefono" type="number" class="form-control" id="telefono" placeholder="Telefono">
+                                </div>
+                            </div>
+                        </div>
+                        
+                    
+                        <div class="form-group">
+                            <label for="inputNome" class="sr-only hidden"></label>
+                            <input ng-model="nomeSpe" type="text" class="form-control" id="nomeSpe" placeholder="Nome completo">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputCognome" class="sr-only hidden"></label>
+                            <input ng-model="indSpe1" type="text" class="form-control" id="indSpe1" placeholder="indirizzo (riga 1)">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputCognome" class="sr-only hidden"></label>
+                            <input ng-model="indSpe2" type="text" class="form-control" id="indSpe2" placeholder="indirizzo (riga 2)">
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="inputEmailReg" class="sr-only hidden"></label>
+                                    <input ng-model="cittaSpe" type="text" class="form-control" id="cittaSpe" placeholder="Citt&agrave;">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="inputPasswordReg" class="sr-only hidden"></label>
+                                    <input ng-model="capSpe" type="number" class="form-control" id="capSpe" placeholder="CAP">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-default btn-save ">Conferma</button>
+                    </form>
+                </div>
+                <div class="shipment-info " >
+                    <h5>{{getNomeECognome()}}</h5>
+                    <h5>{{getIndirizzoSpedizione()}}</h5>
+                    <!--button class="btn btn-default btn-save ">Modifica</button-->
+                </div>
+            </div>
+            <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 bag-item clearfix">
+                <div class="col-sm-12 no-padding action">
+                    <div class="order-state one summary checkout">
+                        <h4 class="title-tertiary ">Informazioni di contatto e consegna</h4>
+                        <hr>
+                    	<div class="shipment-info" >
+                            <h5>{{getNomeECognome()}}</h5>
+                            <h5>{{getIndirizzoSpedizione()}}</h5>
+                            <!--button class="btn btn-default btn-save ">Modifica</button-->
+                        </div>
+                    </div>
+                    <div class="order-state one summary checkout">
+                        <h4 class="title-tertiary ">Riepilogo del tuo ordine</h4>
+                        
+                    	<div ng-repeat="conf in ordine.configurazioni" >
+                            <hr>
+	                        <div  class="row">
+	                            <div class="col-sm-12 text-left">
+	                                <h5 class="" style="text-transform: uppercase">{{conf.nome}}</h5>
+	                                <span>Colore : {{getColoreConf(conf)}}<br>Iniziali: {{getInizialiConf(conf)}}</span>
+	                                <span class="single-price">{{calcolaPrezzo(conf)}}&euro;</span>
+	                                <p ng-click="eliminaDaOrdine(conf)" class="remove">elimina <small><i class="unaicon-remove"></i></small></p>
+	                            </div>          
+	                        </div>
+                        </div>
+                    </div>
+                    <div class="order-state one summary current normal no-border top-buffer bottom-buffer">
+                        <div class="row">
+                            <div class="col-sm-12 text-left">
+                                <span>Subtotale</span>
+                                <span class="single-price"><b>{{subtotale}}&euro;</b></span>
+                            </div>
+                            <div class="col-sm-12 text-left">
+                                <span>spedizione</span>
+                                <span class="single-price"><b>{{costoSpedizione}}&euro;</b></span>
+                            </div>
+                        </div>
+	                        <hr>
+                        <div class="row">
+                            <div class="col-sm-12 text-left">
+                                <span><b>TOTALE</b></span>
+                                <span class="single-price"><b>{{totale}}&euro;</b></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-buttons top-buffer text-center">
+                        <!--<a href="#" class="btn btn-action btn-lg btn-block" ng-click="setCheckout()" style="width:auto;">Completa l'ordine</a>-->
+                        <paypal-content info=conf></paypal-content>
+                        <img src="images/paypal-choice.png" style="max-width: 250px; margin-top: 20px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

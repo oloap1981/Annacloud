@@ -1,0 +1,14 @@
+<div class="modal-header ">
+    <button type="button" class="close hidden" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title">Dai un nome alla tua configurazione</h4>
+</div>
+<div class="modal-body">
+    <div class="form-group">
+        <label for="nome" class="sr-only hidden"></label>
+        <input ng-model="nome" type="text" class="form-control" id="nome" placeholder="Nome">
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancelConfig()">Annulla</button>
+    <button type="button" class="btn btn-primary" ng-click="okConfig(nome)">Salva</button>
+</div>

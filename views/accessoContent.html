@@ -1,0 +1,77 @@
+
+<div ng-controller="accessoController as accesso">
+    
+    <div class="container top-buffer bottom-buffer ">
+        <div class="row">
+            <div class="col-sm-12 clearfix top-buffer bottom-buffer text-center">
+                <p class="subtitle"><b>Accedi</b> o <b>registrati</b> per fare i tuoi acquisti</p>
+            </div>
+        </div>
+        <div class="row access">   
+            <div class="col-sm-6">
+                <h3 class="title-secondary">Accedi</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="inputEmail" class="sr-only hidden"></label>
+                        <input type="email" ng-model="email" class="form-control" id="inputEmail" placeholder="Indirizzo Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword" class="sr-only hidden"></label>
+                        <input ng-model="password" type="password" class="form-control" id="inputPassword" placeholder="Password">
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" ng-model="remember.value" class="js-switch"> Ricordami</label> <a href="javascript:void(0);">(?)</a>
+                    </div>
+                    <button ng-click="login(email, password)" class="btn btn-default btn-save">Accedi</button>
+                    <a href="javascript:void(0);" class="recover" >Recupera la password</a>
+                </form>
+            </div>
+            <div class="col-sm-6">
+                <h3 class="title-secondary">Crea il tuo account</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="inputNome" class="sr-only hidden"></label>
+                        <input ng-model="nome" type="text" class="form-control" id="inputNome" placeholder="Nome">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputCognome" class="sr-only hidden"></label>
+                        <input ng-model="cognome" type="text" class="form-control" id="inputCognome" placeholder="Cognome">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmailReg" class="sr-only hidden"></label>
+                        <input ng-model="emailSign" type="email" class="form-control" id="inputEmailReg" placeholder="Indirizzo Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPasswordReg" class="sr-only hidden"></label>
+                        <input ng-model="passwordSign" type="password" class="form-control" id="inputPasswordReg" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputRepeatPasswordReg" class="sr-only hidden"></label>
+                        <input type="password" class="form-control" id="inputRepeatPasswordReg" placeholder="Ripeti Password">
+                    </div>
+                    <button ng-click="signUp(emailSign, nome,cognome, passwordSign)" class="btn btn-default btn-save">Registrati</button>
+                    <a href="javascript:void(0);" class="recover">Informativa sulla privacy</a>
+                    <div class="checkbox">
+                        <label><input type="checkbox" ng-model="remember.value" class="js-switch">Ho preso visione dell’informativa e autorizzo il trattamento dei miei dati secondo quanto in essa riportato.</label></a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- <script src="http://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="javascripts/bootstrap.js"></script>
+    <script src="javascripts/switchery.js"></script>
+    <script src="javascripts/mdb.js"></script>
+    <script src="javascripts/custom.js"></script> 
+    <script>
+        new WOW().init();
+     var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+
+        elems.forEach(function(html) {
+          var switchery = new Switchery(html, { color: '#dfd1c2', size: 'small' });
+      });
+    </script> -->
+</div>
+
+
