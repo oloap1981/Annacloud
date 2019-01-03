@@ -30,227 +30,225 @@
 </head>
 
 <body ng-app="applicationModule" ng-controller="componentsController" class="ng-scope" ng-cloak>
-	<div>
-		<div ng-hide="hideHeader()">
-            <div class="main-header-content">
-                <nav class="navbar main-navbar navbar-default nomargin" role="navigation">
-                    <div class="container">
-						<a class="logo-small hidden visible-xs-block text-hide" href="#!/home">AnnaCloud</a>
-		                <div class="navbar-header navbar-right">
-		                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-		                        <span class="sr-only">Toggle navigation</span>
-		                        <span class="icon-bar"></span>
-		                        <span class="icon-bar"></span>
-		                        <span class="icon-bar"></span>
-		                    </button>
-		                    <ul class="nav navbar-nav fixed-navbar-right">
-		                        <li ng-show="user!==null" class="utente">
-		                            <a href="javascript:void(0)" id="user-menu" data-toggle="dropdown"><i class="unaicon-login"></i> <span class="hidden-xs"></span></a>
-		                            <ul class="dropdown-menu" aria-labelledby="user-menu">
-		                                <li><a href="#!/ordini">I tuoi Ordini</a></li>
-		                                <li><a href="#!/profilo">Profilo</a></li>
-		                                <li><a href="#!/logout" ng-click="logOut()">Esci</a></li>
-		                            </ul>
-		                        </li>
-								<li ng-show="user==null" class="utente">
-									<a href="#!/accedi" id="user-menu" ><i class="unaicon-login"></i> <span class="hidden-xs">accedi</span></a>
-									
-								</li>
-								<li class="favoriti">
-		                            <a href="#!/preferiti" ><i class="unaicon-favourite"></i> <span class="hidden-xsx">({{preferiti.length}})</span></a>
-	                           </li>
-		                        <li class="carrello">
-		                            <a href="#!/carrello" ><i class="unaicon-cart"></i> <span class="hidden-xsx">({{carrello.length}})</span></a>
-		                        </li>
-		                    </ul>
-		                </div>
-		                <div class="collapse navbar-collapse">
-		                    <ul class="nav navbar-nav navbar-left">
-		                        <li ng-show="user!==null">
-									<p class="navbar-text">Benvenuto, <strong>{{user.username}}</strong></p>
-		                        </li>
-		                        <li ng-show="user==null">
-									<p class="navbar-text">Benvenuto, <strong>accedi al tuo profilo</strong> o <strong>crea il tuo account</strong></p>
-		                        </li>
-		                    </ul>
-		                </div>
-		            </div>
-		        </nav>
-		    </div>
-		    <nav class="navbar navbar-default nomargin main-site-navbar">
-		        <div class="container">
-		            <div class="collapse navbar-collapse navbar-collapse-mobile navbar-ex1-collapse">
-						<div class="hidden-xs main-navbar">
-							<div class="col-sm-4">
-								<ul class="nav navbar-nav navbar-nav-flex">
-									<li>
-										<a href="#!/configura" class="primary" data-toggle="dropdown">Crea</a>
-										<ul class="dropdown-menuX dropdown-menu-centeredX" aria-labelledby="user-menu">
-											<!--<li><a href="#!/come-funziona" class="secondary">Come funziona</a></li>
-											<li><a href="#!/configura"  class="secondary">Configura</a></li>-->
-										</ul>
-									</li>
-									<li>
-										<a href="javascript:void(0);" class="primary" data-toggle="dropdown">Atelier</a>
-										<ul class="dropdown-menu dropdown-menu-centered" aria-labelledby="user-menu">
-											<li><a href="#!/404" class="secondary">Shop</a></li>
-											<li><a href="#!/collezione" class="secondary">Collezione</a></li>
-										</ul>
-									</li>
-								</ul>
-							</div>
-							<div class="col-sm-4">
-								<ul class="nav navbar-nav navbar-nav-flex">
-									<li>
-										<a href="#!/home" class="logo-big hidden-xs text-hide active link primary" >AnnaCloud</a>
-									</li>
-								</ul>
-							</div>
-							<div class="col-sm-4">
-								<ul class="nav navbar-nav navbar-nav-flex">
-									<li>
-										<a href="javascript:void(0);" class="primary" data-toggle="dropdown">Scopri</a>
-										<ul class="dropdown-menu dropdown-menu-centered" aria-labelledby="user-menu">
-											<li><a href="#!/visione" class="secondary">Visione</a></li>
-											<li><a href="#!/esperienza" class="secondary">Esperienza</a></li>
-										</ul>
-									</li>
-									<li>
-										<a  href="#!/contatti" class="primary">Chi siamo</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<ul class="nav navbar-nav mobile-menu visible-xs-block">
-							<li>
-								<a href="#!/configura" class="">Crea</a>
-								<ul class="dropdown-menu hidden" aria-labelledby="user-menu">
-									<li><a href="#!/accedi" ng-click="setAccesso()">Come funziona</a></li>
-									<li><a href="#!/configura" ng-click="setConfigurator()">Configura</a></li>
-								</ul>
-							</li>
-							<li>
-								<a href="javascript:void(0);" data-toggle="dropdown" class="">Atelier</a>
-								<ul class="dropdown-menu " aria-labelledby="user-menu">
-									<li><a href="#!/404">Shop</a></li>
-									<li><a href="#!/collezione">Collezione</a></li>
-								</ul>
-							</li>
-							<li>
-								<a href="javascript:void(0);" data-toggle="dropdown" class="">Scopri</a>
-								<ul class="dropdown-menu " aria-labelledby="user-menu">
-									<li><a href="#!/visione" >Visione</a></li>
-									<li><a href="#!/esperienza" >Esperienza</a></li>
-								</ul>
-							</li>
-							<li>
-								<a a href="#!/contatti" class="">Chi siamo</a>
-								<ul class="dropdown-menu hidden" aria-labelledby="user-menu">
-									<li><a href="#!/team" >Team</a></li>
-									<li><a href="#!/contatti" >Contatti</a></li>
-								</ul>
-							</li>
-						</ul>
-		            </div>
-		        </div>
-		    </nav>
-	    </div>
-	    <div class="template-content" ng-view autoscroll="true"><!-- contenitore principale -->
-<!--
-		    <home-content ng-if="isHome"></home-content>
-		    <configura-content ng-if="isConfigurator"></configura-content>
-		    <esperienza-content ng-if="isEsperienza"></esperienza-content>
-		    <visione-content ng-if="isVisione"></visione-content>
-		    <contatti-content ng-if="isContatti"></contatti-content>
-		    <stores-content ng-if="isStores"></stores-content>
-			<accesso-content ng-if="isAccesso"></accesso-content>
-			<preferiti-content ng-if="isPreferiti"></preferiti-content>
-			<ordini-content ng-if="isOrdini"></ordini-content>
-			<carrello-content ng-if="isCarrello"></carrello-content>
-			<profilo-content ng-if="isProfilo"></profilo-content>
-			<checkout-content ng-if="isCheckout"></checkout-content>-->
-
-	    </div>
-
-	    <footer class="" ng-hide="isActive('/configura')">
-	        <div class="footer-navbar-container">
-	            <div class="container">
-					<div class="col-md-4 col-sm-3">
-						 <a class="logo-footer text-hide" href="#">AnnaCloud</a>
-						<p class="address">
-							<b style="font-weight: 500">Anna Cloud</b> &egrave; un marchio <b style="font-weight: 500">Pelletteria Digitale srl</b>.<br>
-							Sede - Via San Tommaso, 21<br>
-							Santa Croce Sull’Arno (PI)<br>
-							CF/P.IVA: 02272250503<br>
-							email: <a href="mailto:info@annacloud.it">info@annacloud.it</a>
-						</p>
-					</div>
-					<div class="col-md-2 col-sm-3 hidden-xs">
-						<h3>Crea</h3>
-						<ul>
-							<!--<li>
-								<a href="#!/home" class="">Come funziona</a>
-							</li>-->
-							<li>
-								<a href="#!/configura" class="">Configura</a>
-							</li>
-						</ul>
-					</div>
-					<div class="col-md-2 col-sm-3 hidden-xs">
-						<h3>Atelier</h3>
-						<ul>
-							<li>
-								<a href="#!/404" class="">Shop</a>
-							</li>
-							<li>
-								<a href="#!/collezione" class="">Collezione</a>
-							</li>
-						</ul>
-					</div>
-					<div class="col-md-2 col-sm-3 hidden-xs">
-						<h3>Scopri</h3>
-						<ul>
-							<li>
-								<a href="#!/visione" class="" ng-click="setVisione()">Visione</a>
-							</li>
-							<li>
-								<a href="#!/esperienza" class="" ng-click="setEsperienza()">Esperienza</a>
-							</li>
-							<li>
-								<a href="#!/contatti" class="">Contatti</a>
-							</li>
-						</ul>
-					</div>
-					<div class="col-md-2 col-sm-3 hidden">
-						<h3>Chi siamo</h3>
-						<ul>
-							<li>
-								<a href="#!/team" class="">Team</a>
-							</li>
-							
-						</ul>
-					</div>
-					<div class="col-md-2 col-sm-3">
-						<h3>Seguici su:</h3>
-						<p class="social">
-							<a href="javscript:void(0);"><i class="unaicon-facebook"></i></a>&nbsp;
-							<a href="javscript:void(0);"><i class="unaicon-twitter"></i></a>&nbsp;
-							<a href="javscript:void(0);"><i class="unaicon-instagram"></i></a>
-						</p>
-					</div>
-	                
-	            </div>
-	        </div>
-			<div class="copyright">
+	<div ng-hide="hideHeader()">
+		<div class="main-header-content">
+			<nav class="navbar main-navbar navbar-default nomargin" role="navigation">
 				<div class="container">
-					Copyright &reg; 2018 ANNACLOUD
-					<a href="#modaleAvviso" role="button" class="btn btn-primary hidden" data-toggle="modal">alert</a>
-					<a href="#modaleConfiguratoreNome" role="button" class="btn btn-primary hidden" data-toggle="modal">nome configurazione</a>
-					<a href="javscript:void(0);" role="button" class="btn btn-primary hidden" ng-click="showLoader()">test loader</a>
+					<a class="logo-small hidden visible-xs-block text-hide" href="#!/home">AnnaCloud</a>
+					<div class="navbar-header navbar-right">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<ul class="nav navbar-nav fixed-navbar-right">
+							<li ng-show="user!==null" class="utente">
+								<a href="javascript:void(0)" id="user-menu" data-toggle="dropdown"><i class="unaicon-login"></i> <span class="hidden-xs"></span></a>
+								<ul class="dropdown-menu" aria-labelledby="user-menu">
+									<li><a href="#!/ordini">I tuoi Ordini</a></li>
+									<li><a href="#!/profilo">Profilo</a></li>
+									<li><a href="#!/logout" ng-click="logOut()">Esci</a></li>
+								</ul>
+							</li>
+							<li ng-show="user==null" class="utente">
+								<a href="#!/accedi" id="user-menu" ><i class="unaicon-login"></i> <span class="hidden-xs">accedi</span></a>
+								
+							</li>
+							<li class="favoriti">
+								<a href="#!/preferiti" ><i class="unaicon-favourite"></i> <span class="hidden-xsx">({{preferiti.length}})</span></a>
+							</li>
+							<li class="carrello">
+								<a href="#!/carrello" ><i class="unaicon-cart"></i> <span class="hidden-xsx">({{carrello.length}})</span></a>
+							</li>
+						</ul>
+					</div>
+					<div class="collapse navbar-collapse">
+						<ul class="nav navbar-nav navbar-left">
+							<li ng-show="user!==null">
+								<p class="navbar-text">Benvenuto, <strong>{{user.username}}</strong></p>
+							</li>
+							<li ng-show="user==null">
+								<p class="navbar-text">Benvenuto, <strong>accedi al tuo profilo</strong> o <strong>crea il tuo account</strong></p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+		<nav class="navbar navbar-default nomargin main-site-navbar">
+			<div class="container">
+				<div class="collapse navbar-collapse navbar-collapse-mobile navbar-ex1-collapse">
+					<div class="hidden-xs main-navbar">
+						<div class="col-sm-4">
+							<ul class="nav navbar-nav navbar-nav-flex">
+								<li>
+									<a href="#!/configura" class="primary" data-toggle="dropdown">Crea</a>
+									<ul class="dropdown-menuX dropdown-menu-centeredX" aria-labelledby="user-menu">
+										<!--<li><a href="#!/come-funziona" class="secondary">Come funziona</a></li>
+										<li><a href="#!/configura"  class="secondary">Configura</a></li>-->
+									</ul>
+								</li>
+								<li>
+									<a href="javascript:void(0);" class="primary" data-toggle="dropdown">Atelier</a>
+									<ul class="dropdown-menu dropdown-menu-centered" aria-labelledby="user-menu">
+										<li><a href="#!/404" class="secondary">Shop</a></li>
+										<li><a href="#!/collezione" class="secondary">Collezione</a></li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+						<div class="col-sm-4">
+							<ul class="nav navbar-nav navbar-nav-flex">
+								<li>
+									<a href="#!/home" class="logo-big hidden-xs text-hide active link primary" >AnnaCloud</a>
+								</li>
+							</ul>
+						</div>
+						<div class="col-sm-4">
+							<ul class="nav navbar-nav navbar-nav-flex">
+								<li>
+									<a href="javascript:void(0);" class="primary" data-toggle="dropdown">Scopri</a>
+									<ul class="dropdown-menu dropdown-menu-centered" aria-labelledby="user-menu">
+										<li><a href="#!/visione" class="secondary">Visione</a></li>
+										<li><a href="#!/esperienza" class="secondary">Esperienza</a></li>
+									</ul>
+								</li>
+								<li>
+									<a  href="#!/contatti" class="primary">Chi siamo</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<ul class="nav navbar-nav mobile-menu visible-xs-block">
+						<li>
+							<a href="#!/configura" class="">Crea</a>
+							<ul class="dropdown-menu hidden" aria-labelledby="user-menu">
+								<li><a href="#!/accedi" ng-click="setAccesso()">Come funziona</a></li>
+								<li><a href="#!/configura" ng-click="setConfigurator()">Configura</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="javascript:void(0);" data-toggle="dropdown" class="">Atelier</a>
+							<ul class="dropdown-menu " aria-labelledby="user-menu">
+								<li><a href="#!/404">Shop</a></li>
+								<li><a href="#!/collezione">Collezione</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="javascript:void(0);" data-toggle="dropdown" class="">Scopri</a>
+							<ul class="dropdown-menu " aria-labelledby="user-menu">
+								<li><a href="#!/visione" >Visione</a></li>
+								<li><a href="#!/esperienza" >Esperienza</a></li>
+							</ul>
+						</li>
+						<li>
+							<a a href="#!/contatti" class="">Chi siamo</a>
+							<ul class="dropdown-menu hidden" aria-labelledby="user-menu">
+								<li><a href="#!/team" >Team</a></li>
+								<li><a href="#!/contatti" >Contatti</a></li>
+							</ul>
+						</li>
+					</ul>
 				</div>
 			</div>
-	    </footer>
-    </div>
+		</nav>
+	</div>
+	<div class="template-content" ng-view autoscroll="true"><!-- contenitore principale -->
+<!--
+		<home-content ng-if="isHome"></home-content>
+		<configura-content ng-if="isConfigurator"></configura-content>
+		<esperienza-content ng-if="isEsperienza"></esperienza-content>
+		<visione-content ng-if="isVisione"></visione-content>
+		<contatti-content ng-if="isContatti"></contatti-content>
+		<stores-content ng-if="isStores"></stores-content>
+		<accesso-content ng-if="isAccesso"></accesso-content>
+		<preferiti-content ng-if="isPreferiti"></preferiti-content>
+		<ordini-content ng-if="isOrdini"></ordini-content>
+		<carrello-content ng-if="isCarrello"></carrello-content>
+		<profilo-content ng-if="isProfilo"></profilo-content>
+		<checkout-content ng-if="isCheckout"></checkout-content>-->
+
+	</div>
+
+	<footer class="" ng-hide="isActive('/configura')">
+		<div class="footer-navbar-container">
+			<div class="container">
+				<div class="col-md-4 col-sm-3">
+						<a class="logo-footer text-hide" href="#">AnnaCloud</a>
+					<p class="address">
+						<b style="font-weight: 500">Anna Cloud</b> &egrave; un marchio <b style="font-weight: 500">Pelletteria Digitale srl</b>.<br>
+						Sede - Via San Tommaso, 21<br>
+						Santa Croce Sull’Arno (PI)<br>
+						CF/P.IVA: 02272250503<br>
+						email: <a href="mailto:info@annacloud.it">info@annacloud.it</a>
+					</p>
+				</div>
+				<div class="col-md-2 col-sm-3 hidden-xs">
+					<h3>Crea</h3>
+					<ul>
+						<!--<li>
+							<a href="#!/home" class="">Come funziona</a>
+						</li>-->
+						<li>
+							<a href="#!/configura" class="">Configura</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-md-2 col-sm-3 hidden-xs">
+					<h3>Atelier</h3>
+					<ul>
+						<li>
+							<a href="#!/404" class="">Shop</a>
+						</li>
+						<li>
+							<a href="#!/collezione" class="">Collezione</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-md-2 col-sm-3 hidden-xs">
+					<h3>Scopri</h3>
+					<ul>
+						<li>
+							<a href="#!/visione" class="" ng-click="setVisione()">Visione</a>
+						</li>
+						<li>
+							<a href="#!/esperienza" class="" ng-click="setEsperienza()">Esperienza</a>
+						</li>
+						<li>
+							<a href="#!/contatti" class="">Contatti</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-md-2 col-sm-3 hidden">
+					<h3>Chi siamo</h3>
+					<ul>
+						<li>
+							<a href="#!/team" class="">Team</a>
+						</li>
+						
+					</ul>
+				</div>
+				<div class="col-md-2 col-sm-3">
+					<h3>Seguici su:</h3>
+					<p class="social">
+						<a href="javscript:void(0);"><i class="unaicon-facebook"></i></a>&nbsp;
+						<a href="javscript:void(0);"><i class="unaicon-twitter"></i></a>&nbsp;
+						<a href="javscript:void(0);"><i class="unaicon-instagram"></i></a>
+					</p>
+				</div>
+				
+			</div>
+		</div>
+		<div class="copyright">
+			<div class="container">
+				Copyright &reg; 2018 ANNACLOUD
+				<a href="#modaleAvviso" role="button" class="btn btn-primary hidden" data-toggle="modal">alert</a>
+				<a href="#modaleConfiguratoreNome" role="button" class="btn btn-primary hidden" data-toggle="modal">nome configurazione</a>
+				<a href="javscript:void(0);" role="button" class="btn btn-primary hidden" ng-click="showLoader()">test loader</a>
+			</div>
+		</div>
+	</footer>
 
 
 	<!---  LOADER   -->
