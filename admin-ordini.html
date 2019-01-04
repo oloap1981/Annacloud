@@ -8,12 +8,12 @@
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <meta property="og:description" content="Configuratore Borse.">
-    <link media="screen" rel="stylesheet" type="text/css" href="../stylesheets/styles.css">
+    <link media="screen" rel="stylesheet" type="text/css" href="stylesheets/styles.css">
     <!--     <link media="screen" rel="stylesheet" type="text/css" href="stylesheets/swiper.css"> 
     <link media="screen" rel="stylesheet" type="text/css" href="stylesheets/jquery.mCustomScrollbar.css">
     <link media="screen" rel="stylesheet" type="text/css" href="stylesheets/pinchzoomer.css">
     <link media="screen" rel="stylesheet" type="text/css" href="stylesheets/featherlight.css">-->
-    <link media="screen" rel="stylesheet" type="text/css" href="../stylesheets/custom.css">
+    <link media="screen" rel="stylesheet" type="text/css" href="stylesheets/custom.css">
     <!--[if lt IE 9]><script src="javascripts/html5shiv.js"></script><![endif]-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Quicksand:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -39,7 +39,7 @@
                     <a href="javascript:void(0);" class="" >ORDINI</a>
                 </li>
                 <li>
-                    <a href="javascript:void(0);" class="" >CLIENTI</a>
+                    <a href="admin-clienti.html" class="" >CLIENTI</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav fixed-navbar-right">
@@ -156,8 +156,8 @@
             <div class="col-xs-3 stage">asdasd</div>
         </div>
     </div>
-    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script>
         var altezza = $(window).height() - $('.navbar').outerHeight() - 40;
         $('.stage').outerHeight(altezza);
@@ -166,117 +166,5 @@
             $('.stage').outerHeight(altezza);
         });
     </script>
-    <style>
-        .stage-label, .stage {
-            background-color: #fafafa;
-            border-right: solid 1px #ccc;
-            padding: 5px;
-        }
-        .stage-label {
-            background-color: #fff;
-            border-bottom: solid 1px #ccc;
-            padding: 10px;
-        }
-        .stage-label .Slabel {
-            margin: 0;
-            font-size: 16px;
-        }
-        .stage-label:first-of-type, .stage:first-of-type {
-            border-left: solid 1px #ccc;
-
-        }
-        .stage {
-            overflow:auto;
-        }
-        .ordine {
-            width: 100%;
-            border: solid 1px #ccc;
-            background-color: #fff;
-            margin-bottom: 5px;
-        }
-        .ritardo {
-            border-color: #D90000;
-            background-image: url(../images/ritardo-flag.png);
-            background-position: right 2px top 2px;
-            background-repeat: no-repeat;
-        }
-        
-        .item img {
-            width: 24%;
-            border-right: solid 1px #ccc;
-            float: left;
-        }
-        .ritardo .item img{
-           border-color: #D90000;
-        }
-        .item hr {
-            margin: 0;
-            padding: 0;
-            border-color: #ccc;
-        }
-        .ritardo .item hr{
-           border-color: #D90000;
-        }
-        .item-data {
-            display: inline-block;
-            font-size: 15px;
-            padding: 8px;
-            margin: 0;
-            line-height: 1.3em;
-        }
-        .item-data span {
-            display: inline-block;
-            width: 65px;
-        }
-
-        .action {
-            border-top: solid 1px #ccc;
-        }
-        .ritardo .action{
-           border-color: #D90000;
-        }
-        .action a {
-            display: inline-block;
-            padding: 10px 18px; 
-            font-size: 15px;
-            border-right: solid 1px #ccc;
-            text-align: center;
-        }
-        .ritardo .action a {
-           border-color: #D90000;
-        }
-        .action a:hover {
-            text-decoration: none;
-            background-color: #f9f9f9;
-        }
-        .action a:last-of-type {
-            border-right: none;
-        }
-        a.dettagli {
-            width: 50%;
-        }
-        a.precedente, a.successivo {
-            width: 25%;
-            color: transparent;
-            background-position: center center;
-            background-repeat: no-repeat; 
-        }
-        a.precedente {
-            background-image: url(../images/precedente.png);
-        }
-        a.successivo {
-            background-image: url(../images/successivo.png);
-        }
-        a.precedente.off {
-            background-image: url(../images/precedente-off.png);
-        }
-        a.successivo.off {
-            background-image: url(../images/successivo-off.png);
-        }
-        a.off:hover {
-            background-color: inherit;
-            cursor: default;
-        }
-    </style>
 </body>
 </html>
