@@ -85,7 +85,7 @@ gulp.task('templatecache', function() {
     .pipe(minifyHtml({empty: true}))
     .pipe(angularTemplatecache(
         'templates.js', {
-            module: 'todomvc',
+            module: 'applicationModule',
             standAlone: false,
             root: 'templates/'
         }
