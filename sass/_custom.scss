@@ -875,7 +875,7 @@ a.link {
     li {
         margin-left: -1px;
         a {
-            line-height: 2em !important;
+            line-height: 2.2em !important;
             padding: 11px !important;
         }
     }
@@ -3375,6 +3375,33 @@ Image credits: unsplash.com
 /*           ADMIN              */
 /********************************/
 
+.navbar {
+    &.admin {
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        .fixed-navbar-left {
+            font-family: $font-family-sans-serif-title;
+            li {
+                border-right: solid 1px #ccc;
+                a {
+                    padding-left: 40px !important;
+                    padding-right: 40px !important;
+                }
+            }
+        }
+        .fixed-navbar-right {
+            font-family: $font-family-sans-serif-title;
+            li {
+                border-left: solid 1px #ccc;
+                a {
+                    padding-left: 40px !important;
+                    padding-right: 40px !important;
+                }
+            }
+        }
+    }
+}
 .stage-label, .stage {
     background-color: #fafafa;
     border-right: solid 1px #ccc;
@@ -3500,3 +3527,8 @@ Image credits: unsplash.com
     }
 }
 
+
+.modal-body table *{
+    vertical-align: top;
+    text-align: left;
+}

@@ -12782,7 +12782,7 @@ a.link {
   margin-left: -1px;
 }
 .fixed-navbar-right li a {
-  line-height: 2em !important;
+  line-height: 2.2em !important;
   padding: 11px !important;
 }
 
@@ -15214,6 +15214,32 @@ Image credits: unsplash.com
 /********************************/
 /*           ADMIN              */
 /********************************/
+.navbar.admin {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.navbar.admin .fixed-navbar-left {
+  font-family: "Montserrat", sans-serif;
+}
+.navbar.admin .fixed-navbar-left li {
+  border-right: solid 1px #ccc;
+}
+.navbar.admin .fixed-navbar-left li a {
+  padding-left: 40px !important;
+  padding-right: 40px !important;
+}
+.navbar.admin .fixed-navbar-right {
+  font-family: "Montserrat", sans-serif;
+}
+.navbar.admin .fixed-navbar-right li {
+  border-left: solid 1px #ccc;
+}
+.navbar.admin .fixed-navbar-right li a {
+  padding-left: 40px !important;
+  padding-right: 40px !important;
+}
+
 .stage-label, .stage {
   background-color: #fafafa;
   border-right: solid 1px #ccc;
@@ -15331,6 +15357,11 @@ Image credits: unsplash.com
 }
 .ritardo .action a {
   border-color: #D90000;
+}
+
+.modal-body table * {
+  vertical-align: top;
+  text-align: left;
 }
 
 /*# sourceMappingURL=styles.css.map */

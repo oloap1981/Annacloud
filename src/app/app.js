@@ -66,6 +66,12 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 	when('/404',  {
 		templateUrl: 'views/404.html'
 	}).
+	when('/admin-ordini', {
+		templateUrl: 'views/adminOrdiniContent.html'
+	}).
+	when('/admin-clienti', {
+		templateUrl: 'views/adminClientiContent.html'
+	}).
 	otherwise({
 		redirectTo: '/'
 	});

@@ -38,7 +38,7 @@
 </head>
 
 <body ng-app="applicationModule" ng-controller="componentsController" class="ng-scope" ng-cloak>
-	<div ng-hide="hideHeader()">
+	<div ng-hide="hideElement()">
 		<div class="main-header-content">
 			<nav class="navbar main-navbar navbar-default nomargin" role="navigation">
 				<div class="container">
@@ -179,7 +179,7 @@
 
 	</div>
 
-	<footer class="" ng-hide="isActive('/configura')">
+	<footer class="" ng-hide="hideElement()">
 		<div class="footer-navbar-container">
 			<div class="container">
 				<div class="col-md-4 col-sm-3">
@@ -325,6 +325,7 @@
 	<script src="src/app/controllers/checkoutController.js"></script>
 	<script src="src/app/controllers/paypalController.js"></script>
 	<script src="src/app/controllers/bagsConfiguratorController.js"></script>
+	<script src="src/app/controllers/adminController.js"></script>
 	<!-- endbuild -->
 
     <style type="text/css">
