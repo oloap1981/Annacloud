@@ -3391,7 +3391,7 @@ Image credits: unsplash.com
             }
         }
         .fixed-navbar-right {
-            font-family: $font-family-sans-serif-title;
+            //font-family: $font-family-sans-serif-title;
             li {
                 border-left: solid 1px #ccc;
                 a {
@@ -3503,6 +3503,9 @@ Image credits: unsplash.com
             background-position: center center;
             background-repeat: no-repeat; 
         }
+         &.save {
+            width: 25%;
+        }
 
         &.precedente {
             background-image: url(../images/precedente.png);
@@ -3531,4 +3534,5 @@ Image credits: unsplash.com
 .modal-body table *{
     vertical-align: top;
     text-align: left;
+    font-size: 16px;
 }

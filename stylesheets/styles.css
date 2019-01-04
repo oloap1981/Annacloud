@@ -15229,9 +15229,6 @@ Image credits: unsplash.com
   padding-left: 40px !important;
   padding-right: 40px !important;
 }
-.navbar.admin .fixed-navbar-right {
-  font-family: "Montserrat", sans-serif;
-}
 .navbar.admin .fixed-navbar-right li {
   border-left: solid 1px #ccc;
 }
@@ -15339,6 +15336,9 @@ Image credits: unsplash.com
   background-position: center center;
   background-repeat: no-repeat;
 }
+.action a.save {
+  width: 25%;
+}
 .action a.precedente {
   background-image: url(../images/precedente.png);
 }
@@ -15362,6 +15362,7 @@ Image credits: unsplash.com
 .modal-body table * {
   vertical-align: top;
   text-align: left;
+  font-size: 16px;
 }
 
 /*# sourceMappingURL=styles.css.map */

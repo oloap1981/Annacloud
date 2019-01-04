@@ -1,6 +1,6 @@
 
 <div ng-controller="administratorController as admin" ng-init="admin.initAdmin()">
-    <div class="container-fluid no-padding" style="min-width: 1200px;">
+    <div class="container-fluid no-padding" style="min-width: 800px;">
         <nav class="navbar navbar-default admin nomargin ">
             <ul class="nav navbar-nav fixed-navbar-left">
                 <li>
@@ -20,7 +20,7 @@
             </ul>
         </nav>
     </div>
-    <div class="container-fluid" style="min-width: 1200px; max-width: 1200px">
+    <div class="container-fluid" style="min-width: 800px; max-width: 800px">
     
         <div class="row">
             <div class="col-xs-6 stage-label">
@@ -32,18 +32,27 @@
         </div>
         <div class="row">
             <div class="col-xs-6 stage">
-                <div class="ordine ritardo">
+                <div class="ordine ">
                     <div class="item clearfix">
     
                         <h4 class="item-data">Paolo Rossi (2 ordini)</h4>
                     </div>
                     <div class="action">
-                        <a href="javascript:void(0)" ng-click="openSchedaCliente()" style="width: 50%">vedi dettagli cliente</a><a href="#" style="width: 50%">vedi ordini</a>
+                        <a href="javascript:void(0)" ng-click="openSchedaCliente()" style="width: 50%">vedi dettagli cliente</a><a href="javascript:void(0)" ng-click="openOrdiniCliente()" style="width: 50%">visualizza ordini&nbsp;&nbsp;</a>
+                    </div>
+                </div>
+                <div class="ordine ">
+                    <div class="item clearfix">
+                
+                        <h4 class="item-data">Paolo Rossi (2 ordini)</h4>
+                    </div>
+                    <div class="action">
+                        <a href="javascript:void(0)" ng-click="openSchedaCliente()" style="width: 50%">vedi dettagli cliente</a><a href="javascript:void(0)" ng-click="openOrdiniCliente()" style="width: 50%">visualizza ordini&nbsp;&nbsp;</a>
                     </div>
                 </div>
             </div>
             <div class="col-xs-6 stage">
-                <div class="ordine ritardo">
+                <div class="ordine ">
                     <div class="item clearfix">
                         <h4 class="item-data"><span>Ordine:</span>1544029763635<br><span>Data:</span>12/02/2019</h4>
                         <div class="action">

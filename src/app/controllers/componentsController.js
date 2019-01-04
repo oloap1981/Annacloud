@@ -658,6 +658,18 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 			}
 		});
 	};
+	$scope.openOrdiniCliente = function () {
+		$scope.modalInstance = $uibModal.open({
+			animation: true,
+			templateUrl: 'views/modaleOrdiniCliente.html',
+			scope: $scope,
+			resolve: {
+				testoAvviso: function () {
+					return $scope.testoAvviso;
+				}
+			}
+		});
+	};
 
 	$scope.okConfig = function (configName) {
 
