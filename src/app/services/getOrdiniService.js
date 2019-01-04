@@ -10,5 +10,5 @@ angular.module("applicationModule").service("getOrdiniService", ["$http", "URLS"
 		var message = UtilFunctionMessagesCreator.getOrdiniUtenteMessage(mail);
 		
 		return $http.post(URLS.get, message, config);
-	}
+	};
 }]);

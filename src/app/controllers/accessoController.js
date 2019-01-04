@@ -36,7 +36,7 @@ angular.module("applicationModule").controller("accessoController", ["$scope", "
 							var tempNextPath = $scope.getNextPath();
 							$scope.setNextPath("");
 							if($scope.tempConfigurazione != null && tempNextPath == '/preferiti'){
-								var localTempConfigurazione = $scope.getTempConfigurazione()
+								var localTempConfigurazione = $scope.getTempConfigurazione();
 								$scope.tempConfigurazione = null;
 								var confUser = {};
 								confUser.email = user.eMail;
@@ -66,13 +66,13 @@ angular.module("applicationModule").controller("accessoController", ["$scope", "
 						} else {
 							$scope.changePath('/home');
 						}
-					})
+					});
 			}, function(reason) {
 				  console.log( reason);
 				  alert (reason.message);
 			}
 		);
-	}
+	};
 	
 	$scope.signUp = function (email, nome, cognome, password){
 		loginService.signUp(email, nome, cognome, password).then(
@@ -109,7 +109,7 @@ angular.module("applicationModule").controller("accessoController", ["$scope", "
 					console.log(reason);
 				}
 		);
-	}
+	};
 	
 	
 }]);

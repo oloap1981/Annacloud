@@ -14,6 +14,6 @@ angular.module("applicationModule").service("preferitiService", ["$http" , "$q",
 					return "";
 				}
 			);	
-		}
+		};
 	
 }]);

@@ -10,5 +10,5 @@ angular.module("applicationModule").service("salvaUtenteService", ["$http", "URL
 		var message = UtilFunctionMessagesCreator.putUtenteMessage(utente);
 		
 		return $http.post(URLS.put, message, config);
-	}
+	};
 }]);

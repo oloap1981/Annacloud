@@ -12,7 +12,7 @@ angular.module("applicationModule").service("loginService", ["$http" , "$q", fun
 		    this.userPool = new AmazonCognitoIdentity.CognitoUserPool(data);
     	}
 		return this.userPool;
-    }
+    };
     
     this.getCognitoUser = function (){
     	if(this.cognitoUser == null){
@@ -20,7 +20,7 @@ angular.module("applicationModule").service("loginService", ["$http" , "$q", fun
     		this.cognitoUser = userPool.getCurrentUser();   		
     	}
     	return this.cognitoUser;
-    }
+    };
 	
 	this.getPostAccessToken = function(){
 		var cognitoUser = this.getCognitoUser();
@@ -30,7 +30,7 @@ angular.module("applicationModule").service("loginService", ["$http" , "$q", fun
 			deferred.reject("non sei loggato");
 			return "";
 		}
-	}
+	};
 
     this.getSession = function () {
     	 var deferred = $q.defer();
@@ -48,7 +48,7 @@ angular.module("applicationModule").service("loginService", ["$http" , "$q", fun
 			deferred.reject("non sei loggato");
 		}
 		return deferred.promise;
-    }
+    };
     
 	this.signUp = function(email, nome, cognome, password){
 		var username = nome + "-" + cognome;
@@ -69,12 +69,12 @@ angular.module("applicationModule").service("loginService", ["$http" , "$q", fun
 	    var dataName = {
 	    	Name : 'name',
 	    	Value : nome
-	    }
+	    };
 	    
 	    var dataFamilyName = {
     		Name : 'family name',
     		Value : cognome
-	    }
+	    };
 	    
 	    var attributeEmail = new AmazonCognitoIdentity.CognitoUserAttribute(dataEmail);
 	    //var attributePhoneNumber = new AmazonCognitoIdentity.CognitoUserAttribute(dataPhoneNumber);
@@ -95,7 +95,7 @@ angular.module("applicationModule").service("loginService", ["$http" , "$q", fun
 	        deferred.resolve (cognitoUser);
 	    });
 	    return deferred.promise;
-	}
+	};
 	
 	this.login = function(email, password){
 		var authenticationData = {
@@ -123,7 +123,7 @@ angular.module("applicationModule").service("loginService", ["$http" , "$q", fun
 	        },
 	    });
 	    return deferred.promise;
-	}
+	};
 	
 	this.getCurrentUser = function (){
 		var deferred = $q.defer();
@@ -142,7 +142,7 @@ angular.module("applicationModule").service("loginService", ["$http" , "$q", fun
 	        });
 	    }
 		return deferred.promise;
-	}
+	};
 	
 	this.logOut = function (){
 	    var cognitoUser = this.getCognitoUser();
@@ -154,7 +154,7 @@ angular.module("applicationModule").service("loginService", ["$http" , "$q", fun
 	    this.userPool = null;
 		this.cognitoUser = null;
 	    console.log("logOut");
-	}
+	};
 	
 	this.getSession = function (){
 	    var deferred = $q.defer();
@@ -171,14 +171,14 @@ angular.module("applicationModule").service("loginService", ["$http" , "$q", fun
 	            console.log('session validity: ' + session.isValid());
 	            console.log(session);
 	            deferred.resolve(session);
-	        })
+	        });
 	        
 	    }else{
 	    	deferred.reject ('non sei loggato');
 	          return deferred.promise;
 	    }
 	    return deferred.promise;
-	}
+	};
 	
 	this.forgotPassword = function(){
 		var deferred = $q.defer();
@@ -197,14 +197,14 @@ angular.module("applicationModule").service("loginService", ["$http" , "$q", fun
 	            console.log(err);
 	            deferred.reject (err);
 	        },
-	        inputVerificationCode() {
+	        inputVerificationCode: function() {
 	            var verificationCode = prompt('Please input verification code ' ,'');
 	            var newPassword = prompt('Enter new password ' ,'');
 	            cognitoUser.confirmPassword(verificationCode, newPassword, this);
 	        }
 	    });
 	    return deferred.promise;
-	}
+	};
 	
 	this.changePassword = function(oldp, newp){
 		var deferred = $q.defer();
@@ -224,7 +224,7 @@ angular.module("applicationModule").service("loginService", ["$http" , "$q", fun
 	        console.log('call result: ' + result);
 	    });
 		return deferred.promise;
-	}
+	};
 	
 	this.deleteUser = function(){
 		var deferred = $q.defer();
@@ -244,11 +244,11 @@ angular.module("applicationModule").service("loginService", ["$http" , "$q", fun
 	        deferred.resolve (result);
 	    });
 		return deferred.promise;
-	}
+	};
 	
 	this.isLoggedIn = function(){
 		return this.getCognitoUser() != null;
-	}
+	};
 
 	this.getUserAttributes = function (){
 		var deferred = $q.defer();
@@ -270,7 +270,7 @@ angular.module("applicationModule").service("loginService", ["$http" , "$q", fun
 	        deferred.resolve (result);
 	    });
 		return deferred.promise;
-	}
+	};
 	
 	this.setDeviceStatusRemembered= function (){
 		var userPool = this.getUserPool();
@@ -292,7 +292,7 @@ angular.module("applicationModule").service("loginService", ["$http" , "$q", fun
 			deferred.reject("non connesso");
 		}
 		return deferred.promise;
-	}
+	};
 	
 	this.setDeviceStatusNotRemembered = function(){
 	    var cognitoUser = this.getCognitoUser();
@@ -313,7 +313,7 @@ angular.module("applicationModule").service("loginService", ["$http" , "$q", fun
 			deferred.reject("non connesso");
 		}
 		return deferred.promise;
-	}
+	};
 	
 	this.forgotDevice= function (){
 	    var cognitoUser = this.getCognitoUser();
@@ -330,16 +330,9 @@ angular.module("applicationModule").service("loginService", ["$http" , "$q", fun
 	        }
 	    });
 	  return deferred.promise;
-	}
+	};
 	
 	this.updateAttributes = function(attributeList){
-//		var attributeList = [];
-//	    var attribute = {
-//	        Name : 'nickname',
-//	        Value : 'joe'
-//	    };
-//	    var attribute = new AmazonCognitoIdentity.CognitoUserAttribute(attribute);
-//	    attributeList.push(attribute);
 		var cognitoUser = this.getCognitoUser();
 		var deferred = $q.defer();
 	    cognitoUser.updateAttributes(attributeList, function(err, result) {
@@ -351,6 +344,6 @@ angular.module("applicationModule").service("loginService", ["$http" , "$q", fun
 	        console.log('call result: ' + result);
 	    });
 	    return deferred.promise;
-	}
+	};
 	
 }]);

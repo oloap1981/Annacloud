@@ -5,7 +5,7 @@ angular.module("applicationModule").controller("preferitiController", ["$scope",
 	$scope.goToPage = function(conf){
 		$scope.setTempConfigurazione(conf);
 		$location.url('/configura');
-	}
+	};
 
 	$scope.addToCart = function(configurazione){
 		configurazione.carrello = true;
@@ -26,7 +26,7 @@ angular.module("applicationModule").controller("preferitiController", ["$scope",
 					$scope.openMessageModal("errore aggiunta preferiti");
 				}
 			);
-		}
+		};
 
 
 	$scope.eliminaConfigurazione  = function (codice)  {
@@ -36,7 +36,7 @@ angular.module("applicationModule").controller("preferitiController", ["$scope",
 		listeService.deleteConfigurazione(codice).then(function(data){
 				if(data.errorMessage != null && data.errorMessage != undefined){
 					$scope.hideLoader();
-					$scope.openMessageModal("si è verificato un errore nella cancellazione della configurazione")
+					$scope.openMessageModal("si è verificato un errore nella cancellazione della configurazione");
 					console.log("errorMessage");
 				} else {
 					$scope.ricaricaListe($scope.getUserEmail(), "", true);
@@ -47,6 +47,6 @@ angular.module("applicationModule").controller("preferitiController", ["$scope",
 				console.log(reason);
 				$scope.openMessageModal("errore cancellazione");
 			}
-		)
-	}
+		);
+	};
 }]);

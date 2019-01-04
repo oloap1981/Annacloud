@@ -19,7 +19,7 @@ angular.module("applicationModule").controller("carrelloController", ["$scope", 
 				$scope.openMessageModal("errore aggiunta preferiti");
 			}
 		);
-	}
+	};
 
 	$scope.getCheckout = function(){
 
@@ -39,9 +39,7 @@ angular.module("applicationModule").controller("carrelloController", ["$scope", 
 
 		//salvo l'ordine. Se va a buon fine svuoto il carrello
 		$scope.salvaOrdine(ordine);
-
-		
-	}
+	};
 
 	$scope.getUserEmail = function(){
 
@@ -52,7 +50,7 @@ angular.module("applicationModule").controller("carrelloController", ["$scope", 
 			return idToken.email;
 		}
 		return "";
-	}
+	};
 
 	$scope.salvaOrdine = function(ordine){
 		listeService.putOrdine(ordine).then(
@@ -75,15 +73,15 @@ angular.module("applicationModule").controller("carrelloController", ["$scope", 
 				$scope.openMessageModal("errore salvataggio ordine");
 			}
 		);
-	}
+	};
 
 	$scope.getTotalAmount = function(){
-		var carrello = $scope.getCarrello()
+		var carrello = $scope.getCarrello();
 		var totale = 0;
 		for(var i = 0; i < carrello.length; i++){
 			var configurazione = carrello[i];
 			totale += $scope.calcolaPrezzo(configurazione);
 		}
 		return totale;
-	}
+	};
 }]);

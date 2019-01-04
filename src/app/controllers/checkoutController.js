@@ -11,9 +11,7 @@ angular.module("applicationModule").controller("checkoutController", ["$scope", 
 		if($scope.getOrdineInCorso() == null || $scope.getOrdineInCorso() == undefined){
 			alert("non ci sono ordini da processare");
 			$scope.changePath('/preferiti');
-		} else if($scope.getOrdineInCorso().configurazioni == undefined 
-				|| $scope.getOrdineInCorso().configurazioni == null 
-				|| $scope.getOrdineInCorso().configurazioni.length == 0){
+		} else if($scope.getOrdineInCorso().configurazioni == undefined || $scope.getOrdineInCorso().configurazioni == null || $scope.getOrdineInCorso().configurazioni.length == 0){
 			alert("l'ordine è vuoto");
 			$scope.changePath('/preferiti');
 		} else {
@@ -22,7 +20,7 @@ angular.module("applicationModule").controller("checkoutController", ["$scope", 
 			$scope.costoSpedizione = $scope.getCostoSpedizione();
 			$scope.totale = $scope.subtotale + $scope.costoSpedizione;
 		}
-	}
+	};
 
 	$scope.getConfigurazioniOrdine = function(){
 		if($scope.ordine != undefined && $scope.ordine != null){
@@ -30,15 +28,15 @@ angular.module("applicationModule").controller("checkoutController", ["$scope", 
 		} else {
 			return [];
 		}
-	}
+	};
 
 	$scope.getNomeECognome = function(){
 		return $scope.getNomeSpe();
-	}
+	};
 
 	$scope.getIndirizzoSpedizione = function(){
 		return $scope.getIndSpe();
-	}
+	};
 
 	$scope.eliminaDaOrdine = function(conf){
 		//1. tolgo la configurazione dall'ordine
@@ -67,5 +65,5 @@ angular.module("applicationModule").controller("checkoutController", ["$scope", 
 				alert ("errore salvataggio ordine");
 			}
 		);
-	}
+	};
 }]);

@@ -10,5 +10,5 @@ angular.module("applicationModule").service("getConfigurazioniService", ["$http"
 		var message = UtilFunctionMessagesCreator.getConfigurazioniUtenteMessage(mail);
 		
 		return $http.post(URLS.getConfigurazioniNode, message, config);
-	}
+	};
 }]);

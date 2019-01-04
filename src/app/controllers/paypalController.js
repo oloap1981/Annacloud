@@ -65,6 +65,5 @@
 					onError: function(err){
 						alert("Ci sono stati dei problemi durante il checkout. Il pagamento non è andato a buon fine, controllare Paypal per ulteriori dettagli");
 					}
-				}
-				, '#paypal-button' ); 
+				} , '#paypal-button' ); 
 	}]);

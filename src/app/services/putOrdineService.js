@@ -7,8 +7,8 @@ angular.module("applicationModule").service("putOrdineService", ["$http", "URLS"
 			      }
 			  };
 		
-		var message = UtilFunctionMessagesCreator.putOrdineMessage(ord)
+		var message = UtilFunctionMessagesCreator.putOrdineMessage(ord);
 		
 		return $http.post(URLS.put, message, config);
-	}
+	};
 }]);

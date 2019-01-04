@@ -10,5 +10,5 @@ angular.module("applicationModule").service("deleteOrdineService", ["$http", "UR
 		var message = UtilFunctionMessagesCreator.deleteOrdineMessage(cod);
 		
 		return $http.post(URLS.del, message, config);
-	}
+	};
 }]);
