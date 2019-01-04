@@ -7,8 +7,8 @@ angular.module("applicationModule").service("putConfigurazioneService", ["$http"
 			      }
 			  };
 		
-		var message = UtilFunctionMessagesCreator.putConfigurazioneMessage(conf)
+		var message = UtilFunctionMessagesCreator.putConfigurazioneMessage(conf);
 		
 		return $http.post(URLS.put, message, config);
-	}
+	};
 }]);

@@ -81,17 +81,17 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 	configController.getRepeaterClass = function(accessorio, index){
 		var toReturn = "";
 		if(index == 0){
-			toReturn = " swiper-slide-previous"
+			toReturn = " swiper-slide-previous";
 		} else if (index == 1){
-			toReturn = " swiper-slide-active"
+			toReturn = " swiper-slide-active";
 		} else if (index == 2){
-			toReturn = " swiper-slide-next"
+			toReturn = " swiper-slide-next";
 		} else {
 			toReturn = "swiper-slide";
 		}
 
 		return toReturn;
-	}
+	};
 
 	configController.visibleManager = {
 		loaderVisible: false,
@@ -100,7 +100,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 
 	configController.priceManager = {
 		price: 0
-	}
+	};
 
 	configController.getModelloSelezionato = function(){
 		if($scope.modelloSelezionato != ""){
@@ -108,13 +108,13 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		} else {
 			return "";
 		}
-	}
+	};
 
 	configController.cleanAccessori = function(){
 		for(var i = 0; i < configController.accessoriBorsa.length; i++){
 			configController.accessoriBorsa[i].attivo = false;
 		}
-	}
+	};
 
 	configController.getThumbnailNameTracolle = function(entita){
 		if(entita){
@@ -127,7 +127,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			}
 		} else return "";
 		
-	}
+	};
 
 	configController.getThumbnailNameCiondoli = function (entita) {
 		if(entita){
@@ -139,7 +139,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 				return "";
 			}
 		} else return "";
-	}
+	};
 
 	configController.selezionaCategoriaTracolla = function(entita) {
 		//qui devo gestire la metalleria
@@ -169,7 +169,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		}
 
 		$scope.tipoTracollaSelezionata = entita;
-	}
+	};
 
 	configController.selezionaCategoriaCiondolo = function (entita) {
 		if($scope.metalloVincolante == "oro"){
@@ -199,17 +199,17 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		}
 
 		$scope.tipoCiondoloSelezionato = entita;
-	}
+	};
 
 	configController.resetTracolle = function(){
 		$scope.tipoTracollaSelezionata = "";
 		configController.selezioneTipoAccessorio('tracolle');
-	}
+	};
 
 	configController.resetCiondoli = function(){
 		$scope.tipoCiondoloSelezionato = "";
 		configController.selezioneTipoAccessorio('ciondoli');
-	}
+	};
 
 	configController.selezioneTipoAccessorio = function(tipoAccessorio){
 		$scope.tipoEntitaSelezionata = tipoAccessorio;
@@ -290,7 +290,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		}
 		var mySwiper = $('#pippo');
 		mySwiper[0].swiper.slideTo(0,1);
-	}
+	};
 
 	configController.ordinaEntita = function (entitaNonOrdinate) {
 
@@ -298,14 +298,14 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		var tempEntita = new Array(size);
 
 		for (var i = 0; i < size; i++) {
-			if (entitaNonOrdinate[i]["ordineInterfaccia"] == null || entitaNonOrdinate[i]["ordineInterfaccia"] == "" || entitaNonOrdinate[i]["ordineInterfaccia"] == 0){
+			if (entitaNonOrdinate[i].ordineInterfaccia == null || entitaNonOrdinate[i].ordineInterfaccia == "" || entitaNonOrdinate[i].ordineInterfaccia == 0){
 				return entitaNonOrdinate;
 			}	
-			tempEntita[entitaNonOrdinate[i]["ordineInterfaccia"] - 1] = entitaNonOrdinate[i];
+			tempEntita[entitaNonOrdinate[i].ordineInterfaccia - 1] = entitaNonOrdinate[i];
 		}
 
 		return tempEntita;
-	}
+	};
 
 	configController.getResolutionPlaceHolder = function(){
 		var screenWidth = $("#canvasWrapper").innerWidth();
@@ -316,13 +316,13 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		if (minSize <= 560) {
 			placeHolder = "560";
 		} else if (minSize > 560 && minSize < 720) {
-			placeHolder = "720"
+			placeHolder = "720";
 		} else if (minSize >= 720) {
-			placeHolder = "960"
+			placeHolder = "960";
 		}
 
 		return placeHolder;
-	}
+	};
 
 	configController.gestisciCiondoli = function() {
 		$scope.modelliCiondoliOro = new Map();
@@ -363,8 +363,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 				}
 			}
 		}
-
-	}
+	};
 
 	configController.gestisciTracolle = function() {
 		$scope.modelliTracolleOro = new Map();
@@ -405,7 +404,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 				}
 			}
 		}
-	}
+	};
 
 	configController.getNomeModelloTracolla = function(splitted) {
 		var toReturn = "";
@@ -415,7 +414,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			}
 		}
 		return toReturn;
-	}
+	};
 
 	configController.getNomeModelloCiondolo = function(splitted) {
 		var toReturn = "";
@@ -425,14 +424,14 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			}
 		}
 		return toReturn;
-	}
+	};
 
 	configController.traduciCategoriaAccessorio = function(nomeAccessorio){
 		if(nomeAccessorio == "ciondoli"){
-			return "charms"
+			return "charms";
 		}
 		return nomeAccessorio;
-	}
+	};
 
 	configController.scegliModello = function(modello){
 
@@ -491,8 +490,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			configController.caricaSpinner();
 			
 		});
-
-	}
+	};
 
 	configController.caricaAccessoriPerModello = function(modello){
 
@@ -539,28 +537,26 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			
 			configController.caricaConfigurazioneElencoEntita();
 		});
-
-	}
+	};
 
 	configController.caricaConfigurazioneModello = function(){
 
 		var conf = $scope.configurazione;
 		var elencoEntita = conf.elencoEntita;
 		for(var i = 0; i< elencoEntita.length; i++){
-			var entita = elencoEntita[i]
+			var entita = elencoEntita[i];
 			if(entita.categoria == "modello"){
 				configController.caricaAccessoriPerModello(entita);
 			} 
 		}
-
-	}
+	};
 
 	configController.caricaConfigurazioneElencoEntita = function(){
 
 		var conf = $scope.configurazione;
 		var elencoEntita = conf.elencoEntita;
 		for(var i = 0; i< elencoEntita.length; i++){
-			var entita = elencoEntita[i]
+			var entita = elencoEntita[i];
 			if(entita.categoria != "modello"){
 				configController.ricaricaEntita(entita);
 			}
@@ -568,7 +564,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 
 		configController.selezioneTipoAccessorio("colore");
 		configController.caricaSpinner();
-	}
+	};
 
 	configController.getInternalEntitaObjct = function(categoria, codice, descrizione, nome, prezzo, tipoEntita, url, ordine, urlStripe, nomeStile, nomeBorchia, colore, metallo, accessori){
 		var entita = {};
@@ -589,16 +585,16 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		entita.accessori = (accessori == undefined ? [] : accessori);
 
 		return entita;
-	}
+	};
 
 	configController.addEntitaToConfigurazione = function(categoria, codice, descrizione, nome, prezzo, tipoEntita, url, ordine, urlStripe, nomeStile, nomeBorchia, colore, metallo, accessori){
-		var entita = configController.getInternalEntitaObjct(categoria, codice, descrizione, nome, prezzo, tipoEntita, url, ordine, urlStripe, nomeStile, nomeBorchia, colore, metallo, accessori)
+		var entita = configController.getInternalEntitaObjct(categoria, codice, descrizione, nome, prezzo, tipoEntita, url, ordine, urlStripe, nomeStile, nomeBorchia, colore, metallo, accessori);
 
 		$scope.configurazione.elencoEntita.push(entita);
 		configController.ricaricaPrezzo();
 
 		return entita;
-	}
+	};
 
 	configController.removeEntitaToConfigurazione = function(categoria, nome){
 
@@ -625,7 +621,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		}
 
 		configController.ricaricaPrezzo();
-	}
+	};
 
 	configController.ricaricaPrezzo = function(){
 		var prezzoCalcolato = 0;
@@ -635,7 +631,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			prezzoCalcolato += entita.prezzo;
 		}
 		configController.priceManager.price = prezzoCalcolato;
-	}
+	};
 
 	configController.isSelected = function(entita){
 		if(entita != undefined){
@@ -644,7 +640,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			}
 		}
 		return false;
-	}
+	};
 
 	configController.isColore = function (entita) {
 		if (entita != undefined) {
@@ -653,7 +649,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			}
 		}
 		return false;
-	}
+	};
 
 	configController.normalizzaStringheMetallo = function(daNormalizzare){
 		var result = daNormalizzare;
@@ -668,7 +664,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		}
 
 		return result;
-	}
+	};
 
 	configController.ricaricaEntita = function(entita){
 
@@ -727,10 +723,10 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			if($scope.ciondoloSelezionata){
 
 				var ciondoloUrl = $scope.mapMetalloCiondoli.get(entita.metallo);
-				var urlT = ciondoloUrl.urlStripe;
+				var urlC = ciondoloUrl.urlStripe;
 
 				if(ciondoloUrl){
-					configController.aggiungiElementoAStackNoConfig(urlT, ciondoloUrl.ordine, false);
+					configController.aggiungiElementoAStackNoConfig(urlC, ciondoloUrl.ordine, false);
 				}
 			}
 			if($scope.borchieSelezionate){
@@ -759,7 +755,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			if($scope.stack.indexOf(url) == -1){
 				$scope.embossSelezionato = false;
 			} else {
-				$scope.embossSelezionato = ($scope.stack[entita.ordine] != undefined && $scope.stack[entita.ordine] != null)
+				$scope.embossSelezionato = ($scope.stack[entita.ordine] != undefined && $scope.stack[entita.ordine] != null);
 			}
 			$scope.removable = true;
 		}
@@ -768,7 +764,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			if ($scope.stack.indexOf(url) == -1) {
 				$scope.borchieSelezionate = false;
 			} else {
-				$scope.borchieSelezionate = ($scope.stack[entita.ordine] != undefined && $scope.stack[entita.ordine] != null)
+				$scope.borchieSelezionate = ($scope.stack[entita.ordine] != undefined && $scope.stack[entita.ordine] != null);
 			}
 			$scope.removable = true;
 		}
@@ -776,7 +772,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			if ($scope.stack.indexOf(url) == -1) {
 				$scope.tracollaSelezionata = false;
 			} else {
-				$scope.tracollaSelezionata = ($scope.stack[entita.ordine] != undefined && $scope.stack[entita.ordine] != null)
+				$scope.tracollaSelezionata = ($scope.stack[entita.ordine] != undefined && $scope.stack[entita.ordine] != null);
 			}
 			$scope.removable = true;
 		}
@@ -784,11 +780,11 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			if ($scope.stack.indexOf(url) == -1) {
 				$scope.ciondoloSelezionata = false;
 			} else {
-				$scope.ciondoloSelezionata = ($scope.stack[entita.ordine] != undefined && $scope.stack[entita.ordine] != null)
+				$scope.ciondoloSelezionata = ($scope.stack[entita.ordine] != undefined && $scope.stack[entita.ordine] != null);
 			}
 			$scope.removable = true;
 		}
-	}
+	};
 
 	configController.selezionaEntita = function(entita){
 
@@ -807,10 +803,14 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		// } else {
 		// 		$scope.nomeEntitaSelezionata = entita.nome;
 		// }
-
-		html2canvas(document.querySelector("#spritespin"), { async:false }).then(canvas => {
+		
+		// html2canvas(document.querySelector("#spritespin"), { async:false }).then(canvas => {
+		// 	$scope.dataUrl = canvas.toDataURL();
+		// });
+		html2canvas(document.querySelector("#spritespin"), { async:false }).then(function(canvas) {
 			$scope.dataUrl = canvas.toDataURL();
 		});
+		
 
 		var url = entita.urlStripe;
 		// url = url.replace("RES", configController.getResolutionPlaceHolder());
@@ -852,8 +852,8 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			if($scope.tracollaSelezionata){
 				//devo sostituire l'emboss se è selezionato
 				//1. estraggo la url dell'emboss
-				var chiave = configController.normalizzaNomeConMetallo($scope.nomeTracollaSelezionata, entita.metallo);
-				var tracollaUrl = $scope.mapMetalloTracolle.get(chiave);
+				var chiaveT = configController.normalizzaNomeConMetallo($scope.nomeTracollaSelezionata, entita.metallo);
+				var tracollaUrl = $scope.mapMetalloTracolle.get(chiaveT);
 				var urlT = tracollaUrl.urlStripe;
 
 				if(tracollaUrl){
@@ -863,12 +863,12 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			if($scope.ciondoloSelezionata){
 				//devo sostituire l'emboss se è selezionato
 				//1. estraggo la url dell'emboss
-				var chiave = configController.normalizzaNomeConMetallo($scope.nomeCiondoloSelezionato, entita.metallo);
-				var ciondoloUrl = $scope.mapMetalloCiondoli.get(chiave);
-				var urlT = ciondoloUrl.urlStripe;
+				var chiaveC = configController.normalizzaNomeConMetallo($scope.nomeCiondoloSelezionato, entita.metallo);
+				var ciondoloUrl = $scope.mapMetalloCiondoli.get(chiaveC);
+				var urlC = ciondoloUrl.urlStripe;
 
 				if(ciondoloUrl){
-					configController.aggiungiElementoAStack(urlT, ciondoloUrl.ordine, false, entita);
+					configController.aggiungiElementoAStack(urlC, ciondoloUrl.ordine, false, entita);
 				}
 			}
 			if($scope.borchieSelezionate){
@@ -899,7 +899,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			if($scope.stack.indexOf(url) == -1){
 				$scope.embossSelezionato = false;
 			} else {
-				$scope.embossSelezionato = ($scope.stack[entita.ordine] != undefined && $scope.stack[entita.ordine] != null)
+				$scope.embossSelezionato = ($scope.stack[entita.ordine] != undefined && $scope.stack[entita.ordine] != null);
 			}
 			$scope.removable = true;
 		}
@@ -908,7 +908,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			if ($scope.stack.indexOf(url) == -1) {
 				$scope.borchieSelezionate = false;
 			} else {
-				$scope.borchieSelezionate = ($scope.stack[entita.ordine] != undefined && $scope.stack[entita.ordine] != null)
+				$scope.borchieSelezionate = ($scope.stack[entita.ordine] != undefined && $scope.stack[entita.ordine] != null);
 			}
 			$scope.removable = true;
 		}
@@ -916,7 +916,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			if ($scope.stack.indexOf(url) == -1) {
 				$scope.tracollaSelezionata = false;
 			} else {
-				$scope.tracollaSelezionata = ($scope.stack[entita.ordine] != undefined && $scope.stack[entita.ordine] != null)
+				$scope.tracollaSelezionata = ($scope.stack[entita.ordine] != undefined && $scope.stack[entita.ordine] != null);
 			}
 			$scope.removable = true;
 		}
@@ -924,13 +924,13 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			if ($scope.stack.indexOf(url) == -1) {
 				$scope.ciondoloSelezionata = false;
 			} else {
-				$scope.ciondoloSelezionata = ($scope.stack[entita.ordine] != undefined && $scope.stack[entita.ordine] != null)
+				$scope.ciondoloSelezionata = ($scope.stack[entita.ordine] != undefined && $scope.stack[entita.ordine] != null);
 			}
 			$scope.removable = true;
 		}
 
 		configController.caricaSpinner();
-	}
+	};
 
 	configController.normalizzaNomeConMetallo = function(nome, met){
 		var metallo = met.toUpperCase();
@@ -940,13 +940,13 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			toReturn += splitted[i] + '_';
 		}
 		return toReturn+metallo;
-	}
+	};
 
 	configController.aggiungiStrato = function(strato, ordine, eliminabile, entita){
 		
 		configController.aggiungiElementoAStack(strato, ordine, eliminabile, entita);
 		configController.caricaSpinner();
-	}
+	};
 
 	configController.aggiungiElementoAStack = function(strato, ordine, eliminabile, entita){
 		var indice = $scope.stack.indexOf(strato);
@@ -965,7 +965,6 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 				$scope.stack[ordine] = strato;
 				configController.removeEntitaToConfigurazione(entita.categoria, entita.nome);
 			}
-//categoria, codice, descrizione, nome, prezzo, tipoEntita, url, ordine, urlStripe, nomeStile, nomeBorchia, colore, metallo, accessori
 			configController.addEntitaToConfigurazione(entita.categoria, entita.codice, entita.nome, entita.nome, entita.prezzo, entita.categoria, entita.urlStripe, entita.ordine, entita.urlStripe, entita.nomeStile, entita.nomeBorchia, entita.colore, entita.metallo, entita.accessori);
 
 		} else { //lo strato è già nello stack
@@ -974,7 +973,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 				$scope.stack[ordine] = "";
 			}
 		}
-	}
+	};
 
 	configController.aggiungiElementoAStackNoConfig= function(strato, ordine, eliminabile){
 		var indice = $scope.stack.indexOf(strato);
@@ -998,10 +997,10 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 				$scope.stack[ordine] = "";
 			}
 		}
-	}
+	};
 
 	configController.pulisciStack = function(){
-		var tempStack = []
+		var tempStack = [];
 		for(var i = 0; i< $scope.stack.length; i++){
 			if($scope.stack[i] != ""){
 				//gestisco la risoluzione appena prima di passare le immagini alla merge
@@ -1010,7 +1009,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			}
 		}
 		return tempStack;
-	}
+	};
 
 	configController.getCutImage = function(imgBase64, frame, resolution){
 		
@@ -1029,8 +1028,8 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 
 			$("#pz").attr("src", dataUrl);
 			$("#pz").load();
-		}
-	}
+		};
+	};
 
 	configController.getThumbnailCutImage = function(imgBase64){
 		
@@ -1045,8 +1044,8 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		image.onload = function(){
 			ctx.drawImage(image, 1 * resolution, 0, resolution, resolution, 0 ,0 , resolution, resolution);
 			$scope.configThumbnail = canvas.toDataURL("image/png");
-		}
-	}
+		};
+	};
 	
 	configController.caricaZoom = function(frame){
 		var cleanStack = configController.pulisciStack();
@@ -1058,11 +1057,14 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		//sostituisco le risoluzioni per avere immagini, nello zoom, piu' definite
 		var higherResolutionStack = configController.getHighResolutionStack(cleanStack);
 
-		mergeImages(higherResolutionStack).then(b64 => {
+		// mergeImages(higherResolutionStack).then(b64 => {
+		// 	configController.getCutImage(b64, frame, configController.getHigherResolution());
+		// });
+		mergeImages(higherResolutionStack).then( function(b64) {
 			configController.getCutImage(b64, frame, configController.getHigherResolution());
 		});
 		
-	}
+	};
 	
 	//qui avviene la richiesta del modello in base agli accessori selezionati
 	configController.caricaSpinner = function(){
@@ -1077,9 +1079,9 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		var renderType;
 
 		if (isTouchDevice()) {
-			renderType = "images"
+			renderType = "images";
 		} else {
-			renderType = "canvas"
+			renderType = "canvas";
 		}
 
 		var cleanStack = configController.pulisciStack();
@@ -1095,7 +1097,8 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			$scope.dataUrl = $('#spritespin').data("spritespin").canvas[0].toDataURL();
 		}
 
-		mergeImages(cleanStack).then(b64 => {
+		// mergeImages(cleanStack).then(b64 => {
+		mergeImages(cleanStack).then(function(b64) {
 			dataSourceString = b64;
 			var dataSpin = {
 				width: 960,
@@ -1146,7 +1149,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 						$scope.spinAnim = false;
 					} 
 				}
-            }
+            };
 			$('#spritespin').spritespin(dataSpin);
 			$(window).trigger("resize");
 		});
@@ -1162,7 +1165,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 
 	configController.setVisible = function(visible){
 		$scope.spinnerVisibleTest = visible;
-	}
+	};
 
 	configController.getUrlMetalleria = function(modello, metallo){
 		for(var i = 0; i < $scope.entita.length; i++){
@@ -1173,7 +1176,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			}
 		}
 		return "";
-	}
+	};
 	
 	configController.getSingolaEntita = function(categoria, modello, nome){
 		for(var i = 0; i < $scope.entita.length; i++){
@@ -1183,7 +1186,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			}
 		}
 		return null;
-	}
+	};
 
 	configController.getHigherResolution = function(){
 		var currentRes = configController.getResolutionPlaceHolder();
@@ -1201,7 +1204,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 				break;
 		}
 		return higherRes;
-	}
+	};
 	
 	configController.getHighResolutionStack = function(currentStack){
 		var currentRes = configController.getResolutionPlaceHolder();
@@ -1214,10 +1217,10 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			higherResolutionStack.push(element);
 		}
 		return higherResolutionStack;
-	}
+	};
 
 	configController.getLowerResolutionStack = function(currentStack){
-		var currentRes = configController.getResolutionPlaceHolder()
+		var currentRes = configController.getResolutionPlaceHolder();
 		
 		var lowerResolutionStack = [];
 		for(var i = 0; i < currentStack.length; i++){
@@ -1226,7 +1229,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			lowerResolutionStack.push(element);
 		}
 		return lowerResolutionStack;
-	}
+	};
 	
 	/*
 	 * SEZIONE RELATIVA ALLA GESTIONE DELLE LETTERE E DEI SIMBOLI 
@@ -1244,18 +1247,19 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 				for(var i=0; i<symbolConfigurations[symbolNumber+1].length; i++){
 					var posizione = symbolConfigurations[symbolNumber+1][i];
 					//adesso posso comporre lo stack dei simboli
-					var url = $scope.baseUrlSymbols 
-						+ "INIZIALI" + "_" 
-						+ $scope.symbolArray + "_" 
-						+ posizione + "_" 
-						+ configController.getResolutionPlaceHolder() + "_" 
-						+ $scope.coloreSelezionato + ".png";
+					var url = $scope.baseUrlSymbols +
+						"INIZIALI" + "_" +
+						$scope.symbolArray + "_" +
+						posizione + "_" +
+						configController.getResolutionPlaceHolder() + "_" +
+						$scope.coloreSelezionato + ".png";
 						//INIZIALI_W_MDX_960_PARROT
 					$scope.symbolsUrlStack.push(url);
 				}
 			}
 		}
-	}
+	};
+
 	configController.modelNameTranslate = function(modelName){
 		switch(modelName){
 			case "shoulderbag":
@@ -1267,7 +1271,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			case "crossbody":
 				return "POCHETTE";
 		}
-	}
+	};
 	
 	configController.symbolTranslate = function(symbol){
 		switch(symbol){
@@ -1280,7 +1284,8 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			default:
 				return symbol;
 		}
-	}
+	};
+
 	configController.colorTranslate = function(color){
 		switch(color){
 		case "black":
@@ -1298,10 +1303,10 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		default:
 			return "NERO";
 		}
-	}
+	};
+
 	configController.addSymbol = function(symbol){
-		//$scope.symbolArray.push(symbol);
-		//configController.checkSelectedSymbols();
+
 		if(symbol == 'backspace'){
 			if($scope.inizialiPreview.length > 0){
 				$scope.inizialiPreview = $scope.inizialiPreview.slice(0, -1);
@@ -1315,7 +1320,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			configController.generateArray();
 			configController.caricaSpinner();
 		}
-	}
+	};
 
 	configController.generateArray = function(){
 		$scope.symbolsUrlStack = [];
@@ -1332,7 +1337,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 				$scope.symbolsUrlStack.push(url);
 			}
 		}
-	}
+	};
 
 	configController.generateArrayEntitaIniziali = function(){
 		var arrayEntitaIniziali = [];
@@ -1359,16 +1364,11 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			}
 		}
 		return arrayEntitaIniziali;
-	}
+	};
 
 	configController.getSymbolUrl = function(translatedSymbol, posizione){
-		return $scope.baseUrlSymbols 
-					+ "INIZIALI" + "_" 
-					+  translatedSymbol + "_" 
-					+ posizione + "_" 
-					+ configController.getResolutionPlaceHolder() + "_" 
-					+ configController.colorTranslate($scope.coloreSelezionato) + ".png";
-	}
+		return $scope.baseUrlSymbols + "INIZIALI" + "_" +  translatedSymbol + "_" + posizione + "_" + configController.getResolutionPlaceHolder() + "_" + configController.colorTranslate($scope.coloreSelezionato) + ".png";
+	};
 	
 	configController.checkSelectedSymbols = function(){
 		if($scope.inizialiPreview.length > 2){
@@ -1376,27 +1376,27 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		} else {
 			configController.enableSymbols();
 		}
-	}
+	};
 	
 	configController.disableSymbols = function(){
 		$scope.symbolEnabled = false;
-	}
+	};
 	
 	configController.enableSymbols = function(){
 		$scope.symbolEnabled = true;
-	}
+	};
 	
 	configController.areSymbolsSelected = function(){
 		return $scope.symbolArray.length > 0;
-	}
+	};
 	
 	configController.getSelectedSymbolNumber = function(){
 		return $scope.symbolArray.length;
-	}
+	};
 	
 	configController.getSymbolEnabled = function(){
 		return $scope.symbolEnabled;
-	}
+	};
 	/*
 	 * FINE ---- SEZIONE RELATIVA ALLA GESTIONE DELLE LETTERE E DEI SIMBOLI 
 	 * */
@@ -1407,25 +1407,25 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		var tempModelli = new Array(size);
 
 		for(var i = 0; i< size; i++){
-			tempModelli[modelliNonOrdinati[i]["ordineInterfaccia"] - 1] = modelliNonOrdinati[i];
+			tempModelli[modelliNonOrdinati[i].ordineInterfaccia - 1] = modelliNonOrdinati[i];
 		}
 
 		return tempModelli;
-	}
+	};
 
 	configController.aggiungiAlCarrello = function(){
 		//nessun controllo, devo poter aggiungere n volte al carrello
 		if($scope.configurazione){
 			configController.salvaConfigurazione(true);
 		}	
-	}
+	};
 
 	configController.aggiungiAiPreferiti = function(){
 		//controllare se è già tra i preferiti
 		if($scope.configurazione){
 			configController.salvaConfigurazione(false);
 		}	
-	}
+	};
 
 	configController.salvaConfigurazione = function(isCarrello){
 		$scope.configurazione.carrello = isCarrello;
@@ -1448,7 +1448,8 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		$scope.setLoaderMessage("genero l'anteprima della borsa...");
 		$scope.showLoader();
 
-		mergeImages(lowerResolutionStack).then(imgBase64 => {
+		// mergeImages(lowerResolutionStack).then(imgBase64 => {
+		mergeImages(lowerResolutionStack).then(function(imgBase64) {
 			image.src = imgBase64;
 			image.onload = function(){//quando la thumbnail è pronta procedo all'invio al server - controllare le dimensioni della thumbnail
 				ctx.drawImage(image, frameNumber * resolution, 0, resolution, resolution, 0 ,0 , destinationResolution, destinationResolution);
@@ -1489,9 +1490,9 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 						}
 					});
 				
-			}
+			};
 		});
-	}
+	};
 
 	configController.initConfigurazione = function() {
 
@@ -1510,12 +1511,12 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			user.email = email;
 		}
 		$scope.configurazione.utente = user;
-	}
+	};
 
 	configController.initConfiguratore = function(){
 
-		$scope.mappaEntitaSelezionate["colore"] = "black";
-		$scope.mappaEntitaSelezionate["metalleria"] = "argento";
+		$scope.mappaEntitaSelezionate.colore = "black";
+		$scope.mappaEntitaSelezionate.metalleria = "argento";
 
 		//1. devo fare il caricamento massivo iniziale delle configurazioni (solo la struttura json dal DB, non le immagini)
 		listeService.getModelli().then(function (res) {
@@ -1536,7 +1537,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		configController.visibleManager.spinnerVisible = false;
 
 		$(document).on('click', '.yamm .dropdown-menu', function(e) {
-		  e.stopPropagation()
+		  e.stopPropagation();
 		});
 
 		/* gestione elementi dell'interfaccia */
@@ -1544,7 +1545,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 
 		$("#pz").pinchzoomer();
 
-		var pz = PinchZoomer.get("pz")
+		var pz = PinchZoomer.get("pz");
 
 		$('#canvasWrapper').parentResize();
 		// pulsanti apertura/chiusura zoom borsa
@@ -1553,7 +1554,8 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			pz.y(-300);
 			pz.x(-70);
 			
-			html2canvas(document.querySelector("#spritespin"), { async:false }).then(canvas => {
+			// html2canvas(document.querySelector("#spritespin"), { async:false }).then(canvas => {
+			html2canvas(document.querySelector("#spritespin"), { async:false }).then( function(canvas) {
 				$("#loader").show();
 				var dataUrl = canvas.toDataURL();
 				$("#pz").attr("src", dataUrl);
@@ -1565,7 +1567,15 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			});
 		});
 		$('#closeZoom').click(function() {
-			$('.zoom').animate({opacity: 0}, {complete: function(){ $(this).css({'z-index': '0'}) }});
+			$('.zoom').animate(
+				{
+					opacity: 0
+				}, 
+				{
+					complete: function(){ 
+						$(this).css({'z-index': '0'}); 
+					}
+				});
 		});
 
 		/* edito il nome della borsa nel configuratore *DA COMPLETARE* */
@@ -1586,12 +1596,12 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		});
 
 		$('#a').click(function(){
-			var $target = $('#inizialiPreview'),
-				text = $('#inizialiPreview').val(),
-				buttonVal = $(this).data('value');
+			var $target = $('#inizialiPreview');
+			var text = $('#inizialiPreview').val();
+			var buttonVal = $(this).data('value');
 
 			$target.val(text+" "+buttonVal);
-		})
+		});
 
 		$(document).on('blur', '#txt_fullname', function() {
 			var name = $(this).val();
@@ -1625,7 +1635,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 				});
 
 			});
-		})(jQuery)
+		})(jQuery);
 
 		var resizeTimer; // serve per il timeout per lanciare funzioni alla fine del ridimensionamento della finestra
 		$(window).resize(function(){
@@ -1636,7 +1646,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 				$('#canvasWrapper').parentResize();
 				//$('#a-middle').centerElement();
 				$.fn.sepLine('first-divider', 'swiper-container', 'accessori');
-				$.fn.yammHeight('navbar', 'yamm-content')
+				$.fn.yammHeight('navbar', 'yamm-content');
 			//}, 250);
 		});
 

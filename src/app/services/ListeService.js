@@ -1,6 +1,6 @@
 angular.module("applicationModule").service("listeService", ["$http", "UtilFunctionMessagesCreator", "loginService", function($http, UtilFunctionMessagesCreator, loginService) {
 	
-	this.urlGetService = "https://5mjp7r5urj.execute-api.eu-central-1.amazonaws.com/UnadunaGet"
+	this.urlGetService = "https://5mjp7r5urj.execute-api.eu-central-1.amazonaws.com/UnadunaGet";
 	this.urlGetServiceNode = 'https://ig24v3ii6b.execute-api.eu-central-1.amazonaws.com/unaDunaGetAccessori';
 	this.urlPostService = "https://i51umjhba2.execute-api.eu-central-1.amazonaws.com/unadunaPost";
 	this.urlDeleteService ="https://gtjby1j5oi.execute-api.eu-central-1.amazonaws.com/UnadunaDelete";
@@ -31,7 +31,7 @@ angular.module("applicationModule").service("listeService", ["$http", "UtilFunct
 	    $http.post("https://tnpklinhf1.execute-api.eu-central-1.amazonaws.com/util_function_stage", data, config).then(function (res) {
 	    	 	this.tipiAccessoriList = res.data.accessori;
 	    });
-	}
+	};
 	
 	this.getModelli = function(){
 		var requestMessage = UtilFunctionMessagesCreator.getModelliMessage();
@@ -41,7 +41,7 @@ angular.module("applicationModule").service("listeService", ["$http", "UtilFunct
 			}
 		};
 		return $http.post(this.urlGetService, requestMessage, config);
-	}
+	};
 	
 	this.getAccessori = function(nomeModello){
 		var requestMessage = UtilFunctionMessagesCreator.getAccessoriMessage(nomeModello);
@@ -51,7 +51,7 @@ angular.module("applicationModule").service("listeService", ["$http", "UtilFunct
 			}
 		};
 		return $http.post(this.urlGetService, requestMessage, config);
-	}
+	};
 	
 	this.getConfigurazione = function(codiceConfigurazione){
 		var requestMessage = UtilFunctionMessagesCreator.getConfigurazioneMessage(codiceConfigurazione);
@@ -61,7 +61,7 @@ angular.module("applicationModule").service("listeService", ["$http", "UtilFunct
 			}
 		};
 		return $http.post(this.urlGetService, requestMessage, config);
-	}
+	};
 	
 	this.getConfigurazioni = function(){
 		var requestMessage = UtilFunctionMessagesCreator.getConfigurazioniMessage();
@@ -72,7 +72,7 @@ angular.module("applicationModule").service("listeService", ["$http", "UtilFunct
 			}
 		};
 		return $http.post(this.urlGetService, requestMessage, config);
-	}
+	};
 	
 	this.getConfigurazioniUtente = function(codiceUtente){
 		var requestMessage = UtilFunctionMessagesCreator.getConfigurazioniUtenteMessage(codiceUtente);
@@ -83,7 +83,7 @@ angular.module("applicationModule").service("listeService", ["$http", "UtilFunct
 			}
 		};
 		return $http.post(this.urlGetService, requestMessage, config);
-	}
+	};
 	
 	this.getCarrelloUtente = function(codiceUtente){
 		var requestMessage = UtilFunctionMessagesCreator.getCarrelloUtenteMessage(codiceUtente);
@@ -94,7 +94,7 @@ angular.module("applicationModule").service("listeService", ["$http", "UtilFunct
 			}
 		};
 		return $http.post(this.urlGetService, requestMessage, config);
-	}
+	};
 	
 	this.getOrdini = function(codiceOrdine){
 		var requestMessage = UtilFunctionMessagesCreator.getOrdineMessage(codiceOrdine);
@@ -105,7 +105,7 @@ angular.module("applicationModule").service("listeService", ["$http", "UtilFunct
 			}
 		};
 		return $http.post(this.urlGetService, requestMessage, config);
-	}
+	};
 	
 	this.getOrdini = function(){
 		var requestMessage = UtilFunctionMessagesCreator.getOrdiniMessage();
@@ -116,7 +116,7 @@ angular.module("applicationModule").service("listeService", ["$http", "UtilFunct
 			}
 		};
 		return $http.post(this.urlGetService, requestMessage, config);
-	}
+	};
 	
 	this.getOrdiniUtente = function(codiceUtente){
 		var requestMessage = UtilFunctionMessagesCreator.getOrdiniUtenteMessage(codiceUtente);
@@ -127,7 +127,7 @@ angular.module("applicationModule").service("listeService", ["$http", "UtilFunct
 			}
 		};
 		return $http.post(this.urlGetService, requestMessage, config);
-	}
+	};
 	
 	this.putConfigurazione = function(configurazione){
 		var requestMessage = UtilFunctionMessagesCreator.putConfigurazioneMessage(configurazione);
@@ -138,7 +138,7 @@ angular.module("applicationModule").service("listeService", ["$http", "UtilFunct
 			}
 		};
 		return $http.post(this.urlPostService, requestMessage, config);
-	}
+	};
 	
 	this.putOrdine = function(ordine){
 		var requestMessage = UtilFunctionMessagesCreator.putOrdineMessage(ordine);
@@ -149,7 +149,7 @@ angular.module("applicationModule").service("listeService", ["$http", "UtilFunct
 			}
 		};
 		return $http.post(this.urlPostService, requestMessage, config);
-	}
+	};
 	
 	this.deleteConfigurazione = function(cod){
 		var config = {
@@ -162,7 +162,7 @@ angular.module("applicationModule").service("listeService", ["$http", "UtilFunct
 		var message = UtilFunctionMessagesCreator.deleteConfigurazioneMessage(cod);
 		
 		return $http.post(this.urlDeleteService, message, config);
-	}
+	};
 
 	this.svuotaCarrello = function(configurazioni){
 		var config = {
@@ -175,7 +175,7 @@ angular.module("applicationModule").service("listeService", ["$http", "UtilFunct
 		var message = UtilFunctionMessagesCreator.svuotaCarrelloMessage(configurazioni);
 
 		return $http.post(this.urlPostService, message, config);
-	}
+	};
 
 	this.sendEmail = function(emailMessage){
 		var config = {
@@ -187,7 +187,7 @@ angular.module("applicationModule").service("listeService", ["$http", "UtilFunct
 
 		var message = UtilFunctionMessagesCreator.sendEmailMessage(emailMessage);
 		return $http.post(this.urlOtherService, message, config);
-	}
+	};
 
 	this.saveImage = function(base64Image, filename){
 		var config = {
@@ -199,5 +199,5 @@ angular.module("applicationModule").service("listeService", ["$http", "UtilFunct
 
 		var message = UtilFunctionMessagesCreator.saveImageMessage(base64Image, filename);
 		return $http.post(this.urlOtherService, message, config);
-	}
+	};
 }]);

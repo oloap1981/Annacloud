@@ -10,5 +10,5 @@ angular.module("applicationModule").service("deleteConfigurazioneService", ["$ht
 		var message = UtilFunctionMessagesCreator.deleteConfigurazioneMessage(cod);
 		
 		return $http.post(URLS.del, message, config);
-	}
+	};
 }]);

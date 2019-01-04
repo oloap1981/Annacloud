@@ -101,19 +101,19 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 
 	$scope.setTestoAvviso = function(testo) {
 		$scope.testoAvviso = testo;
-	}
+	};
 
 	$scope.getTestoAvviso = function(){
 		return $scope.testoAvviso;
-	}
+	};
 
 	$scope.setLoaderMessage = function(message){
 		$scope.loaderMessage = message;
-	}
+	};
 
 	$scope.getLoaderMessage = function(){
 		return $scope.loaderMessage;
-	}
+	};
 
 	$scope.isActive = function (viewLocation) {
 		return viewLocation === $location.path();
@@ -121,121 +121,130 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 
 	$scope.setNextPath = function(nextPath){
 		$scope.nextPath = nextPath;
-	}
+	};
+
 	$scope.getNextPath = function(){
 		return $scope.nextPath;
-	}
+	};
 
 	$scope.setOrdineInCorso = function(ordineInCorso){
 		$scope.ordineInCorso = ordineInCorso;
-	}
+	};
 
 	$scope.getOrdineInCorso = function(){
 		return $scope.ordineInCorso;
-	}
+	};
 
 	$scope.setEmail = function(email){
 		$scope.email = email;
-	}
+	};
+
 	$scope.getEmail = function(){
 		return $scope.email;
-	}
+	};
 
 	$scope.setTel = function(tel){
 		$scope.tel = tel;
-	}
+	};
+
 	$scope.getTel = function(){
 		return $scope.tel;
-	}
+	};
 
 	$scope.setNome = function(nome){
 		$scope.nome = nome;
-	}
+	};
+
 	$scope.getNome = function(){
 		return $scope.nome;
-	}
+	};
 
 	$scope.setCognome = function(cognome){
 		$scope.cognome = tel;
-	}
+	};
+
 	$scope.getCognome = function(){
 		return $scope.cognome;
-	}
+	};
 
 	$scope.setIndSpe = function(indSpe){
 		$scope.indSpe = indSpe;
-	}
+	};
+
 	$scope.getIndSpe = function(){
 		return $scope.indSpe;
-	}
+	};
 
 	$scope.setNomeSpe = function(nomeSpe){
 		$scope.nomeSpe = nomeSpe;
-	}
+	};
+
 	$scope.getNomeSpe = function(){
 		return $scope.nomeSpe;
-	}
+	};
 
 	$scope.setIndSpe2 = function(indSpe2){
 		$scope.indSpe2 = indSpe2;
-	}
+	};
+
 	$scope.getIndSpe2 = function(){
 		return $scope.indSpe2;
-	}
+	};
 
 	$scope.setTempConfigurazione = function(configurazione){
 		$scope.tempConfigurazione = configurazione;
-	}
+	};
+
 	$scope.getTempConfigurazione = function(){
 		return $scope.tempConfigurazione;
-	}
+	};
 
 	$scope.getCarrello = function(){
 		return $scope.carrello;
-	}
+	};
 
 	$scope.initCarrello = function(carrello){
 		$scope.carrello = carrello;
-	}
+	};
 
 	$scope.addToCarrello = function(oggetto){
 		$scope.carrello.push(oggetto);
-	}
+	};
 
 	$scope.getCarrelloSize = function(){
 		if($scope.carrello == undefined){
 			return 0;
 		}
 		return $scope.carrello.length;
-	}
+	};
 
 	$scope.getPreferiti = function(){
 		return $scope.preferiti;
-	}
+	};
 
 	$scope.initPreferiti = function(preferiti){
 		$scope.preferiti = preferiti;
-	}
+	};
 
 	$scope.addToPreferiti = function(oggetto){
 		//devo controllare se c'è già tra i preferiti (mentre nel carrello comunque aggiungo)
 		$scope.preferiti.push(oggetto);
-	}
+	};
 
 	$scope.getPreferitiSize = function(){
 		if($scope.preferiti == undefined){
 			return 0;
 		}
 		return $scope.preferiti.length;
-	}
+	};
 
 	$scope.setUser = function(t){
 		$scope.user = t;
-	}
+	};
 	
 	$scope.getUser = function(){
 		return $scope.user;
-	}
+	};
 	
 	$scope.logOut = function (){
 		$scope.setUser(null);
@@ -244,11 +253,11 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		$scope.setTempConfigurazione(null);
 		loginService.logOut();
 		$location.url('/home');
-	}
+	};
 	
 	$scope.getCostoSpedizione = function(){
 		return $scope.costoSpedizione;
-	}
+	};
 
 	$scope.getColoreConf = function(configurazione){
 		var colore = "black";
@@ -260,7 +269,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 			}
 		}
 		return colore;
-	}
+	};
 
 	$scope.getInizialiConf = function(configurazione){
 		var iniziali = "";
@@ -272,7 +281,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 			}
 		}
 		return iniziali;
-	}
+	};
 
 	$scope.calcolaPrezzo = function(configurazione){
 		var prezzoCalcolato = 0;
@@ -281,8 +290,8 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 			var entita = configurazione.elencoEntita[i];
 			prezzoCalcolato += entita.prezzo;
 		}
-		return prezzoCalcolato
-	}
+		return prezzoCalcolato;
+	};
 
 	$scope.calcolaPrezzoOrdine = function(ordine){
 		var configurazioni = ordine.configurazioni;
@@ -292,9 +301,9 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 			totale += $scope.calcolaPrezzo(configurazione);
 		}
 		return totale;
-	}
+	};
 
-	$scope.ricaricaListe = function(email, page, showLoader = false){
+	$scope.ricaricaListe = function(email, page, showLoader){
 		if(showLoader){
 			$scope.setLoaderMessage("ricarico la lista...");
 			$scope.showLoader();
@@ -313,14 +322,14 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 				$scope.changePath(page);
 			}
 		});
-	}
+	};
 
 	$scope.getUserEmail = function(){
 		var user = $scope.user;
 		var idToken = jwtHelper.decodeToken(user.signInUserSession.idToken.jwtToken);
 		var email = idToken.email;
 		return email;
-	}
+	};
 
 	$scope.loginAndMove = function(username, password, nextPath){
 		loginService.login(email, password).then(
@@ -354,33 +363,33 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 						function (attList){
 							console.log(attList);
 							attList.forEach(function (a){
-								if (a["Name"] == "custom:email" ){
-									$scope.email = a["Value"];
+								if (a.Name == "custom:email" ){
+									$scope.email = a.Value;
 								}
-								if (a["Name"] == "custom:telefono" ){
-									$scope.tel = a["Value"];
+								if (a.Name == "custom:telefono" ){
+									$scope.tel = a.Value;
 								}
-								if (a["Name"] == "name" ){
-									$scope.nome = a["Value"];
+								if (a.Name == "name" ){
+									$scope.nome = a.Value;
 								}
-								if (a["Name"] == "family_name" ){
-									$scope.cognome = a["Value"];
+								if (a.Name == "family_name" ){
+									$scope.cognome = a.Value;
 								}
-								if (a["Name"] == "custom:indSpe" ){
-									$scope.indSpe = a["Value"];
+								if (a.Name == "custom:indSpe" ){
+									$scope.indSpe = a.Value;
 								}
-								if (a["Name"] == "custom:nomeSpe" ){
-									$scope.nomeSpe = a["Value"];
+								if (a.Name == "custom:nomeSpe" ){
+									$scope.nomeSpe = a.Value;
 								}
-								if (a["Name"] == "custom:indSpe2" ){
-									$scope.indSpe2 = a["Value"];
+								if (a.Name == "custom:indSpe2" ){
+									$scope.indSpe2 = a.Value;
 								}
-							})
+							});
 						},
 						function (reason){
-							console.log(reason)
+							console.log(reason);
 						}
-					)	
+					);
 
 				});
 
@@ -394,7 +403,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 				  $scope.openMessageModal(reason.message);
 			}
 		);
-	}
+	};
 
 	$scope.completaOperazioniOrdneAcquistato = function(){
 		//aggiorno l'ordine su DB e poi lo elimino da locale
@@ -431,7 +440,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 				$scope.openMessageModal("errore salvataggio ordine");
 			}
 		);
-	}
+	};
 
 	$scope.generateEmailMessage = function(){
 		var message = {};
@@ -442,7 +451,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		message.emailMessage = $scope.generateMessageText();
 
 		return message;
-	}
+	};
 
 	$scope.generateMessageText = function(){
 		var message = $scope.orderBaseMessage;
@@ -477,7 +486,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 
 		message = message.replace('ELENCO_CONF', confMessageParts);
 		return message;
-	}
+	};
 
 	loginService.getCurrentUser().then(function(data){
 		$scope.setUser(data);
@@ -491,33 +500,33 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 					function (attList){
 						console.log(attList);
 						attList.forEach(function (a){
-							if (a["Name"] == "custom:email" ){
-								$scope.email = a["Value"];
+							if (a.Name == "custom:email" ){
+								$scope.email = a.Value;
 							}
-							if (a["Name"] == "custom:telefono" ){
-								$scope.tel = a["Value"];
+							if (a.Name == "custom:telefono" ){
+								$scope.tel = a.Value;
 							}
-							if (a["Name"] == "name" ){
-								$scope.nome = a["Value"];
+							if (a.Name == "name" ){
+								$scope.nome = a.Value;
 							}
-							if (a["Name"] == "family_name" ){
-								$scope.cognome = a["Value"];
+							if (a.Name == "family_name" ){
+								$scope.cognome = a.Value;
 							}
-							if (a["Name"] == "custom:indSpe" ){
-								$scope.indSpe = a["Value"];
+							if (a.Name == "custom:indSpe" ){
+								$scope.indSpe = a.Value;
 							}
-							if (a["Name"] == "custom:nomeSpe" ){
-								$scope.nomeSpe = a["Value"];
+							if (a.Name == "custom:nomeSpe" ){
+								$scope.nomeSpe = a.Value;
 							}
-							if (a["Name"] == "custom:indSpe2" ){
-								$scope.indSpe2 = a["Value"];
+							if (a.Name == "custom:indSpe2" ){
+								$scope.indSpe2 = a.Value;
 							}
-						})
+						});
 					},
 					function (reason){
-						console.log(reason)
+						console.log(reason);
 					}
-				)	
+				)	;
 			}
 		}
 		
@@ -527,7 +536,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		function(reason){
 			console.log('reason');
 		}
-	)
+	);
 
 	$scope.svuotaCarrello = function(ordine){
 
@@ -544,7 +553,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 				$scope.openMessageModal("errore salvataggio ordine");
 			}
 		);
-	}
+	};
 
 	$scope.getListaCodiciConfigurazioni = function(ordine){
 
@@ -559,11 +568,11 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		}
 
 		return codici;
-	}
+	};
 
 	$scope.hideHeader = function(){
 		return $location.path().indexOf("configura") != -1;
-	}
+	};
 	
 	$scope.wowInit = function(config){
 		if(config){
@@ -576,14 +585,14 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 	$scope.changePath = function(path){
 		$location.url(path);
 		$scope.$apply();
-	}
+	};
 
 	$scope.traduciCategoriaAccessorio = function(nomeAccessorio){
 		if(nomeAccessorio == "ciondoli"){
-			return "charms"
+			return "charms";
 		}
 		return nomeAccessorio;
-	}
+	};
 
 	$scope.getModelSizes = function(modelName){
 		if(modelName == "shoulderbag"){
@@ -595,7 +604,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		} else {
 			return "";
 		}
-	}
+	};
 
 	/* GESTIONE MODALI */
 	$scope.openConfigNameModal = function () {
@@ -609,7 +618,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 				}
 			  }
 		});
-	}
+	};
 
 	$scope.openMessageModal = function (message) {
 		$scope.setTestoAvviso(message);
@@ -623,7 +632,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 				}
 			  }
 		});
-	}
+	};
 
 	$scope.okConfig = function (configName) {
 
@@ -681,8 +690,8 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 						}
 						break;
 					case "tracolle":
-						var temp = entita.nome.toLowerCase();
-						var splitted = temp.split("_");
+						temp = entita.nome.toLowerCase();
+						splitted = temp.split("_");
 						if(splitted.length == 5){
 							result = splitted[3];
 						} else if(splitted.length == 6){
@@ -692,7 +701,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 						}
 						break;
 					case "colore":
-						var splitted = entita.nome.split("_");
+						splitted = entita.nome.split("_");
 						if(splitted.length == 2){
 							result = splitted[1];
 						} else {
@@ -706,7 +715,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 				return result;
 			} else return "";
 		} else return "";
-	}
+	};
 
 	$scope.traduciNomiOrdini = function(entita){
 		if(entita){
@@ -727,8 +736,8 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 						}
 						break;
 					case "tracolle":
-						var temp = entita.nome.toLowerCase();
-						var splitted = temp.split("_");
+						temp = entita.nome.toLowerCase();
+						splitted = temp.split("_");
 						if(splitted.length == 5){
 							result = splitted[1] + " " + splitted[3];
 						} else if(splitted.length == 6){
@@ -738,7 +747,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 						}
 						break;
 					case "colore":
-						var splitted = entita.nome.split("_");
+						splitted = entita.nome.split("_");
 						if(splitted.length == 2){
 							result = splitted[1];
 						} else {
@@ -746,7 +755,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 						}
 						break;
 					case "metalleria":
-						var splitted = entita.nome.split("_");
+						splitted = entita.nome.split("_");
 						if(splitted.length == 2){
 							result = splitted[1];
 						} else {
@@ -754,7 +763,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 						}
 						break;
 					case "stile":
-						var splitted = entita.nome.split("_");
+						splitted = entita.nome.split("_");
 						if(splitted.length == 3){
 							result = splitted[1] + " " + splitted[2];
 						} else {
@@ -762,7 +771,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 						}
 						break;
 					case "borchie":
-						var splitted = entita.nome.split("_");
+						splitted = entita.nome.split("_");
 						if(splitted.length == 3){
 							result = splitted[1] + " " + splitted[2];
 						} else if(splitted.length == 4){
@@ -772,7 +781,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 						}
 						break;
 					case "iniziali":
-						var splitted = entita.nome.split("_");
+						splitted = entita.nome.split("_");
 						if(splitted.length == 2){
 							result = splitted[1];
 						} else {
@@ -786,7 +795,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 				return result;
 			} else return "";
 		} else return "";
-	}
+	};
 
 	$scope.getFigurino = function(nomeModello){
 		var figurino = "";
@@ -810,9 +819,9 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 	/* FUNZIONI GESTIONE LOADER */
 	$scope.showLoader = function(){
 		$('#loaderOverlay')[0].style.visibility = 'visible';
-	}
+	};
 	
 	$scope.hideLoader = function(){
 		$('#loaderOverlay')[0].style.visibility = 'hidden';
-	}
+	};
 }]);

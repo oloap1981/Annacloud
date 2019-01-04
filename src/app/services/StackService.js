@@ -6,5 +6,5 @@ angular.module("applicationModule").service("stackService", function($http, $sco
 	
 	this.addAccessory = function(accessory){
 		$scope.selectedAccessories.push(accessory);
-	}
+	};
 });
