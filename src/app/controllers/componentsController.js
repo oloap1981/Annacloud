@@ -797,6 +797,25 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		} else return "";
 	};
 
+	$scope.getFigurino = function(nomeModello){
+		var figurino = "";
+		if(nomeModello){
+			switch(nomeModello){
+				case "shoulderbag":
+					figurino = "images/figurino-shoulderbag.jpg";
+					break;
+				case "tote":
+					figurino = "images/figurino-tote.jpg";
+					break;
+				case "crossbody":
+					figurino = "images/figurino-crossbody.jpg";
+					break;
+			}
+		}
+		return figurino;
+
+	}
+
 	/* FUNZIONI GESTIONE LOADER */
 	$scope.showLoader = function(){
 		$('#loaderOverlay')[0].style.visibility = 'visible';
