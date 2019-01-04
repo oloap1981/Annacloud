@@ -55,7 +55,6 @@ gulp.task('copy-images', ['clean-images'], function(){
     .pipe(gulp.dest(dist.path + dist.images));
 });
 
-
 gulp.task('copy-fonts', ['clean-fonts'], function(){
   return gulp.src([config.fonts])
     .pipe(gulp.dest(dist.path + dist.fonts));
@@ -100,21 +99,21 @@ gulp.task('clean-images', function(){
 });
 
 gulp.task('clean-fonts', function(){
-    del(dist.path + dist.fonts)
+    del(dist.path + dist.fonts);
 });
 
 gulp.task('clean-js', function(){
-    del(dist.path + dist.js)
+    del(dist.path + dist.js);
 });
 
 gulp.task('clean-styles', function(){
-    del(dist.path + dist.css)
+    del(dist.path + dist.css);
 });
 
 gulp.task('clean-assets', function(){
-    del(dist.path + dist.assets)
+    del(dist.path + dist.assets);
 });
 
 gulp.task('clean-views', function(){
-    del(dist.path + dist.views)
+    del(dist.path + dist.views);
 });
