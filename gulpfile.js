@@ -28,7 +28,7 @@ var dist = {
     views: 'views/'
 }
 
-gulp.task('build', ['copy-fonts', 'copy-images', 'copy-assets', 'copy-views', 'minifyjs'], function(){
+gulp.task('build', ['copy-views', 'copy-assets', 'copy-fonts', 'copy-images', 'minifyjs'], function(){
     del(config.temp);
 });
 
@@ -95,25 +95,25 @@ gulp.task('templatecache', function() {
 
 //Helper Tasks
 gulp.task('clean-images', function(){
-    del(dist.path + dist.images);
+    del.sync(dist.path + dist.images);
 });
 
 gulp.task('clean-fonts', function(){
-    del(dist.path + dist.fonts);
+    del.sync(dist.path + dist.fonts);
 });
 
 gulp.task('clean-js', function(){
-    del(dist.path + dist.js);
+    del.sync(dist.path + dist.js);
 });
 
 gulp.task('clean-styles', function(){
-    del(dist.path + dist.css);
+    del.sync(dist.path + dist.css);
 });
 
 gulp.task('clean-assets', function(){
-    del(dist.path + dist.assets);
+    del.sync(dist.path + dist.assets);
 });
 
 gulp.task('clean-views', function(){
-    del(dist.path + dist.views);
+    del.sync(dist.path + dist.views);
 });

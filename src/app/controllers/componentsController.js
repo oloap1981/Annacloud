@@ -814,7 +814,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		}
 		return figurino;
 
-	}
+	};
 
 	/* FUNZIONI GESTIONE LOADER */
 	$scope.showLoader = function(){
