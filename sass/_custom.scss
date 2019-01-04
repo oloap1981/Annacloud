@@ -2649,9 +2649,13 @@ a.link {
         img {
             height: 57px;
             cursor: pointer;
+            
+                border: solid 1px transparent;
             &.thumb-colori {
-                padding-bottom: 8px;
+                margin-bottom: 8px;
+                height: 49px;
             }
+            padding: 2px;
         }
         .itemNameX {
             font-size: 8px;
@@ -2672,21 +2676,21 @@ a.link {
             position: absolute;
             bottom: -5px;
             left: 0;
-            //transform: translate(0, -50%);
+            //transform: translate(-50%,0);
+            //padding: 0 5px;
             width: 100%;
             color: rgba(0,0,0,1);
-            //text-shadow: 0 0 2px rgba(0,0,0,.75);
             text-align: center;
             line-height:1.8em;
-            background-color: rgba(255,255,255,.85);
+            //background-color: rgba(255, 255, 255, 1);
         }
        
         a {
             position: relative;
             border: solid 1px transparent;
-            padding: 2px;
+            
             //margin-bottom: 7px;
-            &:hover, &.added, &.activeAccessorio {
+            &:hover img, &.added img, &.activeAccessorio img {
                 border: solid 1px $standard-border-color;
                 opacity: 1;
                 text-decoration: none;
@@ -2716,7 +2720,7 @@ a.link {
         .closeItem {
             display: none;
             position: absolute;
-            top: -1px; right:-1px;
+            top: -0px; right:-0px;
             background: #fff;
             border: solid 1px $standard-border-color;
             border-top: none;
