@@ -419,9 +419,9 @@ img {
 table {
     width: 100%;
 }
-label {
+/*label {
     //font-family: $font-family-sans-serif-title;
-}
+}*/
 input {
     padding: 5px;
     font-size: 1.5em;
@@ -772,9 +772,9 @@ a.link {
     top: auto;
     bottom: 40%;
 }
-.modal-content {
+/*.modal-content {
     //text-align: center;
-}
+}*/
 .modal-header, .modal-body{
     padding-bottom: 0;
 }
@@ -786,7 +786,7 @@ a.link {
     }
 }
 
-/* loader generale */@at-root
+/* loader generale */
 
 #loaderOverlay {
     position: absolute;
@@ -1036,9 +1036,9 @@ a.link {
                                 border-color: $body-bg transparent transparent;
                             }
                         }
-                        &.secondary {
+                        /*&.secondary {
 
-                        }
+                        }*/
                     }
                 }
                 a.secondary {
@@ -1963,8 +1963,8 @@ a.link {
     &.pre-summary {
         font-size: 18px;
     }
-    &.summary {
-        /*p {
+    /*&.summary {
+        p {
             span{
                 display: inline-block;
                 width: 41%;
@@ -1978,8 +1978,8 @@ a.link {
                     width: 47%;
                 }
             }
-        }*/
-    }
+        }
+    }*/
 }
 
 .shipment-info {
@@ -2449,8 +2449,8 @@ a.link {
         background-color: #fff;
         z-index: 10;
         text-align: center;
-        .name {
-        }
+        /*.name {
+        }*/
         .size {
             margin: 10px 0 0;
         }

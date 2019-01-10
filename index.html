@@ -2,13 +2,18 @@
 <html>
 
 <head>
-    <title>Anna Cloud</title>
+	<title>AnnaCloud.com</title>
+	<meta charset="utf-8" />
+	<meta http-equiv="Content-Language" content="en" />
+	<meta name="description" content="Descrizione" />
+	<meta property="og:title" content="AnnaCloud.com" />
+	<meta property="og:description" content="Descrizione" />
+	<meta itemprop="description" content="Descrizione">
+
+	<meta name="robots" content="noindex"> <!-- RICORDARSI DI TOGLIERE QUESTO METATAG!!!!  -->
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-	<meta property="og:description" content="Configuratore Borse.">
-	
 	<!-- build:css styles/main.css -->
 	<link media="screen" rel="stylesheet" type="text/css" href="stylesheets/styles.css">
 	<!-- endbuild -->
@@ -264,8 +269,6 @@
 		<span class="loaderMessage">{{getLoaderMessage()}}</span>
 	</div>
 
-
-	
 	<!-- build:js js/vendor.js -->
 	<script src="node_modules/angular/angular.min.js"></script>
 	<script src="node_modules/jquery/dist/jquery.min.js"></script>
@@ -284,6 +287,7 @@
 	<script src="node_modules/aws-sdk/dist/aws-sdk.min.js"></script>
 	<script src="node_modules/amazon-cognito-identity-js/dist/amazon-cognito-identity.min.js"></script>
 	<script src="node_modules/hammerjs/hammer.min.js"></script>
+	<script src="node_modules/angular-update-meta/dist/update-meta.min.js"></script>
 	
 	<script src="src/lib/jquery.mCustomScrollbar.concat.min.js"></script>
 	<script src="src/lib/jquery.mousewheel.js"></script>
@@ -355,6 +359,12 @@
 
 				if (_opened === true && !clickover.hasClass("navbar-toggle")) {
 					$("button.navbar-toggle").click();
+				}
+			});
+
+			$('.featherlight').on({
+				"click": function (e) {
+					e.stopPropagation();
 				}
 			});
 		});

@@ -1,3 +1,11 @@
+<update-title title="Annacloud.com - Configura la tua borsa"></update-title>
+<update-meta http-equiv="Content-Language" content="es"></update-meta>
+<update-meta name="description" content="Descrizione"></update-meta>
+<update-meta property="og:title" content="Annacloud.com - Configura la tua borsa"></update-meta>
+<update-meta property="og:description" content="Descrizione"></update-meta>
+<update-meta itemprop="description" content="Descrizione"></update-meta>
+<update-script content="structuredData" type="application/ld+json"></update-script>
+
 <div class="configuratore" ng-controller="unadunaConfiguratorController2 as contr" ng-init="contr.initConfiguratore()">
 	<nav class="navbar yamm navbar-default navbar-fixed-top nomargin main-configurator-navbar">
 		<div class="container">
@@ -16,7 +24,7 @@
 										<a href="javascript:void(0);" class="modello-borsa" id="start3dbutton" type="button" ng-click="contr.scegliModello(modello)">
 										<img ng-src="{{modello.urlThumbnail}}" class="hidden visible-xs" style="padding: 20px; padding-bottom: 0;" />
 										<img ng-src="{{modello.urlThumbnailHD}}" class="hidden-xs" /><h5 class="nome no-margin">{{modello.nome}}<!--<br><small>{{getModelSizes(modello.nome)}}cm</small>--></h5></a>
-										<a href="javascript:void(0);" data-featherlight="images/figurino-{{modello.nome}}.jpg" class="" style="display: inline-block;padding: 2px 15px !important; border: solid 1px #999; margin-bottom: 15px;">{{getModelSizes(modello.nome)}}cm <i style="color: #999; padding-left: 10px;" class="fa fa-search-plus"></i></a>
+										<a href="javascript:void(0);" onclick="$('.modello').toggle();" class="bag-size-button" data-featherlight="images/figurino-{{modello.nome}}.jpg" style="display: inline-block;padding: 2px 15px !important; border: solid 1px #999; margin-bottom: 15px;">{{getModelSizes(modello.nome)}}cm <i style="color: #999; padding-left: 10px;" class="fa fa-search-plus"></i></a>
 									</div>
 								</div>
 							</div>

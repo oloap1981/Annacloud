@@ -1603,6 +1603,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			$target.val(text+" "+buttonVal);
 		});
 
+		
 		$(document).on('blur', '#txt_fullname', function() {
 			var name = $(this).val();
 			//alert('Make an AJAX call and pass this parameter >> name=' + name);
@@ -1628,15 +1629,12 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 					"hide.bs.dropdown": function () { return this.closable; }
 				});
 
-				$('.featherlight').on({
-					"click": function (e) {
-						e.stopPropagation();
-					}
-				});
-
+				
+				
 			});
 		})(jQuery);
-
+						
+		
 		var resizeTimer; // serve per il timeout per lanciare funzioni alla fine del ridimensionamento della finestra
 		$(window).resize(function(){
 			clearTimeout(resizeTimer);
