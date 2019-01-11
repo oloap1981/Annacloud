@@ -28,10 +28,10 @@
                         <input ng-model="password" type="password" class="form-control" id="inputPassword" placeholder="Password">
                     </div>
                     <div class="checkbox">
-                        <label><input type="checkbox" ng-model="remember.value" class="js-switch"> Ricordami</label> <a href="javascript:void(0);">(?)</a>
+                        <label><input type="checkbox" ng-model="remember.value" class="js-switch"> Ricordami</label> <a href="#" onclick="return false">(?)</a>
                     </div>
                     <button ng-click="login(email, password)" class="btn btn-default btn-save">Accedi</button>
-                    <a href="javascript:void(0);" class="recover" >Recupera la password</a>
+                    <a href="#" onclick="return false" class="recover" >Recupera la password</a>
                 </form>
             </div>
             <div class="col-sm-6">
@@ -58,7 +58,7 @@
                         <input type="password" class="form-control" id="inputRepeatPasswordReg" placeholder="Ripeti Password">
                     </div>
                     <button ng-click="signUp(emailSign, nome,cognome, passwordSign)" class="btn btn-default btn-save">Registrati</button>
-                    <a href="javascript:void(0);" class="recover">Informativa sulla privacy</a>
+                    <a href="#" onclick="return false" class="recover">Informativa sulla privacy</a>
                     <div class="checkbox">
                         <label><input type="checkbox" ng-model="remember.value" class="js-switch">Ho preso visione dell’informativa e autorizzo il trattamento dei miei dati secondo quanto in essa riportato.</label></a>
                     </div>
