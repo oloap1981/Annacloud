@@ -1485,7 +1485,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 								$scope.configurazione.elencoEntita = elencoTotaleEntita;
 			
 								$scope.hideLoader();
-								$scope.openConfigNameModal();
+								$scope.openConfigNameModal($scope.configurazione.nome);
 							}
 						}
 					});
@@ -1525,9 +1525,12 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 
 				var configurazione = $scope.getTempConfigurazione();
 				if(configurazione != null && configurazione != undefined){
+					//c'è già una configurazione presente in locale, la vado a caricare
 					$scope.configurazione = configurazione;
 					configController.caricaConfigurazioneModello();
+					configController.ricaricaPrezzo();
 				} else {
+					//non ci sono configurazioni in locale, apro il selettore del modello
 					$(".dropdown-toggle").dropdown("toggle"); 
 				} 
 			}

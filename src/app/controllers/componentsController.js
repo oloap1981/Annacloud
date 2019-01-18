@@ -4,7 +4,8 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 	$scope.costoSpedizione = 19.50;
 
 	$scope.testoAvviso = "";
-	$scope.avvisoInputNome = "Nome della borsa";
+	$scope.avvisoInputNome = "Dai un nome alla tua configurazione";
+	$scope.vecchioNomeBorsa = "";
 	$scope.modalInstance = null;
 
 	$scope.loaderMessage = "";
@@ -607,7 +608,24 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 	};
 
 	/* GESTIONE MODALI */
-	$scope.openConfigNameModal = function () {
+	$scope.openChangeAddressModal = function () {
+		$scope.modalInstance = $uibModal.open({
+			animation: true,
+			templateUrl: 'views/modaleCmabioIndirizzo.html',
+			scope: $scope,
+			resolve: {
+				avviso: function () {
+				  return $scope.avvisoInputNome;
+				}
+			  }
+		});
+	};
+
+	$scope.openConfigNameModal = function (oldName) {
+		if(oldName != undefined && oldName != ""){
+			$scope.avvisoInputNome = "Aggiorna il nome della borsa";
+		}
+
 		$scope.modalInstance = $uibModal.open({
 			animation: true,
 			templateUrl: 'views/modaleNomeConfigurazione.html',
@@ -615,6 +633,9 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 			resolve: {
 				avviso: function () {
 				  return $scope.avvisoInputNome;
+				},
+				vecchioNome: function(){
+					return $scope.vecchioNomeBorsa;
 				}
 			  }
 		});
@@ -645,12 +666,13 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 			function (res){
 				console.log(res);
 				$scope.getTempConfigurazione().codice = res.data.codiceConfigurazioneRisposta;
-				$scope.addToPreferiti($scope.getTempConfigurazione());//aggiunge ai preferiti locali
+				//$scope.addToPreferiti($scope.getTempConfigurazione());//aggiunge ai preferiti locali
 				$scope.hideLoader();
 				if($scope.getTempConfigurazione().carrello){
-					$scope.addToCarrello($scope.getTempConfigurazione());//aggiunge ai preferiti locali
+					//$scope.addToCarrello($scope.getTempConfigurazione());//aggiunge ai preferiti locali
 					$scope.changePath('/carrello');
 				}
+				$scope.ricaricaListe($scope.getUserEmail(), "", true);
 			},
 			function (reason){
 				console.log(reason);

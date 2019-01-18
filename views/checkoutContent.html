@@ -10,7 +10,7 @@
                 
                 <h4 class="title-tertiary ">Informazioni di contatto e consegna</h4>
                 <hr>
-                <div class="hidden">
+                <div>
                     <form>
                         <div class="row">
                             <div class="col-sm-6">
@@ -38,8 +38,6 @@
                                 </div>
                             </div>
                         </div>
-                        
-                    
                         <div class="form-group">
                             <label for="inputNome" class="sr-only hidden"></label>
                             <input ng-model="nomeSpe" type="text" class="form-control" id="nomeSpe" placeholder="Nome completo">
@@ -97,7 +95,7 @@
 	                                <h5 class="" style="text-transform: uppercase">{{conf.nome}}</h5>
 	                                <span>Colore : {{getColoreConf(conf)}}<br>Iniziali: {{getInizialiConf(conf)}}</span>
 	                                <span class="single-price">{{calcolaPrezzo(conf)}}&euro;</span>
-	                                <p ng-click="eliminaDaOrdine(conf)" class="remove">elimina <small><i class="unaicon-remove"></i></small></p>
+	                                <!-- <p ng-click="eliminaDaOrdine(conf)" class="remove">elimina <small><i class="unaicon-remove"></i></small></p> -->
 	                            </div>          
 	                        </div>
                         </div>
@@ -121,10 +119,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="order-buttons top-buffer text-center">
+                    <div class="order-buttons top-buffer text-center" ng-show="canBuy()">
                         <!--<a href="#" class="btn btn-action btn-lg btn-block" ng-click="setCheckout()" style="width:auto;">Completa l'ordine</a>-->
                         <paypal-content info=conf></paypal-content>
                         <img src="images/paypal-choice.png" style="max-width: 250px; margin-top: 20px;">
+                    </div>
+                    <div class="order-buttons top-buffer text-center" ng-hide="canBuy()">
+                        <span class="single-price"><b>Non si puo' procedere all'acquisto, mancano i dati di spedizione</b></span>
                     </div>
                 </div>
             </div>

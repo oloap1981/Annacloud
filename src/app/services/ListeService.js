@@ -4,7 +4,7 @@ angular.module("applicationModule").service("listeService", ["$http", "UtilFunct
 	this.urlGetServiceNode = 'https://ig24v3ii6b.execute-api.eu-central-1.amazonaws.com/unaDunaGetAccessori';
 	this.urlPostService = "https://i51umjhba2.execute-api.eu-central-1.amazonaws.com/unadunaPost";
 	this.urlDeleteService ="https://gtjby1j5oi.execute-api.eu-central-1.amazonaws.com/UnadunaDelete";
-	this.urlOtherService ="https://ln3p02wb0f.execute-api.eu-central-1.amazonaws.com/BeautifulVinoOther";
+	this.urlOtherService ="https://779m9s40ij.execute-api.eu-central-1.amazonaws.com/UnaDunaOther";
 	this.tipiAccessoriList = [];
 	this.accessoriesList = [];
 	
@@ -14,23 +14,6 @@ angular.module("applicationModule").service("listeService", ["$http", "UtilFunct
 	
 	this.addAllAccessories = function(data){
 		accessoriesList = data;
-	};
-	
-	this.getTipiAccessoriRemote = function(modelName){
-		//parametri di chiamata
-		var data = UtilFunctionMessagesCreator.getTipiAccessoriMessage(modelName);
-		
-		//configurazioni di chiamata
-		var config = {
-		      headers : {
-		          'Content-Type': 'application/json'
-		      }
-		  };
-			  
-		//GESTIRE CASO DI ERRORE
-	    $http.post("https://tnpklinhf1.execute-api.eu-central-1.amazonaws.com/util_function_stage", data, config).then(function (res) {
-	    	 	this.tipiAccessoriList = res.data.accessori;
-	    });
 	};
 	
 	this.getModelli = function(){

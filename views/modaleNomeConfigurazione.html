@@ -1,11 +1,11 @@
 <div class="modal-header ">
     <button type="button" class="close hidden" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h4 class="modal-title">Dai un nome alla tua configurazione</h4>
+    <h4 class="modal-title">{{avviso}}</h4>
 </div>
 <div class="modal-body">
     <div class="form-group">
         <label for="nome" class="sr-only hidden"></label>
-        <input ng-model="nome" type="text" class="form-control" id="nome" placeholder="Nome">
+        <input ng-model="nome" type="text" class="form-control" id="nome" placeholder="Nome" value="{{vecchioNome}}">
     </div>
 </div>
 <div class="modal-footer">

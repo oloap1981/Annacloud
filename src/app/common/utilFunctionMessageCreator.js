@@ -34,6 +34,13 @@ angular.module("applicationModule").service("UtilFunctionMessagesCreator", funct
 		return message;
 	};
 	
+	this.getConfigurazioniPreconfigurateMessage = function(){
+		var message = {};
+		message.functionName = "UnaDunaGetConfigurazioniPreconfigurate";
+		message.ifCarrello = false;
+		return message;
+	};
+
 	this.getCarrelloUtenteMessage = function(codiceUtente){
 		var message = {};
 		message.functionName = "UnaDunaGetConfigurazioniUtente";
