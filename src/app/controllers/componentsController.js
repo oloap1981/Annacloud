@@ -87,6 +87,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 	$scope.carrello = [];
 	$scope.preferiti = [];
 	$scope.ordineInCorso = null;
+	$scope.preconfigurati = [];
 
 	$scope.tempConfigurazione = null;
 	
@@ -219,6 +220,10 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		return $scope.carrello.length;
 	};
 
+	$scope.getPreconfigurati = function(){
+		return $scope.preconfigurati;
+	};
+
 	$scope.getPreferiti = function(){
 		return $scope.preferiti;
 	};
@@ -322,6 +327,12 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 			if(page != null && page != undefined && page != ""){
 				$scope.changePath(page);
 			}
+		});
+	};
+
+	$scope.caricaListePreconfigurati = function(email, page, showLoader){
+		listeService.getConfigurazioniPreconfigurate().then(function(data){
+			$scope.preconfigurati = data.data.configurazioni;
 		});
 	};
 
@@ -576,6 +587,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 	};
 	
 	$scope.wowInit = function(config){
+		$scope.caricaListePreconfigurati();
 		if(config){
 			new WOW(config).init();
 		} else {

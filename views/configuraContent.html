@@ -26,8 +26,15 @@
 			</ul>
 			<h1 class="navbar-brand navbar-left nomargin hidden-xs hidden" id="edit-text">Borsa #1</h1>
 			<ul class="nav navbar-nav fixed-navbar-right">
-				
-				<li ng-show="user==null">
+				<li ng-show="contr.isLogged()" class="utente">
+					<a href="javascript:void(0)" id="user-menu" data-toggle="dropdown"><i class="unaicon-login"></i> <span class="hidden-xs"></span></a>
+					<ul class="dropdown-menu" aria-labelledby="user-menu">
+						<li><a href="#!/ordini">I tuoi Ordini</a></li>
+						<li><a href="#!/profilo">Profilo</a></li>
+						<li><a href="#!/logout" ng-click="logOut()">Esci</a></li>
+					</ul>
+				</li>
+				<li ng-show="!contr.isLogged()">
 					<a href="#!/accedi" id="user-menu" ng-click="setAccesso()"><i class="unaicon-login"></i> <span class="hidden-xs">accedi</span></a>
 			
 				</li>
@@ -56,9 +63,9 @@
 			<div></div>
 		</div>
 	</div>
-	<a href="javascript:void(0);" id="openZoom"><i class="unaicon-zoom"></i></a>
+	<a href="javascript:void(0);" id="openZoom" ng-click="contr.openZoom()"><i class="unaicon-zoom"></i></a>
 	<div class="zoom">
-		<button id="closeZoom"><i class="unaicon-remove"></i></button>
+		<button id="closeZoom" ng-click="contr.closeZoom()"><i class="unaicon-remove"></i></button>
 		<div class="zoomHolder">
 			<img data-src="" id="pz" data-elem="pinchzoomer" data-options="scaleMode:proportionalInside;maxZoom:2;initZoom:1.5;doubleTapZoom:2;force3D:true;appendControls:true;appendControlHolder:true">
 			<div class="controlHolder" data-elem="controlHolder">
@@ -73,8 +80,13 @@
 		<hr>
 		<h3 class="total-price ">{{contr.priceManager.price}}&euro;</h3>
 		<p class="price-detail">22% IVA inclusa,<br>spese di sped. escluse</p>
-		<a href="javascript:void(0);" class="btn btn-default btn-block" ng-click="contr.aggiungiAlCarrello()">Acquista</a>
-		<a href="javascript:void(0);" style="padding-top: 5px; display: block;"  ng-click="contr.aggiungiAiPreferiti()"><small>salva</small></a>
+		<div ng-if="contr.isLogged()">
+			<a href="javascript:void(0);" class="btn btn-default btn-block" ng-click="contr.aggiungiAlCarrello()">Acquista</a>
+			<a href="javascript:void(0);" style="padding-top: 5px; display: block;"  ng-click="contr.aggiungiAiPreferiti()"><small>salva</small></a>
+		</div>
+		<div ng-if="!contr.isLogged()">
+			<a href="javascript:void(0);" style="padding-top: 5px; display: block;"  ng-click="contr.salvaTempELogin()"><small>Login per salvare</small></a>
+		</div>
 	</div>
 	<div id="canvasWrapper">
 		<div id="a-middle" class="spinnerContainer">
@@ -148,7 +160,7 @@
 										<img ng-src="{{entita.urlThumbnail}}" class="swiper-lazy thumb-colori"/>
 										<div ng-if="removable" class="closeItem"><i class="unaicon-remove"></i></div>
 									</a>
-									<span class="itemName" style="">{{traduciNomiInterfaccia(entita)}}</span>
+									<span class="itemName">{{traduciNomiInterfaccia(entita)}}</span>
 								</slide>
 							</slides>
 							<prev></prev>
@@ -359,13 +371,19 @@
 				<div class="col-xs-4 text-center" style="padding-right:5px;">
 					<h3 class="price nomargin">{{contr.priceManager.price}}&euro;</h3>
 				</div>
-				<div class="col-xs-4 text-center" style="padding:0px;">
-					<a href="javascript:void(0);" class="btn btn-default" ng-click="contr.aggiungiAlCarrello()">Acquista</a>
+				<div ng-if="contr.isLogged()">
+					<div class="col-xs-4 text-center" style="padding:0px;">
+						<a href="javascript:void(0);" class="btn btn-default" ng-click="contr.aggiungiAlCarrello()">Acquista</a>
+					</div>
+					<div class="col-xs-4 text-center" style="padding-left:5px;">
+						<a href="javascript:void(0);" class="btn" ng-click="contr.aggiungiAiPreferiti()">Salva</a>
+					</div>
 				</div>
-				<div class="col-xs-4 text-center" style="padding-left:5px;">
-					<a href="javascript:void(0);" class="btn" ng-click="contr.aggiungiAiPreferiti()">Salva</a>
+				<div ng-if="!contr.isLogged()">
+					<div class="col-xs-4 text-center" style="padding-left:5px;">
+						<a href="javascript:void(0);" class="btn" ng-click="contr.salvaTempELogin()">Login per salvare</a>
+					</div>
 				</div>
-					
 			</div>
 			<div class="row info ">
 				<div class="col-sm-12 text-center clearfix">

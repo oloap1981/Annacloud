@@ -1,4 +1,4 @@
-angular.module("applicationModule").service("loginService", ["$http" , "$q", function($http, $q) {
+angular.module("applicationModule").service("loginService", function($q) {
 	
     this.userPool = null;
 	this.cognitoUser = null;
@@ -86,7 +86,8 @@ angular.module("applicationModule").service("loginService", ["$http" , "$q", fun
 	    var deferred = $q.defer();
 	    userPool.signUp(username, password, attributeList, null, function(err, result){
 	        if (err) {
-	            deferred.reject (err);
+				deferred.reject (err);
+				alert("Errore durante registrazione: " + err.message);
 	            return;
 	        }
 	        cognitoUser = result.user;
@@ -346,4 +347,4 @@ angular.module("applicationModule").service("loginService", ["$http" , "$q", fun
 	    return deferred.promise;
 	};
 	
-}]);
+});

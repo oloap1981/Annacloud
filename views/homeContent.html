@@ -1,4 +1,4 @@
-<div class="home-content wow" ng-init="wowInit({boxClasses:'home-content wow'})">
+<div class="home-content wow" ng-controller="homeController" ng-init="wowInit({boxClasses:'home-content wow'})">
 	<div class="jumbotron quote-section page-header index wow fadeIn hidden visible-xs" data-wow-delay="0.1s">
 		<div class="container">
 			<h2 class="title wow fadeIn" data-wow-delay="1s">Abbiamo innovato il concetto di borsa<br>
@@ -114,10 +114,15 @@
 				<p class="subtitle">Abbiamo scelto delle <b>speciali configurazioni</b> per te, ma puoi costruire <b>la tua borsa unica</b><br>nel nostro configuratore</p>
 			</div>
 		</div>
-		<div class="row top-buffer ">
+		<div class="row top-buffer " ng-if="getPreconfigurati().length != 0" >
 			<section class="swipe swipe-featured">
 				<swiper class="" grab-cursor="true" keyboard-control="true" slides-per-view="4" breakpoints="{ &quot;320&quot;: { &quot;slidesPerView&quot;: &quot;2&quot; },  &quot;480&quot;: { &quot;slidesPerView&quot;: &quot;3&quot; },  &quot;768&quot;: { &quot;slidesPerView&quot;: &quot;3&quot; },  &quot;992&quot;: { &quot;slidesPerView&quot;: &quot;4&quot; },  &quot;1200&quot;: { &quot;slidesPerView&quot;: &quot;4&quot; }}">
 					<slides>
+
+						<slide ng-repeat="conf in getPreconfigurati()"><a href="javascript:void(0);" class="bag-box home-content wow fadeIn" data-wow-delay="0.4s" ng-click="modificaConfig(conf)"><div class="img-container"><img ng-src="{{conf.thumbnail}}" /></div><span>{{conf.nome}}</span></a></slide>
+<!-- 									
+
+
 						<slide ><a href="javascript:void(0);" class="bag-box home-content wow fadeIn" data-wow-delay="0.4s"><div class="img-container"><img src="images/atelier-test-1.png" /></div><span>Crossbody #1</span></a></slide>
 						<slide ><a href="javascript:void(0);" class="bag-box home-content wow fadeIn" data-wow-delay="0.4s"><div class="img-container"><img src="images/atelier-test-3.png" /></div><span>Crossbody #1</span></a></slide>
 						<slide ><a href="javascript:void(0);" class="bag-box home-content wow fadeIn" data-wow-delay="0.4s"><div class="img-container"><img src="images/atelier-test-2.png" /></div><span>Crossbody #1</span></a></slide>
@@ -126,7 +131,7 @@
 						<slide ><a href="javascript:void(0);" class="bag-box home-content wow fadeIn" data-wow-delay="0.4s"><div class="img-container"><img src="images/atelier-test-3.png" /></div><span>Crossbody #1</span></a></slide>
 						<slide ><a href="javascript:void(0);" class="bag-box home-content wow fadeIn" data-wow-delay="0.4s"><div class="img-container"><img src="images/atelier-test-1.png" /></div><span>Crossbody #1</span></a></slide>
 						<slide ><a href="javascript:void(0);" class="bag-box home-content wow fadeIn" data-wow-delay="0.4s"><div class="img-container"><img src="images/atelier-test-2.png" /></div><span>Crossbody #1</span></a></slide>
-						<slide ><a href="javascript:void(0);" class="bag-box home-content wow fadeIn" data-wow-delay="0.4s"><div class="img-container"><img src="images/atelier-test-3.png" /></div><span>Crossbody #1</span></a></slide>
+						<slide ><a href="javascript:void(0);" class="bag-box home-content wow fadeIn" data-wow-delay="0.4s"><div class="img-container"><img src="images/atelier-test-3.png" /></div><span>Crossbody #1</span></a></slide> -->
 						</slides>
 						
 					<next></next>

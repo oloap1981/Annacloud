@@ -61,7 +61,6 @@
 							</li>
 							<li ng-show="user==null" class="utente">
 								<a href="#!/accedi" id="user-menu" ><i class="unaicon-login"></i> <span class="hidden-xs">accedi</span></a>
-								
 							</li>
 							<li class="favoriti">
 								<a href="#!/preferiti" ><i class="unaicon-favourite"></i> <span class="hidden-xsx">({{preferiti.length}})</span></a>
@@ -265,10 +264,10 @@
 	</div>
 
 
-	
+	<!-- <script src="http://code.jquery.com/jquery-2.2.4.js"></script> -->
 	<!-- build:js js/vendor.js -->
 	<script src="node_modules/angular/angular.min.js"></script>
-	<script src="node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="node_modules/jquery/dist/jquery.js"></script>
 	<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="node_modules/angular-ui-swiper/dist/angular-ui-swiper.js"></script>
 	<script src="node_modules/angular-jwt/dist/angular-jwt.min.js"></script>
@@ -279,7 +278,8 @@
 	<script src="node_modules/angular-route/angular-route.min.js"></script>
 	<script src="node_modules/angular-material/angular-material.min.js"></script>
 	<script src="node_modules/html2canvas/dist/html2canvas.min.js"></script>
-	<script src="node_modules/spritespin/release/spritespin.min.js"></script>
+	<script src="node_modules/html2canvas/dist/html2canvas.js"></script>
+	<!-- <script src="node_modules/spritespin/release/spritespin.min.js"></script> -->
 	<script src="node_modules/wow.js/dist/wow.min.js"></script>
 	<script src="node_modules/aws-sdk/dist/aws-sdk.min.js"></script>
 	<script src="node_modules/amazon-cognito-identity-js/dist/amazon-cognito-identity.min.js"></script>
@@ -287,6 +287,8 @@
 	
 	<script src="src/lib/jquery.mCustomScrollbar.concat.min.js"></script>
 	<script src="src/lib/jquery.mousewheel.js"></script>
+	<script src="src/lib/html2canvas.js"></script>
+	<script src="src/lib/spritespin.js"></script>
 	<script src="src/lib/custom.js"></script>
     <script src="src/lib/TweenMax.js"></script>
 	<script src="src/lib/featherlight.js"></script>
@@ -325,6 +327,7 @@
 	<script src="src/app/controllers/checkoutController.js"></script>
 	<script src="src/app/controllers/paypalController.js"></script>
 	<script src="src/app/controllers/bagsConfiguratorController.js"></script>
+	<script src="src/app/controllers/homeController.js"></script>
 	<!-- endbuild -->
 
     <style type="text/css">

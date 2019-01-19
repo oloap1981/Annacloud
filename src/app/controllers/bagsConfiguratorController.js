@@ -216,6 +216,9 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		//preparo la mappa che ha chiave = entita.nome - valore = entita
 		//fadeout del componente
 		if(tipoAccessorio == "tracolle"){
+			$scope.scegliColore = false;
+			$scope.scegliMetallo = false;
+			$scope.scegliEmboss = false;
 			if($scope.tipoTracollaSelezionata == ""){
 				$scope.tipoEntitaSelezionata = "tipi-tracolle";
 			} else{
@@ -223,6 +226,9 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			} 
 			
 		} else if(tipoAccessorio == "ciondoli"){
+			$scope.scegliColore = false;
+			$scope.scegliMetallo = false;
+			$scope.scegliEmboss = false;
 			if($scope.tipoCiondoloSelezionato == ""){
 				$scope.tipoEntitaSelezionata = "tipi-ciondoli";
 			} else {
@@ -503,10 +509,8 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			$scope.embossSelezionato = false;
 			$scope.mapEmboss = new Map();
 
-			$scope.coloreVincolante = "black";//scellgo il nero come colore vincolante di default
 			$scope.scegliColore = true;
-
-			$scope.metalloVincolante = "argento";
+			
 			$scope.mapMetalloTracolle = new Map();
 			$scope.mapMetalloCiondoli = new Map();
 			$scope.mapMetalloBorchie = new Map();
@@ -536,6 +540,8 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			configController.aggiungiElementoAStackNoConfig($scope.metalleriaObbligatoria, 3, false);
 			
 			configController.caricaConfigurazioneElencoEntita();
+			$scope.coloreVincolante = configController.getColoreVincolante($scope.configurazione);//scellgo il nero come colore vincolante di default
+			$scope.metalloVincolante = configController.getMetalloVincolante($scope.configurazione);
 		});
 	};
 
@@ -650,6 +656,28 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		}
 		return false;
 	};
+
+	configController.getMetalloVincolante = function(config) {
+
+		var metalloVincolante = "argento";
+		for(var i = 0; i < config.elencoEntita.length; i++){
+			if(config.elencoEntita[i].categoria == "metalleria"){
+				metalloVincolante = config.elencoEntita[i].metallo;
+			}
+		}
+		return metalloVincolante;
+	}
+
+	configController.getColoreVincolante = function(config) {
+
+		var coloreVincolante = "black";
+		for(var i = 0; i < config.elencoEntita.length; i++){
+			if(config.elencoEntita[i].categoria == "colore"){
+				coloreVincolante = config.elencoEntita[i].colore;
+			}
+		}
+		return coloreVincolante;
+	}
 
 	configController.normalizzaStringheMetallo = function(daNormalizzare){
 		var result = daNormalizzare;
@@ -1097,7 +1125,8 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			$scope.dataUrl = $('#spritespin').data("spritespin").canvas[0].toDataURL();
 		}
 
-		// mergeImages(cleanStack).then(b64 => {
+		configController.salvaConfigurazioneTemporanea();
+
 		mergeImages(cleanStack).then(function(b64) {
 			dataSourceString = b64;
 			var dataSpin = {
@@ -1397,9 +1426,6 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 	configController.getSymbolEnabled = function(){
 		return $scope.symbolEnabled;
 	};
-	/*
-	 * FINE ---- SEZIONE RELATIVA ALLA GESTIONE DELLE LETTERE E DEI SIMBOLI 
-	 * */
 	
 	configController.ordinaModelli = function(modelliNonOrdinati){
 
@@ -1425,6 +1451,13 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		if($scope.configurazione){
 			configController.salvaConfigurazione(false);
 		}	
+	};
+
+	configController.salvaTempELogin = function () {
+		configController.salvaConfigurazioneTemporanea();
+
+		$scope.setNextPath("/configura");
+		$scope.changePath('/accedi');
 	};
 
 	configController.salvaConfigurazione = function(isCarrello){
@@ -1468,30 +1501,34 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 							$scope.hideLoader();
 						} else {
 							$scope.configurazione.thumbnail = res2.data.imageUrl;
-							$scope.setTempConfigurazione($scope.configurazione);
+							$scope.configurazione.tipo = "N";
+							configController.assegnaUtenteAConfigurazione();
+
+							var configDaSalvare = configController.salvaConfigurazioneTemporanea();
 			
-							//controllo se si è loggati
-							var isLogged = loginService.isLoggedIn();
-							if(!isLogged){
-								//devo fare il login e poi salvare
-								$scope.hideLoader();
-								$scope.setNextPath("/preferiti");
-								$scope.changePath('/accedi');//verificare ceh succede
-							} else {
-								var arrayIniziali = configController.generateArrayEntitaIniziali();
-								var elencoEntita = $scope.configurazione.elencoEntita;
-			
-								var elencoTotaleEntita = elencoEntita.concat(arrayIniziali);
-								$scope.configurazione.elencoEntita = elencoTotaleEntita;
-			
-								$scope.hideLoader();
-								$scope.openConfigNameModal($scope.configurazione.nome);
-							}
+							$scope.hideLoader();
+							$scope.openConfigNameModal(configDaSalvare.nome);
 						}
 					});
-				
 			};
 		});
+	};
+
+	configController.salvaConfigurazioneTemporanea = function(){
+		var arrayIniziali = configController.generateArrayEntitaIniziali();
+		var elencoEntita = $scope.configurazione.elencoEntita;
+
+		var elencoTotaleEntita = elencoEntita.concat(arrayIniziali);
+		$scope.configurazione.elencoEntita = elencoTotaleEntita;
+
+		var configurazioneNormalizzata = configController.normalizeConfig($scope.configurazione);
+		$scope.setTempConfigurazione(configurazioneNormalizzata);
+
+		return configurazioneNormalizzata;
+	};
+
+	configController.isLogged = function(){
+		return loginService.isLoggedIn();
 	};
 
 	configController.initConfigurazione = function() {
@@ -1501,7 +1538,9 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		$scope.configurazione.nome = "";
 		$scope.configurazione.carrello = 0;
 		$scope.configurazione.elencoEntita = [];
+	};
 
+	configController.assegnaUtenteAConfigurazione = function(){
 		var userInSession = $scope.getUser();
 		var user = {};
 		if(userInSession != null){
@@ -1511,6 +1550,32 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			user.email = email;
 		}
 		$scope.configurazione.utente = user;
+	};
+
+	configController.normalizeConfig = function(config){
+
+		var normalizedConfig = config;
+		var elencoEntitaDaNormalizzare = config.elencoEntita;
+
+		for(var i=0; i < elencoEntitaDaNormalizzare.length; i++){
+			var urlDaNormalizzare = elencoEntitaDaNormalizzare[i].url;
+			urlDaNormalizzare = urlDaNormalizzare.replace("560","RES");
+			urlDaNormalizzare = urlDaNormalizzare.replace("720","RES");
+			urlDaNormalizzare = urlDaNormalizzare.replace("960","RES");
+			urlDaNormalizzare = urlDaNormalizzare.replace("1920","RES");
+			urlDaNormalizzare = urlDaNormalizzare.replace("MODELLO",$scope.modelloSelezionato);
+			elencoEntitaDaNormalizzare[i].url = urlDaNormalizzare;
+
+			var urlStripeDaNormalizzare = elencoEntitaDaNormalizzare[i].urlStripe;
+			urlStripeDaNormalizzare = urlStripeDaNormalizzare.replace("560","RES");
+			urlStripeDaNormalizzare = urlStripeDaNormalizzare.replace("720","RES");
+			urlStripeDaNormalizzare = urlStripeDaNormalizzare.replace("960","RES");
+			urlStripeDaNormalizzare = urlStripeDaNormalizzare.replace("1920","RES");
+			urlStripeDaNormalizzare = urlStripeDaNormalizzare.replace("MODELLO",$scope.modelloSelezionato);
+			elencoEntitaDaNormalizzare[i].url = urlStripeDaNormalizzare;
+		}
+		normalizedConfig.elencoEntita = elencoEntitaDaNormalizzare;
+		return normalizedConfig;
 	};
 
 	configController.initConfiguratore = function(){
@@ -1527,6 +1592,10 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 				if(configurazione != null && configurazione != undefined){
 					//c'è già una configurazione presente in locale, la vado a caricare
 					$scope.configurazione = configurazione;
+					if(configurazione.tipo === "P"){
+						//se è preconfigurata, tolgo l'id in modo che quando la salvo risulti nuova
+						configurazione.codice = "";
+					}
 					configController.caricaConfigurazioneModello();
 					configController.ricaricaPrezzo();
 				} else {
@@ -1548,38 +1617,40 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 
 		$("#pz").pinchzoomer();
 
-		var pz = PinchZoomer.get("pz");
+		// var pz = PinchZoomer.get("pz");
 
 		$('#canvasWrapper').parentResize();
+
 		// pulsanti apertura/chiusura zoom borsa
-		$('#openZoom').click(function() {
-			pz.zoom(1.4);
-			pz.y(-300);
-			pz.x(-70);
+		// $('#openZoom').click(function() {
+		// 	pz.zoom(1.4);
+		// 	pz.y(-300);
+		// 	pz.x(-70);
 			
-			// html2canvas(document.querySelector("#spritespin"), { async:false }).then(canvas => {
-			html2canvas(document.querySelector("#spritespin"), { async:false }).then( function(canvas) {
-				$("#loader").show();
-				var dataUrl = canvas.toDataURL();
-				$("#pz").attr("src", dataUrl);
-				$("#pz").load();
-				$('.zoom').css({'z-index':'10'}).animate({opacity: '1'});	
-				var spriteSpinAPI = $('#spritespin').spritespin('api');
-				$("#loader").fadeOut("slow");
-				configController.caricaZoom(spriteSpinAPI.currentFrame());//CARICO LO ZOOM AD ALTA RISOLUZIONE
-			});
-		});
-		$('#closeZoom').click(function() {
-			$('.zoom').animate(
-				{
-					opacity: 0
-				}, 
-				{
-					complete: function(){ 
-						$(this).css({'z-index': '0'}); 
-					}
-				});
-		});
+		// 	html2canvas(document.querySelector("#spritespin"), { async:false }).then(canvas => {
+		// 	// html2canvas(document.querySelector("#spritespin"), { async:true }).then( function(canvas) {
+		// 		$("#loader").show();
+		// 		var dataUrl = canvas.toDataURL();
+		// 		$("#pz").attr("src", dataUrl);
+		// 		$("#pz").load();
+		// 		$('.zoom').css({'z-index':'10'}).animate({opacity: '1'});	
+		// 		var spriteSpinAPI = $('#spritespin').spritespin('api');
+		// 		$("#loader").fadeOut("slow");
+		// 		configController.caricaZoom(spriteSpinAPI.currentFrame());//CARICO LO ZOOM AD ALTA RISOLUZIONE
+		// 	});
+		// });
+
+		// $('#closeZoom').click(function() {
+		// 	$('.zoom').animate(
+		// 		{
+		// 			opacity: 0
+		// 		}, 
+		// 		{
+		// 			complete: function(){ 
+		// 				$(this).css({'z-index': '0'}); 
+		// 			}
+		// 		});
+		// });
 
 		/* edito il nome della borsa nel configuratore *DA COMPLETARE* */
 		$('#edit-text').click(function() {
@@ -1655,4 +1726,40 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 
 		configController.priceManager.price = 0;		
 	};
+
+	configController.openZoom = function(){
+		var pz = PinchZoomer.get("pz");
+
+		pz.zoom(1.4);
+		pz.y(-300);
+		pz.x(-70);
+		
+		
+		// html2canvas(document.querySelector("#spritespin"), { async:false }).then(canvas => {
+		// html2canvas(document.querySelector("#spritespin"), { async:false }).then( function(canvas) {
+		html2canvas(document.querySelector("#spritespin")).then( function(canvas) {
+			$("#loader").show();
+			var dataUrl = canvas.toDataURL();
+			$("#pz").attr("src", dataUrl);
+			$("#pz").load();
+			$('.zoom').css({'z-index':'10'}).animate({opacity: '1'});	
+			var spriteSpinAPI = $('#spritespin').spritespin('api');
+			$("#loader").fadeOut("slow");
+			configController.caricaZoom(spriteSpinAPI.currentFrame());//CARICO LO ZOOM AD ALTA RISOLUZIONE
+		});
+
+	}
+
+	configController.closeZoom = function(){
+
+		$('.zoom').animate(
+			{
+				opacity: 0
+			}, 
+			{
+				complete: function(){ 
+					$(this).css({'z-index': '0'}); 
+				}
+			});
+	}
 });

@@ -1,6 +1,5 @@
 angular.module("applicationModule").controller("accessoController", ["$scope", "listeService", "loginService", "salvaUtenteService", function($scope, listeService, loginService, salvaUtenteService) {
 	
-	
 	$scope.remember = {
 		       value : true,
 		     };
@@ -86,8 +85,20 @@ angular.module("applicationModule").controller("accessoController", ["$scope", "
 					utente.cognome = cognome;
 
 					//alert di avviso
-					alert("Registrazione avvenuta con successo, adesso puoi effettuare il login con le credenziali inserite");
+					// alert("Registrazione avvenuta con successo, adesso puoi effettuare il login con le credenziali inserite");
+					$scope.openMessageModal("Registrazione avvenuta con successo, adesso puoi effettuare il login con le credenziali inserite");
 
+					//popolo il login per agevolare l'utente appena registrato
+					$scope.loginEmail = email;
+					$scope.loginPassword = password;
+
+					//svuoto i campi
+					$scope.nome = "";
+					$scope.cognome = "";
+					$scope.emailSign = "";
+					$scope.passwordSign = "";
+					$scope.passwordSignRep = "";
+					
 					//mail di avviso avvenuta registrazione
 					var message = {};
 
@@ -100,7 +111,8 @@ angular.module("applicationModule").controller("accessoController", ["$scope", "
 						function(res2){
 							if(res2.errorMessage != null && res2.errorMessage != ""){
 								console.log(res2.errorMessage);
-								alert("C'è stato un problema nell'invio della mail di conferma registrazione");
+								// alert("C'è stato un problema nell'invio della mail di conferma registrazione");
+								$scope.openMessageModal("C'è stato un problema nell'invio della mail di conferma registrazione");
 							} 
 						}
 					);

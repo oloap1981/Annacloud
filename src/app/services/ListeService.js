@@ -67,6 +67,17 @@ angular.module("applicationModule").service("listeService", ["$http", "UtilFunct
 		};
 		return $http.post(this.urlGetService, requestMessage, config);
 	};
+
+	this.getConfigurazioniPreconfigurate = function(){
+		var requestMessage = UtilFunctionMessagesCreator.getConfigurazioniPreconfigurateMessage();
+		var config = {
+			headers: {
+				'Content-Type': 'application/json',
+				'Authorization': loginService.getPostAccessToken()
+			}
+		};
+		return $http.post(this.urlGetService, requestMessage, config);
+	};
 	
 	this.getCarrelloUtente = function(codiceUtente){
 		var requestMessage = UtilFunctionMessagesCreator.getCarrelloUtenteMessage(codiceUtente);
