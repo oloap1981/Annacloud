@@ -12319,6 +12319,9 @@ table {
   width: 100%;
 }
 
+/*label {
+    //font-family: $font-family-sans-serif-title;
+}*/
 input {
   padding: 5px;
   font-size: 1.5em;
@@ -12662,6 +12665,9 @@ a.link {
   bottom: 40%;
 }
 
+/*.modal-content {
+    //text-align: center;
+}*/
 .modal-header, .modal-body {
   padding-bottom: 0;
 }
@@ -12692,6 +12698,7 @@ a.link {
   left: 50%;
   transform: translate3d(-50%, -50%, 0);
 }
+
 /*-------------------------------*/
 /*  @group Header               */
 /*-------------------------------*/
@@ -12782,7 +12789,7 @@ a.link {
   margin-left: -1px;
 }
 .fixed-navbar-right li a {
-  line-height: 2em !important;
+  line-height: 2.2em !important;
   padding: 11px !important;
 }
 
@@ -12918,6 +12925,11 @@ a.link {
 }
 .main-site-navbar .navbar-collapse .navbar-nav.navbar-nav-flex::after {
   content: none;
+}
+.main-site-navbar .navbar-collapse .navbar-nav li.open a {
+                        /*&.secondary {
+
+                        }*/
 }
 .main-site-navbar .navbar-collapse .navbar-nav li.open a.primary {
   background-color: #fff !important;
@@ -13824,6 +13836,23 @@ a.link {
   background-color: #fff;
   color: gray;
   font-size: 1em;
+  /*&.summary {
+      p {
+          span{
+              display: inline-block;
+              width: 41%;
+              &:first-child{
+                  text-align:left;
+              }
+              &:last-child {
+                  text-align: right;
+              }
+              @media screen and (min-width: $screen-sm) {
+                  width: 47%;
+              }
+          }
+      }
+  }*/
 }
 .order-state.zero {
   z-index: 4;
@@ -13870,23 +13899,6 @@ a.link {
 }
 .order-state.pre-summary {
   font-size: 18px;
-}
-.order-state.summary {
-  /*p {
-      span{
-          display: inline-block;
-          width: 41%;
-          &:first-child{
-              text-align:left;
-          }
-          &:last-child {
-              text-align: right;
-          }
-          @media screen and (min-width: $screen-sm) {
-              width: 47%;
-          }
-      }
-  }*/
 }
 
 .shipment-info {
@@ -14321,6 +14333,8 @@ a.link {
   background-color: #fff;
   z-index: 10;
   text-align: center;
+  /*.name {
+  }*/
 }
 .configuratore #price-panel .size {
   margin: 10px 0 0;
@@ -15066,6 +15080,17 @@ footer .copyright {
   background: rgba(255, 255, 255, 0.8) !important;
 }
 
+.featherlight .featherlight-close-icon {
+  line-height: 50px !important;
+  width: 50px !important;
+  font-size: 50px !important;
+  font-family: 'unaduna' !important;
+  font-weight: 100 !important;
+  color: #ccc !important;
+  top: 10px !important;
+  right: 10px !important;
+}
+
 /*
 Fade content bs-carousel with hero headers
 Code snippet by maridlcrmn (Follow me on Twitter @maridlcrmn) for Bootsnipp.com
@@ -15214,6 +15239,29 @@ Image credits: unsplash.com
 /********************************/
 /*           ADMIN              */
 /********************************/
+.navbar.admin {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.navbar.admin .fixed-navbar-left {
+  font-family: "Montserrat", sans-serif;
+}
+.navbar.admin .fixed-navbar-left li {
+  border-right: solid 1px #ccc;
+}
+.navbar.admin .fixed-navbar-left li a {
+  padding-left: 40px !important;
+  padding-right: 40px !important;
+}
+.navbar.admin .fixed-navbar-right li {
+  border-left: solid 1px #ccc;
+}
+.navbar.admin .fixed-navbar-right li a {
+  padding-left: 40px !important;
+  padding-right: 40px !important;
+}
+
 .stage-label, .stage {
   background-color: #fafafa;
   border-right: solid 1px #ccc;
@@ -15313,6 +15361,9 @@ Image credits: unsplash.com
   background-position: center center;
   background-repeat: no-repeat;
 }
+.action a.save {
+  width: 25%;
+}
 .action a.precedente {
   background-image: url(../images/precedente.png);
 }
@@ -15331,6 +15382,12 @@ Image credits: unsplash.com
 }
 .ritardo .action a {
   border-color: #D90000;
+}
+
+.modal-body table * {
+  vertical-align: top;
+  text-align: left;
+  font-size: 16px;
 }
 
 /*# sourceMappingURL=styles.css.map */

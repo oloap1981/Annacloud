@@ -82,7 +82,7 @@
                 <div class="col-sm-4 action">
                     <div class="order-state  zero " ng-class="{'current': ord.stato == 0 }">In attesa di pagamento
                         <div ng-if="ord.stato == 0">
-                            <a href="javascript:void(0);" class="btn top-buffer btn-default" ng-click="getCheckout(ord)" style="width:auto;">Concludi l'acquisto</a>
+                            <a href="#" onclick="return false" class="btn top-buffer btn-default" ng-click="getCheckout(ord)" style="width:auto;">Concludi l'acquisto</a>
                         </div>
                     </div>
                     <div class="order-state  one " ng-class="{'current': ord.stato == 1 }">Ordinato</div>

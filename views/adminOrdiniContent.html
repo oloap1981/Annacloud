@@ -1,45 +1,16 @@
-<!DOCTYPE html>
-<html>
 
-<head>
-    <title>Anna Cloud</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-    <meta property="og:description" content="Configuratore Borse.">
-    <link media="screen" rel="stylesheet" type="text/css" href="stylesheets/styles.css">
-    <!--     <link media="screen" rel="stylesheet" type="text/css" href="stylesheets/swiper.css"> 
-    <link media="screen" rel="stylesheet" type="text/css" href="stylesheets/jquery.mCustomScrollbar.css">
-    <link media="screen" rel="stylesheet" type="text/css" href="stylesheets/pinchzoomer.css">
-    <link media="screen" rel="stylesheet" type="text/css" href="stylesheets/featherlight.css">-->
-    <link media="screen" rel="stylesheet" type="text/css" href="stylesheets/custom.css">
-    <!--[if lt IE 9]><script src="javascripts/html5shiv.js"></script><![endif]-->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Krub:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Bai+Jamjuree:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-    <base href="/" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#a87481">
-    <meta name="msapplication-TileColor" content="#a87481">
-    <meta name="theme-color" content="#a87481">
-</head>
-<body>
+<div ng-controller="administratorController as admin" ng-init="admin.initAdmin()">
     <div class="container-fluid no-padding" style="min-width: 1200px;">
-    <nav class="navbar  navbar-default  nomargin ">
+        <nav class="navbar navbar-default admin nomargin ">
             <ul class="nav navbar-nav fixed-navbar-left">
                 <li>
                     <a href="#!/home" class="link"><i class="fa fa-home hidden"></i><img src="images/logonew-big.png" class="hidden-xs" style="height: 25px;"><img src="images/logonew-mobile-conf-big.png" class=" visible-xs-inline-block" style="height: 15px"></a>
                 </li>
                 <li>
-                    <a href="javascript:void(0);" class="" >ORDINI</a>
+                    <a href="#" onclick="return false" class="" >ORDINI</a>
                 </li>
                 <li>
-                    <a href="admin-clienti.html" class="" >CLIENTI</a>
+                    <a href="#!/admin-clienti" class="" >CLIENTI</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav fixed-navbar-right">
@@ -65,7 +36,7 @@
                         <h4 class="item-data"><span>Ordine:</span>1544029763635<br><span>Data:</span>12/02/2019</h4>
                     </div>
                     <div class="action">
-                        <a href="#" class="dettagli">vedi dettagli</a><a href="javascript:void(0)" class="precedente off">&lt;</a><a href="#" class="successivo">&gt;</a>
+                        <a href="javascript:void(0)" ng-click="openSchedaOrdine()" class="dettagli">vedi dettagli</a><a href="javascript:void(0)" class="precedente off">&lt;</a><a href="javascript:void(0)" class="successivo">&gt;</a>
                     </div>
                 </div>
                 <div class="ordine">
@@ -74,7 +45,7 @@
                         <h4 class="item-data"><span>Ordine:</span>1544029763635<br><span>Data:</span>12/02/2019</h4>
                     </div>
                     <div class="action">
-                        <a href="#" class="dettagli">vedi dettagli</a><a href="javascript:void(0)" class="precedente off">&lt;</a><a href="#" class="successivo">&gt;</a>
+                        <a href="javascript:void(0)" ng-click="openSchedaOrdine()" class="dettagli">vedi dettagli</a><a href="javascript:void(0)" class="precedente off">&lt;</a><a href="javascript:void(0)" class="successivo">&gt;</a>
                     </div>
                 </div>
                 <div class="ordine">
@@ -83,7 +54,7 @@
                         <h4 class="item-data"><span>Ordine:</span>1544029763635<br><span>Data:</span>12/02/2019</h4>
                     </div>
                     <div class="action">
-                        <a href="#" class="dettagli">vedi dettagli</a><a href="javascript:void(0)" class="precedente off">&lt;</a><a href="#" class="successivo">&gt;</a>
+                        <a href="javascript:void(0)" class="dettagli">vedi dettagli</a><a href="javascript:void(0)" class="precedente off">&lt;</a><a href="javascript:void(0)" class="successivo">&gt;</a>
                     </div>
                 </div>
                 <div class="ordine">
@@ -92,7 +63,7 @@
                         <h4 class="item-data"><span>Ordine:</span>1544029763635<br><span>Data:</span>12/02/2019</h4>
                     </div>
                     <div class="action">
-                        <a href="#" class="dettagli">vedi dettagli</a><a href="javascript:void(0)" class="precedente off">&lt;</a><a href="#" class="successivo">&gt;</a>
+                        <a href="javascript:void(0)" class="dettagli">vedi dettagli</a><a href="javascript:void(0)" class="precedente off">&lt;</a><a href="javascript:void(0)" class="successivo">&gt;</a>
                     </div>
                 </div>
                 <div class="ordine">
@@ -101,7 +72,7 @@
                         <h4 class="item-data"><span>Ordine:</span>1544029763635<br><span>Data:</span>12/02/2019</h4>
                     </div>
                     <div class="action">
-                        <a href="#" class="dettagli">vedi dettagli</a><a href="javascript:void(0)" class="precedente off">&lt;</a><a href="#" class="successivo">&gt;</a>
+                        <a href="javascript:void(0)" class="dettagli">vedi dettagli</a><a href="javascript:void(0)" class="precedente off">&lt;</a><a href="javascript:void(0)" class="successivo">&gt;</a>
                     </div>
                 </div>
                 <div class="ordine">
@@ -110,7 +81,7 @@
                         <h4 class="item-data"><span>Ordine:</span>1544029763635<br><span>Data:</span>12/02/2019</h4>
                     </div>
                     <div class="action">
-                        <a href="#" class="dettagli">vedi dettagli</a><a href="javascript:void(0)" class="precedente off">&lt;</a><a href="#" class="successivo">&gt;</a>
+                        <a href="javascript:void(0)" class="dettagli">vedi dettagli</a><a href="javascript:void(0)" class="precedente off">&lt;</a><a href="javascript:void(0)" class="successivo">&gt;</a>
                     </div>
                 </div>
                 <div class="ordine">
@@ -119,7 +90,7 @@
                         <h4 class="item-data"><span>Ordine:</span>1544029763635<br><span>Data:</span>12/02/2019</h4>
                     </div>
                     <div class="action">
-                        <a href="#" class="dettagli">vedi dettagli</a><a href="javascript:void(0)" class="precedente off">&lt;</a><a href="#" class="successivo">&gt;</a>
+                        <a href="javascript:void(0)" class="dettagli">vedi dettagli</a><a href="javascript:void(0)" class="precedente off">&lt;</a><a href="javascript:void(0)" class="successivo">&gt;</a>
                     </div>
                 </div>
                 <div class="ordine">
@@ -128,7 +99,7 @@
                         <h4 class="item-data"><span>Ordine:</span>1544029763635<br><span>Data:</span>12/02/2019</h4>
                     </div>
                     <div class="action">
-                        <a href="#" class="dettagli">vedi dettagli</a><a href="javascript:void(0)" class="precedente off">&lt;</a><a href="#" class="successivo">&gt;</a>
+                        <a href="javascript:void(0)" class="dettagli">vedi dettagli</a><a href="javascript:void(0)" class="precedente off">&lt;</a><a href="javascript:void(0)" class="successivo">&gt;</a>
                     </div>
                 </div>
             </div>
@@ -139,7 +110,7 @@
                         <h4 class="item-data"><span>Ordine:</span>1544029763635<br><span>Data:</span>12/02/2019</h4>
                     </div>
                     <div class="action">
-                        <a href="#" class="dettagli">vedi dettagli</a><a href="javascript:void(0)" class="precedente off">&lt;</a><a href="#" class="successivo">&gt;</a>
+                        <a href="javascript:void(0)" class="dettagli">vedi dettagli</a><a href="javascript:void(0)" class="precedente">&lt;</a><a href="javascript:void(0)" class="successivo">&gt;</a>
                     </div>
                 </div>
                 <div class="ordine">
@@ -148,23 +119,32 @@
                         <h4 class="item-data"><span>Ordine:</span>1544029763635<br><span>Data:</span>12/02/2019</h4>
                     </div>
                     <div class="action">
-                        <a href="#" class="dettagli">vedi dettagli</a><a href="javascript:void(0)" class="precedente off">&lt;</a><a href="#" class="successivo">&gt;</a>
+                        <a href="javascript:void(0)" class="dettagli">vedi dettagli</a><a href="javascript:void(0)" class="precedente">&lt;</a><a href="javascript:void(0)" class="successivo">&gt;</a>
                     </div>
                 </div>
             </div>
-            <div class="col-xs-3 stage">asdasd</div>
-            <div class="col-xs-3 stage">asdasd</div>
+            <div class="col-xs-3 stage">
+                <div class="ordine">
+                    <div class="item clearfix">
+                        <img src="https://s3.eu-central-1.amazonaws.com/unaduna-images-bucket/1544711449915_crossbody.png">
+                        <h4 class="item-data"><span>Ordine:</span>1544029763635<br><span>Data:</span>12/02/2019</h4>
+                    </div>
+                    <div class="action">
+                        <a href="javascript:void(0)" class="dettagli">vedi dettagli</a><a href="javascript:void(0)" class="precedente">&lt;</a><a href="javascript:void(0)" class="successivo ">&gt;</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-3 stage">
+                <div class="ordine">
+                    <div class="item clearfix">
+                        <img src="https://s3.eu-central-1.amazonaws.com/unaduna-images-bucket/1544711449915_crossbody.png">
+                        <h4 class="item-data"><span>Ordine:</span>1544029763635<br><span>Data:</span>12/02/2019</h4>
+                    </div>
+                    <div class="action">
+                        <a href="javascript:void(0)" class="dettagli">vedi dettagli</a><a href="javascript:void(0)" class="precedente">&lt;</a><a href="javascript:void(0)" class="save"><i class="fa fa-floppy-o"></i></a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script>
-        var altezza = $(window).height() - $('.navbar').outerHeight() - 40;
-        $('.stage').outerHeight(altezza);
-        $(window).on('resize', function () {
-            var altezza = $(window).height() - $('.navbar').height() -40;
-            $('.stage').outerHeight(altezza);
-        });
-    </script>
-</body>
-</html>
+</div>

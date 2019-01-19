@@ -419,9 +419,9 @@ img {
 table {
     width: 100%;
 }
-label {
+/*label {
     //font-family: $font-family-sans-serif-title;
-}
+}*/
 input {
     padding: 5px;
     font-size: 1.5em;
@@ -772,9 +772,9 @@ a.link {
     top: auto;
     bottom: 40%;
 }
-.modal-content {
+/*.modal-content {
     //text-align: center;
-}
+}*/
 .modal-header, .modal-body{
     padding-bottom: 0;
 }
@@ -786,7 +786,7 @@ a.link {
     }
 }
 
-/* loader generale */@at-root
+/* loader generale */
 
 #loaderOverlay {
     position: absolute;
@@ -875,7 +875,7 @@ a.link {
     li {
         margin-left: -1px;
         a {
-            line-height: 2em !important;
+            line-height: 2.2em !important;
             padding: 11px !important;
         }
     }
@@ -1036,9 +1036,9 @@ a.link {
                                 border-color: $body-bg transparent transparent;
                             }
                         }
-                        &.secondary {
+                        /*&.secondary {
 
-                        }
+                        }*/
                     }
                 }
                 a.secondary {
@@ -1963,8 +1963,8 @@ a.link {
     &.pre-summary {
         font-size: 18px;
     }
-    &.summary {
-        /*p {
+    /*&.summary {
+        p {
             span{
                 display: inline-block;
                 width: 41%;
@@ -1978,8 +1978,8 @@ a.link {
                     width: 47%;
                 }
             }
-        }*/
-    }
+        }
+    }*/
 }
 
 .shipment-info {
@@ -2449,8 +2449,8 @@ a.link {
         background-color: #fff;
         z-index: 10;
         text-align: center;
-        .name {
-        }
+        /*.name {
+        }*/
         .size {
             margin: 10px 0 0;
         }
@@ -3228,6 +3228,18 @@ footer {
     background: rgba(255, 255, 255, .8) !important;
 }
 
+.featherlight .featherlight-close-icon {
+
+	line-height: 50px !important;
+    width: 50px !important;
+    font-size: 50px !important;
+    font-family: 'unaduna' !important;
+    font-weight: 100 !important;
+    color: #ccc !important;
+    top: 10px !important;
+    right: 10px !important;
+}
+
 
 
 
@@ -3375,6 +3387,33 @@ Image credits: unsplash.com
 /*           ADMIN              */
 /********************************/
 
+.navbar {
+    &.admin {
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        .fixed-navbar-left {
+            font-family: $font-family-sans-serif-title;
+            li {
+                border-right: solid 1px #ccc;
+                a {
+                    padding-left: 40px !important;
+                    padding-right: 40px !important;
+                }
+            }
+        }
+        .fixed-navbar-right {
+            //font-family: $font-family-sans-serif-title;
+            li {
+                border-left: solid 1px #ccc;
+                a {
+                    padding-left: 40px !important;
+                    padding-right: 40px !important;
+                }
+            }
+        }
+    }
+}
 .stage-label, .stage {
     background-color: #fafafa;
     border-right: solid 1px #ccc;
@@ -3449,6 +3488,7 @@ Image credits: unsplash.com
 
 .action {
     border-top: solid 1px #ccc;
+    
     .ritardo &{
         border-color: #D90000;
     }
@@ -3475,6 +3515,9 @@ Image credits: unsplash.com
             background-position: center center;
             background-repeat: no-repeat; 
         }
+         &.save {
+            width: 25%;
+        }
 
         &.precedente {
             background-image: url(../images/precedente.png);
@@ -3499,3 +3542,9 @@ Image credits: unsplash.com
     }
 }
 
+
+.modal-body table *{
+    vertical-align: top;
+    text-align: left;
+    font-size: 16px;
+}

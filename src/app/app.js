@@ -1,4 +1,4 @@
-var app = angular.module('applicationModule', ['ngAnimate', 'ui.swiper', 'ui.bootstrap', 'ngRoute', 'angular-jwt'])
+var app = angular.module('applicationModule', ['ngAnimate', 'ui.swiper', 'ui.bootstrap', 'ngRoute', 'angular-jwt', 'updateMeta'])
 .directive('paypalContent', function(){
 	return {
 		restrict: 'E',
@@ -14,8 +14,7 @@ var app = angular.module('applicationModule', ['ngAnimate', 'ui.swiper', 'ui.boo
 	   templateUrl: 'views/checkoutContent.html'
    };
 });
-app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
-	//$locationProvider.hashPrefix('');
+app.config(['$routeProvider', '$locationProvider', function($routeProvider) {
 	$routeProvider.
 	when('/', {
 		templateUrl: 'views/homeContent.html'
@@ -66,9 +65,16 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 	when('/404',  {
 		templateUrl: 'views/404.html'
 	}).
+	when('/admin-ordini', {
+		templateUrl: 'views/adminOrdiniContent.html'
+	}).
+	when('/admin-clienti', {
+		templateUrl: 'views/adminClientiContent.html'
+	}).
 	otherwise({
 		redirectTo: '/'
 	});
+	
 }]);
 app.config(['$compileProvider', function ($compileProvider) {
 	$compileProvider.debugInfoEnabled(false);

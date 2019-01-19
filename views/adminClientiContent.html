@@ -1,0 +1,74 @@
+
+<div ng-controller="administratorController as admin" ng-init="admin.initAdmin()">
+    <div class="container-fluid no-padding" style="min-width: 800px;">
+        <nav class="navbar navbar-default admin nomargin ">
+            <ul class="nav navbar-nav fixed-navbar-left">
+                <li>
+                    <a href="#!/home" class="link"><i class="fa fa-home hidden"></i><img src="images/logonew-big.png" class="hidden-xs" style="height: 25px;"><img src="images/logonew-mobile-conf-big.png" class=" visible-xs-inline-block" style="height: 15px"></a>
+                </li>
+                <li>
+                    <a href="#!/admin-ordini" class="">ORDINI</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" class="">CLIENTI</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav fixed-navbar-right">
+                <li class="">
+                    <a href="#!/accedi" id="user-menu"><i class="unaicon-login"></i> <span class="hidden-xs">Admin</span></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="container-fluid" style="min-width: 800px; max-width: 800px">
+    
+        <div class="row">
+            <div class="col-xs-6 stage-label">
+                <h3 class="Slabel">Cliente</h3>
+            </div>
+            <div class="col-xs-6 stage-label">
+                <h3 class="Slabel">Ordine</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6 stage">
+                <div class="ordine ">
+                    <div class="item clearfix">
+    
+                        <h4 class="item-data">Paolo Rossi (2 ordini)</h4>
+                    </div>
+                    <div class="action">
+                        <a href="javascript:void(0)" ng-click="openSchedaCliente()" style="width: 50%">vedi dettagli cliente</a><a href="javascript:void(0)" ng-click="openOrdiniCliente()" style="width: 50%">visualizza ordini&nbsp;&nbsp;</a>
+                    </div>
+                </div>
+                <div class="ordine ">
+                    <div class="item clearfix">
+                
+                        <h4 class="item-data">Paolo Rossi (2 ordini)</h4>
+                    </div>
+                    <div class="action">
+                        <a href="javascript:void(0)" ng-click="openSchedaCliente()" style="width: 50%">vedi dettagli cliente</a><a href="javascript:void(0)" ng-click="openOrdiniCliente()" style="width: 50%">visualizza ordini&nbsp;&nbsp;</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 stage">
+                <div class="ordine ">
+                    <div class="item clearfix">
+                        <h4 class="item-data"><span>Ordine:</span>1544029763635<br><span>Data:</span>12/02/2019</h4>
+                        <div class="action">
+                            <a href="javascript:void(0)" ng-click="openSchedaOrdine()" class="dettagli" style="width: 100%">vedi dettagli</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="ordine ">
+                    <div class="item clearfix">
+                        <h4 class="item-data"><span>Ordine:</span>1544029763635<br><span>Data:</span>12/02/2019</h4>
+                        <div class="action">
+                            <a href="javascript:void(0)" ng-click="openSchedaOrdine()" class="dettagli" style="width: 100%">vedi dettagli</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

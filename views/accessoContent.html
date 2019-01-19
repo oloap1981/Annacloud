@@ -1,4 +1,12 @@
 
+<update-title title="Annacloud.com - Accedi"></update-title>
+<update-meta http-equiv="Content-Language" content="es"></update-meta>
+<update-meta name="description" content="Descrizione"></update-meta>
+<update-meta property="og:title" content="Annacloud.com - Accedi"></update-meta>
+<update-meta property="og:description" content="Descrizione"></update-meta>
+<update-meta itemprop="description" content="Descrizione"></update-meta>
+<update-script content="structuredData" type="application/ld+json"></update-script>
+
 <div ng-controller="accessoController as accesso">
     
     <div class="container top-buffer bottom-buffer ">
@@ -20,7 +28,7 @@
                         <input ng-model="loginPassword" type="password" class="form-control" id="inputPassword" placeholder="Password">
                     </div>
                     <div class="checkbox">
-                        <label><input type="checkbox" ng-model="remember.value" class="js-switch"> Ricordami</label> <a href="javascript:void(0);">(?)</a>
+                        <label><input type="checkbox" ng-model="remember.value" class="js-switch"> Ricordami</label> <a href="#" onclick="return false">(?)</a>
                     </div>
                     <button ng-click="login(loginEmail, loginPassword)" class="btn btn-default btn-save">Accedi</button>
                     <a href="javascript:void(0);" class="recover" >Recupera la password</a>
@@ -50,7 +58,7 @@
                         <input ng-model="passwordSignRep" type="password" class="form-control" id="inputRepeatPasswordReg" placeholder="Ripeti Password">
                     </div>
                     <button ng-click="signUp(emailSign, nome,cognome, passwordSign)" class="btn btn-default btn-save">Registrati</button>
-                    <a href="javascript:void(0);" class="recover">Informativa sulla privacy</a>
+                    <a href="#" onclick="return false" class="recover">Informativa sulla privacy</a>
                     <div class="checkbox">
                         <label><input type="checkbox" ng-model="remember.value" class="js-switch">Ho preso visione dell’informativa e autorizzo il trattamento dei miei dati secondo quanto in essa riportato.</label></a>
                     </div>

@@ -582,8 +582,8 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		return codici;
 	};
 
-	$scope.hideHeader = function(){
-		return $location.path().indexOf("configura") != -1;
+	$scope.hideElement = function(){
+		return $location.path().indexOf("configura") != -1 || $location.path().indexOf("admin-ordini") != -1 || $location.path().indexOf("admin-clienti") != -1;
 	};
 	
 	$scope.wowInit = function(config){
@@ -664,6 +664,43 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 				  return $scope.testoAvviso;
 				}
 			  }
+		});
+	};
+
+	$scope.openSchedaOrdine = function () {
+		$scope.modalInstance = $uibModal.open({
+			animation: true,
+			templateUrl: 'views/modaleSchedaOrdine.html',
+			scope: $scope,
+			resolve: {
+				testoAvviso: function () {
+					return $scope.testoAvviso;
+				}
+			}
+		});
+	};
+	$scope.openSchedaCliente = function () {
+		$scope.modalInstance = $uibModal.open({
+			animation: true,
+			templateUrl: 'views/modaleSchedaCliente.html',
+			scope: $scope,
+			resolve: {
+				testoAvviso: function () {
+					return $scope.testoAvviso;
+				}
+			}
+		});
+	};
+	$scope.openOrdiniCliente = function () {
+		$scope.modalInstance = $uibModal.open({
+			animation: true,
+			templateUrl: 'views/modaleOrdiniCliente.html',
+			scope: $scope,
+			resolve: {
+				testoAvviso: function () {
+					return $scope.testoAvviso;
+				}
+			}
 		});
 	};
 

@@ -2,13 +2,18 @@
 <html>
 
 <head>
-    <title>Anna Cloud</title>
+	<title>AnnaCloud.com</title>
+	<meta charset="utf-8" />
+	<meta http-equiv="Content-Language" content="en" />
+	<meta name="description" content="Descrizione" />
+	<meta property="og:title" content="AnnaCloud.com" />
+	<meta property="og:description" content="Descrizione" />
+	<meta itemprop="description" content="Descrizione">
+
+	<meta name="robots" content="noindex"> <!-- RICORDARSI DI TOGLIERE QUESTO METATAG!!!!  -->
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-	<meta property="og:description" content="Configuratore Borse.">
-	
 	<!-- build:css styles/main.css -->
 	<link media="screen" rel="stylesheet" type="text/css" href="stylesheets/styles.css">
 	<!-- endbuild -->
@@ -38,7 +43,7 @@
 </head>
 
 <body ng-app="applicationModule" ng-controller="componentsController" class="ng-scope" ng-cloak>
-	<div ng-hide="hideHeader()">
+	<div ng-hide="hideElement()">
 		<div class="main-header-content">
 			<nav class="navbar main-navbar navbar-default nomargin" role="navigation">
 				<div class="container">
@@ -97,7 +102,7 @@
 									</ul>
 								</li>
 								<li>
-									<a href="javascript:void(0);" class="primary" data-toggle="dropdown">Atelier</a>
+									<a href="#" onclick="return false" class="primary" data-toggle="dropdown">Atelier</a>
 									<ul class="dropdown-menu dropdown-menu-centered" aria-labelledby="user-menu">
 										<li><a href="#!/404" class="secondary">Shop</a></li>
 										<li><a href="#!/collezione" class="secondary">Collezione</a></li>
@@ -115,7 +120,7 @@
 						<div class="col-sm-4">
 							<ul class="nav navbar-nav navbar-nav-flex">
 								<li>
-									<a href="javascript:void(0);" class="primary" data-toggle="dropdown">Scopri</a>
+									<a href="#" onclick="return false" class="primary" data-toggle="dropdown">Scopri</a>
 									<ul class="dropdown-menu dropdown-menu-centered" aria-labelledby="user-menu">
 										<li><a href="#!/visione" class="secondary">Visione</a></li>
 										<li><a href="#!/esperienza" class="secondary">Esperienza</a></li>
@@ -136,14 +141,14 @@
 							</ul>
 						</li>
 						<li>
-							<a href="javascript:void(0);" data-toggle="dropdown" class="">Atelier</a>
+							<a href="#" onclick="return false" data-toggle="dropdown" class="">Atelier</a>
 							<ul class="dropdown-menu " aria-labelledby="user-menu">
 								<li><a href="#!/404">Shop</a></li>
 								<li><a href="#!/collezione">Collezione</a></li>
 							</ul>
 						</li>
 						<li>
-							<a href="javascript:void(0);" data-toggle="dropdown" class="">Scopri</a>
+							<a href="#" onclick="return false" data-toggle="dropdown" class="">Scopri</a>
 							<ul class="dropdown-menu " aria-labelledby="user-menu">
 								<li><a href="#!/visione" >Visione</a></li>
 								<li><a href="#!/esperienza" >Esperienza</a></li>
@@ -178,7 +183,7 @@
 
 	</div>
 
-	<footer class="" ng-hide="isActive('/configura')">
+	<footer class="" ng-hide="hideElement()">
 		<div class="footer-navbar-container">
 			<div class="container">
 				<div class="col-md-4 col-sm-3">
@@ -263,8 +268,6 @@
 		<span class="loaderMessage">{{getLoaderMessage()}}</span>
 	</div>
 
-
-	<!-- <script src="http://code.jquery.com/jquery-2.2.4.js"></script> -->
 	<!-- build:js js/vendor.js -->
 	<script src="node_modules/angular/angular.min.js"></script>
 	<script src="node_modules/jquery/dist/jquery.js"></script>
@@ -284,6 +287,7 @@
 	<script src="node_modules/aws-sdk/dist/aws-sdk.min.js"></script>
 	<script src="node_modules/amazon-cognito-identity-js/dist/amazon-cognito-identity.min.js"></script>
 	<script src="node_modules/hammerjs/hammer.min.js"></script>
+	<script src="node_modules/angular-update-meta/dist/update-meta.min.js"></script>
 	
 	<script src="src/lib/jquery.mCustomScrollbar.concat.min.js"></script>
 	<script src="src/lib/jquery.mousewheel.js"></script>
@@ -327,7 +331,11 @@
 	<script src="src/app/controllers/checkoutController.js"></script>
 	<script src="src/app/controllers/paypalController.js"></script>
 	<script src="src/app/controllers/bagsConfiguratorController.js"></script>
+<<<<<<< HEAD
 	<script src="src/app/controllers/homeController.js"></script>
+=======
+	<script src="src/app/controllers/adminController.js"></script>
+>>>>>>> f3ca5ecd24df659a10d672b58608dca0bc25ae70
 	<!-- endbuild -->
 
     <style type="text/css">
@@ -357,6 +365,12 @@
 
 				if (_opened === true && !clickover.hasClass("navbar-toggle")) {
 					$("button.navbar-toggle").click();
+				}
+			});
+
+			$('.featherlight').on({
+				"click": function (e) {
+					e.stopPropagation();
 				}
 			});
 		});
