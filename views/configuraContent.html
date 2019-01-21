@@ -24,7 +24,7 @@
 										<a href="#" onclick="return false" class="modello-borsa" id="start3dbutton" type="button" ng-click="contr.scegliModello(modello)">
 										<img ng-src="{{modello.urlThumbnail}}" class="hidden visible-xs" style="padding: 20px; padding-bottom: 0;" />
 										<img ng-src="{{modello.urlThumbnailHD}}" class="hidden-xs" /><h5 class="nome no-margin">{{modello.nome}}<!--<br><small>{{getModelSizes(modello.nome)}}cm</small>--></h5></a>
-										<a href="javascript:void(0)"  onclick="$('.modello').toggle();" class="bag-size-button" data-featherlight="images/figurino-{{modello.nome}}.jpg" style="display: inline-block;padding: 2px 15px !important; border: solid 1px #999; margin-bottom: 15px;">{{getModelSizes(modello.nome)}}cm <i style="color: #999; padding-left: 10px;" class="fa fa-search-plus"></i></a>
+										<a href=""  onclick="$('.modello').toggle();" class="bag-size-button" data-featherlight="images/figurino-{{modello.nome}}.jpg" style="display: inline-block;padding: 2px 15px !important; border: solid 1px #999; margin-bottom: 15px;">{{getModelSizes(modello.nome)}}cm <i style="color: #999; padding-left: 10px;" class="fa fa-search-plus"></i></a>
 									</div>
 								</div>
 							</div>
@@ -35,7 +35,7 @@
 			<h1 class="navbar-brand navbar-left nomargin hidden-xs hidden" id="edit-text">Borsa #1</h1>
 			<ul class="nav navbar-nav fixed-navbar-right">
 				<li ng-show="contr.isLogged()" class="utente">
-					<a href="javascript:void(0)" id="user-menu" data-toggle="dropdown"><i class="unaicon-login"></i> <span class="hidden-xs"></span></a>
+					<a href="" id="user-menu" data-toggle="dropdown"><i class="unaicon-login"></i> <span class="hidden-xs"></span></a>
 					<ul class="dropdown-menu" aria-labelledby="user-menu">
 						<li><a href="#!/ordini">I tuoi Ordini</a></li>
 						<li><a href="#!/profilo">Profilo</a></li>
@@ -71,11 +71,11 @@
 			<div></div>
 		</div>
 	</div>
-	<a href="javascript:void(0);" id="openZoom" ng-click="contr.openZoom()"><i class="unaicon-zoom"></i></a>
+	<a href="" id="openZoom" ng-click="contr.openZoom()"><i class="unaicon-zoom"></i></a>
 	<div class="zoom">
 		<button id="closeZoom" ng-click="contr.closeZoom()"><i class="unaicon-remove"></i></button>
 		<div class="zoomHolder">
-			<img data-src="" id="pz" data-elem="pinchzoomer" data-options="scaleMode:proportionalInside;maxZoom:2;initZoom:1.5;doubleTapZoom:2;force3D:true;appendControls:true;appendControlHolder:true">
+			<img id="pz" data-elem="pinchzoomer" data-options="scaleMode:proportionalInside;maxZoom:2;initZoom:1.5;doubleTapZoom:2;force3D:true;appendControls:true;appendControlHolder:true" src="">
 			<div class="controlHolder" data-elem="controlHolder">
 				<div class="zoomIn" data-elem="zoomIn"><i class="unaicon-add"></i></div>
 				<div class="zoomOut" data-elem="zoomOut"><i class="unaicon-minus"></i></div>
@@ -83,17 +83,17 @@
 			</div>
 		</div>
 	</div>
-	<div id="price-panel" ng-if="modelloSelezionato != ''">
+	<div id="price-panel" ng-show="modelloSelezionato != ''">
 		<p class="size">{{contr.getModelloSelezionato()}}<br>{{getModelSizes(modelloSelezionato)}} cm</p>
 		<hr>
 		<h3 class="total-price ">{{contr.priceManager.price}}&euro;</h3>
 		<p class="price-detail">22% IVA inclusa,<br>spese di sped. escluse</p>
 		<div ng-if="contr.isLogged()">
-			<a href="javascript:void(0);" class="btn btn-default btn-block" ng-click="contr.aggiungiAlCarrello()">Acquista</a>
-			<a href="javascript:void(0);" style="padding-top: 5px; display: block;"  ng-click="contr.aggiungiAiPreferiti()"><small>salva</small></a>
+			<a href="" class="btn btn-default btn-block" ng-click="contr.aggiungiAlCarrello()">Acquista</a>
+			<a href="" style="padding-top: 5px; display: block;"  ng-click="contr.aggiungiAiPreferiti()"><small>salva</small></a>
 		</div>
 		<div ng-if="!contr.isLogged()">
-			<a href="javascript:void(0);" style="padding-top: 5px; display: block;"  ng-click="contr.salvaTempELogin()"><small>Login per salvare</small></a>
+			<a href="" style="padding-top: 5px; display: block;"  ng-click="contr.salvaTempELogin()"><small>Login per salvare</small></a>
 		</div>
 	</div>
 	<div id="canvasWrapper">
@@ -373,32 +373,24 @@
 			</div>
 		</div>
 	</div>
-	<div class="riepilogo" ng-if="modelloSelezionato != ''">
+	<div class="riepilogo" ng-show="modelloSelezionato != ''">
 		<div class="container price-container">
 			<div class="row">
 				<div class="col-xs-4 text-center" style="padding-right:5px;">
 					<h3 class="price nomargin">{{contr.priceManager.price}}&euro;</h3>
 				</div>
-<<<<<<< HEAD
 				<div ng-if="contr.isLogged()">
 					<div class="col-xs-4 text-center" style="padding:0px;">
-						<a href="javascript:void(0);" class="btn btn-default" ng-click="contr.aggiungiAlCarrello()">Acquista</a>
+						<a href="" class="btn btn-default" ng-click="contr.aggiungiAlCarrello()">Acquista</a>
 					</div>
 					<div class="col-xs-4 text-center" style="padding-left:5px;">
-						<a href="javascript:void(0);" class="btn" ng-click="contr.aggiungiAiPreferiti()">Salva</a>
+						<a href="" class="btn" ng-click="contr.aggiungiAiPreferiti()">Salva</a>
 					</div>
 				</div>
 				<div ng-if="!contr.isLogged()">
 					<div class="col-xs-4 text-center" style="padding-left:5px;">
-						<a href="javascript:void(0);" class="btn" ng-click="contr.salvaTempELogin()">Login per salvare</a>
+						<a href="" class="btn" ng-click="contr.salvaTempELogin()">Accedi per salvare</a>
 					</div>
-=======
-				<div class="col-xs-4 text-center" style="padding:0px;">
-					<a href="#" onclick="return false" class="btn btn-default" ng-click="contr.aggiungiAlCarrello()">Acquista</a>
-				</div>
-				<div class="col-xs-4 text-center" style="padding-left:5px;">
-					<a href="#" onclick="return false" class="btn" ng-click="contr.aggiungiAiPreferiti()">Salva</a>
->>>>>>> f3ca5ecd24df659a10d672b58608dca0bc25ae70
 				</div>
 			</div>
 			<div class="row info ">
