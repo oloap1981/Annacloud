@@ -1343,13 +1343,13 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			if ($scope.inizialiPreview.length > 0) {
 				$scope.inizialiPreview = $scope.inizialiPreview.slice(0, -1);
 				configController.checkSelectedSymbols();
-				configController.generateArray();
+				//configController.generateArray();
 				configController.caricaSpinner();
 			}
 		} else {
 			$scope.inizialiPreview += symbol;
 			configController.checkSelectedSymbols();
-			configController.generateArray();
+			//configController.generateArray();
 			configController.caricaSpinner();
 		}
 	};
@@ -1525,11 +1525,11 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 	configController.rimuoviEntitaIniziali = function(){
 		var index = -1;
 		for(var i = 0; i < $scope.configurazione.elencoEntita.length; i++){
-			if($scope.configurazione.elencoEntita.categoria == "iniziali"){
+			if($scope.configurazione.elencoEntita[i].categoria == "iniziali"){
 				index = i;
 			}
 		}
-		if(i > -1){
+		if(index > -1){
 			$scope.configurazione.elencoEntita.splice(index, 1);
 		}
 	}
