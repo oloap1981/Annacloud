@@ -1615,8 +1615,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		/* gestione elementi dell'interfaccia */
 		var aperto = 0;
 
-		$("#pz").pinchzoomer();
-
+		
 		// var pz = PinchZoomer.get("pz");
 
 		$('#canvasWrapper').parentResize();
@@ -1725,9 +1724,11 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		configController.priceManager.price = 0;		
 	};
 
+	$("#pz").pinchzoomer();
 	configController.openZoom = function(){
+		
 		var pz = PinchZoomer.get("pz");
-
+		
 		pz.zoom(1.4);
 		pz.y(-300);
 		pz.x(-70);
