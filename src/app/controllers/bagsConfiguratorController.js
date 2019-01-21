@@ -538,9 +538,9 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			$scope.metalleriaObbligatoria = configController.getUrlMetalleria(modello.nome, "argento");
 			configController.aggiungiElementoAStackNoConfig($scope.metalleriaObbligatoria, 3, false);
 
-			configController.caricaConfigurazioneElencoEntita();
 			$scope.coloreVincolante = configController.getColoreVincolante($scope.configurazione);//scelgo il nero come colore vincolante di default
 			$scope.metalloVincolante = configController.getMetalloVincolante($scope.configurazione);
+			configController.caricaConfigurazioneElencoEntita();
 		});
 	};
 
@@ -695,7 +695,8 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 
 	configController.gestisciEntitaIniziali = function (entita) {
 		$scope.inizialiPreview = entita.nome;
-	}
+		configController.checkSelectedSymbols();
+	};
 
 	configController.ricaricaEntita = function (entita) {
 
@@ -770,10 +771,10 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			}
 
 			$scope.removable = false;
-			if ($scope.scegliColore) {
+			if (entita.categoria == "colore") {
 				$scope.coloreVincolante = entita.colore;
 			}
-			if ($scope.scegliMetallo) {
+			if (entita.categoria == "metalleria") {
 				$scope.metalloVincolante = entita.metallo;
 			}
 
@@ -1404,7 +1405,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 	}
 
 	configController.getSymbolUrl = function (translatedSymbol, posizione) {
-		return $scope.baseUrlSymbols + "INIZIALI" + "_" + translatedSymbol + "_" + posizione + "_" + configController.getResolutionPlaceHolder() + "_" + configController.colorTranslate($scope.coloreSelezionato) + ".png";
+		return $scope.baseUrlSymbols + "INIZIALI" + "_" + translatedSymbol + "_" + posizione + "_" + configController.getResolutionPlaceHolder() + "_" + configController.colorTranslate($scope.coloreVincolante) + ".png";
 	};
 
 	configController.checkSelectedSymbols = function () {
