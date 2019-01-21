@@ -530,7 +530,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			$scope.stack = [];
 			var url = modello.urlStripe;
 
-			$scope.coloreSelezionato = configController.getColoreVincolante($scope.configurazione);;
+			$scope.coloreSelezionato = configController.getColoreVincolante($scope.configurazione);
 			configController.aggiungiElementoAStackNoConfig(url, 0, false);
 			$scope.modelloSelezionato = modello.nome;
 			$scope.tipiAccessoriModelloSelezionato = $scope.tipiAccessori.get(modello.nome);
@@ -1402,7 +1402,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 	configController.generateEntitaIniziali = function () {
 		var entita = configController.getInternalEntitaObjct("iniziali", "", "iniziali", $scope.inizialiPreview, 0, "iniziali", url, 20, "", "", "", "", "", []);
 		return entita;
-	}
+	};
 
 	configController.getSymbolUrl = function (translatedSymbol, posizione) {
 		return $scope.baseUrlSymbols + "INIZIALI" + "_" + translatedSymbol + "_" + posizione + "_" + configController.getResolutionPlaceHolder() + "_" + configController.colorTranslate($scope.coloreVincolante) + ".png";
@@ -1533,7 +1533,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		if(index > -1){
 			$scope.configurazione.elencoEntita.splice(index, 1);
 		}
-	}
+	};
 
 	configController.salvaConfigurazioneTemporanea = function () {
 		// var arrayIniziali = configController.generateArrayEntitaIniziali();
