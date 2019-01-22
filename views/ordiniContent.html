@@ -15,38 +15,38 @@
     <div class="row bag-list ">
         <div ng-if="listaOrdini.length != 0">
             <div ng-repeat="ord in listaOrdini" class="col-sm-12 bag-item clearfix">
-                <div ng-repeat="configurazione in ord.configurazioni">
-                    <div class="col-sm-8 no-padding visible-xs">
-                            <div class="col-sm-3">
-                                <img src="{{configurazione.thumbnail}}" class="bag-sample">
+                <div ng-repeat="configurazione in ord.configurazioni" class="visible-xs">
+                    <div class="col-sm-8 no-padding">
+                        <div class="col-sm-3">
+                            <img src="{{configurazione.thumbnail}}" class="bag-sample">
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="col-sm-12">
+                                <h4 class="bag">{{configurazione.nome}}</h4>
                             </div>
-                            <div class="col-sm-9">
-                                <div class="col-sm-12">
-                                    <h4 class="bag">{{configurazione.nome}}</h4>
-                                </div>
-                                <div class="col-sm-6 base">
-                                    <h5 class="section-small left">Base </h5>
-                                    <table>
-                                        <tr ng-repeat="base in configurazione.elencoEntita" ng-if="base.categoria == 'modello'">
-                                            <td><span>modello:</span></td>
-                                            <td>{{base.descrizione}}</td>
-                                        </tr>
-                                        <tr>
-                                    </table>
-                                </div>
-                                <div class="col-sm-6 accessori">
-                                    <h5 class="section-small left">Accessori</h5>
-                                    <table>
-                                        <tr ng-repeat="base in configurazione.elencoEntita" ng-if="base.categoria == 'accessori'">
-                                            <td><span>{{base.categoria}}:</span></td>
-                                            <td>{{traduciNomiOrdini(base)}}</td>
-                                        </tr>
-                                    </table>
-                                </div>
+                            <div class="col-sm-6 base">
+                                <h5 class="section-small left">Base </h5>
+                                <table>
+                                    <tr ng-repeat="base in configurazione.elencoEntita" ng-if="base.categoria == 'modello'">
+                                        <td><span>modello:</span></td>
+                                        <td>{{base.descrizione}}</td>
+                                    </tr>
+                                    <tr>
+                                </table>
+                            </div>
+                            <div class="col-sm-6 accessori">
+                                <h5 class="section-small left">Accessori</h5>
+                                <table>
+                                    <tr ng-repeat="base in configurazione.elencoEntita" ng-if="base.categoria != 'modello'">
+                                        <td><span><b>{{base.categoria}}:</b> </span></td>
+                                        <td>{{traduciNomiOrdini(base)}}</td>
+                                    </tr>
+                                </table>
                             </div>
                         </div>
-        
-                        <div class="col-sm-8 hidden-xs">
+                    </div>
+                    <div ng-repeat="configurazione in ord.configurazioni" class="hidden-xs">
+                        <div class="col-sm-8">
                             <div class="media">
                                 <div class="media-left">
                                     <a href="#">
@@ -79,7 +79,7 @@
                             </div>
                         </div>
                 </div>
-                <div class="col-sm-4 action">
+                <div class="col-sm-4 ">
                     <div class="order-state  zero " ng-class="{'current': ord.stato == 0 }">In attesa di pagamento
                         <div ng-if="ord.stato == 0">
                             <a href="#" onclick="return false" class="btn top-buffer btn-default" ng-click="getCheckout(ord)" style="width:auto;">Concludi l'acquisto</a>

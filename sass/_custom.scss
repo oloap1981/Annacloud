@@ -1806,12 +1806,14 @@ a.link {
         }
         span {
             @include transition(all 200ms ease-out);
-            bottom: 120px;
-            color: $brand-primary;
-            border: solid 1px $brand-primary;
-            background: #fff;
-            font-weight: normal;
-            @media screen and (max-width: $screen-xs) {
+            @media (pointer: hover) {
+                bottom: 120px;
+                color: $brand-primary;
+                border: solid 1px $brand-primary;
+                background: #fff;
+                font-weight: normal;
+            }
+            @media screen and (pointer: none) and (max-width: $screen-xs) {
                 bottom: 130px;
              
             }
@@ -1832,6 +1834,7 @@ a.link {
         border: solid 1px white;
         position: relative;
         bottom: 0;
+        margin-bottom: 30px;
         @media screen and (max-width: $screen-sm) {
             width: 100%;
             font-size: .65em;
@@ -3171,8 +3174,10 @@ footer {
 //custom swiper prev/next button
 
 .swipe-featured {
-    //custom swiper prev/next button
+    margin-left: 10px;
+    margin-right: 10px;
 
+    //custom swiper prev/next button
     .swiper-button-prev, .swiper-button-next {
         width: 50px;
         top: 0;
@@ -3210,6 +3215,14 @@ footer {
         opacity: 0;
         cursor: auto;
         pointer-events: none;
+    }
+    .swiper-pagination-bullet {
+        background: $brand-color-logo !important;
+        opacity: .2 !important;
+        &.swiper-pagination-bullet-active {
+            opacity: 1 !important;
+            
+        }
     }
 }
 

@@ -50,9 +50,9 @@
     <div ng-if="getCarrello().length != 0" class="row bag-list">
         <div class="col-sm-12 no-padding">
             <div class="col-sm-8 no-padding">
-                <div ng-repeat="conf in getCarrello()" class="col-sm-12 bag-item clearfix">
+                <div ng-repeat="conf in getCarrello()" class="col-sm-12 bag-item clearfix visible-xs">
                     
-                    <div class="col-sm-8 no-padding visible-xs">
+                    <div class="col-sm-8 no-padding">
                         <div class="col-sm-3">
                             <img  ng-src="{{conf.thumbnail}}" class="bag-sample">
                         </div>
@@ -74,17 +74,17 @@
                             <div class="col-sm-6 accessori">
                                 <h5 class="section-small left">Accessori</h5>
                                 <table>
-                                    <tr ng-repeat="base in conf.elencoEntita" ng-if="base.categoria == 'accessori'">
-                                        <td><span>{{base.categoria}}:</span></td>
+                                    <tr ng-repeat="base in conf.elencoEntita" ng-if="base.categoria != 'modello'">
+                                        <td><span><b>{{base.categoria}}:</b> </span></td>
                                         <td>{{traduciNomiOrdini(base)}}</td>
                                     </tr>
                                 </table>
                             </div>
                         </div>
                     </div>
-
-
-                    <div class="col-sm-12 hidden-xs">
+                </div>
+                <div ng-repeat="conf in getCarrello()" class="col-sm-12 bag-item clearfix hidden-xs">
+                    <div class="col-sm-12">
                         <div class="media">
                             <div class="media-left">
                                 <a href="#" onclick="return false">
@@ -121,7 +121,7 @@
                 </div>
             </div>
             <div class="col-sm-4 bag-item clearfix">
-                <div class="col-sm-12 action">
+                <div class="col-sm-12 ">
                     <div class="order-state one summary">
                         <div class="row">
                             <div class="col-sm-12 text-left">

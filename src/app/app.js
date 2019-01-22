@@ -14,7 +14,8 @@ var app = angular.module('applicationModule', ['ngAnimate', 'ui.swiper', 'ui.boo
 	   templateUrl: 'views/checkoutContent.html'
    };
 });
-app.config(['$routeProvider', '$locationProvider', function($routeProvider) {
+app.config(['$routeProvider', '$locationProvider', '$compileProvider', function ($routeProvider) {
+	
 	$routeProvider.
 	when('/', {
 		templateUrl: 'views/homeContent.html'
@@ -78,4 +79,6 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider) {
 }]);
 app.config(['$compileProvider', function ($compileProvider) {
 	$compileProvider.debugInfoEnabled(false);
+	$compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome-extension|javascript):/);
+	$compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome-extension|javascript):/);
 }]);

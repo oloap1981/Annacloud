@@ -13728,13 +13728,17 @@ a.link {
   -webkit-transition: all 200ms ease-out;
   -o-transition: all 200ms ease-out;
   transition: all 200ms ease-out;
-  bottom: 120px;
-  color: #0d0d0d;
-  border: solid 1px #0d0d0d;
-  background: #fff;
-  font-weight: normal;
 }
-@media screen and (max-width: 480px) {
+@media (pointer: hover) {
+  .bag-box:hover span {
+    bottom: 120px;
+    color: #0d0d0d;
+    border: solid 1px #0d0d0d;
+    background: #fff;
+    font-weight: normal;
+  }
+}
+@media screen and (pointer: none) and (max-width: 480px) {
   .bag-box:hover span {
     bottom: 130px;
   }
@@ -13752,6 +13756,7 @@ a.link {
   border: solid 1px white;
   position: relative;
   bottom: 0;
+  margin-bottom: 30px;
 }
 @media screen and (max-width: 768px) {
   .bag-box span {
@@ -15027,6 +15032,10 @@ footer .copyright {
     transform: scale(1);
   }
 }
+.swipe-featured {
+  margin-left: 10px;
+  margin-right: 10px;
+}
 .swipe-featured .swiper-button-prev, .swipe-featured .swiper-button-next {
   width: 50px;
   top: 0;
@@ -15066,6 +15075,13 @@ footer .copyright {
   opacity: 0;
   cursor: auto;
   pointer-events: none;
+}
+.swipe-featured .swiper-pagination-bullet {
+  background: #A87481 !important;
+  opacity: .2 !important;
+}
+.swipe-featured .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  opacity: 1 !important;
 }
 
 #paypal-button {
