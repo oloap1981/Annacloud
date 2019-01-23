@@ -40,14 +40,16 @@
                         <div class="col-sm-6 accessori">
                             <h5 class="section-small left">Accessori</h5>
                             <table>
-                                <tr ng-repeat="base in conf.elencoEntita" ng-if="base.categoria == 'accessori'">
-                                    <td><span>{{base.categoria}}:</span></td>
+                                <tr ng-repeat="base in conf.elencoEntita" ng-if="base.categoria != 'modello'">
+                                    <td><span><b>{{base.categoria}}:</b> </span></td>
                                     <td>{{traduciNomiOrdini(base)}}</td>
                                 </tr>
                             </table>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div ng-repeat="conf in getPreferiti()" class="col-sm-12 bag-item clearfix">
                 <div class="col-sm-8 hidden-xs">
                     <div class="media">
                         <div class="media-left">
@@ -73,8 +75,8 @@
                                 <h5 class="section-small left">Accessori</h5>
                                 <table>
                                     <tr ng-repeat="base in conf.elencoEntita" ng-if="base.categoria != 'modello'">
-                                            <td><span><b>{{base.categoria}}:</b> </span></td>
-                                            <td>{{traduciNomiOrdini(base)}}</td>
+                                        <td><span><b>{{base.categoria}}:</b> </span></td>
+                                        <td>{{traduciNomiOrdini(base)}}</td>
                                     </tr>
                                 </table>
                             </div>

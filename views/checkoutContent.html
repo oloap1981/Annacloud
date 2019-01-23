@@ -75,7 +75,7 @@
                 </div>
             </div>
             <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 bag-item clearfix">
-                <div class="col-sm-12 no-padding action">
+                <div class="col-sm-12 no-padding ">
                     <div class="order-state one summary checkout">
                         <h4 class="title-tertiary ">Informazioni di contatto e consegna</h4>
                         <hr>
@@ -83,6 +83,9 @@
                             <h5>{{getNomeECognome()}}</h5>
                             <h5>{{getIndirizzoSpedizione()}}</h5>
                             <!--button class="btn btn-default btn-save ">Modifica</button-->
+                        </div>
+                        <div class="order-buttons top-buffer text-center" ng-hide="canBuy()">
+                            <span style="color: #c00"><b>Non si puo' procedere all'acquisto,<br>mancano i dati di spedizione</b></span><p class="top-buffer"><a href="#!/profilo#indirizzi" class="btn btn-action btn-block"><b>aggiungi</b></a></p>
                         </div>
                     </div>
                     <div class="order-state one summary checkout">
@@ -125,7 +128,7 @@
                         <img src="images/paypal-choice.png" style="max-width: 250px; margin-top: 20px;">
                     </div>
                     <div class="order-buttons top-buffer text-center" ng-hide="canBuy()">
-                        <span class="single-price"><b>Non si puo' procedere all'acquisto, mancano i dati di spedizione</b></span>
+                        
                     </div>
                 </div>
             </div>
