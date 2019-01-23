@@ -79,6 +79,6 @@ app.config(['$routeProvider', '$locationProvider', '$compileProvider', function 
 }]);
 app.config(['$compileProvider', function ($compileProvider) {
 	$compileProvider.debugInfoEnabled(false);
-	$compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome-extension|javascript):/);
-	$compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome-extension|javascript):/);
+	$compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome-extension|javascript|data):/);
+	$compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome-extension|javascript|data):/);
 }]);
