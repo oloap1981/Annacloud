@@ -563,6 +563,18 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		for (var i = 0; i < elencoEntita.length; i++) {
 			var entita = elencoEntita[i];
 			if (entita.categoria != "modello") {
+				if(entita.categoria == "tracolle"){
+					var split = entita.nome.split('_');
+					var categoriaTracolla = split[0] + '_' + split[1];
+					configController.selezionaCategoriaTracolla(categoriaTracolla);
+				} else if (entita.categoria == "ciondoli"){
+					var split = entita.nome.split('_');
+					var categoriaCiondolo = split[0] + '_' + split[1];
+					configController.selezionaCategoriaCiondolo(categoriaCiondolo);
+				} else {
+					configController.selezioneTipoAccessorio(entita.categoria);
+				}
+				configController.selezioneTipoAccessorio(entita.categoria);
 				configController.ricaricaEntita(entita);
 			}
 		}
@@ -700,6 +712,8 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 
 	configController.ricaricaEntita = function (entita) {
 
+		$scope.tipoEntitaSelezionata = entita.categoria;
+
 		if (entita.categoria == "iniziali") {
 			//nuova gestione iniziali
 			configController.gestisciEntitaIniziali(entita);
@@ -711,8 +725,13 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			}
 
 			var url = entita.urlStripe;
-			// url = url.replace("RES", configController.getResolutionPlaceHolder());
 
+			if ($scope.tipoEntitaSelezionata == "tracolle") {
+				$scope.nomeTracollaSelezionata = entita.nome;
+			}
+			if ($scope.tipoEntitaSelezionata == "ciondoli") {
+				$scope.nomeCiondoloSelezionato = entita.nome;
+			}
 			if ($scope.tipoEntitaSelezionata == "stile") {
 				$scope.nomeStileSelezionato = entita.nomeStile;
 			}
