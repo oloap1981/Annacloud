@@ -66,6 +66,8 @@ angular.module("applicationModule").controller("profiloController", ["$scope", "
 		loginService.updateAttributes(attributeList).then(
 				function (res){
 					console.log(res);
+					$scope.reloadAttributes();
+					$scope.openMessageModal("Telefono cambiata con successo");
 				},
 				function (reason){
 					console.log(reason);
@@ -90,6 +92,8 @@ angular.module("applicationModule").controller("profiloController", ["$scope", "
 			loginService.updateAttributes(attributeList).then(
 					function (res){
 						console.log(res);
+						$scope.reloadAttributes();
+						$scope.openMessageModal("Dati cambiati con successo");
 					},
 					function (reason){
 						console.log(reason);
@@ -109,6 +113,8 @@ angular.module("applicationModule").controller("profiloController", ["$scope", "
 			loginService.updateAttributes(attributeList).then(
 					function (res){
 						console.log(res);
+						$scope.reloadAttributes();
+						$scope.openMessageModal("Email cambiata con successo");
 					},
 					function (reason){
 						console.log(reason);
@@ -124,11 +130,12 @@ angular.module("applicationModule").controller("profiloController", ["$scope", "
 			loginService.changePassword(o, n).then (
 				function (res){
 					console.log(res);
-					alert("Password cambiata con successo");
+					$scope.reloadAttributes();
+					$scope.openMessageModal("Password cambiata con successo");
 				},
 				function (reason){
 					console.log(reason);
-					allert ("Errore nel cambio password");
+					alert ("Errore nel cambio password");
 				}
 			);
 		}else{
@@ -166,6 +173,8 @@ angular.module("applicationModule").controller("profiloController", ["$scope", "
 		loginService.updateAttributes(attributeList).then(
 				function (res){
 					console.log(res);
+					$scope.reloadAttributes();
+					$scope.openMessageModal("Dati Aggiornati correttamente");
 				},
 				function (reason){
 					console.log(reason);

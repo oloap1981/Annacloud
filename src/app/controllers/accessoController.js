@@ -13,7 +13,8 @@ angular.module("applicationModule").controller("accessoController", ["$scope", "
 						console.log(data);
 						var user = data;
 						user.eMail = email;
-						$scope.setUser(data);
+						$scope.setUser(user);
+						$scope.reloadAttributes();
 						$scope.ricaricaListe(user.eMail, "");
 						if ($scope.remember.value == true){
 							loginService.setDeviceStatusRemembered().then(
@@ -93,11 +94,7 @@ angular.module("applicationModule").controller("accessoController", ["$scope", "
 					$scope.loginPassword = password;
 
 					//svuoto i campi
-					$scope.nome = "";
-					$scope.cognome = "";
-					$scope.emailSign = "";
-					$scope.passwordSign = "";
-					$scope.passwordSignRep = "";
+					$scope.svuotaCampi();
 					
 					//mail di avviso avvenuta registrazione
 					var message = {};
@@ -123,5 +120,11 @@ angular.module("applicationModule").controller("accessoController", ["$scope", "
 		);
 	};
 	
-	
+	$scope.svuotaCampi = function(){
+		$scope.nome = "";
+		$scope.cognome = "";
+		$scope.emailSign = "";
+		$scope.passwordSign = "";
+		$scope.passwordSignRep = "";
+	};
 }]);
