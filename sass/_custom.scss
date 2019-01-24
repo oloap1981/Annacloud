@@ -827,7 +827,6 @@ a.link {
     width: 100px;
     height: 50px;
     text-align: center;
-    @include img-retina('/images/logonew-big.png', '/images/logonew-big@2.png', 140, 50);
     background: url('/images/logonew-big.png') no-repeat center center;
     background-size: contain;
      @media screen and (max-width: $screen-xs-max) {
@@ -843,10 +842,7 @@ a.link {
     width: 130px;
     height: 24px;
     text-align: center;
-    @include img-retina('/images/logonew-big.png', '/images/logonew-big@2.png', 180, 127);
-    //background: url('/images/logonew-big.png') no-repeat center center;
-    background-repeat: no-repeat;
-    background-position: center center;
+    background: url('/images/logonew-big.png') no-repeat center center;
     background-size: contain;
 }
 
@@ -869,7 +865,6 @@ a.link {
     border: none;
     float: left;
 }
-
 .fixed-navbar-right {
     float: right;
     li {
@@ -2865,10 +2860,7 @@ footer {
         height: 50px;
         margin-bottom: 10px;
         text-align: center;
-        @include img-retina('/images/logonew-footer-big.png', '/images/logonew-footer-big@2.png', 166, 36);
         background: url('/images/logonew-footer-big.png') no-repeat center left;
-        background-repeat: center left;
-        background-repeat: no-repeat;
         background-size: contain;
     }
     h3 {
@@ -3560,4 +3552,44 @@ Image credits: unsplash.com
     vertical-align: top;
     text-align: left;
     font-size: 16px;
+}
+
+
+.fade.ng-hide-add,
+.fade.ng-hide-remove {
+    -webkit-transition : 1s ease-in-out opacity;
+    -moz-transition    : 1s ease-in-out opacity;
+    -ms-transition     : 1s ease-in-out opacity;
+    -o-transition      : 1s ease-in-out opacity;
+    transition         : 1s ease-in-out opacity;
+    opacity            : 1;
+}
+
+.fade.ng-hide {
+    opacity : 0;
+}
+
+
+#back-to-top {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 9999;
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    line-height: 30px;
+    background: #f5f5f5;
+    color: #444;
+    cursor: pointer;
+    border: 0;
+    text-decoration: none;
+    transition: opacity 0.4s ease-out;
+    opacity: 0;
+    &:hover {
+        background: #e9ebec;
+    }
+    &.show {
+        opacity: 1;
+    }
 }
