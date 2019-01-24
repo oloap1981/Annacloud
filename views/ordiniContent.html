@@ -15,6 +15,7 @@
     <div class="row bag-list ">
         <div ng-if="listaOrdini.length != 0">
             <div ng-repeat="ord in listaOrdini" class="col-sm-12 bag-item clearfix">
+<<<<<<< HEAD
 
 
                 
@@ -36,15 +37,38 @@
                                     </tr>
                                     <tr>
                                 </table>
+=======
+                <div class="col-sm-12 bottom-buffer text-center"><p class="subtitle" style="color: #000">Ordine n° 12123.</p></div>
+                <div class="col-sm-8 no-padding">
+                    <div ng-repeat="configurazione in ord.configurazioni" class="visible-xs">
+                        <div class="col-sm-12 no-padding">
+                            <div class="col-sm-3">
+                                <img src="{{configurazione.thumbnail}}" class="bag-sample">
+>>>>>>> 02c1568e7bc0c124ba4c5de4a7bf2988756e4744
                             </div>
-                            <div class="col-sm-6 accessori">
-                                <h5 class="section-small left">Accessori</h5>
-                                <table>
-                                    <tr ng-repeat="base in configurazione.elencoEntita" ng-if="base.categoria != 'modello'">
-                                        <td><span><b>{{base.categoria}}:</b> </span></td>
-                                        <td>{{traduciNomiOrdini(base)}}</td>
-                                    </tr>
-                                </table>
+                            <div class="col-sm-9">
+                                <div class="col-sm-12">
+                                    <h4 class="bag">{{configurazione.nome}}</h4>
+                                </div>
+                                <div class="col-sm-6 base">
+                                    <h5 class="section-small left">Base </h5>
+                                    <table>
+                                        <tr ng-repeat="base in configurazione.elencoEntita" ng-if="base.categoria == 'modello'">
+                                            <td><span>modello:</span></td>
+                                            <td>{{base.descrizione}}</td>
+                                        </tr>
+                                        <tr>
+                                    </table>
+                                </div>
+                                <div class="col-sm-6 accessori">
+                                    <h5 class="section-small left">Accessori</h5>
+                                    <table>
+                                        <tr ng-repeat="base in configurazione.elencoEntita" ng-if="base.categoria != 'modello'">
+                                            <td><span><b>{{base.categoria}}:</b> </span></td>
+                                            <td>{{traduciNomiOrdini(base)}}</td>
+                                        </tr>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>

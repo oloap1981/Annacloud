@@ -14,17 +14,21 @@
 					<a href="#!/home" class="link" ><i class="fa fa-home hidden"></i><img src="images/logonew-big.png" class="hidden-xs" style="height: 25px;"><img src="images/logonew-mobile-conf-big.png" class=" visible-xs-inline-block" style="height: 15px"></a>
 				</li>
 				<li class="dropdown yamm-fw keep-open">
-					<a href="#" onclick="return false" class="active dropdown-toggle link modello" data-toggle="dropdown" ng-show="contr.isConfigurationPresent()">Nuova Configurazione</a>
+					<a href="#" onclick="return false" class="active dropdown-toggle link modello" data-toggle="dropdown" ng-show="contr.isConfigurationPresent()"><i class="unaicon-add visible-xs"></i> <span class="hidden-xs">nuova configurazione</span></a>
 					<ul class="dropdown-menu scelta-modelli">
 						<li ng-class="{'disabled':modelliAbilitati}" >
 							<div class="yamm-content  scelta-modelli clearfix">
+								<div class="col-xs-12">
+									<h3>Scegli un modello</h3>
+									<hr>
+								</div>
 								<div class="col-xs-12 bags-line">
 									<!-- CON IL REPEATER VADO A ELENCARE TUTTI I MODELLI DI BORSA DISPONIBILI  -->
 									<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center no-margin no-padding bags-line" ng-repeat="modello in modelli">
 										<a href="#" onclick="return false" class="modello-borsa" id="start3dbutton" type="button" ng-click="contr.scegliModello(modello)">
 										<img ng-src="{{modello.urlThumbnail}}" class="hidden visible-xs" style="padding: 20px; padding-bottom: 0;" />
 										<img ng-src="{{modello.urlThumbnailHD}}" class="hidden-xs" /><h5 class="nome no-margin">{{modello.nome}}<!--<br><small>{{getModelSizes(modello.nome)}}cm</small>--></h5></a>
-										<a href="javascript:void()"  onclick="$('.modello').toggle();" class="bag-size-button" data-featherlight="images/figurino-{{modello.nome}}.jpg" style="display: inline-block;padding: 2px 15px !important; border: solid 1px #999; margin-bottom: 15px;">{{getModelSizes(modello.nome)}}cm <i style="color: #999; padding-left: 10px;" class="fa fa-search-plus"></i></a>
+										<a href="javascript:void()"  onclick="" class="bag-size-button" data-featherlight="images/figurino-{{modello.nome}}.jpg" style="display: inline-block;padding: 2px 15px !important; border: solid 1px #999; margin-bottom: 15px;">{{getModelSizes(modello.nome)}}cm <i style="color: #999; padding-left: 10px;" class="fa fa-search-plus"></i></a>
 									</div>
 								</div>
 							</div>
