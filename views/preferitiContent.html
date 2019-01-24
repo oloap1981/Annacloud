@@ -15,8 +15,8 @@
             
         </div>
         <div ng-if="getPreferiti().length != 0" class="row bag-list tab-pane fade in active" id="preferiti">
-            <div ng-repeat="conf in getPreferiti()" class="col-sm-12 bag-item clearfix">
-                <div class="col-sm-8 no-padding visible-xs">
+            <div ng-repeat="conf in getPreferiti()" class="col-sm-12 bag-item clearfix visible-xs">
+                <div class="col-sm-8 no-padding">
                     <div class="col-sm-3">
                         <a href="javascript: void(0)" ng-click="goToPage(conf)">
                             <img ng-src="{{conf.thumbnail}}" class="bag-sample">
@@ -49,8 +49,8 @@
                     </div>
                 </div>
             </div>
-            <div ng-repeat="conf in getPreferiti()" class="col-sm-12 bag-item clearfix">
-                <div class="col-sm-8 hidden-xs">
+            <div ng-repeat="conf in getPreferiti()" class="col-sm-12 bag-item clearfix hidden-xs">
+                <div class="col-sm-8 ">
                     <div class="media">
                         <div class="media-left">
                             <a href="javascript: void(0)" ng-click="goToPage(conf)">
