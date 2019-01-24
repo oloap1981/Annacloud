@@ -48,36 +48,36 @@
                             </div>
                         </div>
                     </div>
-                    <div ng-repeat="configurazione in ord.configurazioni" class="hidden-xs">
-                        <div class="col-sm-12">
-                            <div class="media">
-                                <div class="media-left">
-                                    <a href="#">
-                                        <img src="{{configurazione.thumbnail}}" class="media-object bag-sample">
-                                    </a>
+                </div>
+                <div ng-repeat="configurazione in ord.configurazioni" class="hidden-xs">
+                    <div class="col-sm-8">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="#">
+                                    <img src="{{configurazione.thumbnail}}" class="media-object bag-sample">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <div class="col-sm-12">
+                                    <h4 class="media-heading bag">{{configurazione.nome}}</h4>
                                 </div>
-                                <div class="media-body">
-                                    <div class="col-sm-12">
-                                        <h4 class="media-heading bag">{{configurazione.nome}}</h4>
-                                    </div>
-                                    <div class="col-xs-6 base">
-                                        <h5 class="section-small left">Base </h5>
-                                        <table>
-                                            <tr ng-repeat="base in configurazione.elencoEntita" ng-if="base.categoria == 'modello'">
-                                                <td><span><b>modello:</b></span></td>
-                                                <td>{{base.descrizione}}</td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                    <div class="col-xs-6 accessori">
-                                        <h5 class="section-small left">Accessori</h5>
-                                        <table>
-                                            <tr ng-repeat="base in configurazione.elencoEntita" ng-if="base.categoria != 'modello'">
-                                                    <td><span><b>{{base.categoria}}:</b> </span></td>
-                                                    <td>{{traduciNomiOrdini(base)}}</td>
-                                            </tr>
-                                        </table>
-                                    </div>
+                                <div class="col-xs-6 base">
+                                    <h5 class="section-small left">Base </h5>
+                                    <table>
+                                        <tr ng-repeat="base in configurazione.elencoEntita" ng-if="base.categoria == 'modello'">
+                                            <td><span><b>modello:</b></span></td>
+                                            <td>{{base.descrizione}}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="col-xs-6 accessori">
+                                    <h5 class="section-small left">Accessori</h5>
+                                    <table>
+                                        <tr ng-repeat="base in configurazione.elencoEntita" ng-if="base.categoria != 'modello'">
+                                                <td><span><b>{{base.categoria}}:</b> </span></td>
+                                                <td>{{traduciNomiOrdini(base)}}</td>
+                                        </tr>
+                                    </table>
                                 </div>
                             </div>
                         </div>
