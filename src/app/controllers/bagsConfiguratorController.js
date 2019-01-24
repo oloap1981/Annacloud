@@ -385,11 +385,6 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 				var split = nomeTracolla.split('_');
 				var categoriaTracolla = split[0] + '_' + split[1];
 
-				//inserisco nelle categorie di tracolle
-				// if ($scope.categorieTracolle.indexOf(categoriaTracolla) == -1){
-				// 	$scope.categorieTracolle.push(categoriaTracolla);
-				// }
-
 				var modelName = configController.getNomeModelloTracolla(split);
 				if (entita.metallo == "oro") {
 					if (!$scope.modelliTracolleOro.has(categoriaTracolla)) {
@@ -563,12 +558,13 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		for (var i = 0; i < elencoEntita.length; i++) {
 			var entita = elencoEntita[i];
 			if (entita.categoria != "modello") {
+				var spilt = [];
 				if(entita.categoria == "tracolle"){
-					var split = entita.nome.split('_');
+					split = entita.nome.split('_');
 					var categoriaTracolla = split[0] + '_' + split[1];
 					configController.selezionaCategoriaTracolla(categoriaTracolla);
 				} else if (entita.categoria == "ciondoli"){
-					var split = entita.nome.split('_');
+					split = entita.nome.split('_');
 					var categoriaCiondolo = split[0] + '_' + split[1];
 					configController.selezionaCategoriaCiondolo(categoriaCiondolo);
 				} else {
@@ -762,7 +758,8 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			if ($scope.tipoEntitaSelezionata.startsWith("metalleria")) {
 				if ($scope.tracollaSelezionata) {
 
-					var tracollaUrl = $scope.mapMetalloTracolle.get(entita.metallo);
+					var chiaveT = configController.normalizzaNomeConMetallo($scope.nomeTracollaSelezionata, entita.metallo);
+					var tracollaUrl = $scope.mapMetalloTracolle.get(chiaveT);
 					var urlT = tracollaUrl.urlStripe;
 
 					if (tracollaUrl) {
@@ -771,7 +768,8 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 				}
 				if ($scope.ciondoloSelezionata) {
 
-					var ciondoloUrl = $scope.mapMetalloCiondoli.get(entita.metallo);
+					var chiaveC = configController.normalizzaNomeConMetallo($scope.nomeCiondoloSelezionato, entita.metallo);
+					var ciondoloUrl = $scope.mapMetalloCiondoli.get(chiaveC);
 					var urlC = ciondoloUrl.urlStripe;
 
 					if (ciondoloUrl) {

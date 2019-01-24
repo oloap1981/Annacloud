@@ -73,7 +73,7 @@ angular.module("applicationModule").service("listeService", ["$http", "UtilFunct
 		var config = {
 			headers: {
 				'Content-Type': 'application/json',
-				'Authorization': loginService.getPostAccessToken()
+				'Authorization': ''
 			}
 		};
 		return $http.post(this.urlGetService, requestMessage, config);

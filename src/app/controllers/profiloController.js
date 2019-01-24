@@ -27,7 +27,7 @@ angular.module("applicationModule").controller("profiloController", ["$scope", "
 				if (a.Name == "custom:indSpe2" ){
 					$scope.indSpe2 = a.Value;
 				}
-				if (a.Name == "custom:capSpeNum" ){
+				if (a.Name == "custom:capSpe" ){
 					$scope.capSpe = a.Value;
 				}
 				if (a.Name == "custom:cittaSpe" ){
@@ -158,8 +158,8 @@ angular.module("applicationModule").controller("profiloController", ["$scope", "
 		attribute3 = new AmazonCognitoIdentity.CognitoUserAttribute(attribute3);
 		attributeList.push(attribute3);
 		var attribute4 = {
-		        Name : 'custom:capSpeNum',
-		        Value : $scope.capSpe
+		        Name : 'custom:capSpe',
+		        Value : caps+""
 		    };
 		attribute4 = new AmazonCognitoIdentity.CognitoUserAttribute(attribute4);
 	    attributeList.push(attribute4);

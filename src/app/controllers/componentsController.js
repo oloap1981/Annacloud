@@ -836,7 +836,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 					case "stile":
 						splitted = entita.nome.split("_");
 						if(splitted.length == 3){
-							result = splitted[1] + " " + splitted[2];
+							result = splitted[2];
 						} else {
 							result = entita.nome;
 						}
@@ -844,9 +844,9 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 					case "borchie":
 						splitted = entita.nome.split("_");
 						if(splitted.length == 3){
-							result = splitted[1] + " " + splitted[2];
+							result = splitted[2];
 						} else if(splitted.length == 4){
-							result = splitted[1] + " " + splitted[2] + " " + splitted[3];
+							result = splitted[2] + " " + splitted[3];
 						} else {
 							result = entita.nome;
 						}
