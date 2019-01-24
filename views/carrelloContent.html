@@ -65,7 +65,7 @@
                                 <h5 class="section-small left">Base </h5>
                                 <table>
                                     <tr ng-repeat="base in conf.elencoEntita" ng-if="base.categoria == 'modello'">
-                                        <td><span>modello:</span></td>
+                                        <td><span>MODELLO:</span></td>
                                         <td>{{base.descrizione}}</td>
                                     </tr>
                                     <tr>
@@ -75,7 +75,7 @@
                                 <h5 class="section-small left">Accessori</h5>
                                 <table>
                                     <tr ng-repeat="base in conf.elencoEntita" ng-if="base.categoria != 'modello'">
-                                        <td><span><b>{{base.categoria}}:</b> </span></td>
+                                        <td><span><b>{{base.categoria.toUpperCase()}}:</b> </span></td>
                                         <td>{{traduciNomiOrdini(base)}}</td>
                                     </tr>
                                 </table>
@@ -100,7 +100,7 @@
                                     <h5 class="section-small left">Base </h5>
                                     <table>
                                         <tr ng-repeat="base in conf.elencoEntita" ng-if="base.categoria == 'modello'">
-                                            <td><span><b>modello:</b></span></td>
+                                            <td><span><b>MODELLO:</b></span></td>
                                             <td>{{base.descrizione}}</td>
                                         </tr>
                                     </table>
@@ -109,7 +109,7 @@
                                     <h5 class="section-small left">Accessori</h5>
                                     <table>
                                         <tr ng-repeat="base in conf.elencoEntita" ng-if="base.categoria != 'modello'">
-                                                <td><span><b>{{base.categoria}}:</b> </span></td>
+                                                <td><span><b>{{base.categoria.toUpperCase()}:</b> </span></td>
                                                 <td>{{traduciNomiOrdini(base)}}</td>
                                         </tr>
                                     </table>

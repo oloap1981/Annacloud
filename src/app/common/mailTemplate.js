@@ -1,6 +1,5 @@
 angular.module('applicationModule').constant('MAIL',{
-		ORDER_MAIL_BASE_TEMPLATE: "\
-		< head >\
+		ORDER_MAIL_BASE_TEMPLATE: "< head >\
 		< !--[if gte mso 9]> <xml>\
 			<o: OfficeDocumentSettings>\
 			<o: AllowPNG/>\
@@ -440,7 +439,6 @@ angular.module('applicationModule').constant('MAIL',{
 		</table>\
 		<!--[if (mso)|(IE)]></div><![endif]-->\
 		</body>\
-		</html>\
-		"
+		</html>"
 	}
 );
