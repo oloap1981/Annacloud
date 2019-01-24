@@ -1,99 +1,99 @@
 <div ng-controller="ordiniController" class="container text-center" ng-init="initOrdini()">
-    <div class="row">
-        <div class="col-sm-12 clearfix top-buffer">
-            <h3 class="title section mot"><span>Ordini</span></h3>
-        </div>
-    </div>
-    <div ng-if="listaOrdini.length == 0">
         <div class="row">
-            <div class="col-sm-12 clearfix bottom-buffer wow fadeIn" data-wow-delay=".4s">
-                <p class="subtitle">Non hai ancora fatto nessun ordine.</p>
-                <a href="#!/configura" class="btn btn-default btn-lg follow anim" style="margin-top: 1em;">Configura adesso</a>
+            <div class="col-sm-12 clearfix top-buffer">
+                <h3 class="title section mot"><span>Ordini</span></h3>
             </div>
         </div>
-    </div>
-    <div class="row bag-list ">
-        <div ng-if="listaOrdini.length != 0">
-            <div ng-repeat="ord in listaOrdini" class="col-sm-12 bag-item clearfix">
-                <div class="col-sm-12 bottom-buffer text-center"><p class="subtitle" style="color: #000">Ordine n° 12123.</p></div>
-                <div class="col-sm-8 no-padding">
-                    <div ng-repeat="configurazione in ord.configurazioni" class="visible-xs">
-                        <div class="col-sm-12 no-padding">
-                            <div class="col-sm-3">
-                                <img src="{{configurazione.thumbnail}}" class="bag-sample">
-                            </div>
-                            <div class="col-sm-9">
-                                <div class="col-sm-12">
-                                    <h4 class="bag">{{configurazione.nome}}</h4>
-                                </div>
-                                <div class="col-sm-6 base">
-                                    <h5 class="section-small left">Base </h5>
-                                    <table>
-                                        <tr ng-repeat="base in configurazione.elencoEntita" ng-if="base.categoria == 'modello'">
-                                            <td><span>modello:</span></td>
-                                            <td>{{base.descrizione}}</td>
-                                        </tr>
-                                        <tr>
-                                    </table>
-                                </div>
-                                <div class="col-sm-6 accessori">
-                                    <h5 class="section-small left">Accessori</h5>
-                                    <table>
-                                        <tr ng-repeat="base in configurazione.elencoEntita" ng-if="base.categoria != 'modello'">
-                                            <td><span><b>{{base.categoria}}:</b> </span></td>
-                                            <td>{{traduciNomiOrdini(base)}}</td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <div ng-if="listaOrdini.length == 0">
+            <div class="row">
+                <div class="col-sm-12 clearfix bottom-buffer wow fadeIn" data-wow-delay=".4s">
+                    <p class="subtitle">Non hai ancora fatto nessun ordine.</p>
+                    <a href="#!/configura" class="btn btn-default btn-lg follow anim" style="margin-top: 1em;">Configura adesso</a>
                 </div>
-                <div ng-repeat="configurazione in ord.configurazioni" class="hidden-xs">
-                    <div class="col-sm-8">
-                        <div class="media">
-                            <div class="media-left">
-                                <a href="#">
-                                    <img src="{{configurazione.thumbnail}}" class="media-object bag-sample">
-                                </a>
-                            </div>
-                            <div class="media-body">
-                                <div class="col-sm-12">
-                                    <h4 class="media-heading bag">{{configurazione.nome}}</h4>
+            </div>
+        </div>
+        <div class="row bag-list ">
+            <div ng-if="listaOrdini.length != 0">
+                <div ng-repeat="ord in listaOrdini" class="col-sm-12 bag-item clearfix">
+                    <div class="col-sm-12 bottom-buffer text-center"><p class="subtitle" style="color: #000">Ordine n° {{ord.codice}}</p></div>
+                    <div class="col-sm-8 no-padding">
+                        <div ng-repeat="configurazione in ord.configurazioni" class="visible-xs">
+                            <div class="col-sm-12 no-padding">
+                                <div class="col-sm-3">
+                                    <img src="{{configurazione.thumbnail}}" class="bag-sample">
                                 </div>
-                                <div class="col-xs-6 base">
-                                    <h5 class="section-small left">Base </h5>
-                                    <table>
-                                        <tr ng-repeat="base in configurazione.elencoEntita" ng-if="base.categoria == 'modello'">
-                                            <td><span><b>modello:</b></span></td>
-                                            <td>{{base.descrizione}}</td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div class="col-xs-6 accessori">
-                                    <h5 class="section-small left">Accessori</h5>
-                                    <table>
-                                        <tr ng-repeat="base in configurazione.elencoEntita" ng-if="base.categoria != 'modello'">
-                                                <td><span><b>{{base.categoria}}:</b> </span></td>
+                                <div class="col-sm-9">
+                                    <div class="col-sm-12">
+                                        <h4 class="bag">{{configurazione.nome}}</h4>
+                                    </div>
+                                    <div class="col-sm-6 base">
+                                        <h5 class="section-small left">Base </h5>
+                                        <table>
+                                            <tr ng-repeat="base in configurazione.elencoEntita" ng-if="base.categoria == 'modello'">
+                                                <td><span>MODELLO:</span></td>
+                                                <td>{{base.descrizione}}</td>
+                                            </tr>
+                                            <tr>
+                                        </table>
+                                    </div>
+                                    <div class="col-sm-6 accessori">
+                                        <h5 class="section-small left">Accessori</h5>
+                                        <table>
+                                            <tr ng-repeat="base in configurazione.elencoEntita" ng-if="base.categoria != 'modello'">
+                                                <td><span><b>{{base.categoria.toUpperCase()}}:</b> </span></td>
                                                 <td>{{traduciNomiOrdini(base)}}</td>
-                                        </tr>
-                                    </table>
+                                            </tr>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-4 ">
-                    <div class="order-state  zero " ng-class="{'current': ord.stato == 0 }">In attesa di pagamento
-                        <div ng-if="ord.stato == 0">
-                            <a href="#" onclick="return false" class="btn top-buffer btn-default" ng-click="getCheckout(ord)" style="width:auto;">Concludi l'acquisto</a>
+                    <div ng-repeat="configurazione in ord.configurazioni" class="hidden-xs">
+                        <div class="col-sm-8">
+                            <div class="media">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img src="{{configurazione.thumbnail}}" class="media-object bag-sample">
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <div class="col-sm-12">
+                                        <h4 class="media-heading bag">{{configurazione.nome}}</h4>
+                                    </div>
+                                    <div class="col-xs-6 base">
+                                        <h5 class="section-small left">Base </h5>
+                                        <table>
+                                            <tr ng-repeat="base in configurazione.elencoEntita" ng-if="base.categoria == 'modello'">
+                                                <td><span><b>MODELLO:</b></span></td>
+                                                <td>{{base.descrizione}}</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="col-xs-6 accessori">
+                                        <h5 class="section-small left">Accessori</h5>
+                                        <table>
+                                            <tr ng-repeat="base in configurazione.elencoEntita" ng-if="base.categoria != 'modello'">
+                                                    <td><span><b>{{base.categoria.toUpperCase()}}:</b> </span></td>
+                                                    <td>{{traduciNomiOrdini(base)}}</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="order-state  one " ng-class="{'current': ord.stato == 1 }">Ordinato</div>
-                    <div class="order-state  two " ng-class="{'current': ord.stato == 2 }">In lavorazione</div>
-                    <div class="order-state  three " ng-class="{'current': ord.stato == 3 }">In spedizione</div>
+                    <div class="col-sm-4 ">
+                        <div class="order-state  zero " ng-class="{'current': ord.stato == 0 }">In attesa di pagamento
+                            <div ng-if="ord.stato == 0">
+                                <a href="#" onclick="return false" class="btn top-buffer btn-default" ng-click="getCheckout(ord)" style="width:auto;">Concludi l'acquisto</a>
+                            </div>
+                        </div>
+                        <div class="order-state  one " ng-class="{'current': ord.stato == 1 }">Ordinato</div>
+                        <div class="order-state  two " ng-class="{'current': ord.stato == 2 }">In lavorazione</div>
+                        <div class="order-state  three " ng-class="{'current': ord.stato == 3 }">In spedizione</div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
