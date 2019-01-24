@@ -102,6 +102,10 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		price: 0
 	};
 
+	configController.isConfigurationPresent = function(){
+		return $scope.configurazione.codice != undefined;	
+	}
+
 	configController.getModelloSelezionato = function () {
 		if ($scope.modelloSelezionato != "") {
 			return $scope.modelloSelezionato.charAt(0).toUpperCase() + $scope.modelloSelezionato.slice(1);

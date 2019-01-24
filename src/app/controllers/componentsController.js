@@ -1,4 +1,4 @@
-angular.module("applicationModule").controller("componentsController", ["$scope", "loginService", "listeService", "$location", "$uibModal", "$uibModalStack", "jwtHelper",  function($scope, loginService, listeService, $location, $uibModal, $uibModalStack, jwtHelper) {
+angular.module("applicationModule").controller("componentsController", ["$scope", "MAIL", "loginService", "listeService", "$location", "$uibModal", "$uibModalStack", "jwtHelper",  function($scope, MAIL, loginService, listeService, $location, $uibModal, $uibModalStack, jwtHelper) {
 
 	$scope.user = null;
 	$scope.costoSpedizione = 19.50;
@@ -430,7 +430,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 					console.log(res.errorMessage);
 					$scope.openMessageModal("C'è stato un problema nel salvataggio dell'ordine");
 				} else {
-					$scope.openMessageModal("ordine correttamente aggiornato");
+					$scope.openMessageModal("grazie per il tuo acquisto su Anna Cloud. Riceverai a breve una email di conferma.");
 					//preparo l'invio delle mail
 					$scope.ordineInCorso.codice = res.data.codiceConfigurazioneRisposta;
 					var mailMessage = $scope.generateEmailMessage($scope.ordineInCorso);
@@ -441,7 +441,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 								$scope.openMessageModal("C'è stato un problema nell'invio della mail di riepilogo, contattare l'amministratore");
 							} else {
 								$scope.ordineInCorso = null;
-								$scope.changePath('/preferiti');
+								$scope.changePath('/ordini');
 							}
 						}
 					);
@@ -716,12 +716,13 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 				console.log(res);
 				$scope.getTempConfigurazione().codice = res.data.codiceConfigurazioneRisposta;
 				//$scope.addToPreferiti($scope.getTempConfigurazione());//aggiunge ai preferiti locali
+				$scope.ricaricaListe($scope.getUserEmail(), "", true);
 				$scope.hideLoader();
 				if($scope.getTempConfigurazione().carrello){
 					//$scope.addToCarrello($scope.getTempConfigurazione());//aggiunge ai preferiti locali
 					$scope.changePath('/carrello');
 				}
-				$scope.ricaricaListe($scope.getUserEmail(), "", true);
+				
 			},
 			function (reason){
 				console.log(reason);
