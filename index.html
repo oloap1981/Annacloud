@@ -78,7 +78,8 @@
 					<div class="collapse navbar-collapse">
 						<ul class="nav navbar-nav navbar-left">
 							<li ng-show="user!==null">
-								<p class="navbar-text">Benvenuto, <strong>{{user.username}}</strong></p>
+								<p class="navbar-text">Benvenuto, <strong>{{nome + " " + cognome}}</strong></p>
+								<!-- {{user.username}} -->
 							</li>
 							<li ng-show="user==null">
 								<p class="navbar-text">Benvenuto, <strong>accedi al tuo profilo</strong> o <strong>crea il tuo account</strong></p>

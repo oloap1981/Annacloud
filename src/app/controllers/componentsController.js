@@ -370,38 +370,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 									console.log('Failed: ' + reason);
 								});
 					}
-
-					loginService.getUserAttributes().then(
-						function (attList){
-							console.log(attList);
-							attList.forEach(function (a){
-								if (a.Name == "custom:email" ){
-									$scope.email = a.Value;
-								}
-								if (a.Name == "custom:telefono" ){
-									$scope.tel = a.Value;
-								}
-								if (a.Name == "name" ){
-									$scope.nome = a.Value;
-								}
-								if (a.Name == "family_name" ){
-									$scope.cognome = a.Value;
-								}
-								if (a.Name == "custom:indSpe" ){
-									$scope.indSpe = a.Value;
-								}
-								if (a.Name == "custom:nomeSpe" ){
-									$scope.nomeSpe = a.Value;
-								}
-								if (a.Name == "custom:indSpe2" ){
-									$scope.indSpe2 = a.Value;
-								}
-							});
-						},
-						function (reason){
-							console.log(reason);
-						}
-					);
+					$scope.reloadAttributes();
 
 				});
 
@@ -413,6 +382,40 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 			}, function(reason) {
 				  console.log( reason);
 				  $scope.openMessageModal(reason.message);
+			}
+		);
+	};
+
+	$scope.reloadAttributes = function(){
+		loginService.getUserAttributes().then(
+			function (attList){
+				console.log(attList);
+				attList.forEach(function (a){
+					if (a.Name == "custom:email" ){
+						$scope.email = a.Value;
+					}
+					if (a.Name == "custom:telefono" ){
+						$scope.tel = a.Value;
+					}
+					if (a.Name == "name" ){
+						$scope.nome = a.Value;
+					}
+					if (a.Name == "family_name" ){
+						$scope.cognome = a.Value;
+					}
+					if (a.Name == "custom:indSpe" ){
+						$scope.indSpe = a.Value;
+					}
+					if (a.Name == "custom:nomeSpe" ){
+						$scope.nomeSpe = a.Value;
+					}
+					if (a.Name == "custom:indSpe2" ){
+						$scope.indSpe2 = a.Value;
+					}
+				});
+			},
+			function (reason){
+				console.log(reason);
 			}
 		);
 	};

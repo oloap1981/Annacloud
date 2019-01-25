@@ -104,7 +104,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 
 	configController.isConfigurationPresent = function(){
 		return $scope.configurazione.codice != undefined;	
-	}
+	};
 
 	configController.getModelloSelezionato = function () {
 		if ($scope.modelloSelezionato != "") {
