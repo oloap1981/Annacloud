@@ -4,65 +4,6 @@
 // @import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css');
 
 @font-face {
-    font-family: 'Butler';
-    src: url('../fonts/Butler-UltraLight.woff2') format('woff2'),
-        url('../fonts/Butler-UltraLight.woff') format('woff');
-    font-weight: 200;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Butler';
-    src: url('../fonts/Butler-Medium.woff2') format('woff2'),
-        url('../fonts/Butler-Medium.woff') format('woff');
-    font-weight: 500;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Butler';
-    src: url('../fonts/Butler-Light.woff2') format('woff2'),
-        url('../fonts/Butler-Light.woff') format('woff');
-    font-weight: 300;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Butler';
-    src: url('../fonts/Butler-Black.woff2') format('woff2'),
-        url('../fonts/Butler-Black.woff') format('woff');
-    font-weight: 900;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Butler';
-    src: url('../fonts/Butler-Bold.woff2') format('woff2'),
-        url('../fonts/Butler-Bold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Butler';
-    src: url('../fonts/Butler-ExtraBold.woff2') format('woff2'),
-        url('../fonts/Butler-ExtraBold.woff') format('woff');
-    font-weight: 800;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Butler';
-    src: url('../fonts/Butler.woff2') format('woff2'),
-        url('../fonts/Butler.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-
-
-
-@font-face {
     font-family: 'unaduna';
     src: url('../fonts/unaduna.eot');
     src: url('../fonts/unaduna.eot?#iefix') format('embedded-opentype'),
@@ -82,26 +23,27 @@
     line-height: 1;
     vertical-align: middle;
     position: relative;
-    top: -0.125em;
+   
     -webkit-font-smoothing: antialiased;
     -webkit-font-smoothing: subpixel-antialiased;
     -moz-osx-font-smoothing: grayscale
 }
-.unaicon-login:before{content:'\0041';}
-.unaicon-cart:before{content:'\0042';}
-.unaicon-favourite:before{content:'\0043'; top: -1px;}
-.unaicon-spinner:before{content:'\0044';}
-.unaicon-zoom:before{content:'\0045';}
-.unaicon-add:before{content:'\0046';}
-.unaicon-remove:before{content:'\0047';}
-.unaicon-search:before{content:'\0048';}
-.unaicon-facebook:before{content:'\0049';}
-.unaicon-twitter:before{content:'\004a';}
-.unaicon-instagram:before{content:'\004b';}
-.unaicon-register:before{content:'\004c';}
-.unaicon-minus:before{content:'\004d';}
-.unaicon-unaduna-logo:before{content:'\0050';}
-.unaicon-add-bag:before{content:'\0051';}
+
+.unaicon-login:before{content:'\0041'; top: -0.125em;}
+.unaicon-cart:before{content:'\0042'; top: -0.125em;}
+.unaicon-favourite:before{content:'\0043'; top: -0.125em;}
+.unaicon-spinner:before{content:'\0044'; top: -0.125em;}
+.unaicon-zoom:before{content:'\0045'; top: -0.125em;}
+.unaicon-add:before{content:'\0046'; top: -0.125em;}
+.unaicon-remove:before{content:'\0047'; top: -0.125em;}
+.unaicon-search:before{content:'\0048'; top: -0.125em;}
+.unaicon-facebook:before{content:'\0049'; top: -0.125em;}
+.unaicon-twitter:before{content:'\004a'; color: #f00 !important;}
+.unaicon-instagram:before{content:'\004b'; top: -0.125em;}
+.unaicon-register:before{content:'\004c'; top: -0.125em;}
+.unaicon-minus:before{content:'\004d'; top: -0.125em;}
+.unaicon-unaduna-logo:before{content:'\004e'; top: -0.125em;}
+.unaicon-bag-reset:before{content:'\004f';}
 
 
 // font per lista lettere emboss
