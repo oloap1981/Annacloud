@@ -23,7 +23,6 @@
                     </div>
                     <div class="col-sm-9">
                         <div class="col-sm-12">
-                            <p ng-click="eliminaConfigurazione(conf.codice)" class="remove">elimina <small><i class="unaicon-remove"></i></small></p>
                             <h4 class="bag">{{conf.nome}}</h4>
                         </div>
                         <div class="col-sm-6 base">
@@ -51,6 +50,7 @@
                     <div class="order-buttons">
                         <a href="javascript:void(0)" class="btn btn-default " ng-click="goToPage(conf)">modifica il modello</a>
                         <a href="javascript:void(0)" class="btn  btn-action" ng-click="addToCart(conf)">aggiungi al carrello</a>
+                        <p ng-click="eliminaConfigurazione(conf.codice)" class="remove">elimina <small><i class="unaicon-remove"></i></small></p>
                     </div>
                 </div>
             </div>

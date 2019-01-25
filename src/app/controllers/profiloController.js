@@ -67,7 +67,8 @@ angular.module("applicationModule").controller("profiloController", ["$scope", "
 				function (res){
 					console.log(res);
 					$scope.reloadAttributes();
-					$scope.openMessageModal("Telefono cambiata con successo");
+					$scope.openMessageModal("Dati cambiati con successo");
+					//$scope.openMessageModal("Telefono cambiata con successo");
 				},
 				function (reason){
 					console.log(reason);
@@ -114,7 +115,8 @@ angular.module("applicationModule").controller("profiloController", ["$scope", "
 					function (res){
 						console.log(res);
 						$scope.reloadAttributes();
-						$scope.openMessageModal("Email cambiata con successo");
+						$scope.openMessageModal("Dati cambiati con successo");
+						//$scope.openMessageModal("Email cambiata con successo");
 					},
 					function (reason){
 						console.log(reason);
@@ -131,7 +133,8 @@ angular.module("applicationModule").controller("profiloController", ["$scope", "
 				function (res){
 					console.log(res);
 					$scope.reloadAttributes();
-					$scope.openMessageModal("Password cambiata con successo");
+					$scope.openMessageModal("Dati cambiati con successo");
+					//$scope.openMessageModal("Password cambiata con successo");
 				},
 				function (reason){
 					console.log(reason);

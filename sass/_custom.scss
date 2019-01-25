@@ -1949,19 +1949,31 @@ a.link {
 }
 
 .remove {
-    margin: 0;
     position :absolute;
-    top: 5px;
+    top: 0px;
+    padding: 10px 0;
+    position: relative;
     font-family: $font-family-sans-serif;
     color: grey;
-    font-size: 12px;
+    font-size: 14px;
     right: 0;
+    //border: solid 1px #ccc;
+    //border-top: 0;
+    //margin-left: -15px;
+    //margin-right: -15px;
+    //margin-bottom: 15px;
+    margin-top: 25px;
     cursor: pointer;
     .order-state & {
         right: 20px;
     }
-    @media screen and (max-width: $screen-xs) {
-        position: relative;
+    @media screen and (min-width: $screen-sm) {
+        font-size: 12px;
+        top: 10px;
+        padding: 0;
+        margin: 0;
+        position: absolute;
+        border: none;
     }
 }
 
