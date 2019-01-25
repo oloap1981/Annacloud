@@ -50,53 +50,9 @@ $.fn.animateAccessoriBar = function(accContainer, offsetElement, triggerElement,
         $('.'+triggerElement).removeClass('chiuso').addClass('aperto');
     }
 
-    // apertura chiusura in base al click sulla linguetta
-    // if (trigger == 'trigger') {
-    //     $('.'+triggerElement).click(function() {
-    //         if (aperto == 1) {
-    //             aperto = 0;
-    //             console.log('valore di aperto: '+aperto);
-    //             event.stopPropagation();
-    //             $('.'+accContainer).stop().animate({
-    //                 bottom: offsetElementHeight
-    //             }, 500, "swing");
-    //             $(this).removeClass('aperto').addClass('chiuso');
-    //             $("#a-middle").centerElement();
-    //         } else {
-    //             aperto = 1;
-    //             console.log('valore di aperto: '+aperto);
-    //             event.stopPropagation();
-    //             $('.'+accContainer).stop().animate({
-    //                 bottom: -(accContainerHeight - offsetElementHeight)
-    //             }, 500, "swing");
-    //             $(this).removeClass('chiuso').addClass('aperto');
-    //             $("#a-middle").centerElement();
-    //         }
-    //     });
-    // } else {
-    //     // console.log('notrigger!!!');
-    // }
 }
 
-// ricalcola posizione e dimensione delle immagini delle borse al resize della finestra
-/*$.fn.centerElement2 = function () {
-    this.css("position","absolute");
-    this.css("top", $(".navbar").outerHeight());
 
-    var elemSize = $(window).height()-$(".navbar").outerHeight()-$(".accessori").outerHeight()-$(".riepilogo").outerHeight();
-    var elementMaxHeight = 960 + $(".navbar").outerHeight()+$(".accessori").outerHeight()+$(".riepilogo").outerHeight();
-
-    if ($(window).width() > 480 && $(window).height() > elementMaxHeight) {
-        this.css("width", '100%');
-        // this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) + $(window).scrollTop()) - (($(this).outerHeight())/4)+100 + "px");
-        this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) + $(window).scrollLeft()) + "px");
-        return this;
-    } else if ( $(window).height() < elementMaxHeight) {
-        this.css("width", elemSize + (elemSize/12)).css("left", (($(this).parent().width() - $(this).width()) / 2) + "px");
-        return this;
-    };
-
-}*/
 var scale;
 
 $.fn.parentResize = function() {

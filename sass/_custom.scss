@@ -817,6 +817,7 @@ a.link {
     //background-color: #F6F6F6;
     background-color: $brand-secondary;
     color: $brand-secondary !important;
+    font-family: $font-family-sans-serif-title;
     border: none;
    
 }
@@ -868,7 +869,7 @@ a.link {
 }
 .fixed-navbar-right {
     float: right;
-    li {
+    > li {
         margin-left: -1px;
         a {
             line-height: 2.2em !important;
@@ -877,7 +878,7 @@ a.link {
     }
 }
 .fixed-navbar-left {
-    li {
+    > li {
         margin-right: -1px;
         a {
             line-height: 2.2em !important;
@@ -2263,7 +2264,7 @@ a.link {
     a.disabled {
         color: #ccc !important;
     }
-    .dropdown-menu {
+    .fixed-navbar-left .dropdown-menu {
         border-left: none;
         border-right: none;
     }
@@ -2273,7 +2274,7 @@ a.link {
         //border-bottom: none;
         padding: 0;
     }
-    .yamm .dropdown.yamm-fw .dropdown-menu {
+    .yamm .fixed-navbar-left .dropdown.yamm-fw .dropdown-menu {
         border-left: none;
         border-right: none;
         border-bottom: none;
@@ -2282,13 +2283,13 @@ a.link {
         position: static;
     }
 
-    .yamm .container .dropdown-menu {
+    .yamm .container .fixed-navbar-left .dropdown-menu {
         left: 0;
         text-align: center;
         width: 100%;
     }
 
-    .yamm .dropdown-menu > li {
+    .yamm .fixed-navbar-left .dropdown-menu > li {
         display: inline-block;   
     }
     .main-configurator-navbar {
