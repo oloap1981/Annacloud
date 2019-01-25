@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-sm-12 clearfix bottom-buffer wow fadeIn" data-wow-delay=".4s">
                 <p class="subtitle">Non hai ancora fatto nessun ordine.</p>
-                <a href="#!/configura" class="btn btn-default btn-lg follow anim" style="margin-top: 1em;">Configura adesso</a>
+                <a href="#!/configura" class="btn btn-default btn-lg" style="margin-top: 1em;">Configura adesso</a>
             </div>
         </div>
     </div>
@@ -31,7 +31,7 @@
                                         <h5 class="section-small left">Base </h5>
                                         <table>
                                             <tr ng-repeat="base in configurazione.elencoEntita" ng-if="base.categoria == 'modello'">
-                                                <td style="padding-right: 20px;"><span>modello:</span></td>
+                                                <td style="padding-right: 20px;"><span>MODELLO:</span></td>
                                                 <td>{{base.descrizione}}</td>
                                             </tr>
                                             <tr>
@@ -41,7 +41,7 @@
                                         <h5 class="section-small left">Accessori</h5>
                                         <table>
                                             <tr ng-repeat="base in configurazione.elencoEntita" ng-if="base.categoria != 'modello'">
-                                                <td style="padding-right: 20px;"><span><b>{{base.categoria}}:</b> </span></td>
+                                                <td style="padding-right: 20px;"><span><b>{{base.categoria.toUpperCase()}}:</b> </span></td>
                                                 <td>{{traduciNomiOrdini(base)}}</td>
                                             </tr>
                                         </table>
@@ -66,7 +66,7 @@
                                         <h5 class="section-small left">Base </h5>
                                         <table>
                                             <tr ng-repeat="base in configurazione.elencoEntita" ng-if="base.categoria == 'modello'">
-                                                <td style="padding-right: 20px;"><span><b>modello:</b></span></td>
+                                                <td style="padding-right: 20px;"><span><b>MODELLO:</b></span></td>
                                                 <td>{{base.descrizione}}</td>
                                             </tr>
                                         </table>
@@ -75,7 +75,7 @@
                                         <h5 class="section-small left">Accessori</h5>
                                         <table>
                                             <tr ng-repeat="base in configurazione.elencoEntita" ng-if="base.categoria != 'modello'">
-                                                    <td><span><b>{{base.categoria}}:</b> </span></td>
+                                                    <td style="padding-right: 20px;"><span><b>{{base.categoria.toUpperCase()}}:</b> </span></td>
                                                     <td>{{traduciNomiOrdini(base)}}</td>
                                             </tr>
                                         </table>

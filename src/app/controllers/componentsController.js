@@ -433,7 +433,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 					console.log(res.errorMessage);
 					$scope.openMessageModal("C'è stato un problema nel salvataggio dell'ordine");
 				} else {
-					$scope.openMessageModal("grazie per il tuo acquisto su Anna Cloud. Riceverai a breve una email di conferma.");
+					$scope.openMessageModal("Grazie per il tuo acquisto su Anna Cloud. Riceverai a breve una email di conferma.");
 					//preparo l'invio delle mail
 					$scope.ordineInCorso.codice = res.data.codiceConfigurazioneRisposta;
 					var mailMessage = $scope.generateEmailMessage($scope.ordineInCorso);

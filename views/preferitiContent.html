@@ -9,10 +9,9 @@
             <div class="row">
                 <div class="col-sm-12 clearfix bottom-buffer wow fadeIn" data-wow-delay=".4s">
                     <p class="subtitle">Non hai ancora nessun prodotto salvato nei Preferiti.</p>
-                        <a href="#!/configura" class="btn btn-default btn-lg follow anim" style="margin-top: 1em;">Configura adesso</a>
+                    <a href="#!/configura" class="btn btn-default btn-lg follow anim" style="margin-top: 1em;">Configura adesso</a>
                 </div>
             </div>
-            
         </div>
         <div ng-if="getPreferiti().length != 0" class="row bag-list tab-pane fade in active" id="preferiti">
             <div ng-repeat="conf in getPreferiti()" class="col-sm-12 bag-item clearfix visible-xs">
@@ -48,6 +47,12 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-sm-4">
+                    <div class="order-buttons">
+                        <a href="javascript:void(0)" class="btn btn-default " ng-click="goToPage(conf)">modifica il modello</a>
+                        <a href="javascript:void(0)" class="btn  btn-action" ng-click="addToCart(conf)">aggiungi al carrello</a>
+                    </div>
+                </div>
             </div>
             <div ng-repeat="conf in getPreferiti()" class="col-sm-12 bag-item clearfix hidden-xs">
                 <div class="col-sm-8 ">
@@ -66,7 +71,7 @@
                                 <h5 class="section-small left">Base </h5>
                                 <table>
                                     <tr ng-repeat="base in conf.elencoEntita" ng-if="base.categoria == 'modello'">
-                                        <td><span><b>MODELLO:</b></span></td>
+                                        <td><span>MODELLO:</span></td>
                                         <td>{{base.descrizione}}</td>
                                     </tr>
                                 </table>

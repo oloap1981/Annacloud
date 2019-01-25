@@ -17,7 +17,8 @@ var config = {
     assets: 'assets/*.*',
     html: 'views/*.html',
     views: 'views/*.*',
-    temp: 'temp/'
+    temp: 'temp/',
+    eb: '.ebextensions/*.*'
 }
 
 var dist = {
@@ -25,10 +26,11 @@ var dist = {
 	images: 'images/',
 	fonts: 'fonts/',
     assets: 'assets/',
-    views: 'views/'
+    views: 'views/',
+    eb: '.ebextensions/'
 }
 
-gulp.task('build', ['copy-views', 'copy-assets', 'copy-fonts', 'copy-images', 'minifyjs'], function(){
+gulp.task('build', ['copy-views', 'copy-eb', 'copy-assets', 'copy-fonts', 'copy-images', 'minifyjs'], function(){
     del(config.temp);
 });
 
@@ -68,6 +70,11 @@ gulp.task('copy-assets', ['clean-assets'], function(){
 gulp.task('copy-views', ['clean-views'], function(){
     return gulp.src([config.views])
       .pipe(gulp.dest(dist.path + dist.views));
+});
+
+gulp.task('copy-eb', ['clean-eb'], function () {
+    return gulp.src([config.eb])
+        .pipe(gulp.dest(dist.path + dist.eb));
 });
 
 gulp.task('vet', function(){
@@ -116,4 +123,8 @@ gulp.task('clean-assets', function(){
 
 gulp.task('clean-views', function(){
     del.sync(dist.path + dist.views);
+});
+
+gulp.task('clean-eb', function(){
+    del.sync(dist.path + dist.eb);
 });
