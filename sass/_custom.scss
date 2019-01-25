@@ -38,7 +38,7 @@
 .unaicon-remove:before{content:'\0047'; top: -0.125em;}
 .unaicon-search:before{content:'\0048'; top: -0.125em;}
 .unaicon-facebook:before{content:'\0049'; top: -0.125em;}
-.unaicon-twitter:before{content:'\004a'; color: #f00 !important;}
+.unaicon-twitter:before{content:'\004a'; top: -0.125em;}
 .unaicon-instagram:before{content:'\004b'; top: -0.125em;}
 .unaicon-register:before{content:'\004c'; top: -0.125em;}
 .unaicon-minus:before{content:'\004d'; top: -0.125em;}
@@ -234,9 +234,9 @@
             }
         }
     }
-    .btn {
+    /*.btn {
         font-size: 1.2em;
-    }
+    }*/
 }
 
 .recover {
@@ -334,7 +334,7 @@ html {
 
 html {
     padding    : 0;
-    font-family: $font-family-sans-serif;
+    font-family: $font-family-sans-serif-title;
     // @media (min-width: $screen-sm) {
     //     margin: 0px;
     // }
@@ -346,6 +346,7 @@ body {
     width: 100%;
     margin: 0;
     padding: 0;
+    font-family:  $font-family-sans-serif-title;
 
 }
 h1,h2,h3,h4,h5,h6 {
@@ -491,7 +492,7 @@ button:focus {outline:0;}
     font-size: 1em !important;
     &:hover {
         background: #fff !important;
-        color: $brand-primary;
+        color: $brand-primary !important;
         border-color: $brand-primary;
     }
 }
@@ -732,7 +733,7 @@ a.link {
 /* loader generale */
 
 #loaderOverlay {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -1774,7 +1775,7 @@ a.link {
         border: solid 1px white;
         position: relative;
         bottom: 0;
-        margin-bottom: 30px;
+        margin-bottom: 10px;
         @media screen and (max-width: $screen-sm) {
             width: 100%;
             font-size: .65em;
@@ -1824,6 +1825,7 @@ a.link {
             padding-bottom: 5px !important;
             vertical-align: top;
             line-height: 1em;
+            font-size: .9em;
         }
         @media screen and (max-width: $screen-sm) {
             //padding-top: 0px;
@@ -1844,6 +1846,8 @@ a.link {
                 text-align: left;
                 padding: 2px 5px;
                 width: 50%;
+                
+                font-size: .8em;
                 &:first-of-type {
                     text-align: right;
                 }
@@ -1962,7 +1966,7 @@ a.link {
     top: 0px;
     padding: 10px 0;
     position: relative;
-    font-family: $font-family-sans-serif;
+    font-family: $font-family-sans-serif-title;
     color: grey;
     font-size: 14px;
     right: 0;
@@ -3147,7 +3151,12 @@ footer {
         height: 100%;
     }
 
-
+    .swiper-slide {
+        margin-bottom: 50px;
+        @media screen and (max-width: $screen-xs) {
+            margin-bottom: 50px;
+        }
+    }
     .swiper-button-prev,
     .swiper-container-rtl .swiper-button-next {
         //background: transparent; /* For browsers that do not support gradients */
@@ -3179,9 +3188,19 @@ footer {
         cursor: auto;
         pointer-events: none;
     }
+    
     .swiper-pagination-bullet {
         background: $brand-color-logo !important;
         opacity: .2 !important;
+        width: 20px;
+        height: 20px;
+        margin: 0 10px !important;
+        @media screen and (max-width: $screen-xs) {
+            width: 15px;
+            height: 15px;
+            margin: 0 5px !important;
+            
+        }
         &.swiper-pagination-bullet-active {
             opacity: 1 !important;
             
