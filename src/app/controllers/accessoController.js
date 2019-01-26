@@ -51,7 +51,7 @@ angular.module("applicationModule").controller("accessoController", ["$scope", "
 										} else {
 											console.log("Configurazione salvata correttamente");
 											//ricarico le liste
-											$scope.ricaricaListe(confUser.email, tempNextPath);
+											$scope.ricaricaListe(confUser.email, tempNextPath, true);
 										}
 									},
 									function (reason){

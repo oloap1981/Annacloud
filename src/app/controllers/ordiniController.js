@@ -13,7 +13,7 @@ angular.module("applicationModule").controller("ordiniController", ["$scope", "l
 							getOrdiniService.response(codice).then(function(data){
 								$scope.listaOrdini = data.data.ordini;
 								console.log(data);
-								console.log ($scope.listaOrdini );
+								console.log ($scope.listaOrdini);
 								
 							});
 						}

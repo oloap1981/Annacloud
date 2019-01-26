@@ -15,7 +15,7 @@
     <div class="row bag-list ">
         <div ng-if="listaOrdini.length != 0">
             <div ng-repeat="ord in listaOrdini" class="col-sm-12 bag-item clearfix">
-                <div class="col-sm-12 bottom-buffer text-center"><p class="subtitle" style="color: #000">Ordine n° 12123.</p></div>
+                <div class="col-sm-12 bottom-buffer text-center"><p class="subtitle" style="color: #000">Ordine n° {{ord.codice}}</p></div>
                 <div class="col-sm-8">
                     <div class="col-sm-12 no-padding">
                         <div ng-repeat="configurazione in ord.configurazioni" class="visible-xs">

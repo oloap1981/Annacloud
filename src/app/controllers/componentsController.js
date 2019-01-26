@@ -96,6 +96,8 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 	$scope.nome = "";
 	$scope.cognome = "";
 	$scope.indSpe = "";
+	$scope.cittaSpe = "";
+	$scope.capSpe = "";
 	$scope.indSpe2 = "";
 	$scope.nomeSpe = "";
 
@@ -175,6 +177,22 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 
 	$scope.getIndSpe = function(){
 		return $scope.indSpe;
+	};
+
+	$scope.setCittaSpe = function(cittaSpe){
+		$scope.cittaSpe = cittaSpe;
+	};
+
+	$scope.getCittaSpe = function(){
+		return $scope.cittaSpe;
+	};
+
+	$scope.setCapSpe = function(capSpe){
+		$scope.capSpe = capSpe;
+	};
+
+	$scope.getCapSpe = function(){
+		return $scope.capSpe;
 	};
 
 	$scope.setNomeSpe = function(nomeSpe){
@@ -310,10 +328,12 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 	};
 
 	$scope.ricaricaListe = function(email, page, showLoader){
-		if(showLoader){
-			$scope.setLoaderMessage("ricarico la lista...");
-			$scope.showLoader();
-		}
+		// if(showLoader){
+		// 	$scope.setLoaderMessage("ricarico la lista...");
+		// 	$scope.showLoader();
+		// }
+		$scope.setLoaderMessage("ricarico la lista...");
+		$scope.showLoader();
 		listeService.getConfigurazioniUtente(email).then(function(data){
 			$scope.preferiti = data.data.configurazioni;
 			$scope.hideLoader();
@@ -343,48 +363,48 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		return email;
 	};
 
-	$scope.loginAndMove = function(username, password, nextPath){
-		loginService.login(email, password).then(
-			function(data){
-				console.log(data);
-				loginService.getCurrentUser().then (function (data){
-					console.log(data);
-					var user = data;
-					var idToken = jwtHelper.decodeToken(data.signInUserSession.idToken.jwtToken);
-					var tokenEmail = idToken.email;
-					$scope.ricaricaListe(tokenEmail);
-					user.eMail = tokenEmail;
-					$scope.setUser(data);
-					if ($scope.remember.value == true){
-						loginService.setDeviceStatusRemembered().then(
-								function(greeting) {
-									console.log('Success: remembered ' + greeting);
-								}, function(reason) {
-									console.log('Failed: ' + reason);
-								});
-					}else{
-						loginService.setDeviceStatusNotRemembered().then(
-								function(greeting) {
-									console.log('Success: not remembered ' + greeting);
-								}, function(reason) {
-									console.log('Failed: ' + reason);
-								});
-					}
-					$scope.reloadAttributes();
+	// $scope.loginAndMove = function(username, password, nextPath){
+	// 	loginService.login(email, password).then(
+	// 		function(data){
+	// 			console.log(data);
+	// 			loginService.getCurrentUser().then (function (data){
+	// 				console.log(data);
+	// 				var user = data;
+	// 				var idToken = jwtHelper.decodeToken(data.signInUserSession.idToken.jwtToken);
+	// 				var tokenEmail = idToken.email;
+	// 				$scope.ricaricaListe(tokenEmail);
+	// 				user.eMail = tokenEmail;
+	// 				$scope.setUser(data);
+	// 				if ($scope.remember.value == true){
+	// 					loginService.setDeviceStatusRemembered().then(
+	// 							function(greeting) {
+	// 								console.log('Success: remembered ' + greeting);
+	// 							}, function(reason) {
+	// 								console.log('Failed: ' + reason);
+	// 							});
+	// 				}else{
+	// 					loginService.setDeviceStatusNotRemembered().then(
+	// 							function(greeting) {
+	// 								console.log('Success: not remembered ' + greeting);
+	// 							}, function(reason) {
+	// 								console.log('Failed: ' + reason);
+	// 							});
+	// 				}
+	// 				$scope.reloadAttributes();
 
-				});
+	// 			});
 
-				if(nextPath == null || nextPath == ""){
-					$scope.changePath('/home');
-				} else {
-					$scope.changePath(nextPath);
-				}
-			}, function(reason) {
-				  console.log( reason);
-				  $scope.openMessageModal(reason.message);
-			}
-		);
-	};
+	// 			if(nextPath == null || nextPath == ""){
+	// 				$scope.changePath('/home');
+	// 			} else {
+	// 				$scope.changePath(nextPath);
+	// 			}
+	// 		}, function(reason) {
+	// 			  console.log( reason);
+	// 			  $scope.openMessageModal(reason.message);
+	// 		}
+	// 	);
+	// };
 
 	$scope.reloadAttributes = function(){
 		loginService.getUserAttributes().then(
@@ -405,6 +425,12 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 					}
 					if (a.Name == "custom:indSpe" ){
 						$scope.indSpe = a.Value;
+					}
+					if (a.Name == "custom:cittaSpe" ){
+						$scope.cittaSpe = a.Value;
+					}
+					if (a.Name == "custom:capSpe" ){
+						$scope.capSpe = a.Value;
 					}
 					if (a.Name == "custom:nomeSpe" ){
 						$scope.nomeSpe = a.Value;
@@ -509,7 +535,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 			if(data.signInUserSession != null){
 				var idToken = jwtHelper.decodeToken(data.signInUserSession.idToken.jwtToken);
 				var email = idToken.email;
-				$scope.ricaricaListe(email);
+				$scope.ricaricaListe(email, "", true);
 				//tiro giu' anche gli attributi dell'utente
 				loginService.getUserAttributes().then(
 					function (attList){
@@ -529,6 +555,12 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 							}
 							if (a.Name == "custom:indSpe" ){
 								$scope.indSpe = a.Value;
+							}
+							if (a.Name == "custom:cittaSpe" ){
+								$scope.cittaSpe = a.Value;
+							}
+							if (a.Name == "custom:capSpe" ){
+								$scope.capSpe = a.Value;
 							}
 							if (a.Name == "custom:nomeSpe" ){
 								$scope.nomeSpe = a.Value;
@@ -899,4 +931,5 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 	$scope.hideLoader = function(){
 		$('#loaderOverlay')[0].style.visibility = 'hidden';
 	};
+
 }]);

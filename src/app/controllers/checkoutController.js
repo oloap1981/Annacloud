@@ -38,6 +38,14 @@ angular.module("applicationModule").controller("checkoutController", ["$scope", 
 		return $scope.getIndSpe();
 	};
 
+	$scope.getCittaSpedizione = function(){
+		return $scope.getCittaSpe();
+	};
+
+	$scope.getCAPSpedizione = function(){
+		return $scope.getCapSpe();
+	};
+
 	$scope.canBuy = function(){
 		return $scope.getNomeSpe() != "" && $scope.getIndSpe() != "";
 	};
