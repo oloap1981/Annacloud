@@ -1665,57 +1665,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 
 		$("#pz").pinchzoomer();
 
-		// var pz = PinchZoomer.get("pz");
-
-		$('#canvasWrapper').parentResize();
-
-		// pulsanti apertura/chiusura zoom borsa
-		// $('#openZoom').click(function() {
-		// 	pz.zoom(1.4);
-		// 	pz.y(-300);
-		// 	pz.x(-70);
-
-		// 	html2canvas(document.querySelector("#spritespin"), { async:false }).then(canvas => {
-		// 	// html2canvas(document.querySelector("#spritespin"), { async:true }).then( function(canvas) {
-		// 		$("#loader").show();
-		// 		var dataUrl = canvas.toDataURL();
-		// 		$("#pz").attr("src", dataUrl);
-		// 		$("#pz").load();
-		// 		$('.zoom').css({'z-index':'10'}).animate({opacity: '1'});	
-		// 		var spriteSpinAPI = $('#spritespin').spritespin('api');
-		// 		$("#loader").fadeOut("slow");
-		// 		configController.caricaZoom(spriteSpinAPI.currentFrame());//CARICO LO ZOOM AD ALTA RISOLUZIONE
-		// 	});
-		// });
-
-		// $('#closeZoom').click(function() {
-		// 	$('.zoom').animate(
-		// 		{
-		// 			opacity: 0
-		// 		}, 
-		// 		{
-		// 			complete: function(){ 
-		// 				$(this).css({'z-index': '0'}); 
-		// 			}
-		// 		});
-		// });
-
-		/* edito il nome della borsa nel configuratore *DA COMPLETARE* */
-		$('#edit-text').click(function () {
-			var name = $(this).text();
-			$(this).html('');
-			$('<input style="margin-top: -10px; margin-left: -3px;"></input>')
-				.attr({
-					'type': 'text',
-					'name': 'fname',
-					'id': 'txt_fullname',
-					'size': '10',
-					'value': name
-				})
-				.appendTo('#edit-text');
-			$('#txt_fullname').focus();
-
-		});
+		//$('#canvasWrapper').parentResize(0);
 
 		$('#a').click(function () {
 			var $target = $('#inizialiPreview');
@@ -1734,6 +1684,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 
 		$('.accessori').css('bottom', $('.riepilogo').outerHeight());
 		$.fn.yammHeight('navbar', 'yamm-content'); // rif. descrizione funzione yammHeight: custom.js linea 86
+
 		// customizza la barra di scorrimento del mega menu
 		(function ($) {
 			$(window).on("load", function () {
@@ -1757,17 +1708,11 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		})(jQuery);
 
 
-		var resizeTimer; // serve per il timeout per lanciare funzioni alla fine del ridimensionamento della finestra
 		$(window).resize(function () {
-			clearTimeout(resizeTimer);
-
-			//resizeTimer = setTimeout(function () {
 			$('.accessori').css('bottom', $('.riepilogo').outerHeight());
 			$('#canvasWrapper').parentResize();
-			//$('#a-middle').centerElement();
 			$.fn.sepLine('first-divider', 'swiper-container', 'accessori');
 			$.fn.yammHeight('navbar', 'yamm-content');
-			//}, 250);
 		});
 
 		configController.priceManager.price = 0;
