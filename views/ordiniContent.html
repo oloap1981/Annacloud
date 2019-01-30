@@ -15,7 +15,10 @@
     <div class="row bag-list ">
         <div ng-if="listaOrdini.length != 0">
             <div ng-repeat="ord in listaOrdini" class="col-sm-12 bag-item clearfix">
-                <div class="col-sm-12 bottom-buffer text-center"><p class="subtitle" style="color: #000">Ordine n° {{ord.codice}}</p></div>
+                <div class="col-sm-12 bottom-buffer text-center">
+                    <p class="subtitle" style="color: #000">Ordine n° {{ord.codice}}</p>
+                    
+                </div>
                 <div class="col-sm-8">
                     <div class="col-sm-12 no-padding">
                         <div ng-repeat="configurazione in ord.configurazioni" class="visible-xs">
@@ -62,7 +65,7 @@
                                     <div class="col-sm-12">
                                         <h4 class="media-heading bag">{{configurazione.nome}}</h4>
                                     </div>
-                                    <div class="col-xs-6 base">
+                                    <div class="col-md-6 col-sm-12 base">
                                         <h5 class="section-small left">Base </h5>
                                         <table>
                                             <tr ng-repeat="base in configurazione.elencoEntita" ng-if="base.categoria == 'modello'">
@@ -71,12 +74,12 @@
                                             </tr>
                                         </table>
                                     </div>
-                                    <div class="col-xs-6 accessori">
+                                    <div class="col-md-6 col-sm-12 accessori">
                                         <h5 class="section-small left">Accessori</h5>
                                         <table>
                                             <tr ng-repeat="base in configurazione.elencoEntita" ng-if="base.categoria != 'modello'">
-                                                    <td><span><b>{{base.categoria.toUpperCase()}}:</b> </span></td>
-                                                    <td>{{traduciNomiOrdini(base)}}</td>
+                                                <td><span><b>{{base.categoria.toUpperCase()}}:</b> </span></td>
+                                                <td>{{traduciNomiOrdini(base)}}</td>
                                             </tr>
                                         </table>
                                     </div>
@@ -94,6 +97,7 @@
                     <div class="order-state  one " ng-class="{'current': ord.stato == 1 }">Ordinato</div>
                     <div class="order-state  two " ng-class="{'current': ord.stato == 2 }">In lavorazione</div>
                     <div class="order-state  three " ng-class="{'current': ord.stato == 3 }">In spedizione</div>
+                    <p ng-click="eliminaConfigurazione(conf.codice)"  ng-if="ord.stato == 3" class="text-center top-buffer">elimina ordine<small><i class="unaicon-remove"></i></small></p>
                 </div>
             </div>
         </div>

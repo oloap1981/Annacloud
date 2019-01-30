@@ -67,7 +67,7 @@
                                 <p ng-click="eliminaConfigurazione(conf.codice)" class="remove">elimina <small><i class="unaicon-remove"></i></small></p>
                                 <h4 class="media-heading bag">{{conf.nome}}</h4>
                             </div>
-                            <div class="col-xs-6 base">
+                            <div class="col-md-6 col-sm-12 base">
                                 <h5 class="section-small left">Base </h5>
                                 <table>
                                     <tr ng-repeat="base in conf.elencoEntita" ng-if="base.categoria == 'modello'">
@@ -76,7 +76,7 @@
                                     </tr>
                                 </table>
                             </div>
-                            <div class="col-xs-6 accessori">
+                            <div class="col-md-6 col-sm-12 accessori">
                                 <h5 class="section-small left">Accessori</h5>
                                 <table>
                                     <tr ng-repeat="base in conf.elencoEntita" ng-if="base.categoria != 'modello'">
