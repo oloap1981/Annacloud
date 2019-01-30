@@ -48,7 +48,7 @@
 	</style>
 </head>
 
-<body ng-app="applicationModule" ng-controller="componentsController" class="ng-scope" ng-cloak>
+<body ng-app="applicationModule" ng-controller="componentsController" class="ng-scope" >
 	<page-loader latency="2000" bg-color="#ffffff">
 		<img class="gif-loader" src="images/annacloud-gif-anim-logo.gif">
 		<div class="loader hidden">
@@ -65,9 +65,9 @@
 		</div>
 		</div>
 	</page-loader>
-	<div ng-hide="hideElement()">
+	<div ng-hide="hideElement()" ng-cloak>
 		<div class="main-header-content">
-			<nav class="navbar main-navbar navbar-default nomargin" role="navigation">
+			<nav class="navbar main-navbar navbar-default nomargin" role="navigation" >
 				<div class="container">
 					<a class="logo-small hidden visible-xs-block text-hide" href="#!/home">AnnaCloud</a>
 					<div class="navbar-header navbar-right">
@@ -189,7 +189,7 @@
 			</div>
 		</nav>
 	</div>
-	<div class="template-content" ng-view autoscroll="true"><!-- contenitore principale -->
+	<div class="template-content" ng-view autoscroll="true" ng-cloak><!-- contenitore principale -->
 <!--
 		<home-content ng-if="isHome"></home-content>
 		<configura-content ng-if="isConfigurator"></configura-content>
@@ -206,7 +206,7 @@
 
 	</div>
 
-	<footer class="" ng-hide="hideElement()">
+	<footer class="" ng-hide="hideElement()" ng-cloak>
 		<div class="footer-navbar-container">
 			<div class="container">
 				<div class="col-md-4 col-sm-3">
@@ -290,6 +290,7 @@
 
 	<!-- build:js js/vendor.js -->
 	<script src="node_modules/angular/angular.min.js"></script>
+	<script src="node_modules/angular-page-loader/dist/angular-page-loader.min.js"></script>
 	<script src="node_modules/jquery/dist/jquery.js"></script>
 	<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="node_modules/angular-ui-swiper/dist/angular-ui-swiper.js"></script>
@@ -300,7 +301,6 @@
 	<script src="node_modules/angular-messages/angular-messages.min.js"></script>
 	<script src="node_modules/angular-route/angular-route.min.js"></script>
 	<script src="node_modules/angular-material/angular-material.min.js"></script>
-	<script src="node_modules/angular-page-loader/dist/angular-page-loader.min.js"></script>
 	<!--<script src="node_modules/html2canvas/dist/html2canvas.min.js"></script>-->
 	<script src="node_modules/html2canvas/dist/html2canvas.js"></script>
 	<!-- <script src="node_modules/spritespin/release/spritespin.min.js"></script> -->
