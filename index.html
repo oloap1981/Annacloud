@@ -41,9 +41,29 @@
 	<link rel="mask-icon" href="assets/safari-pinned-tab.svg" color="#a87481">
 	<meta name="msapplication-TileColor" content="#a87481">
 	<meta name="theme-color" content="#a87481">
+	<style>
+		[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+			display: none !important;
+		}
+	</style>
 </head>
 
 <body ng-app="applicationModule" ng-controller="componentsController" class="ng-scope" ng-cloak>
+	<page-loader latency="2000" bg-color="#ffffff">
+		<div class="loader">
+		<div class="la-ball-grid-pulse la-2x custom">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		</div>
+	</page-loader>
 	<div ng-hide="hideElement()">
 		<div class="main-header-content">
 			<nav class="navbar main-navbar navbar-default nomargin" role="navigation">
@@ -279,6 +299,7 @@
 	<script src="node_modules/angular-messages/angular-messages.min.js"></script>
 	<script src="node_modules/angular-route/angular-route.min.js"></script>
 	<script src="node_modules/angular-material/angular-material.min.js"></script>
+	<script src="node_modules/angular-page-loader/dist/angular-page-loader.min.js"></script>
 	<!--<script src="node_modules/html2canvas/dist/html2canvas.min.js"></script>-->
 	<script src="node_modules/html2canvas/dist/html2canvas.js"></script>
 	<!-- <script src="node_modules/spritespin/release/spritespin.min.js"></script> -->
