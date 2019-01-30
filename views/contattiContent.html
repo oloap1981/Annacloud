@@ -67,10 +67,18 @@
 							</div>
 						</div>
 						<button ng-click="cambiaNome(nome,cognome)" class="btn btn-default btn-save">Invia</button>
-						 <a href="#" onclick="return false" class="recover">Informativa sulla privacy</a>
+						 <a href="javascript:void(0)" class="recover">Informativa sulla privacy</a>
 						<div class="checkbox">
 							<label><input type="checkbox"class="js-switch">Ho preso visione dell’informativa e autorizzo il trattamento dei miei dati secondo quanto in essa riportato.</label></a>
 						</div>
+						<!--<script>
+							grecaptcha.ready(function () {
+								grecaptcha.execute('6Lc79Y0UAAAAAMuYVQ-lm9jtWcvk6w3v5FdxXml7', { action: 'form-contatti' })
+									.then(function (token) {
+										// Verifica il token sul server.
+									});
+							});
+						</script>-->
 					</form>
 				</div>
 				
