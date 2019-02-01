@@ -51,20 +51,7 @@
 
 <body ng-app="applicationModule" ng-controller="componentsController" class="ng-scope" >
 	<page-loader latency="2000" bg-color="#ffffff">
-		<img class="gif-loader" src="images/annacloud-gif-anim-logo.gif">
-		<div class="loader hidden">
-		<div class="la-ball-grid-pulse la-2x custom">
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-		</div>
-		</div>
+		<img class="gif-loader" src="images/annacloud-png-anim-logo.png">
 	</page-loader>
 	<div ng-hide="hideElement()" ng-cloak>
 		<div class="main-header-content">
@@ -393,17 +380,42 @@
 					e.stopPropagation();
 				}
 			});
-		});
-	</script>
-	<!--<script>
-		grecaptcha.ready(function () {
-			grecaptcha.execute('6Lc79Y0UAAAAAMuYVQ-lm9jtWcvk6w3v5FdxXml7', { action: 'newsletter' })
-				.then(function (token) {
-					// Verifica il token sul server.
+
+			// I only have one form on the page but you can be more specific if need be.
+			var $form = $('form');
+
+			if ($form.length > 0) {
+				$('form input[type="submit"]').bind('click', function (event) {
+					if (event) event.preventDefault();
+					// validate_input() is a validation function I wrote, you'll have to substitute this with your own.
+					 register($form);
 				});
+			}
 		});
-	</script>-->
-	<script id="mcjs">!function (c, h, i, m, p) { m = c.createElement(h), p = c.getElementsByTagName(h)[0], m.async = 1, m.src = i, p.parentNode.insertBefore(m, p) }(document, "script", "https://chimpstatic.com/mcjs-connected/js/users/136591eb1b406e55ba682b171/f983e98a015dece4ac3ce684b.js");</script>
+
+		function register($form) {
+			$.ajax({
+				type: $form.attr('method'),
+				url: $form.attr('action'),
+				data: $form.serialize(),
+				cache: false,
+				dataType: 'json',
+				contentType: "application/json; charset=utf-8",
+				error: function (err) { alert("Could not connect to the registration server. Please try again later."); },
+				success: function (data) {
+					if (data.result != "success") {
+						// Something went wrong, do something to notify the user. maybe alert(data.msg);
+						alert("ERRORE!")
+					} else {
+						alert("OK")
+						// It worked, carry on...
+					}
+				}
+			});
+		}
+	</script>
+
+
 </body>
 
 </html>

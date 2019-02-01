@@ -1125,7 +1125,8 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		$scope.showZoom = false;
 
 		var date1 = new Date();
-		$("#loader").show();
+		//$("#loader").show();
+		$("#loader").fadeIn("slow");
 
 		configController.setVisible(false);
 
@@ -1730,7 +1731,8 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		// html2canvas(document.querySelector("#spritespin"), { async:false }).then(canvas => {
 		// html2canvas(document.querySelector("#spritespin"), { async:false }).then( function(canvas) {
 		html2canvas(document.querySelector("#spritespin")).then(function (canvas) {
-			$("#loader").show();
+			//$("#loader").show();
+			$("#loader").fadeIn("slow");
 			var dataUrl = canvas.toDataURL();
 			$("#pz").attr("src", dataUrl);
 			$("#pz").load();

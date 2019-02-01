@@ -72,6 +72,9 @@ app.config(['$routeProvider', '$locationProvider', '$compileProvider', function 
 	when('/admin-clienti', {
 		templateUrl: 'views/adminClientiContent.html'
 	}).
+	when('/conferma-newsletter', {
+		templateUrl: 'views/confermaNewsletter.html'
+	}).
 	otherwise({
 		redirectTo: '/'
 	});
