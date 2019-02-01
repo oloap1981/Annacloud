@@ -78,6 +78,8 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 	$scope.user = null;
 	$scope.configThumbnail = "";
 
+	$scope.showDropdownButton = false;
+
 	configController.getRepeaterClass = function (accessorio, index) {
 		var toReturn = "";
 		if (index == 0) {
@@ -102,8 +104,8 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		price: 0
 	};
 
-	configController.isConfigurationPresent = function(){
-		return $scope.configurazione.codice != undefined;	
+	configController.switchShowDropdown = function(){
+		$scope.showDropdownButton = !$scope.showDropdownButton;
 	};
 
 	configController.getModelloSelezionato = function () {
@@ -442,7 +444,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 
 		configController.initConfigurazione();
 		$scope.configurazione.nome = modello.nome;
-
+		
 		//carico solo gli accessori relativi al modello scelto
 		listeService.getAccessori(modello.nome).then(function (res2) {
 			$scope.entita = res2.data.accessori;
@@ -493,7 +495,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			//apro il pannello dei colori
 			configController.selezioneTipoAccessorio("colore");
 			configController.caricaSpinner();
-
+			$scope.showDropdownButton = true;
 		});
 	};
 
@@ -1678,7 +1680,6 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 
 		$(document).on('blur', '#txt_fullname', function () {
 			var name = $(this).val();
-			//alert('Make an AJAX call and pass this parameter >> name=' + name);
 			$('#edit-text').text(name);
 		});
 

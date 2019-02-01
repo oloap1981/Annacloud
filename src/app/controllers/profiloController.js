@@ -123,7 +123,7 @@ angular.module("applicationModule").controller("profiloController", ["$scope", "
 					}
 			);
 		}else {
-			alert ("le email non corrispondono");
+			$scope.openMessageModal("le email non corrispondono");
 		}	
 	};
 	
@@ -138,11 +138,11 @@ angular.module("applicationModule").controller("profiloController", ["$scope", "
 				},
 				function (reason){
 					console.log(reason);
-					alert ("Errore nel cambio password");
+					$scope.openMessageModal("Errore nel cambio password");
 				}
 			);
 		}else{
-			alert ("Le password non corrispondono");
+			$scope.openMessageModal("Le password non corrispondono");
 		}
 		
 	};

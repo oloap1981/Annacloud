@@ -9,4 +9,6 @@ angular.module('applicationModule').constant('URLS',{
 }).constant('VARIOUS',{
 	requestTypeModelli: 'MODELLI',
 	requestTypeEntita: 'ENTITA'
+}).constant('EMAIL_CONFIGURATION', {
+	adminEmailAddress: 'info@annacloud.it'
 });

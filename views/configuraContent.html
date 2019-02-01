@@ -14,7 +14,7 @@
 					<a href="#!/home" class="link" ><i class="fa fa-home hidden"></i><img src="images/logonew-big.png" class="hidden-xs" style="height: 25px;"><img src="images/logonew-mobile-conf-big.png" class=" visible-xs-inline-block" style="height: 15px"></a>
 				</li>
 				<li class="dropdown yamm-fw keep-open">
-					<a href="#" onclick="return false" class="active dropdown-toggle link modello" data-toggle="dropdown" ng-show="contr.isConfigurationPresent()"><i class="unaicon-bag-reset visible-xs"></i> <span class="hidden-xs">nuova configurazione</span></a>
+					<a id="nuovaConfigurazioneToggle" href="javascript:void(0)" class="active dropdown-toggle link modello" ng-click="contr.switchShowDropdown()" data-toggle="dropdown" ng-show="showDropdownButton"><i class="unaicon-bag-reset visible-xs"></i> <span class="hidden-xs">nuova configurazione</span></a>
 					<ul class="dropdown-menu scelta-modelli">
 						<li ng-class="{'disabled':modelliAbilitati}" >
 							<div class="yamm-content  scelta-modelli clearfix">

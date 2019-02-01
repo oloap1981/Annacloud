@@ -18,7 +18,8 @@ angular.module("applicationModule").controller("preferitiController", ["$scope",
 						console.log(res.errorMessage);
 					} else {
 						console.log(res);
-						$scope.ricaricaListe($scope.getUserEmail(), '/carrello', true);
+						$scope.openMessageModal("configurazione aggiunta correttamente al carrello");
+						$scope.ricaricaListe($scope.getUserEmail(), '', true);
 					}
 				},
 				function (reason){

@@ -1,4 +1,4 @@
-angular.module("applicationModule").controller("componentsController", ["$scope", "MAIL", "loginService", "listeService", "$location", "$uibModal", "$uibModalStack", "jwtHelper",  function($scope, MAIL, loginService, listeService, $location, $uibModal, $uibModalStack, jwtHelper) {
+angular.module("applicationModule").controller("componentsController", ["$scope", "MAIL", "EMAIL_CONFIGURATION", "loginService", "listeService", "$location", "$uibModal", "$uibModalStack", "jwtHelper",  function($scope, MAIL, EMAIL_CONFIGURATION, loginService, listeService, $location, $uibModal, $uibModalStack, jwtHelper) {
 
 	$scope.user = null;
 	$scope.costoSpedizione = 19.50;
@@ -9,6 +9,10 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 	$scope.modalInstance = null;
 
 	$scope.loaderMessage = "";
+
+	/* MAIL PER CLIENTE E ADMIN */
+	$scope.emailMessage_cliente = "";
+	$scope.emailMessage_admin = "";
 
 	$scope.orderBaseMessage = "<html>"+
 	"<head>"+
@@ -363,6 +367,10 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		return email;
 	};
 
+	$scope.getAdminEmail = function(){
+		return EMAIL_CONFIGURATION.adminEmailAddress;
+	};
+
 	// $scope.loginAndMove = function(username, password, nextPath){
 	// 	loginService.login(email, password).then(
 	// 		function(data){
@@ -462,15 +470,28 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 					$scope.openMessageModal("Grazie per il tuo acquisto su Anna Cloud. Riceverai a breve una email di conferma.");
 					//preparo l'invio delle mail
 					$scope.ordineInCorso.codice = res.data.codiceConfigurazioneRisposta;
-					var mailMessage = $scope.generateEmailMessage($scope.ordineInCorso);
-					listeService.sendEmail(mailMessage).then(
+					$scope.generateMessageText();
+					var clientMessage = $scope.generateEmailMessage_client();
+					var adminMessage = $scope.generateEmailMessage_admin();
+					//var mailMessage = $scope.generateEmailMessage($scope.ordineInCorso);
+					listeService.sendEmail(clientMessage).then(
 						function(res2){
 							if(res2.errorMessage != null && res2.errorMessage != ""){
 								console.log(res2.errorMessage);
-								$scope.openMessageModal("C'è stato un problema nell'invio della mail di riepilogo, contattare l'amministratore");
+								$scope.openMessageModal("C'è stato un problema nell'invio della mail di riepilogo al cliente, contattare l'amministratore");
 							} else {
-								$scope.ordineInCorso = null;
-								$scope.changePath('/ordini');
+
+								listeService.sendEmail(adminMessage).then(
+									function(res2){
+										if(res2.errorMessage != null && res2.errorMessage != ""){
+											console.log(res2.errorMessage);
+											$scope.openMessageModal("C'è stato un problema nell'invio della mail di riepilogo all'admin, contattare l'amministratore");
+										} else {
+											$scope.ordineInCorso = null;
+											$scope.changePath('/ordini');
+										}
+									}
+								);
 							}
 						}
 					);
@@ -494,7 +515,80 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		return message;
 	};
 
+	$scope.generateEmailMessage_client = function(){
+		var message = {};
+
+		message.toEmailAddress = [$scope.getUserEmail()];
+		message.ccEmailAddress = [];
+		message.emailSubject = "Annacloud - Riepilogo Ordine " + $scope.ordineInCorso.codice;
+		message.emailMessage = $scope.emailMessage_cliente;
+
+		return message;
+	};
+
+	$scope.generateEmailMessage_admin = function(){
+		var message = {};
+
+		message.toEmailAddress = [$scope.getAdminEmail()];
+		message.ccEmailAddress = [];
+		message.emailSubject = "Annacloud - Riepilogo Ordine " + $scope.ordineInCorso.codice;
+		message.emailMessage = $scope.emailMessage_admin;
+
+		return message;
+	};
+
 	$scope.generateMessageText = function(){
+		var message = MAIL.ORDER_MAIL_BASE_TEMPLATE;
+
+		message = message.replace("CODICE_ORDINE", $scope.ordineInCorso.codice);//CODICE_ORDINE
+		//genero l'elenco delle congurazioni
+		var confMessageParts = "";
+		for(var i = 0; i < $scope.ordineInCorso.configurazioni.length; i++){
+			var configurazione = $scope.ordineInCorso.configurazioni[i];
+
+			var configMessagePart = MAIL.ORDER_MAIL_CONFIGURATION_TEMPLATE;
+
+			configMessagePart = configMessagePart.replace("CONF_NAME",configurazione.nome);
+			configMessagePart = configMessagePart.replace("CONF_IMAGE",configurazione.thumbnail);
+//
+			var elencoEntitaPartMessage = "";
+			for(var j= 0; j < configurazione.elencoEntita.length; j++){
+				entita = configurazione.elencoEntita[j];
+
+				var entitaMessagePart = MAIL.ORDER_MAIL_ENTITA_TEMPLATE;
+
+				entitaMessagePart = entitaMessagePart.replace('ENTITA_NOME', entita.categoria);
+				entitaMessagePart = entitaMessagePart.replace('ENTITA_VALORE', $scope.traduciNomiOrdini(entita));
+
+				elencoEntitaPartMessage += entitaMessagePart;
+			}
+
+			configMessagePart = configMessagePart.replace("ELENCO_ENTITA",elencoEntitaPartMessage);
+			confMessageParts+= configMessagePart;
+		}
+		message = message.replace("ELENCO_CONFIGURAZIONI",confMessageParts);
+
+		var adminMessage = message;
+		message = message.replace("DATI_CLIENTE","");//il messaggio del cliente non deve contenere queste informazioni
+
+		//genero la parte relativa ai dati del cliente
+		var datiClienteMessagePart = MAIL.ORDER_MAIL_DATI_CLIENTE_TEMPLATE;
+
+		datiClienteMessagePart = datiClienteMessagePart.replace("CLIENTE_NOME",$scope.nome+" "+$scope.cognome);
+		datiClienteMessagePart = datiClienteMessagePart.replace("CLIENTE_EMAIL",$scope.getUserEmail());
+		datiClienteMessagePart = datiClienteMessagePart.replace("CLIENTE_TELEFONO",$scope.tel);
+		datiClienteMessagePart = datiClienteMessagePart.replace("CLIENTE_NOME_SPEDIZIONE",$scope.nome+" "+$scope.cognome);
+		datiClienteMessagePart = datiClienteMessagePart.replace("CLIENTE_INDIRIZZO_SPEDIZIONE",$scope.indSpe);
+		datiClienteMessagePart = datiClienteMessagePart.replace("CLIENTE_CAP_SPEDIZIONE",$scope.capSpe);
+		datiClienteMessagePart = datiClienteMessagePart.replace("CLIENTE_CITTA_SPEDIZIONE",$scope.cittaSpe);
+
+		adminMessage = adminMessage.replace("DATI_CLIENTE",datiClienteMessagePart);
+
+		$scope.emailMessage_cliente = message;
+		$scope.emailMessage_admin = adminMessage;
+	};
+
+	$scope.generateMessageTextOld = function(){
 		var message = $scope.orderBaseMessage;
 		message = message.replace('CODICE_ORDINE', $scope.ordineInCorso.codice);
 
@@ -829,6 +923,9 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 			if(entita.categoria != "" && entita.nome != ""){
 				var resutl = "";
 				switch(entita.categoria){
+					case "modello":
+						result = entita.nome;
+						break;
 					case "ciondoli":
 						var temp = entita.nome.toLowerCase();
 						var splitted = temp.split("_");

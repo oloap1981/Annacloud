@@ -39,7 +39,7 @@ angular.module("applicationModule").service("loginService", function($q) {
 			cognitoUser.getSession(function (err, session) {
 				if (err) {
 					deferred.reject(err);
-					alert(err);
+					alert(err.message);
 					return;
 				}
 				deferred.resolve(session);
@@ -61,10 +61,6 @@ angular.module("applicationModule").service("loginService", function($q) {
 	        Name : 'email',
 	        Value : email
 	    };
-	    /**var dataPhoneNumber = {
-	        Name : 'phone_number',
-	        Value : '+15555555555'
-	    };**/
 	    
 	    var dataName = {
 	    	Name : 'name',
@@ -72,16 +68,18 @@ angular.module("applicationModule").service("loginService", function($q) {
 	    };
 	    
 	    var dataFamilyName = {
-    		Name : 'family name',
+    		Name : 'family_name',
     		Value : cognome
 	    };
 	    
 	    var attributeEmail = new AmazonCognitoIdentity.CognitoUserAttribute(dataEmail);
-	    //var attributePhoneNumber = new AmazonCognitoIdentity.CognitoUserAttribute(dataPhoneNumber);
 	    var attributeName = new AmazonCognitoIdentity.CognitoUserAttribute(dataName);
 	    var attributeFamilyName = new AmazonCognitoIdentity.CognitoUserAttribute(dataFamilyName);
 	    
-	    attributeList.push(attributeEmail);
+		attributeList.push(attributeEmail);
+		attributeList.push(attributeName);
+		attributeList.push(attributeFamilyName);
+
 	    //attributeList.push(attributePhoneNumber);
 	    var deferred = $q.defer();
 	    userPool.signUp(username, password, attributeList, null, function(err, result){
@@ -134,7 +132,7 @@ angular.module("applicationModule").service("loginService", function($q) {
 	        cognitoUser.getSession(function(err, session) {
 	            if (err) {
 	            	deferred.reject(err);
-	               alert(err);
+	               alert(err.message);
 	                return;
 	            }
 	            deferred.resolve(cognitoUser);
@@ -194,8 +192,8 @@ angular.module("applicationModule").service("loginService", function($q) {
 	            deferred.resolve(result);
 	        },
 	        onFailure: function(err) {
-	            alert(err);
-	            console.log(err);
+	            alert(err.message);
+	            console.log(err.message);
 	            deferred.reject (err);
 	        },
 	        inputVerificationCode: function() {
@@ -216,8 +214,8 @@ angular.module("applicationModule").service("loginService", function($q) {
 		}
 		cognitoUser.changePassword(oldp, newp, function(err, result) {
 	        if (err) {
-	            alert(err);
-	            console.log(err);
+	            alert(err.message);
+	            console.log(err.message);
 	            deferred.reject (err);
 	            return deferred.promise;
 	        }
@@ -236,8 +234,8 @@ angular.module("applicationModule").service("loginService", function($q) {
 		}
 		cognitoUser.deleteUser(function(err, result) {
 	        if (err) {
-	            alert(err);
-	            console.log(err);
+	            alert(err.message);
+	            console.log(err.message);
 	            deferred.reject (err);
 	            return deferred.promise;
 	        }
@@ -260,8 +258,8 @@ angular.module("applicationModule").service("loginService", function($q) {
 		}
 		cognitoUser.getUserAttributes(function(err, result) {
 	        if (err) {
-	            alert(err);
-	            console.log(err);
+	            alert(err.message);
+	            console.log(err.message);
 	            deferred.reject (err);
 	            return deferred.promise;
 	        }
@@ -285,8 +283,8 @@ angular.module("applicationModule").service("loginService", function($q) {
 		        },
 		        onFailure: function(err) {
 		        	deferred.reject (err);
-		            alert(err);
-		            console.log(err);
+		            alert(err.message);
+		            console.log(err.message);
 		        }
 		    });
 		}else{
@@ -305,8 +303,8 @@ angular.module("applicationModule").service("loginService", function($q) {
 		            console.log('call result: ' + result);
 		        },
 		    onFailure: function(err) {
-		            alert(err);
-		            console.log(err);
+		            alert(err.message);
+		            console.log(err.message);
 		            deferred.reject (err);
 		        }
 		    });
@@ -326,8 +324,8 @@ angular.module("applicationModule").service("loginService", function($q) {
 	        },
 	        onFailure: function(err) {
 	        	deferred.reject (err);
-	            alert(err);
-	            console.log(err);
+	            alert(err.message);
+	            console.log(err.message);
 	        }
 	    });
 	  return deferred.promise;

@@ -11,7 +11,8 @@ angular.module("applicationModule").controller("ordiniController", ["$scope", "l
 							codice = a.Value;
 							console.log(codice);
 							getOrdiniService.response(codice).then(function(data){
-								$scope.listaOrdini = data.data.ordini;
+								$scope.listaOrdini = $scope.ordinaListaOrdini(data.data.ordini);
+								
 								console.log(data);
 								console.log ($scope.listaOrdini);
 								
@@ -28,6 +29,22 @@ angular.module("applicationModule").controller("ordiniController", ["$scope", "l
 		$scope.getCheckout = function(ordine){
 			$scope.setOrdineInCorso(ordine);
 			$location.url('/checkout');
+		};
+
+		$scope.ordinaListaOrdini = function(listaDaOrdinare){
+			if(listaDaOrdinare.length > 0){
+				return listaDaOrdinare.sort(function(a,b){
+					//criterio di ordinamento
+					if (a.codice > b.codice) {
+						return -1;
+					}
+					if (a.codice < b.codice) {
+						return 1;
+					}
+					// a deve essere uguale a b
+					return 0;
+				});
+			} else return listaDaOrdinare;
 		};
 
 	}

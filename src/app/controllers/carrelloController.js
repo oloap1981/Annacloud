@@ -59,8 +59,7 @@ angular.module("applicationModule").controller("carrelloController", ["$scope", 
 				if(res.errorMessage != null && res.errorMessage != ""){
 					//ho un errore
 					console.log(res.errorMessage);
-					$scope.openMessageModal("errore cancellazione");
-					alert("C'è stato un problema nel salvataggio dell'ordine, riprovare piu' tardi");
+					$scope.openMessageModal("C'è stato un problema nel salvataggio dell'ordine, riprovare piu' tardi");
 				} else {
 					console.log("Ordine salvato, procedo a svuotare il carrello");
 					ordine.codice = res.data.codiceOrdineRisposta;
