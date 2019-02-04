@@ -1825,8 +1825,21 @@ a.link {
             padding: 0;
         }
     }
+    .leTwinsLabel {
+        width: 70%; height: auto;position: absolute; top: 0; left: 0; z-index: 10;
+        @media screen and (min-width: $screen-sm) {
+            width: 40%;
+        }
+        @media screen and (min-width: $screen-md) {
+            width: 40%;
+        }
+        @media screen and (min-width: $screen-lg) {
+            width: 30%;
+        }
+    }
      @media screen and (max-width: $screen-xs) {
         margin: 3px;
+        
     }
 }
 
