@@ -10,7 +10,7 @@ angular.module("applicationModule").service("carrelloService", ["$http" , "$q", 
 				},
 				function (reason){
 					console.log(reason);
-					alert ("errore aggiunta carrello");
+					$scope.openMessageModal("errore aggiunta carrello");
 					return "";
 				}
 			);	

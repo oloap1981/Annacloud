@@ -359,7 +359,7 @@ angular.module('applicationModule').constant('MAIL',{
 								<!--[if mso]><table width='100%' cellpadding='0' cellspacing='0' border='0'><tr><td style='padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;'><![endif]-->\
 								<div style='color:#555555;line-height:120%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;'>\
 								<div style='font-size:12px;line-height:14px;color:#555555;text-align:left;'>\
-									<p style='margin: 0;font-size: 14px;line-height: 17px;text-align: center'>I'm a new Text block ready for your content.</p>\
+									<p style='margin: 0;font-size: 14px;line-height: 17px;text-align: center'>Numero Ordine CODICE_ORDINE</p>\
 								</div>\
 								</div>\
 								<!--[if mso]></td></tr></table><![endif]-->\
@@ -373,90 +373,8 @@ angular.module('applicationModule').constant('MAIL',{
 					</div>\
 					</div>\
 				</div>\
-				<div style='background-color:transparent;'>\
-					<div style='Margin: 0 auto;min-width: 320px;max-width: 480px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #FFFFFF;' class='block-grid two-up '>\
-					<div style='border-collapse: collapse;display: table;width: 100%;background-color:#FFFFFF;'>\
-						<!--[if (mso)|(IE)]><table width='100%' cellpadding='0' cellspacing='0' border='0'><tr><td style='background-color:transparent;' align='center'><table cellpadding='0' cellspacing='0' border='0' style='width: 480px;'><tr class='layout-full-width' style='background-color:#FFFFFF;'><![endif]-->\
-						<!--[if (mso)|(IE)]><td align='center' width='240' style=' width:240px; padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;' valign='top'><![endif]-->\
-						<div class='col num6' style='max-width: 320px;min-width: 240px;display: table-cell;vertical-align: top;'>\
-						<div style='background-color: transparent; width: 100% !important;'>\
-							<!--[if (!mso)&(!IE)]><!-->\
-							<div style='border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;'>\
-							<!--<![endif]-->\
-							<div align='center' class='img-container center fixedwidth ' style='padding-right: 0px;  padding-left: 0px;'>\
-								<!--[if mso]><table width='100%' cellpadding='0' cellspacing='0' border='0'><tr style='line-height:0px;line-height:0px;'><td style='padding-right: 0px; padding-left: 0px;' align='center'><![endif]-->\
-								<img class='center fixedwidth' align='center' border='0' src='https://s3.eu-central-1.amazonaws.com/unaduna-images-bucket/1548329675480_MODIFICATA%202.png' alt='Image' title='Image' style='outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: 0;height: auto;float: none;width: 100%;max-width: 168px' width='168'>\
-								<!--[if mso]></td></tr></table><![endif]-->\
-							</div>\
-							<!--[if (!mso)&(!IE)]><!-->\
-							</div>\
-							<!--<![endif]-->\
-						</div>\
-						</div>\
-						<!--[if (mso)|(IE)]></td><td align='center' width='240' style=' width:240px; padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;' valign='top'><![endif]-->\
-						<div class='col num6' style='max-width: 320px;min-width: 240px;display: table-cell;vertical-align: top;'>\
-						<div style='background-color: transparent; width: 100% !important;'>\
-							<!--[if (!mso)&(!IE)]><!-->\
-							<div style='border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;'>\
-							<!--<![endif]-->\
-							<div class=''>\
-								<!--[if mso]><table width='100%' cellpadding='0' cellspacing='0' border='0'><tr><td style='padding-right: 30px; padding-left: 0px; padding-top: 50px; padding-bottom: 30px;'><![endif]-->\
-								<div style='color:#555555;line-height:120%; padding-right: 30px; padding-left: 0px; padding-top: 50px; padding-bottom: 30px;'>\
-								<div style='font-size:12px;line-height:14px;color:#555555;text-align:left;'>\
-									<p style='margin: 0;font-size: 14px;line-height: 17px'><strong><span style='font-size: 12px; line-height: 14px;'>Nome configurazione</span><br><br></strong></p>\
-									<p style='margin: 0;font-size: 12px;line-height: 14px'>modello: shoulderbag</p>\
-									<p style='margin: 0;font-size: 12px;line-height: 14px'>colore: oceania</p>\
-									<p style='margin: 0;font-size: 12px;line-height: 14px'>stile: oceania cuori</p>\
-									<p style='margin: 0;font-size: 14px;line-height: 17px'><strong>&#160;</strong></p>\
-								</div>\
-								</div>\
-								<!--[if mso]></td></tr></table><![endif]-->\
-							</div>\
-							<!--[if (!mso)&(!IE)]><!-->\
-							</div>\
-							<!--<![endif]-->\
-						</div>\
-						</div>\
-						<!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->\
-					</div>\
-					</div>\
-				</div>\
-				<div style='background-color:transparent;'>\
-					<div style='Margin: 0 auto;min-width: 320px;max-width: 480px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #FFFFFF;' class='block-grid '>\
-					<div style='border-collapse: collapse;display: table;width: 100%;background-color:#FFFFFF;'>\
-						<!--[if (mso)|(IE)]><table width='100%' cellpadding='0' cellspacing='0' border='0'><tr><td style='background-color:transparent;' align='center'><table cellpadding='0' cellspacing='0' border='0' style='width: 480px;'><tr class='layout-full-width' style='background-color:#FFFFFF;'><![endif]-->\
-						<!--[if (mso)|(IE)]><td align='center' width='480' style=' width:480px; padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px; border-top: 1px solid #E6E3E3; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;' valign='top'><![endif]-->\
-						<div class='col num12' style='min-width: 320px;max-width: 480px;display: table-cell;vertical-align: top;'>\
-						<div style='background-color: transparent; width: 100% !important;'>\
-							<!--[if (!mso)&(!IE)]><!-->\
-							<div style='border-top: 1px solid #E6E3E3; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;'>\
-							<!--<![endif]-->\
-							<div class=''>\
-								<!--[if mso]><table width='100%' cellpadding='0' cellspacing='0' border='0'><tr><td style='padding-right: 30px; padding-left: 30px; padding-top: 30px; padding-bottom: 30px;'><![endif]-->\
-								<div style='color:#555555;line-height:120%; padding-right: 30px; padding-left: 30px; padding-top: 30px; padding-bottom: 30px;'>\
-								<div style='font-size:12px;line-height:14px;color:#555555;text-align:left;'>\
-									<p style='margin: 0;font-size: 14px;line-height: 17px'><strong><span style='font-size: 12px; line-height: 14px;'>Dati cliente</span><br><br></strong></p>\
-									<p style='margin: 0;font-size: 12px;line-height: 14px'>nome: Paolo Salvadori</p>\
-									<p style='margin: 0;font-size: 12px;line-height: 14px'>email: oloap1981@gmail.com</p>\
-									<p style='margin: 0;font-size: 12px;line-height: 14px'>telefono: 349518751</p>\
-									<p style='margin: 0;font-size: 12px;line-height: 14px'>&#160;</p>\
-									<p style='margin: 0;font-size: 12px;line-height: 14px'><strong>Indirizzo di spedizione</strong></p>\
-									<p style='margin: 0;font-size: 12px;line-height: 14px'>&#160;</p>\
-									<p style='margin: 0;font-size: 12px;line-height: 14px'>Paolo Salvadori</p>\
-									<p style='margin: 0;font-size: 12px;line-height: 14px'>Via Fiorino Vecchio 8<br>56040 Montescudaio (PI)</p>\
-								</div>\
-								</div>\
-								<!--[if mso]></td></tr></table><![endif]-->\
-							</div>\
-							<!--[if (!mso)&(!IE)]><!-->\
-							</div>\
-							<!--<![endif]-->\
-						</div>\
-						</div>\
-						<!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->\
-					</div>\
-					</div>\
-				</div>\
+				ELENCO_CONFIGURAZIONI\
+				DATI_CLIENTE\
 				<div style='background-color:transparent;'>\
 					<div style='Margin: 0 auto;min-width: 320px;max-width: 480px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #F7F7F7;' class='block-grid '>\
 					<div style='border-collapse: collapse;display: table;width: 100%;background-color:#F7F7F7;'>\
@@ -492,6 +410,91 @@ angular.module('applicationModule').constant('MAIL',{
 		</table>\
 		<!--[if (mso)|(IE)]></div><![endif]-->\
 		</body>\
-		</html>"
+		</html>",
+		ORDER_MAIL_CONFIGURATION_TEMPLATE: "\
+		<div style='background-color:transparent;'>\
+				<div style='Margin: 0 auto;min-width: 320px;max-width: 480px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #FFFFFF;' class='block-grid two-up '>\
+				<div style='border-collapse: collapse;display: table;width: 100%;background-color:#FFFFFF;'>\
+					<!--[if (mso)|(IE)]><table width='100%' cellpadding='0' cellspacing='0' border='0'><tr><td style='background-color:transparent;' align='center'><table cellpadding='0' cellspacing='0' border='0' style='width: 480px;'><tr class='layout-full-width' style='background-color:#FFFFFF;'><![endif]-->\
+					<!--[if (mso)|(IE)]><td align='center' width='240' style=' width:240px; padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;' valign='top'><![endif]-->\
+					<div class='col num6' style='max-width: 320px;min-width: 240px;display: table-cell;vertical-align: top;'>\
+					<div style='background-color: transparent; width: 100% !important;'>\
+						<!--[if (!mso)&(!IE)]><!-->\
+						<div style='border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;'>\
+						<!--<![endif]-->\
+						<div align='center' class='img-container center fixedwidth ' style='padding-right: 0px;  padding-left: 0px;'>\
+							<!--[if mso]><table width='100%' cellpadding='0' cellspacing='0' border='0'><tr style='line-height:0px;line-height:0px;'><td style='padding-right: 0px; padding-left: 0px;' align='center'><![endif]-->\
+							<img class='center fixedwidth' align='center' border='0' src='CONF_IMAGE' alt='Image' title='Image' style='outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: 0;height: auto;float: none;width: 100%;max-width: 168px' width='168'>\
+							<!--[if mso]></td></tr></table><![endif]-->\
+						</div>\
+						<!--[if (!mso)&(!IE)]><!-->\
+						</div>\
+						<!--<![endif]-->\
+					</div>\
+					</div>\
+					<!--[if (mso)|(IE)]></td><td align='center' width='240' style=' width:240px; padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;' valign='top'><![endif]-->\
+					<div class='col num6' style='max-width: 320px;min-width: 240px;display: table-cell;vertical-align: top;'>\
+					<div style='background-color: transparent; width: 100% !important;'>\
+						<!--[if (!mso)&(!IE)]><!-->\
+						<div style='border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;'>\
+						<!--<![endif]-->\
+						<div class=''>\
+							<!--[if mso]><table width='100%' cellpadding='0' cellspacing='0' border='0'><tr><td style='padding-right: 30px; padding-left: 0px; padding-top: 50px; padding-bottom: 30px;'><![endif]-->\
+							<div style='color:#555555;line-height:120%; padding-right: 30px; padding-left: 0px; padding-top: 50px; padding-bottom: 30px;'>\
+							<div style='font-size:12px;line-height:14px;color:#555555;text-align:left;'>\
+								<p style='margin: 0;font-size: 14px;line-height: 17px'><strong><span style='font-size: 12px; line-height: 14px;'>CONF_NAME</span><br><br></strong></p>\
+								ELENCO_ENTITA\
+								<p style='margin: 0;font-size: 14px;line-height: 17px'><strong>&#160;</strong></p>\
+							</div>\
+							</div>\
+							<!--[if mso]></td></tr></table><![endif]-->\
+						</div>\
+						<!--[if (!mso)&(!IE)]><!-->\
+						</div>\
+						<!--<![endif]-->\
+					</div>\
+					</div>\
+					<!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->\
+				</div>\
+				</div>\
+			</div>\
+		",
+		ORDER_MAIL_ENTITA_TEMPLATE: "<p style='margin: 0;font-size: 12px;line-height: 14px'>ENTITA_NOME: ENTITA_VALORE</p>",
+		ORDER_MAIL_DATI_CLIENTE_TEMPLATE: "<div style='background-color:transparent;'>\
+			<div style='Margin: 0 auto;min-width: 320px;max-width: 480px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #FFFFFF;' class='block-grid '>\
+			<div style='border-collapse: collapse;display: table;width: 100%;background-color:#FFFFFF;'>\
+				<!--[if (mso)|(IE)]><table width='100%' cellpadding='0' cellspacing='0' border='0'><tr><td style='background-color:transparent;' align='center'><table cellpadding='0' cellspacing='0' border='0' style='width: 480px;'><tr class='layout-full-width' style='background-color:#FFFFFF;'><![endif]-->\
+				<!--[if (mso)|(IE)]><td align='center' width='480' style=' width:480px; padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px; border-top: 1px solid #E6E3E3; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;' valign='top'><![endif]-->\
+				<div class='col num12' style='min-width: 320px;max-width: 480px;display: table-cell;vertical-align: top;'>\
+				<div style='background-color: transparent; width: 100% !important;'>\
+					<!--[if (!mso)&(!IE)]><!-->\
+					<div style='border-top: 1px solid #E6E3E3; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;'>\
+					<!--<![endif]-->\
+					<div class=''>\
+						<!--[if mso]><table width='100%' cellpadding='0' cellspacing='0' border='0'><tr><td style='padding-right: 30px; padding-left: 30px; padding-top: 30px; padding-bottom: 30px;'><![endif]-->\
+						<div style='color:#555555;line-height:120%; padding-right: 30px; padding-left: 30px; padding-top: 30px; padding-bottom: 30px;'>\
+						<div style='font-size:12px;line-height:14px;color:#555555;text-align:left;'>\
+							<p style='margin: 0;font-size: 14px;line-height: 17px'><strong><span style='font-size: 12px; line-height: 14px;'>Dati cliente</span><br><br></strong></p>\
+							<p style='margin: 0;font-size: 12px;line-height: 14px'>nome: CLIENTE_NOME</p>\
+							<p style='margin: 0;font-size: 12px;line-height: 14px'>email: CLIENTE_EMAIL</p>\
+							<p style='margin: 0;font-size: 12px;line-height: 14px'>telefono: CLIENTE_TELEFONO</p>\
+							<p style='margin: 0;font-size: 12px;line-height: 14px'>&#160;</p>\
+							<p style='margin: 0;font-size: 12px;line-height: 14px'><strong>Indirizzo di spedizione</strong></p>\
+							<p style='margin: 0;font-size: 12px;line-height: 14px'>&#160;</p>\
+							<p style='margin: 0;font-size: 12px;line-height: 14px'>CLIENTE_NOME_SPEDIZIONE</p>\
+							<p style='margin: 0;font-size: 12px;line-height: 14px'>CLIENTE_INDIRIZZO_SPEDIZIONE<br>CLIENTE_CAP_SPEDIZIONE CLIENTE_CITTA_SPEDIZIONE</p>\
+						</div>\
+						</div>\
+						<!--[if mso]></td></tr></table><![endif]-->\
+					</div>\
+					<!--[if (!mso)&(!IE)]><!-->\
+					</div>\
+					<!--<![endif]-->\
+				</div>\
+				</div>\
+				<!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->\
+			</div>\
+			</div>\
+		</div>"
 	 }
 );

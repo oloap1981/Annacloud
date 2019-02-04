@@ -56,8 +56,6 @@
 					onAuthorize: function (data, actions) {
 						return actions.payment.execute()
 							.then(function () {
-								//window.alert('Grazie per aver acquistato!');
-								
 								$scope.svuotaCarrello($scope.getOrdineInCorso());//il carrello lo svuoto solo se il pagamento è andato a buon fine
 								$scope.completaOperazioniOrdneAcquistato();
 							});

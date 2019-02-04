@@ -84,7 +84,7 @@
 				</div>
 				<div class="col-sm-8 clearfix">
 					<p class="subtitle" style="max-width: 100%;">Prendete <b>25 anni di esperienza</b> come pellettieri toscani e aggiungete un sistema di <b>personalizzazione 3D</b>. Ne uscirà un’esperienza utente completamente ridisegnata, per fare in modo che ogni cliente sia partecipe del processo creativo e produttivo della propria borsa.
-					<b>Questa è la rivoluzione di Anna Cloud<b>.</p>
+					<b>Questa è la rivoluzione di Anna Cloud</b>.</p>
 				</div>	
 			</div>
 		</div>
@@ -126,7 +126,7 @@
 			<section class="swipe swipe-featured">
 				<swiper class="" grab-cursor="true" keyboard-control="true" slides-per-view="4" breakpoints="{ &quot;320&quot;: { &quot;slidesPerView&quot;: &quot;1&quot; },  &quot;480&quot;: { &quot;slidesPerView&quot;: &quot;2&quot; },  &quot;768&quot;: { &quot;slidesPerView&quot;: &quot;3&quot; },  &quot;992&quot;: { &quot;slidesPerView&quot;: &quot;4&quot; },  &quot;1200&quot;: { &quot;slidesPerView&quot;: &quot;4&quot; }}">
 					<slides>
-						<slide ng-repeat="conf in getPreconfigurati()"><a href="javascript:void(0);" class="bag-box home-content wow fadeIn" data-wow-delay="0.4s" ng-click="modificaConfig(conf)"><div class="img-container"><img ng-src="{{conf.thumbnail}}" /></div><span>{{conf.nome}}</span></a></slide>
+						<slide ng-repeat="conf in getPreconfigurati()"><a href="javascript:void(0);" class="bag-box home-content wow fadeIn" data-wow-delay="0.4s" ng-click="modificaConfig(conf)"><img src="images/letwins-label.png" class="leTwinsLabel" /><div class="img-container"><img ng-src="{{conf.thumbnail}}" /></div><span>{{conf.nome}}</span></a></slide>
 					</slides>
 					 <pagination></pagination>
 				</swiper>
@@ -162,12 +162,24 @@
 		<div class="row">
 			<div class="col-sm-12 clearfix bottom-buffer home-content wow fadeInUpSmall" data-wow-delay=".2s">
 				<h3 class="title section">Sappiamo che il tempo ha un valore.</h3>
-				<p class="subtitle">Entra nel nostro mondo. Faremo tesoro della tua email</p>
-				<p>
-					<input type="email" class="newsletter"
-						placeholder="il tuo indirizzo email">
-				</p>
-				<a href="#" onclick="return false" class="btn btn-default  bottom-buffer">Iscriviti</a>
+				<p class="subtitle">Entra nel nostro mondo.<br>Faremo tesoro della tua email</p>
+				<!-- Begin Mailchimp Signup Form -->
+				<div id="mc_embed_signup">
+					<form action="https://annacloud.us20.list-manage.com/subscribe/post?u=2712cd03e689197086c2de54a&amp;id=2318145ba2" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_self" novalidate>
+						<div id="mc_embed_signup_scroll">
+							<div class="mc-field-group">
+								<input type="email" value="" name="EMAIL" placeholder="il tuo indirizzo email" class="required email newsletter" id="mce-EMAIL">
+							</div>
+							<div id="mce-responses" class="clear">
+								<div class="response" id="mce-error-response" style="display:none"></div>
+								<div class="response" id="mce-success-response" style="display:none"></div>
+							</div> <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+							<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_2712cd03e689197086c2de54a_2318145ba2" tabindex="-1" value=""></div>
+							<div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-default  bottom-buffer"></div>
+						</div>
+					</form>
+				</div>
+				<!--End mc_embed_signup-->
 			</div>
 		</div>
 	</div>

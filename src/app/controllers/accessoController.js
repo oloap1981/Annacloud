@@ -46,7 +46,7 @@ angular.module("applicationModule").controller("accessoController", ["$scope", "
 								listeService.putConfigurazione(localTempConfigurazione).then(
 									function (res){
 										if(res.errorMessage != null || res.errorMessage != undefined){
-											alert('si è verificato un problema nel salvataggio della configurazione');
+											$scope.openMessageModal("si è verificato un problema nel salvataggio della configurazione");
 											console.log(res.errorMessage);
 										} else {
 											console.log("Configurazione salvata correttamente");
@@ -56,7 +56,7 @@ angular.module("applicationModule").controller("accessoController", ["$scope", "
 									},
 									function (reason){
 										console.log(reason);
-										alert ("errore aggiunta preferiti");
+										$scope.openMessageModal("errore aggiunta preferiti");
 									}
 								);
 								
@@ -69,13 +69,13 @@ angular.module("applicationModule").controller("accessoController", ["$scope", "
 					});
 			}, function(reason) {
 				  console.log( reason);
-				  alert (reason.message);
+				  $scope.openMessageModal(reason.message);
 			}
 		);
 	};
 	
 	$scope.signUp = function (email, nome, cognome, password){
-		loginService.signUp(email, nome, cognome, password).then(
+		loginService.signUp(email, $scope.capitalizeString(nome), $scope.capitalizeString(cognome), password).then(
 				function(data){
 					console.log(data);
 					
@@ -85,8 +85,6 @@ angular.module("applicationModule").controller("accessoController", ["$scope", "
 					utente.nome = nome;
 					utente.cognome = cognome;
 
-					//alert di avviso
-					// alert("Registrazione avvenuta con successo, adesso puoi effettuare il login con le credenziali inserite");
 					$scope.openMessageModal("Registrazione avvenuta con successo, adesso puoi effettuare il login con le credenziali inserite");
 
 					//popolo il login per agevolare l'utente appena registrato
@@ -108,7 +106,6 @@ angular.module("applicationModule").controller("accessoController", ["$scope", "
 						function(res2){
 							if(res2.errorMessage != null && res2.errorMessage != ""){
 								console.log(res2.errorMessage);
-								// alert("C'è stato un problema nell'invio della mail di conferma registrazione");
 								$scope.openMessageModal("C'è stato un problema nell'invio della mail di conferma registrazione");
 							} 
 						}
@@ -126,5 +123,14 @@ angular.module("applicationModule").controller("accessoController", ["$scope", "
 		$scope.emailSign = "";
 		$scope.passwordSign = "";
 		$scope.passwordSignRep = "";
+	};
+
+	$scope.capitalizeString = function(toCapitalize){
+		//prima la metto lowercase
+		var result = toCapitalize.toLowerCase();
+
+		result = result.charAt(0).toUpperCase() + result.slice(1);
+
+		return result;
 	};
 }]);

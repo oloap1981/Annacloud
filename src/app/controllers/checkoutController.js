@@ -9,10 +9,10 @@ angular.module("applicationModule").controller("checkoutController", ["$scope", 
 	$scope.initCheckOut = function(){
 		
 		if($scope.getOrdineInCorso() == null || $scope.getOrdineInCorso() == undefined){
-			alert("non ci sono ordini da processare");
+			$scope.openMessageModal("non ci sono ordini da processare");
 			$scope.changePath('/preferiti');
 		} else if($scope.getOrdineInCorso().configurazioni == undefined || $scope.getOrdineInCorso().configurazioni == null || $scope.getOrdineInCorso().configurazioni.length == 0){
-			alert("l'ordine è vuoto");
+			$scope.openMessageModal("l'ordine è vuoto");
 			$scope.changePath('/preferiti');
 		} else {
 			$scope.ordine = $scope.getOrdineInCorso();
@@ -66,7 +66,7 @@ angular.module("applicationModule").controller("checkoutController", ["$scope", 
 				if(res.errorMessage != null && res.errorMessage != ""){
 					//ho un errore
 					console.log(res.errorMessage);
-					alert("C'è stato un problema nell aggiornamento dell'ordine");
+					$scope.openMessageModal("C'è stato un problema nell aggiornamento dell'ordine");
 				} else {
 					console.log("Ordine aggiornato");
 					$scope.setOrdineInCorso($scope.ordine);
@@ -74,7 +74,7 @@ angular.module("applicationModule").controller("checkoutController", ["$scope", 
 			},
 			function (reason){
 				console.log(reason);
-				alert ("errore salvataggio ordine");
+				$scope.openMessageModal("errore salvataggio ordine");
 			}
 		);
 	};

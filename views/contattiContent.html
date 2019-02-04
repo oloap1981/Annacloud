@@ -10,8 +10,12 @@
 <div class="contatti-content ">
 	<div class="container-fluid text-justify">
 		<div class="row narrazione">
+			<div class="col-sm-6 no-padding no-margin clearfix bottom-buffer wow fadeInUpSmall visible-xs" data-wow-delay=".2s" style="background: url(images/team-img-2-bg.jpg) center center no-repeat; background-size: cover; background-color: #fff" >
+				<img src="images/team-img-2-bg.jpg" class="hidden visible-xs">
+			</div>
 			<div class="col-sm-6 no-padding no-margin  clearfix bottom-buffer  wow fadeInUpSmall" data-wow-delay=".2s">
 				<div class="content">
+					<h3 style="font-weight: lighter" class="text-center">Chi siamo</h3>
 					<p class="text">Anna Cloud nasce dalla passione di due giovanissimi imprenditori toscani, Andrea e Luca, che hanno deciso di cambiare le regole dell’alta moda ideando un nuovo concept di pelletteria.</p>
 					
 					<p class="text">Questa visione nasce dall’incontro tra tradizione e innovazione e dall’interpretazione in chiave digitale e social di tutto il processo di creazione di una borsa da donna.</p>
@@ -26,7 +30,7 @@
                     
 				</div>
 			</div>
-			<div class="col-sm-6 no-padding no-margin clearfix bottom-buffer wow fadeInUpSmall" data-wow-delay=".2s" style="background: url(images/team-img-2-bg.jpg) center center no-repeat; background-size: cover; background-color: #fff" >
+			<div class="col-sm-6 no-padding no-margin clearfix bottom-buffer wow fadeInUpSmall hidden-xs" data-wow-delay=".2s" style="background: url(images/team-img-2-bg.jpg) center center no-repeat; background-size: cover; background-color: #fff" >
 				<img src="images/team-img-2-bg.jpg" class="hidden visible-xs">
 			</div>
 		</div>
@@ -63,10 +67,18 @@
 							</div>
 						</div>
 						<button ng-click="cambiaNome(nome,cognome)" class="btn btn-default btn-save">Invia</button>
-						 <a href="#" onclick="return false" class="recover">Informativa sulla privacy</a>
+						 <a href="javascript:void(0)" class="recover">Informativa sulla privacy</a>
 						<div class="checkbox">
 							<label><input type="checkbox"class="js-switch">Ho preso visione dell’informativa e autorizzo il trattamento dei miei dati secondo quanto in essa riportato.</label></a>
 						</div>
+						<!--<script>
+							grecaptcha.ready(function () {
+								grecaptcha.execute('6Lc79Y0UAAAAAMuYVQ-lm9jtWcvk6w3v5FdxXml7', { action: 'form-contatti' })
+									.then(function (token) {
+										// Verifica il token sul server.
+									});
+							});
+						</script>-->
 					</form>
 				</div>
 				
