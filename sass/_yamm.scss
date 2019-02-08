@@ -21,7 +21,7 @@
         position: relative;
     }
     // by default aligns menu to left
-    .dropdown-menu {
+    .dropdown-menu, .dropdown-cambio-modello {
         // left: auto;
         box-shadow: 0px 0px 0px transparent;
         border: solid 1px $standard-border-color;
@@ -34,7 +34,7 @@
         overflow-x: auto;
     }
     // Fullwidth menu
-    .dropdown.yamm-fw .dropdown-menu {
+    .dropdown.yamm-fw .dropdown-menu, .dropdown.yamm-fw .dropdown-cambio-modello {
         @media screen and (max-width: $screen-xs-max) {
             left : 0;
             right: 0;

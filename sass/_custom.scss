@@ -268,7 +268,50 @@
 }*/
 
 
+.dropdown-cambio-modello {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: $zindex-dropdown;
+    display: block; // none by default, but block on "open" of the menu
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0; // override default ul
+    list-style: none;
+    font-size: $font-size-base;
+    text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
+    background-color: $dropdown-bg;
+    border: 1px solid $dropdown-fallback-border; // IE8 fallback
+    border: 1px solid $dropdown-border;
+    border-radius: $border-radius-base;
+    @include box-shadow(0 6px 12px rgba(0,0,0,.175));
+    background-clip: padding-box;
 
+    // Aligns the dropdown menu to right
+    //
+    // Deprecated as of 3.1.0 in favor of `.dropdown-menu-[dir]`
+    &.pull-right {
+        right: 0;
+        left: auto;
+    }
+
+    // Dividers (basically an hr) within the dropdown
+    .divider {
+        @include nav-divider($dropdown-divider-bg);
+    }
+
+    // Links within the dropdown menu
+    > li > a {
+        display: block;
+        padding: 3px 20px;
+        clear: both;
+        font-weight: normal;
+        line-height: $line-height-base;
+        color: $dropdown-link-color;
+        white-space: nowrap; // prevent links from randomly breaking onto new lines
+    }
+}
 
 
 .options {
@@ -630,7 +673,7 @@ a.link {
     background-color: $body-bg !important;
 }
 
-.dropdown-menu {
+.dropdown-menu, .dropdown-cambio-modello {
     // left: auto;
     box-shadow: 0px 0px 0px transparent;
     border: solid 1px $standard-border-color;
@@ -659,7 +702,7 @@ a.link {
             background: transparent;
         }
     }
-    .dropdown-menu {
+    .dropdown-menu, .dropdown-cambio-modello {
         text-align: center;
         font-size: .75em;
         li:last-of-type {
@@ -904,7 +947,7 @@ a.link {
             a:not(.link) {
                 padding: 11px;
             }
-            .dropdown-menu {
+            .dropdown-menu, .dropdown-cambio-modello {
                 background-color: $brand-secondary !important;
                 border-bottom: solid 1px $standard-border-color !important;
                 border-left: solid 1px $standard-border-color !important;
@@ -2254,6 +2297,9 @@ a.link {
 
 .configuratore {
 
+
+    
+
     .unaicon-unaduna-logo {
         font-size: 1.5em;
         line-height: 1em;
@@ -2276,7 +2322,7 @@ a.link {
     a.disabled {
         color: #ccc !important;
     }
-    .fixed-navbar-left .dropdown-menu {
+    .fixed-navbar-left .dropdown-cambio-modelli {
         border-left: none;
         border-right: none;
     }
@@ -2286,7 +2332,7 @@ a.link {
         //border-bottom: none;
         padding: 0;
     }
-    .yamm .fixed-navbar-left .dropdown.yamm-fw .dropdown-menu {
+    .yamm .fixed-navbar-left .dropdown.yamm-fw .dropdown-cambio-modello {
         border-left: none;
         border-right: none;
         border-bottom: none;
@@ -2295,7 +2341,7 @@ a.link {
         position: static;
     }
 
-    .yamm .container .fixed-navbar-left .dropdown-menu {
+    .yamm .container .fixed-navbar-left .dropdown-cambio-modello {
         left: 0;
         text-align: center;
         width: 100%;
@@ -2305,7 +2351,7 @@ a.link {
         li.home {
             margin-right: 6vw;
         }
-        .dropdown-menu > li {
+        .dropdown-menu > li, .dropdown-cambio-modello > li {
             display: inline-block;
         }
     }
