@@ -2301,8 +2301,14 @@ a.link {
         width: 100%;
     }
 
-    .yamm .fixed-navbar-left .dropdown-menu > li {
-        display: inline-block;   
+    .yamm .fixed-navbar-left {
+        
+        li.home {
+               margin-right: 6vw;
+        }
+        .dropdown-menu > li {
+            display: inline-block;
+        }
     }
     .main-configurator-navbar {
         // top: $navbar-height+3px;
@@ -2312,7 +2318,38 @@ a.link {
             &:hover {
                 color: #000;
             }
+            &.modello {
+               border-left: solid 1px #ccc;
+               border-right: solid 1px #ccc;
+               padding-left: 20px !important;
+               padding-right: 20px !important;
+               @media screen and (max-width: $screen-xs-max) {
+                   //border: none;
+               }
+            }
+            &.active {
+                
+                &:after, &:before {
+                    @include transition(all 150ms ease-in-out);
+                    content: "";
+                    border-style: solid;
+                    border-width: 8px;
+                    width: 0;
+                    height: 0;
+                    position: absolute;
+                    top: 100%;
+                    left: 50%;
+                    margin-left: -8px;
+                }
+                &:before {
+                    border-color: $standard-border-color transparent transparent;
+                }
+                &:after {
+                    margin-top: -2px;
+                    border-color: $body-bg transparent transparent;
+                }
 
+            }
         }
         
     }
