@@ -4,6 +4,8 @@ angular.module("applicationModule").controller("accessoController", ["$scope", "
 		       value : true,
 		     };
 	
+		
+
 	$scope.login = function (email, password){
 
 		loginService.login(email, password).then(
@@ -117,6 +119,10 @@ angular.module("applicationModule").controller("accessoController", ["$scope", "
 		);
 	};
 	
+	$scope.forgotPassword = function(){
+		loginService.forgotPassword();
+	};
+
 	$scope.svuotaCampi = function(){
 		$scope.nome = "";
 		$scope.cognome = "";

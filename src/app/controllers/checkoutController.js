@@ -22,6 +22,11 @@ angular.module("applicationModule").controller("checkoutController", ["$scope", 
 		}
 	};
 
+	$scope.inserisciIndirizzoSpedizione = function(){
+		$scope.setPendingCheckout(true);
+		$scope.changePath('/profilo');
+	};
+
 	$scope.getConfigurazioniOrdine = function(){
 		if($scope.ordine != undefined && $scope.ordine != null){
 			return $scope.ordine.configurazioni;

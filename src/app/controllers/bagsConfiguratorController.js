@@ -443,7 +443,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 	configController.scegliModello = function (modello) {
 
 		configController.initConfigurazione();
-		$scope.configurazione.nome = modello.nome;
+		//$scope.configurazione.nome = modello.nome;
 		
 		//carico solo gli accessori relativi al modello scelto
 		listeService.getAccessori(modello.nome).then(function (res2) {
@@ -840,6 +840,22 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		}
 	};
 
+	configController.eliminaTracolla = function(){
+		$scope.nomeTracollaSelezionata = "";
+		configController.removeEntitaToConfigurazione("tracolle", "");
+		$scope.stack[20] = "";
+		$scope.tracollaSelezionata = false;
+		configController.caricaSpinner();
+	};
+
+	configController.eliminaCiondolo = function(){
+		$scope.nomeCiondoloSelezionato = "";
+		configController.removeEntitaToConfigurazione("ciondoli", "");
+		$scope.stack[12] = "";
+		$scope.ciondoloSelezionata = false;
+		configController.caricaSpinner();
+	};
+
 	configController.selezionaEntita = function (entita) {
 
 		if (configController.normalizzaStringheMetallo(entita.nome) == $scope.mappaEntitaSelezionate[$scope.tipoEntitaSelezionata] && $scope.tipoEntitaSelezionata != "colore" && $scope.tipoEntitaSelezionata != "metalleria") {
@@ -852,19 +868,9 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			//inserisco nella mappa
 		}
 
-		// if(entita.nome == $scope.nomeEntitaSelezionata && $scope.tipoEntitaSelezionata != "colore" && $scope.tipoEntitaSelezionata != "metalleria"){
-		// 		$scope.nomeEntitaSelezionata = "";
-		// } else {
-		// 		$scope.nomeEntitaSelezionata = entita.nome;
-		// }
-
-		// html2canvas(document.querySelector("#spritespin"), { async:false }).then(canvas => {
-		// 	$scope.dataUrl = canvas.toDataURL();
-		// });
 		html2canvas(document.querySelector("#spritespin"), { async: false }).then(function (canvas) {
 			$scope.dataUrl = canvas.toDataURL();
 		});
-
 
 		var url = entita.urlStripe;
 		// url = url.replace("RES", configController.getResolutionPlaceHolder());
@@ -1540,7 +1546,8 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 							var configDaSalvare = configController.salvaConfigurazioneTemporanea();
 
 							$scope.hideLoader();
-							$scope.openConfigNameModal(configDaSalvare.nome);
+							$scope.salvaOAcquista(configDaSalvare.nome, isCarrello);
+							//$scope.openConfigNameModal(configDaSalvare.nome);
 						}
 					});
 			};
@@ -1649,6 +1656,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 					}
 					configController.caricaConfigurazioneModello();
 					configController.ricaricaPrezzo();
+					$scope.showDropdownButton = true;
 				} else {
 					//non ci sono configurazioni in locale, apro il selettore del modello
 					$(".dropdown-toggle").dropdown("toggle");

@@ -14,7 +14,7 @@
 					<a href="#!/home" class="link" ><i class="fa fa-home hidden"></i><img src="images/logonew-big.png" class="hidden-xs" style="height: 25px;"><img src="images/logonew-mobile-conf-big.png" class=" visible-xs-inline-block" style="height: 15px"></a>
 				</li>
 				<li class="dropdown yamm-fw keep-open">
-					<a id="nuovaConfigurazioneToggle" href="javascript:void(0)" class="active dropdown-toggle link modello" ng-click="contr.switchShowDropdown()" data-toggle="dropdown" ng-show="showDropdownButton"><i class="unaicon-bag-reset visible-xs"></i> <span class="hidden-xs">nuova configurazione</span></a>
+					<a id="nuovaConfigurazioneToggle" href="javascript:void(0)" class="active dropdown-toggle link modello" ng-click="contr.switchShowDropdown()" data-toggle="dropdown" ng-show="showDropdownButton"><i class="unaicon-bag-reset visible-xs"></i> <span class="hidden-xs">cambia modello</span></a>
 					<ul class="dropdown-menu scelta-modelli">
 						<li ng-class="{'disabled':modelliAbilitati}" >
 							<div class="yamm-content  scelta-modelli clearfix">
@@ -148,6 +148,11 @@
 						</swiper>
 						<swiper class="accessori-thumb" ng-show="tipoEntitaSelezionata == 'tipi-tracolle'" grab-cursor="true" observer="false" keyboard-control="true" slides-per-view="12" breakpoints="{ &quot;320&quot;: { &quot;slidesPerView&quot;: &quot;3&quot; },  &quot;480&quot;: { &quot;slidesPerView&quot;: &quot;4&quot; },  &quot;768&quot;: { &quot;slidesPerView&quot;: &quot;6&quot; },  &quot;992&quot;: { &quot;slidesPerView&quot;: &quot;8&quot; },  &quot;1200&quot;: { &quot;slidesPerView&quot;: &quot;12&quot; }}">
 							<slides>
+								<slide>
+									<a href="#" onclick="return false" ng-click="contr.eliminaTracolla()" class="unaduna-char">
+										<i class="unaduna-char-icon-backspace"></i>
+									</a>
+								</slide>
 								<slide ng-repeat="entita in categorieTracolle" ng-click="contr.selezionaCategoriaTracolla(entita)">
 									<!-- <a href="#" onclick="return false" ng_class="{activeAccessorio: entita.nome === nomeEntitaSelezionata}" title=""> -->
 									<a href="#" onclick="return false" ng_class="{activeAccessorio: false}" title="">
@@ -183,6 +188,11 @@
 
 						<swiper class="accessori-thumb" ng-show="tipoEntitaSelezionata == 'tipi-ciondoli'" grab-cursor="true" observer="false" keyboard-control="true" slides-per-view="12" breakpoints="{ &quot;320&quot;: { &quot;slidesPerView&quot;: &quot;3&quot; },  &quot;480&quot;: { &quot;slidesPerView&quot;: &quot;4&quot; },  &quot;768&quot;: { &quot;slidesPerView&quot;: &quot;6&quot; },  &quot;992&quot;: { &quot;slidesPerView&quot;: &quot;8&quot; },  &quot;1200&quot;: { &quot;slidesPerView&quot;: &quot;12&quot; }}">
 							<slides>
+								<slide>
+									<a href="#" onclick="return false" ng-click="contr.eliminaCiondolo()" class="unaduna-char">
+										<i class="unaduna-char-icon-backspace"></i>
+									</a>
+								</slide>
 								<slide ng-repeat="entita in categorieCiondoli" ng-click="contr.selezionaCategoriaCiondolo(entita)">
 									<!-- <a href="#" onclick="return false" ng_class="{activeAccessorio: entita.nome === nomeEntitaSelezionata}" title=""> -->
 									<a href="#" onclick="return false" ng_class="{activeAccessorio: false}" title="">

@@ -180,30 +180,31 @@ angular.module("applicationModule").service("loginService", function($q) {
 	};
 	
 	this.forgotPassword = function(){
-		var deferred = $q.defer();
-		var cognitoUser = this.getCognitoUser();
-		if (cognitoUser == null){
-			deferred.reject ('non sei loggato');
-            return deferred.promise;
-		}
-	    cognitoUser.forgotPassword({
-	        onSuccess: function (result) {
-	            console.log('call result: ' + result);
-	            deferred.resolve(result);
-	        },
-	        onFailure: function(err) {
-	            alert(err.message);
+		var userEmail = prompt('Inserisci la email su cui riceverai il codice di verifica ' ,'');
+
+		cognitoUser = new AmazonCognitoIdentity.CognitoUser({
+			Username: userEmail,
+			Pool: this.getUserPool()
+		});
+
+		cognitoUser.forgotPassword({
+			onSuccess: function(result) {
+				console.log('call result: ' + result);
+				alert("Password correttamente aggiornata");
+			},
+			onFailure: function(err) {
+				alert("Errore nell'aggiornamento della password: " + err.message);
 	            console.log(err.message);
 	            deferred.reject (err);
-	        },
-	        inputVerificationCode: function() {
-	            var verificationCode = prompt('Please input verification code ' ,'');
-	            var newPassword = prompt('Enter new password ' ,'');
-	            cognitoUser.confirmPassword(verificationCode, newPassword, this);
-	        }
-	    });
-	    return deferred.promise;
+			},
+			inputVerificationCode: function() { // this is optional, and likely won't be implemented as in AWS's example (i.e, prompt to get info)
+				var verificationCode = prompt('Inserisci il codice di verifica che hai ricevuto per email ' ,'');
+				var newPassword = prompt('Inserisci la nuova password ' ,'');
+				cognitoUser.confirmPassword(verificationCode, newPassword, this);
+			}
+		});
 	};
+
 	
 	this.changePassword = function(oldp, newp){
 		var deferred = $q.defer();

@@ -1,5 +1,8 @@
-angular.module("applicationModule").controller("profiloController", ["$scope", "getConfigurazioniService", "loginService",
-	function($scope, getConfigurazioniService, loginService) {
+angular.module("applicationModule").controller("profiloController", ["$scope", "getConfigurazioniService", "loginService", "ANAGRAFICHE",
+	function($scope, getConfigurazioniService, loginService, ANAGRAFICHE) {
+
+	$scope.comuni = ANAGRAFICHE.comuni.listaComuni;
+	$scope.comune = {}; 
 
 	$scope.listaPreferiti = [];
 	loginService.getUserAttributes().then(
@@ -177,6 +180,10 @@ angular.module("applicationModule").controller("profiloController", ["$scope", "
 				function (res){
 					console.log(res);
 					$scope.reloadAttributes();
+					if($scope.pendingCheckout){
+						$scope.setPendingCheckout(false);
+						$scope.changePath('/checkout');
+					}
 					$scope.openMessageModal("Dati Aggiornati correttamente");
 				},
 				function (reason){

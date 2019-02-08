@@ -31,7 +31,7 @@
                         <label><input type="checkbox" ng-model="remember.value" class="js-switch"> Ricordami</label> <a href="#" onclick="return false">(?)</a>
                     </div>
                     <button ng-click="login(loginEmail, loginPassword)" class="btn btn-default btn-save">Accedi</button>
-                    <a href="javascript:void(0);" class="recover" >Recupera la password</a>
+                    <a href="javascript:void(0);" ng-click="forgotPassword()" class="recover" >Recupera la password</a>
                 </form>
             </div>
             <div class="col-sm-6">
@@ -67,19 +67,6 @@
         </div>
     </div>
     
-    <!-- <script src="http://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="javascripts/bootstrap.js"></script>
-    <script src="javascripts/switchery.js"></script>
-    <script src="javascripts/mdb.js"></script>
-    <script src="javascripts/custom.js"></script> 
-    <script>
-        new WOW().init();
-     var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
-
-        elems.forEach(function(html) {
-          var switchery = new Switchery(html, { color: '#dfd1c2', size: 'small' });
-      });
-    </script> -->
 </div>
 
 

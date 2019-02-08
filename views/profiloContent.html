@@ -107,6 +107,14 @@
                                 <label for="inputEmailReg" class="sr-only hidden"></label>
                                 <input ng-model="cittaSpe" type="text" class="form-control" id="cittaSpe" placeholder="Citt&agrave;">
                             </div>
+                            <!-- <div class="form-group">
+                                <ui-select ng-model="comune.selected" theme="selectize" style="width: 300px;" title="Scegli un comune">
+                                    <ui-select-match placeholder="Scegli un comune dalla lista...">{{$select.selected.nome + ' (' + $select.selected.provincia + ')'}}</ui-select-match>
+                                    <ui-select-choices repeat="com in comuni | filter: $select.search">
+                                      <span ng-bind-html="com.nome + ' (' + com.provincia + ')' | highlight: $select.search"></span>
+                                    </ui-select-choices>
+                                  </ui-select>
+                            </div> -->
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
