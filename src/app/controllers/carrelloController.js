@@ -38,7 +38,9 @@ angular.module("applicationModule").controller("carrelloController", ["$scope", 
 		ordine.configurazioni = $scope.getCarrello();
 
 		//salvo l'ordine. Se va a buon fine svuoto il carrello
-		$scope.salvaOrdine(ordine);
+		$scope.setOrdineInCorso(ordine);
+		$location.url('/checkout');
+		//$scope.salvaOrdine(ordine);
 	};
 
 	$scope.getUserEmail = function(){
@@ -52,27 +54,27 @@ angular.module("applicationModule").controller("carrelloController", ["$scope", 
 		return "";
 	};
 
-	$scope.salvaOrdine = function(ordine){
-		listeService.putOrdine(ordine).then(
-			function (res){
-				console.log(res);
-				if(res.errorMessage != null && res.errorMessage != ""){
-					//ho un errore
-					console.log(res.errorMessage);
-					$scope.openMessageModal("C'è stato un problema nel salvataggio dell'ordine, riprovare piu' tardi");
-				} else {
-					console.log("Ordine salvato, procedo a svuotare il carrello");
-					ordine.codice = res.data.codiceOrdineRisposta;
-					$scope.setOrdineInCorso(ordine);
-					$location.url('/checkout');
-				}
-			},
-			function (reason){
-				console.log(reason);
-				$scope.openMessageModal("errore salvataggio ordine");
-			}
-		);
-	};
+	// $scope.salvaOrdine = function(ordine){
+	// 	listeService.putOrdine(ordine).then(
+	// 		function (res){
+	// 			console.log(res);
+	// 			if(res.errorMessage != null && res.errorMessage != ""){
+	// 				//ho un errore
+	// 				console.log(res.errorMessage);
+	// 				$scope.openMessageModal("C'è stato un problema nel salvataggio dell'ordine, riprovare piu' tardi");
+	// 			} else {
+	// 				console.log("Ordine salvato, procedo a svuotare il carrello");
+	// 				ordine.codice = res.data.codiceOrdineRisposta;
+	// 				$scope.setOrdineInCorso(ordine);
+	// 				$location.url('/checkout');
+	// 			}
+	// 		},
+	// 		function (reason){
+	// 			console.log(reason);
+	// 			$scope.openMessageModal("errore salvataggio ordine");
+	// 		}
+	// 	);
+	// };
 
 	$scope.getTotalAmount = function(){
 		var carrello = $scope.getCarrello();

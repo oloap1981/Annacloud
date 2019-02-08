@@ -105,6 +105,9 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 	};
 
 	configController.switchShowDropdown = function(){
+		//mettere modale che avverte
+
+		
 		$scope.showDropdownButton = !$scope.showDropdownButton;
 	};
 
