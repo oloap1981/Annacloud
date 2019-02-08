@@ -101,10 +101,16 @@
                             <hr>
 	                        <div  class="row">
 	                            <div class="col-sm-12 text-left">
-	                                <h5 class="" style="text-transform: uppercase">{{conf.nome}}</h5>
+	                                <h5 class="" style="text-transform: uppercase">NOME CONFIGURAZIONE: {{conf.nome}}</h5>
                                     <span>
-                                        Colore : {{getColoreConf(conf)}}<br>
-                                        Iniziali: {{getInizialiConf(conf)}}
+                                        <div ng-repeat="base in conf.elencoEntita" ng-if="base.categoria == 'modello'">
+                                            MODELLO: {{base.descrizione}}
+                                        </div><br/>
+                                        <div ng-repeat="base in conf.elencoEntita" ng-if="base.categoria != 'modello'">
+                                            {{base.categoria.toUpperCase()}}: {{traduciNomiOrdini(base)}}
+                                        </div><br/>
+                                        <!-- Colore : {{getColoreConf(conf)}}<br>
+                                        Iniziali: {{getInizialiConf(conf)}} -->
                                     </span>
 	                                <span class="single-price">{{calcolaPrezzo(conf)}}&euro;</span>
 	                                <!-- <p ng-click="eliminaDaOrdine(conf)" class="remove">elimina <small><i class="unaicon-remove"></i></small></p> -->
