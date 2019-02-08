@@ -1770,7 +1770,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			$uibModal.open({
 				templateUrl: 'views/modaleCancellaConfigurazione.html',
 				scope: $scope
-			  })
+			  });
 		} else {
 			$scope.showDropdownButton = false;
 		}

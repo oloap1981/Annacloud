@@ -70,8 +70,12 @@ angular.module("applicationModule").controller("accessoController", ["$scope", "
 						}
 					});
 			}, function(reason) {
-				  console.log( reason);
-				  $scope.openMessageModal(reason.message);
+				  console.log(reason);
+				  if(reason.code == "NotAuthorizedException"){
+					$scope.openMessageModal("Nome utente o password errati");	
+				  } else {
+					$scope.openMessageModal(reason.message);
+				  }
 			}
 		);
 	};

@@ -3,6 +3,7 @@ angular.module("applicationModule").controller("ordiniController", ["$scope", "l
 		$scope.listaOrdini = [];
 
 		$scope.initOrdini = function(){
+			$scope.showLoader();
 			loginService.getUserAttributes().then(
 				function (attList){
 					console.log(attList);
@@ -12,16 +13,14 @@ angular.module("applicationModule").controller("ordiniController", ["$scope", "l
 							console.log(codice);
 							getOrdiniService.response(codice).then(function(data){
 								$scope.listaOrdini = $scope.ordinaListaOrdini(data.data.ordini);
-								
-								console.log(data);
-								console.log ($scope.listaOrdini);
-								
+								$scope.hideLoader();
 							});
 						}
 					});
 				},
 				function (reason){
 					console.log(reason);
+					$scope.openMessageModal("C'è stato un problema nel caricamento degli ordini");
 				}
 			);
 		};

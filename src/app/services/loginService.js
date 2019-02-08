@@ -51,22 +51,19 @@ angular.module("applicationModule").service("loginService", function($q) {
     };
     
 	this.signUp = function(email, nome, cognome, password){
-		var username = nome + "-" + cognome + "-" + (new Date().getTime());
 		
 	    var userPool = this.getUserPool();
 
 	    var attributeList = [];
-	    
+	    var username = nome + "-" + cognome + "-" + (new Date().getTime());
 	    var dataEmail = {
 	        Name : 'email',
 	        Value : email
 	    };
-	    
 	    var dataName = {
 	    	Name : 'name',
 	    	Value : nome
 	    };
-	    
 	    var dataFamilyName = {
     		Name : 'family_name',
     		Value : cognome
@@ -84,8 +81,20 @@ angular.module("applicationModule").service("loginService", function($q) {
 	    var deferred = $q.defer();
 	    userPool.signUp(username, password, attributeList, null, function(err, result){
 	        if (err) {
+				if(err.code == "InvalidParameterException"){
+					alert("La password inserita non rispetta i requisiti richiesti (lunghezza minima 6 caratteri)");
+				} else if(err.code == "InvalidPasswordException"){
+					alert("La password inserita non rispetta i requisiti richiesti (lunghezza minima 6 caratteri)");
+				} else if(err.code == "LimitExceededException"){
+					alert("Superato il numero massimo di richieste per AWS");
+				} else if(err.code == "TooManyFailedAttemptsException"){
+					alert("Troppi tentativi falliti per il cambio password");
+				} else if(err.code == "UserNotFoundException"){
+					alert("Utente non trovato durante il cambio password");
+				} else {
+					alert("Errore nell'aggiornamento della password: " + err.message);
+				}
 				deferred.reject (err);
-				alert("Errore durante registrazione: " + err.message);
 	            return;
 	        }
 	        cognitoUser = result.user;
@@ -193,13 +202,25 @@ angular.module("applicationModule").service("loginService", function($q) {
 				alert("Password correttamente aggiornata");
 			},
 			onFailure: function(err) {
-				alert("Errore nell'aggiornamento della password: " + err.message);
+				if(err.code == "InvalidParameterException"){
+					alert("La password inserita non rispetta i requisiti richiesti (lunghezza minima 6 caratteri)");
+				} else if(err.code == "InvalidPasswordException"){
+					alert("La password inserita non rispetta i requisiti richiesti (lunghezza minima 6 caratteri)");
+				} else if(err.code == "LimitExceededException"){
+					alert("Superato il numero massimo di richieste per AWS");
+				} else if(err.code == "TooManyFailedAttemptsException"){
+					alert("Troppi tentativi falliti per il cambio password");
+				} else if(err.code == "UserNotFoundException"){
+					alert("Utente non trovato durante il cambio password");
+				} else {
+					alert("Errore nell'aggiornamento della password: " + err.message);
+				}
 	            console.log(err.message);
 	            deferred.reject (err);
 			},
 			inputVerificationCode: function() { // this is optional, and likely won't be implemented as in AWS's example (i.e, prompt to get info)
 				var verificationCode = prompt('Inserisci il codice di verifica che hai ricevuto per email ' ,'');
-				var newPassword = prompt('Inserisci la nuova password ' ,'');
+				var newPassword = prompt('Inserisci la nuova password (lunghezza minima 6 caratteri) ' ,'');
 				cognitoUser.confirmPassword(verificationCode, newPassword, this);
 			}
 		});

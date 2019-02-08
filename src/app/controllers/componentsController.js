@@ -27,7 +27,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 	$scope.cognome = "";
 	$scope.indSpe = "";
 	$scope.cittaSpe = "";
-	$scope.capSpe = "";
+	$scope.capSpe = 0;
 	$scope.indSpe2 = "";
 	$scope.nomeSpe = "";
 
@@ -50,7 +50,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		$scope.cognome = "";
 		$scope.indSpe = "";
 		$scope.cittaSpe = "";
-		$scope.capSpe = "";
+		$scope.capSpe = 0;
 		$scope.indSpe2 = "";
 		$scope.nomeSpe = "";
 

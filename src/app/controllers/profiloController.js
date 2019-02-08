@@ -172,7 +172,7 @@ angular.module("applicationModule").controller("profiloController", ["$scope", "
 		attributeList.push(attribute3);
 		var attribute4 = {
 		        Name : 'custom:capSpe',
-		        Value : caps+""
+		        Value : caps
 		    };
 		attribute4 = new AmazonCognitoIdentity.CognitoUserAttribute(attribute4);
 	    attributeList.push(attribute4);
