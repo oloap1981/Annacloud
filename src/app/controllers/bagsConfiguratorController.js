@@ -1,4 +1,4 @@
-angular.module('applicationModule').controller('unadunaConfiguratorController2', function ($scope, listeService, loginService, $location, $log, jwtHelper) {
+angular.module('applicationModule').controller('unadunaConfiguratorController2', function ($scope, listeService, loginService, $uibModal, $uibModalStack, $log, jwtHelper) {
 
 	$scope.$log = $log;
 
@@ -102,13 +102,6 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 
 	configController.priceManager = {
 		price: 0
-	};
-
-	configController.switchShowDropdown = function(){
-		//mettere modale che avverte
-
-		
-		$scope.showDropdownButton = !$scope.showDropdownButton;
 	};
 
 	configController.getModelloSelezionato = function () {
@@ -477,7 +470,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			configController.gestisciTracolle();
 			configController.gestisciCiondoli();
 
-			$(".dropdown-toggle").dropdown("toggle");
+			$scope.showDropdownButton = true;
 
 			$scope.stack = [];
 			var url = modello.urlStripe;
@@ -1662,7 +1655,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 					$scope.showDropdownButton = true;
 				} else {
 					//non ci sono configurazioni in locale, apro il selettore del modello
-					$(".dropdown-toggle").dropdown("toggle");
+					$scope.showDropdownButton = false;
 				}
 			}
 		});
@@ -1670,9 +1663,9 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		configController.visibleManager.loaderVisible = true;
 		configController.visibleManager.spinnerVisible = false;
 
-		$(document).on('click', '.yamm .dropdown-menu', function (e) {
-			e.stopPropagation();
-		});
+		// $(document).on('click', '.yamm .dropdown-menu', function (e) {
+		// 	e.stopPropagation();
+		// });
 
 		/* gestione elementi dell'interfaccia */
 		var aperto = 0;
@@ -1766,5 +1759,29 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 					$(this).css({ 'z-index': '0' });
 				}
 			});
+	};
+
+	/*
+		GESTIONE DEL MODALE PER LA CONFERMA DEL CAMBIO MODELLO
+	*/
+	configController.switchShowDropdown = function(){
+		//mettere modale che avverte
+		if($scope.showDropdownButton){
+			$uibModal.open({
+				templateUrl: 'views/modaleCancellaConfigurazione.html',
+				scope: $scope
+			  })
+		} else {
+			$scope.showDropdownButton = false;
+		}
+	};
+
+	$scope.ok = function () {
+		$scope.showDropdownButton = false;
+		$uibModalStack.dismissAll();
+	  };
+
+	$scope.cancel = function () {
+		$uibModalStack.dismissAll();
 	};
 });
