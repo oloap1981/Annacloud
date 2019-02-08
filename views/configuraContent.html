@@ -150,12 +150,12 @@
 							<slides>
 								<slide>
 									<a href="#" onclick="return false" ng-click="contr.eliminaTracolla()" class="unaduna-char">
-										<i class="unaduna-char-icon-backspace"></i>
+										<img src="images/icon-remove.png" class="swiper-lazy">
 									</a>
 								</slide>
 								<slide ng-repeat="entita in categorieTracolle" ng-click="contr.selezionaCategoriaTracolla(entita)">
 									<!-- <a href="#" onclick="return false" ng_class="{activeAccessorio: entita.nome === nomeEntitaSelezionata}" title=""> -->
-									<a href="#" onclick="return false" ng_class="{activeAccessorio: false}" title="">
+									<a href="#" onclick="return false" ng_class="{activeAccessorio: false}" title="rimuovi tracolla">
 										<img ng-src="{{contr.getThumbnailNameTracolle(entita)}}" class="swiper-lazy"/>
 	                                    <div ng-if="removable" class="closeItem"><i class="unaicon-remove"></i></div>
 	                                </a>
@@ -168,7 +168,6 @@
 							<slides>
 								<slide ng-click="contr.resetTracolle()">
 									<a href="#" onclick="return false"  title="" class="unaduna-char">
-										<i class="fa fa-arrow-left hidden" style="line-height: 1.5em;"></i>
 										<img src="images/icon-up.png"class="swiper-lazy">
 									</a>
 								</slide>
@@ -190,7 +189,7 @@
 							<slides>
 								<slide>
 									<a href="#" onclick="return false" ng-click="contr.eliminaCiondolo()" class="unaduna-char">
-										<i class="unaduna-char-icon-backspace"></i>
+										<img src="images/icon-remove.png" class="swiper-lazy">
 									</a>
 								</slide>
 								<slide ng-repeat="entita in categorieCiondoli" ng-click="contr.selezionaCategoriaCiondolo(entita)">
@@ -208,7 +207,6 @@
 							<slides>
 								<slide ng-click="contr.resetCiondoli()">
 									<a href="#" onclick="return false"  title="" class="unaduna-char">
-										<i class="fa fa-arrow-left hidden" style="line-height: 1.5em;"></i>
 										<img src="images/icon-up.png"class="swiper-lazy">
 									</a>
 								</slide>
