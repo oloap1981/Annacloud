@@ -51,7 +51,7 @@ angular.module("applicationModule").service("loginService", function($q) {
     };
     
 	this.signUp = function(email, nome, cognome, password){
-		var username = nome + "-" + cognome;
+		var username = nome + "-" + cognome + "-" + (new Date().getTime());
 		
 	    var userPool = this.getUserPool();
 

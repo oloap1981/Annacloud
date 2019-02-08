@@ -76,14 +76,31 @@ angular.module("applicationModule").controller("accessoController", ["$scope", "
 		);
 	};
 	
+	$scope.signUpCheckEmail = function(email, nome, cognome, password){
+		loginService.login(email, "123").then(
+			function(data) {
+				console.log("mi sono riuscito a loggare, non dovrebbe succedere... anomalia");
+			},
+			function (reason){
+				if(reason.code == "NotAuthorizedException"){//la mail esiste già
+					$scope.openMessageModal("La mail inserita è già presente. Inserirne un'altra valida");
+				} else if(reason.code == "UserNotFoundException"){//la mail non esiste, posso procedere
+					//controllo su nome e cognome?
+					$scope.signUp(email, nome, cognome, password);
+				}
+			}
+		);
+	};
+
 	$scope.signUp = function (email, nome, cognome, password){
+
 		loginService.signUp(email, $scope.capitalizeString(nome), $scope.capitalizeString(cognome), password).then(
 				function(data){
 					console.log(data);
 					
 					utente = {};
 					utente.email = email;
-					utente.username = nome + "-" +cognome;
+					//utente.username = nome + "-" +cognome;
 					utente.nome = nome;
 					utente.cognome = cognome;
 
