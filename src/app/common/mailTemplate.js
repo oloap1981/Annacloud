@@ -129,102 +129,106 @@ angular.module('applicationModule').constant('MAIL',{
 			width: 40px !important;\
 			}\
 			@media only screen and (min-width: 500px) {\
-			.block-grid {\
-				width: 480px !important;\
-			}\
-			.block-grid .col {\
-				vertical-align: top;\
-			}\
-			.block-grid .col.num12 {\
-				width: 480px !important;\
-			}\
-			.block-grid.mixed-two-up .col.num4 {\
-				width: 160px !important;\
-			}\
-			.block-grid.mixed-two-up .col.num8 {\
-				width: 320px !important;\
-			}\
-			.block-grid.two-up .col {\
-				width: 240px !important;\
-			}\
-			.block-grid.three-up .col {\
-				width: 160px !important;\
-			}\
-			.block-grid.four-up .col {\
-				width: 120px !important;\
-			}\
-			.block-grid.five-up .col {\
-				width: 96px !important;\
-			}\
-			.block-grid.six-up .col {\
-				width: 80px !important;\
-			}\
-			.block-grid.seven-up .col {\
-				width: 68px !important;\
-			}\
-			.block-grid.eight-up .col {\
-				width: 60px !important;\
-			}\
-			.block-grid.nine-up .col {\
-				width: 53px !important;\
-			}\
-			.block-grid.ten-up .col {\
-				width: 48px !important;\
-			}\
-			.block-grid.eleven-up .col {\
-				width: 43px !important;\
-			}\
-			.block-grid.twelve-up .col {\
-				width: 40px !important;\
-			}\
+				.block-grid {\
+					width: 480px !important;\
+				}\
+				.block-grid .col {\
+					vertical-align: top;\
+				}\
+				.block-grid .col.num12 {\
+					width: 480px !important;\
+				}\
+				.block-grid.mixed-two-up .col.num4 {\
+					width: 160px !important;\
+				}\
+				.block-grid.mixed-two-up .col.num8 {\
+					width: 320px !important;\
+				}\
+				.block-grid.two-up .col {\
+					width: 240px !important;\
+				}\
+				.block-grid.three-up .col {\
+					width: 160px !important;\
+				}\
+				.block-grid.four-up .col {\
+					width: 120px !important;\
+				}\
+				.block-grid.five-up .col {\
+					width: 96px !important;\
+				}\
+				.block-grid.six-up .col {\
+					width: 80px !important;\
+				}\
+				.block-grid.seven-up .col {\
+					width: 68px !important;\
+				}\
+				.block-grid.eight-up .col {\
+					width: 60px !important;\
+				}\
+				.block-grid.nine-up .col {\
+					width: 53px !important;\
+				}\
+				.block-grid.ten-up .col {\
+					width: 48px !important;\
+				}\
+				.block-grid.eleven-up .col {\
+					width: 43px !important;\
+				}\
+				.block-grid.twelve-up .col {\
+					width: 40px !important;\
+				}\
 			}\
 			@media (max-width: 500px) {\
-			.block-grid,\
-			.col {\
-				min-width: 320px !important;\
-				max-width: 100% !important;\
-				display: block !important;\
-			}\
-			.block-grid {\
-				width: calc(100% - 40px) !important;\
-			}\
-			.col {\
-				width: 100% !important;\
-			}\
-			.col>div {\
-				margin: 0 auto;\
-			}\
-			img.fullwidth,\
-			img.fullwidthOnMobile {\
-				max-width: 100% !important;\
-			}\
-			.no-stack .col {\
-				min-width: 0 !important;\
-				display: table-cell !important;\
-			}\
-			.no-stack.two-up .col {\
-				width: 50% !important;\
-			}\
-			.no-stack.mixed-two-up .col.num4 {\
-				width: 33% !important;\
-			}\
-			.no-stack.mixed-two-up .col.num8 {\
-				width: 66% !important;\
-			}\
-			.no-stack.three-up .col.num4 {\
-				width: 33% !important;\
-			}\
-			.no-stack.four-up .col.num3 {\
-				width: 25% !important;\
-			}\
-			.mobile_hide {\
-				min-height: 0px;\
-				max-height: 0px;\
-				max-width: 0px;\
-				display: none;\
-				overflow: hidden;\
-				font-size: 0px;\
-			}\
+				.block-grid,\
+				.col {\
+					min-width: 320px !important;\
+					max-width: 100% !important;\
+					display: block !important;\
+				}\
+				.block-grid {\
+					width: calc(100% - 40px) !important;\
+				}\
+				.col {\
+					width: 100% !important;\
+				}\
+				.col>div {\
+					margin: 0 auto;\
+				}\
+				img.fullwidth,\
+				img.fullwidthOnMobile {\
+					max-width: 100% !important;\
+				}\
+				.no-stack .col {\
+					min-width: 0 !important;\
+					display: table-cell !important;\
+				}\
+				.no-stack.two-up .col {\
+					width: 50% !important;\
+				}\
+				.no-stack.mixed-two-up .col.num4 {\
+					width: 33% !important;\
+				}\
+				.no-stack.mixed-two-up .col.num8 {\
+					width: 66% !important;\
+				}\
+				.no-stack.three-up .col.num4 {\
+					width: 33% !important;\
+				}\
+				.no-stack.four-up .col.num3 {\
+					width: 25% !important;\
+				}\
+				.mobile_hide {\
+					min-height: 0px;\
+					max-height: 0px;\
+					max-width: 0px;\
+					display: none;\
+					overflow: hidden;\
+					font-size: 0px;\
+				}\
+				.elenco-entita {\
+					text-align: center;\
+					margin-left: 30px;\
+				}\
 			}\
 		</style>\
 		</head>\
@@ -325,13 +329,13 @@ angular.module('applicationModule').constant('MAIL',{
 							<div class=''>\
 								<!--[if mso]><table width='100%' cellpadding='0' cellspacing='0' border='0'><tr><td style='padding-right: 30px; padding-left: 30px; padding-top: 30px; padding-bottom: 30px;'><![endif]-->\
 								<div style='color:#909090;line-height:120%; padding-right: 30px; padding-left: 30px; padding-top: 30px; padding-bottom: 30px;'>\
-								<div style='font-size:12px;line-height:14px;color:#909090;text-align:left;'>\
-									<p style='margin: 0;font-size: 12px;line-height: 14px;text-align: justify'><span style='font-size: 12px; line-height: 14px;'>Ciao e grazie per aver acquistato una borsa <strong>Anna Cloud</strong>.<br></span><br><span style='font-size: 12px; line-height: 14px;'>La nostra filosofia non comprende solo la realizzazione di borse di alta fattura, ma anche un percorso di coinvolgimento del cliente durante tutta la fase di lavorazione.</span></p>\
-									<p style='margin: 0;font-size: 12px;line-height: 14px;text-align: justify'><span style='font-size: 12px; line-height: 14px;'>&#160;</span></p>\
-									<p style='margin: 0;font-size: 12px;line-height: 14px;text-align: justify'><span style='font-size: 12px; line-height: 14px;'>Riceverai la tua borsa tra circa 20 giorni; essendo un prodotto unico ci serve il tempo per realizzarlo su misura, proprio come lo vuoi tu.<br><br>Ma in questo tempo di terremo aggiornato su come procede il lavoro, cos&igrave; da farti capire cosa c&#8217;&egrave; dietro una borsa di qualit&agrave;.<br>Per qualunque informazione trovi di seguiti il nostro numero di assistenza.</span></p>\
-									<p style='margin: 0;font-size: 12px;line-height: 14px;text-align: justify'><span style='font-size: 12px; line-height: 14px;'>&#160;</span></p>\
-									<p style='margin: 0;font-size: 12px;line-height: 14px;text-align: justify'><span style='font-size: 12px; line-height: 14px;'>Un caro saluto e a presto</span></p>\
-									<p style='margin: 0;font-size: 12px;line-height: 14px;text-align: justify'><strong><span style='font-size: 12px; line-height: 14px;'>Il team di Anna Cloud</span></strong></p>\
+								<div style='color:#909090;text-align:left;'>\
+									<p style='margin: 0;font-size: 14px;line-height: 16px;text-align: justify'>Ciao e grazie per aver acquistato una borsa <strong>Anna Cloud</strong>.<br><br>La nostra filosofia non comprende solo la realizzazione di borse di alta fattura, ma anche un percorso di coinvolgimento del cliente durante tutta la fase di lavorazione.</p>\
+									<p style='margin: 0;font-size: 14px;line-height: 16px;text-align: justify'>&#160;</p>\
+									<p style='margin: 0;font-size: 14px;line-height: 16px;text-align: justify'>Riceverai la tua borsa tra circa 20 giorni; essendo un prodotto unico ci serve il tempo per realizzarlo su misura, proprio come lo vuoi tu.<br><br>Ma in questo tempo di terremo aggiornato su come procede il lavoro, cos&igrave; da farti capire cosa c&#8217;&egrave; dietro una borsa di qualit&agrave;.<br>Per qualunque informazione trovi di seguiti il nostro numero di assistenza.</p>\
+									<p style='margin: 0;font-size: 14px;line-height: 16px;text-align: justify'>&#160;</p>\
+									<p style='margin: 0;font-size: 14px;line-height: 16px;text-align: justify'>Un caro saluto e a presto</p>\
+									<p style='margin: 0;font-size: 14px;line-height: 16px;text-align: justify'><strong>Il team di Anna Cloud</strong></p>\
 								</div>\
 								</div>\
 								<!--[if mso]></td></tr></table><![endif]-->\
@@ -358,8 +362,8 @@ angular.module('applicationModule').constant('MAIL',{
 							<div class=''>\
 								<!--[if mso]><table width='100%' cellpadding='0' cellspacing='0' border='0'><tr><td style='padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;'><![endif]-->\
 								<div style='color:#555555;line-height:120%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;'>\
-								<div style='font-size:12px;line-height:14px;color:#555555;text-align:left;'>\
-									<p style='margin: 0;font-size: 14px;line-height: 17px;text-align: center'>Numero Ordine CODICE_ORDINE</p>\
+								<div style='color:#555555;'>\
+									<p style='margin: 0;font-size: 15px;line-height: 17px;text-align: center'>Numero Ordine CODICE_ORDINE</p>\
 								</div>\
 								</div>\
 								<!--[if mso]></td></tr></table><![endif]-->\
@@ -388,8 +392,8 @@ angular.module('applicationModule').constant('MAIL',{
 							<div class=''>\
 								<!--[if mso]><table width='100%' cellpadding='0' cellspacing='0' border='0'><tr><td style='padding-right: 10px; padding-left: 10px; padding-top: 25px; padding-bottom: 25px;'><![endif]-->\
 								<div style='color:#909090;line-height:120%; padding-right: 10px; padding-left: 10px; padding-top: 25px; padding-bottom: 25px;'>\
-								<div style='font-size:12px;line-height:14px;color:#909090;text-align:left;'>\
-									<p style='margin: 0;font-size: 14px;line-height: 17px;text-align: center'><span style='font-size: 10px; line-height: 12px;'><strong>Anna Cloud</strong> &#232; un marchio<strong> Pelletteria Digitale srl</strong>.<br>Sede - Via San Tommaso, 21 -Santa Croce Sull&#8217;Arno (PI)<br>email: info@annacloud.it - CF/P.IVA: 02272250503<br><br><strong>Customer Care</strong><br>dal luned&#236; al venerd&#236; dalle 9 alle 18.<br><br>Copyright 2019 <strong>Anna Cloud</strong><br></span></p>\
+								<div style='color:#909090;'>\
+									<p style='margin: 0;text-align: center'><span style='font-size: 12px; line-height: 14px'><strong>Anna Cloud</strong> &#232; un marchio<strong> Pelletteria Digitale srl</strong>.<br>Sede - Via San Tommaso, 21 -Santa Croce Sull&#8217;Arno (PI)<br>email: info@annacloud.it - CF/P.IVA: 02272250503<br><br><strong>Customer Care</strong><br>dal luned&#236; al venerd&#236; dalle 9 alle 18.<br><br>Copyright 2019 <strong>Anna Cloud</strong><br></span></p>\
 								</div>\
 								</div>\
 								<!--[if mso]></td></tr></table><![endif]-->\
@@ -440,9 +444,9 @@ angular.module('applicationModule').constant('MAIL',{
 						<!--<![endif]-->\
 						<div class=''>\
 							<!--[if mso]><table width='100%' cellpadding='0' cellspacing='0' border='0'><tr><td style='padding-right: 30px; padding-left: 0px; padding-top: 50px; padding-bottom: 30px;'><![endif]-->\
-							<div style='color:#555555;line-height:120%; padding-right: 30px; padding-left: 0px; padding-top: 50px; padding-bottom: 30px;'>\
-							<div style='font-size:12px;line-height:14px;color:#555555;text-align:left;'>\
-								<p style='margin: 0;font-size: 14px;line-height: 17px'><strong><span style='font-size: 12px; line-height: 14px;'>CONF_NAME</span><br><br></strong></p>\
+							<div style='color:#555555;line-height:120%; padding-right: 30px; padding-left: 30px; padding-top: 50px; padding-bottom: 30px;'>\
+							<div style='color:#555555;' class='elenco_entita'>\
+								<p style='margin: 0;font-size: 14px;line-height: 16px'><strong><span style='font-size: 14px; line-height: 16px'>CONF_NAME</span><br><br></strong></p>\
 								ELENCO_ENTITA\
 								<p style='margin: 0;font-size: 14px;line-height: 17px'><strong>&#160;</strong></p>\
 							</div>\
@@ -459,7 +463,7 @@ angular.module('applicationModule').constant('MAIL',{
 				</div>\
 			</div>\
 		",
-		ORDER_MAIL_ENTITA_TEMPLATE: "<p style='margin: 0;font-size: 12px;line-height: 14px'>ENTITA_NOME: ENTITA_VALORE</p>",
+		ORDER_MAIL_ENTITA_TEMPLATE: "<p style='margin: 0;font-size: 14px;line-height: 16px'>ENTITA_NOME: ENTITA_VALORE</p>",
 		ORDER_MAIL_DATI_CLIENTE_TEMPLATE: "<div style='background-color:transparent;'>\
 			<div style='Margin: 0 auto;min-width: 320px;max-width: 480px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #FFFFFF;' class='block-grid '>\
 			<div style='border-collapse: collapse;display: table;width: 100%;background-color:#FFFFFF;'>\
@@ -474,15 +478,15 @@ angular.module('applicationModule').constant('MAIL',{
 						<!--[if mso]><table width='100%' cellpadding='0' cellspacing='0' border='0'><tr><td style='padding-right: 30px; padding-left: 30px; padding-top: 30px; padding-bottom: 30px;'><![endif]-->\
 						<div style='color:#555555;line-height:120%; padding-right: 30px; padding-left: 30px; padding-top: 30px; padding-bottom: 30px;'>\
 						<div style='font-size:12px;line-height:14px;color:#555555;text-align:left;'>\
-							<p style='margin: 0;font-size: 14px;line-height: 17px'><strong><span style='font-size: 12px; line-height: 14px;'>Dati cliente</span><br><br></strong></p>\
-							<p style='margin: 0;font-size: 12px;line-height: 14px'>nome: CLIENTE_NOME</p>\
-							<p style='margin: 0;font-size: 12px;line-height: 14px'>email: CLIENTE_EMAIL</p>\
-							<p style='margin: 0;font-size: 12px;line-height: 14px'>telefono: CLIENTE_TELEFONO</p>\
-							<p style='margin: 0;font-size: 12px;line-height: 14px'>&#160;</p>\
-							<p style='margin: 0;font-size: 12px;line-height: 14px'><strong>Indirizzo di spedizione</strong></p>\
-							<p style='margin: 0;font-size: 12px;line-height: 14px'>&#160;</p>\
-							<p style='margin: 0;font-size: 12px;line-height: 14px'>CLIENTE_NOME_SPEDIZIONE</p>\
-							<p style='margin: 0;font-size: 12px;line-height: 14px'>CLIENTE_INDIRIZZO_SPEDIZIONE<br>CLIENTE_CAP_SPEDIZIONE CLIENTE_CITTA_SPEDIZIONE</p>\
+							<p style='margin: 0;font-size: 14px;line-height: 17px'><strong><span style='font-size: 14px; line-height: 16px'>Dati cliente</span><br><br></strong></p>\
+							<p style='margin: 0;font-size: 14px;line-height: 14px'>nome: CLIENTE_NOME</p>\
+							<p style='margin: 0;font-size: 14px;line-height: 14px'>email: CLIENTE_EMAIL</p>\
+							<p style='margin: 0;font-size: 14px;line-height: 14px'>telefono: CLIENTE_TELEFONO</p>\
+							<p style='margin: 0;font-size: 14px;line-height: 14px'>&#160;</p>\
+							<p style='margin: 0;font-size: 14px;line-height: 14px'><strong>Indirizzo di spedizione</strong></p>\
+							<p style='margin: 0;font-size: 14px;line-height: 14px'>&#160;</p>\
+							<p style='margin: 0;font-size: 14px;line-height: 14px'>CLIENTE_NOME_SPEDIZIONE</p>\
+							<p style='margin: 0;font-size: 14px;line-height: 14px'>CLIENTE_INDIRIZZO_SPEDIZIONE<br>CLIENTE_CAP_SPEDIZIONE CLIENTE_CITTA_SPEDIZIONE</p>\
 						</div>\
 						</div>\
 						<!--[if mso]></td></tr></table><![endif]-->\
