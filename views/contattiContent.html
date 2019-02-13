@@ -7,7 +7,7 @@
 <update-script content="structuredData" type="application/ld+json"></update-script>
 
 <!--div class="contatti-content wow" ng-init="wowInit({boxClasses:'contatti-content wow'})"-->
-<div class="contatti-content ">
+<div class="contatti-content" ng-controller="contattiController">
 	<div class="container-fluid text-justify">
 		<div class="row narrazione">
 			<div class="col-sm-6 no-padding no-margin clearfix bottom-buffer wow fadeInUpSmall visible-xs" data-wow-delay=".2s" style="background: url(images/team-img-2-bg.jpg) center center no-repeat; background-size: cover; background-color: #fff" >
@@ -45,41 +45,39 @@
 			<div class="col-sm-6 clearfix bottom-buffer wow fadeInUpSmall" data-wow-delay=".2s">
 				<div class="content contatti last">
 					<p class="text top-buffer bottom-buffer">Contattaci</p>
-					<form>
+					<form name="contactForm" novalidate role="form">
 						<div class="row">
 							<div class="col-sm-12">
 								<div class="form-group">
 									<label for="nome" class="sr-only hidden"></label>
-									<input  type="text" class="form-control" id="nome" placeholder="Nome">
+									<span class="label label-danger" data-ng-show="submitted && contactForm.name.$error.required">Required!</span>
+									<input  type="text" class="form-control" data-ng-model="name" id="nome" name="nome" placeholder="Nome" required>
 								</div>
 								<div class="form-group">
 									<label for="cognome" class="sr-only hidden"></label>
-									<input  type="text" class="form-control" id="cognome" placeholder="Cognome">
+									<input  type="text" class="form-control" data-ng-model="surname" id="cognome" name="cognome" placeholder="Cognome" required>
 								</div>
 								<div class="form-group">
 									<label for="email" class="sr-only hidden"></label>
-									<input  type="text" class="form-control" id="email" placeholder="email">
+									<span class="label label-danger" data-ng-show="submitted && contactForm.email.$error.required">Required!</span>
+									<span class="label label-danger" data-ng-show="submitted && contactForm.$error.email">Invalid email!</span>
+									<input  type="text" class="form-control" data-ng-model="email" id="email" name="email" placeholder="email" required>
 								</div>
 								<div class="form-group">
 									<label for="commenti" class="sr-only hidden"></label>
-									<textarea  class="form-control" row="5" id="commenti" placeholder="messaggio"></textarea>
+									<span class="label label-danger" data-ng-show="submitted && contactForm.comments.$error.required">Required!</span>
+									<textarea  class="form-control" row="5" data-ng-model="comments" id="commenti" name="messaggio" placeholder="messaggio" required ></textarea>
 								</div>
 							</div>
 						</div>
-						<button ng-click="cambiaNome(nome,cognome)" class="btn btn-default btn-save">Invia</button>
+						<button data-ng-disabled="progress.active()" data-ng-click="submit(contactForm)"  class="btn btn-default btn-save">Invia</button>
 						 <a href="javascript:void(0)" class="recover">Informativa sulla privacy</a>
 						<div class="checkbox">
 							<label><input type="checkbox"class="js-switch">Ho preso visione dell’informativa e autorizzo il trattamento dei miei dati secondo quanto in essa riportato.</label></a>
 						</div>
-						<!--<script>
-							grecaptcha.ready(function () {
-								grecaptcha.execute('6Lc79Y0UAAAAAMuYVQ-lm9jtWcvk6w3v5FdxXml7', { action: 'form-contatti' })
-									.then(function (token) {
-										// Verifica il token sul server.
-									});
-							});
-						</script>-->
 					</form>
+					<div id="messages" class="alert alert-success" data-ng-show="messages" data-ng-bind="messages"></div>
+					<div data-ng-show="progress.active()" style="color: red; font-size: 50px;">Sending…</div>
 				</div>
 				
 			</div>
