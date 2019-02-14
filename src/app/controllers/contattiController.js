@@ -3,7 +3,6 @@ angular.module('applicationModule')
 		$scope.email = "";
 		$scope.name = "";
 		$scope.surname = "";
-		$scope.email = "";
 		$scope.comments = "";
 
 		/*$scope.subjectListOptions = {
