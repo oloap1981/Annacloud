@@ -1,4 +1,4 @@
-angular.module("applicationModule").service("loginService", function($q) {
+angular.module("applicationModule").service("loginService", function($q, $rootScope) {
 	
     this.userPool = null;
 	this.cognitoUser = null;
@@ -200,8 +200,12 @@ angular.module("applicationModule").service("loginService", function($q) {
 			onSuccess: function(result) {
 				console.log('call result: ' + result);
 				alert("Password correttamente aggiornata");
+
+				//eseguo un broadcast per aprire una modale che mi dice che è andato tutto bene
 			},
 			onFailure: function(err) {
+				//eseguo un broadcast per aprire un modale che mi dice che c'è stato un problema
+
 				if(err.code == "InvalidParameterException"){
 					alert("La password inserita non rispetta i requisiti richiesti (lunghezza minima 6 caratteri)");
 				} else if(err.code == "InvalidPasswordException"){
@@ -226,6 +230,52 @@ angular.module("applicationModule").service("loginService", function($q) {
 		});
 	};
 
+	this.forgotPasswordInput = function(userEmail){
+
+		cognitoUser = new AmazonCognitoIdentity.CognitoUser({
+			Username: userEmail,
+			Pool: this.getUserPool()
+		});
+
+		cognitoUser.forgotPassword({
+			onSuccess: function(result) {
+				console.log('call result: ' + result);
+				alert("Password correttamente aggiornata");
+
+				//eseguo un broadcast per aprire una modale che mi dice che è andato tutto bene
+				$rootScope.$broadcast('openMessageModal', {
+					data: 'message'
+				});
+			},
+			onFailure: function(err) {
+				//eseguo un broadcast per aprire un modale che mi dice che c'è stato un problema
+
+				if(err.code == "InvalidParameterException"){
+					alert("La password inserita non rispetta i requisiti richiesti (lunghezza minima 6 caratteri)");
+				} else if(err.code == "InvalidPasswordException"){
+					alert("La password inserita non rispetta i requisiti richiesti (lunghezza minima 6 caratteri)");
+				} else if(err.code == "LimitExceededException"){
+					alert("Superato il numero massimo di richieste per AWS");
+				} else if(err.code == "TooManyFailedAttemptsException"){
+					alert("Troppi tentativi falliti per il cambio password");
+				} else if(err.code == "UserNotFoundException"){
+					alert("Utente non trovato durante il cambio password");
+				} else {
+					alert("Errore nell'aggiornamento della password: " + err.message);
+				}
+	            console.log(err.message);
+	            deferred.reject (err);
+			},
+			inputVerificationCode: function() {
+				var broacastData = {};
+				broacastData.cognitoUser = cognitoUser;
+				$rootScope.$broadcast('insertConfirmData', {
+					data: broacastData
+				})
+				//cognitoUser.confirmPassword(verificationCode, newPassword, this);
+			}
+		});
+	};
 	
 	this.changePassword = function(oldp, newp){
 		var deferred = $q.defer();

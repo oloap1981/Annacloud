@@ -31,6 +31,8 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 	$scope.indSpe2 = "";
 	$scope.nomeSpe = "";
 
+	$scope.changePasswordEmail = "";
+
 	$scope.nextPath = "";
 
 	$scope.pendingCheckout = false;
@@ -169,6 +171,14 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 	$scope.getIndSpe2 = function () {
 		return $scope.indSpe2;
 	};
+
+	$scope.getChangePasswordEmail = function(){
+		return $scope.changePasswordEmail;
+	}
+
+	$scope.setChangePasswordEmail = function(changePasswordEmail){
+		$scope.changePasswordEmail = changePasswordEmail;
+	}
 
 	$scope.setTempConfigurazione = function (configurazione) {
 		$scope.tempConfigurazione = configurazione;
@@ -484,10 +494,10 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		//genero la parte relativa ai dati del cliente
 		var datiClienteMessagePart = MAIL.ORDER_MAIL_DATI_CLIENTE_TEMPLATE;
 
-		datiClienteMessagePart = datiClienteMessagePart.replace("CLIENTE_NOME", $scope.nome + " " + $scope.cognome);
+		datiClienteMessagePart = datiClienteMessagePart.replace("CLIENTE_NOME", $scope.nomeSpe);
 		datiClienteMessagePart = datiClienteMessagePart.replace("CLIENTE_EMAIL", $scope.getUserEmail());
 		datiClienteMessagePart = datiClienteMessagePart.replace("CLIENTE_TELEFONO", $scope.tel);
-		datiClienteMessagePart = datiClienteMessagePart.replace("CLIENTE_NOME_SPEDIZIONE", $scope.nome + " " + $scope.cognome);
+		datiClienteMessagePart = datiClienteMessagePart.replace("CLIENTE_NOME_SPEDIZIONE", $scope.nomeSpe);
 		datiClienteMessagePart = datiClienteMessagePart.replace("CLIENTE_INDIRIZZO_SPEDIZIONE", $scope.indSpe);
 		datiClienteMessagePart = datiClienteMessagePart.replace("CLIENTE_CAP_SPEDIZIONE", $scope.capSpe);
 		datiClienteMessagePart = datiClienteMessagePart.replace("CLIENTE_CITTA_SPEDIZIONE", $scope.cittaSpe);
@@ -623,20 +633,6 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		}
 	};
 
-	/* GESTIONE MODALI */
-	$scope.openChangeAddressModal = function () {
-		$scope.modalInstance = $uibModal.open({
-			animation: true,
-			templateUrl: 'views/modaleCmabioIndirizzo.html',
-			scope: $scope,
-			resolve: {
-				avviso: function () {
-					return $scope.avvisoInputNome;
-				}
-			}
-		});
-	};
-
 	$scope.salvaOAcquista = function(oldname, isAcquista){
 		if(!isAcquista || $scope.getTempConfigurazione().nome == ""){
 			$scope.openConfigNameModal(oldname);
@@ -644,6 +640,36 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 			$scope.okConfig($scope.getTempConfigurazione().nome, false);
 		}
 	};
+
+	/* **************************** */
+	/* GESTIONE EVENTI IN BROADCAST */
+	/* **************************** */
+	$scope.$on("openMessageModal",function(event, data){
+		$scope.openMessageModal(data);
+	});
+
+	/* *************** */
+	/* GESTIONE MODALI */
+	/* *************** */
+
+
+	$scope.openInsertEmailForPasswordChange = function(){
+		$scope.modalInstance = $uibModal.open({
+			animation: true,
+			templateUrl: 'views/modalePerEmailCambioPassword.html',
+			scope: $scope
+		});
+	}
+
+	$scope.okEmail = function(email){
+		$scope.setChangePasswordEmail(email);
+		$uibModalStack.dismissAll();
+		$scope.changePath('/cambio-password');
+	}
+
+	$scope.cancelEmail = function(){
+		$uibModalStack.dismissAll();
+	}
 
 	$scope.openConfigNameModal = function (oldName) {
 		if (oldName != undefined && oldName != "") {
@@ -769,7 +795,10 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		$uibModalStack.dismissAll();
 	};
 
+	/* ********************** */
 	/* FUNZIONI DI TRADUZIONE */
+	/* ********************** */
+
 	$scope.traduciNomiInterfaccia = function (entita) {
 		if (entita) {
 			if (entita.categoria != "" && entita.nome != "") {
@@ -918,7 +947,9 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 
 	};
 
+	/* ************************ */
 	/* FUNZIONI GESTIONE LOADER */
+	/* ************************ */
 	$scope.showLoader = function () {
 		$('#loaderOverlay')[0].style.visibility = 'visible';
 	};

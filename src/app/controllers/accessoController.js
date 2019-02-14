@@ -141,7 +141,8 @@ angular.module("applicationModule").controller("accessoController", ["$scope", "
 	};
 	
 	$scope.forgotPassword = function(){
-		loginService.forgotPassword();
+		// loginService.forgotPassword();
+		$scope.openInsertEmailForPasswordChange();
 	};
 
 	$scope.svuotaCampi = function(){

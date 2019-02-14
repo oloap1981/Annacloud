@@ -75,6 +75,9 @@ app.config(['$routeProvider', '$locationProvider', '$compileProvider', function 
 	when('/conferma-newsletter', {
 		templateUrl: 'views/confermaNewsletter.html'
 	}).
+	when('/cambio-password', {
+		templateUrl: 'views/cambioPasswordContent.html'
+	}).
 	otherwise({
 		redirectTo: '/'
 	});
