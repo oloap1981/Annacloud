@@ -436,6 +436,55 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		return message;
 	};
 
+	$scope.generateEmailMessage_generic = function (emailMessageString, subject, toAddresses, ccAddresses) {
+		var message = {};
+
+		message.toEmailAddress = toAddresses;
+		message.ccEmailAddress = ccAddresses;
+		message.emailSubject = subject;
+		message.emailMessage = emailMessageString;
+
+		return message;
+	};
+
+	$scope.sendMailContatti = function(email, stringMessage, name, surname){
+		var subject = "Annacloud: Richiesta informazioni da " + name + " " + surname;
+		var stringMessage = "Richiedente: " + name + " " + surname + "<br>" + "Email: " + email + "<br><br>Testo del messaggio:<br><br><div style='border:dotted 1px #ccc;padding: 15px;'>" + stringMessage + "</div>";
+		//var to = ["g.monti@marte5.com"];
+		var to = [URL.adminEmailAddress];
+		var cc = [];
+
+		var message = $scope.generateEmailMessage_generic(stringMessage, subject, to, cc);
+
+		var subject_c = "Annacloud: grazie per averci contattato!";
+		var stringMessage_c = name + ", grazie per averci scritto.<br>Verrai contattato al pi&ugrave; presto da un nostro responsabile.";
+		var to_c = [email];
+		var cc_c = [];
+
+		var courtesyMessage = $scope.generateEmailMessage_generic(stringMessage_c, subject_c, to_c, cc_c);
+
+		listeService.sendEmail(message).then(
+			function (res2) {
+				if (res2.errorMessage != null && res2.errorMessage != "") {
+					console.log(res2.errorMessage);
+					$scope.openMessageModal("C'è stato un problema nell'invio della mail di riepilogo al cliente, contattare l'amministratore");
+				} else {
+
+					listeService.sendEmail(courtesyMessage).then(
+						function (res2) {
+							if (res2.errorMessage != null && res2.errorMessage != "") {
+								console.log(res2.errorMessage);
+								$scope.openMessageModal("C'è stato un problema nell'invio della mail di riepilogo all'admin, contattare l'amministratore");
+							} else {
+								$scope.openMessageModal(name + ", grazie per averci contattato. Verrai contattato quanto prima da un nostro responsabile.");
+							}
+						}
+					);
+				}
+			}
+		);
+	}
+
 	$scope.generateEmailMessage_admin = function () {
 		var message = {};
 

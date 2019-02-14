@@ -1,6 +1,12 @@
-angular.module('applicationModule', ['ajoslin.promise-tracker'])
-	.controller('contattiController', function ($scope, $http, $log, promiseTracker, $timeout) {
-		$scope.subjectListOptions = {
+angular.module('applicationModule')
+	.controller('contattiController', function ($scope, $http, $log, $timeout) {
+		$scope.email = "";
+		$scope.name = "";
+		$scope.surname = "";
+		$scope.email = "";
+		$scope.comments = "";
+
+		/*$scope.subjectListOptions = {
 			'bug': 'Report a Bug',
 			'account': 'Account Problems',
 			'mobile': 'Mobile',
@@ -10,9 +16,15 @@ angular.module('applicationModule', ['ajoslin.promise-tracker'])
 
 		// Inititate the promise tracker to track form submissions.
 		$scope.progress = promiseTracker();
-
+		*/
 		// Form submit handler.
-		$scope.submit = function (form) {
+		$scope.submit = function () {
+			
+			if($scope.email != ""){
+				$scope.sendMailContatti($scope.email, $scope.comments, $scope.name, $scope.surname);
+			}
+
+			/*
 			// Trigger validation flag.
 			$scope.submitted = true;
 
@@ -31,8 +43,9 @@ angular.module('applicationModule', ['ajoslin.promise-tracker'])
 					'comments': $scope.comments
 				},
 			};
-
+			*/
 			// Perform JSONP request.
+			/*
 			var $promise = $http.jsonp('response.json', config)
 				.success(function (data, status, headers, config) {
 					if (data.status == 'OK') {
@@ -61,5 +74,7 @@ angular.module('applicationModule', ['ajoslin.promise-tracker'])
 
 			// Track the request and show its progress to the user.
 			$scope.progress.addPromise($promise);
+			*/
+
 		};
 	});
