@@ -4,6 +4,12 @@ angular.module("applicationModule").controller("profiloController", ["$scope", "
 	$scope.comuni = ANAGRAFICHE.comuni.listaComuni;
 	$scope.comune = {}; 
 
+	$scope.editNome = false;
+	$scope.editEmail = false;
+	$scope.editTelefono = false;
+	$scope.editPassword = false;
+	$scope.editDatiSpedizione = false;
+
 	$scope.listaPreferiti = [];
 	loginService.getUserAttributes().then(
 		function (attList){
@@ -79,6 +85,46 @@ angular.module("applicationModule").controller("profiloController", ["$scope", "
 		);
 	};
 
+	$scope.modificaNome = function(){
+		$scope.editNome = true;	
+	};
+
+	$scope.annullaModificaNome = function(){
+		$scope.editNome = false;	
+	};
+
+	$scope.modificaEmail = function(){
+		$scope.editEmail = true;	
+	};
+
+	$scope.annullaModificaEmail = function(){
+		$scope.editEmail = false;	
+	};
+
+	$scope.modificaTelefono = function(){
+		$scope.editTelefono = true;	
+	};
+
+	$scope.annullaModificaTelefono = function(){
+		$scope.editTelefono = false;	
+	};
+
+	$scope.modificaPassword = function(){
+		$scope.editPassword = true;	
+	};
+
+	$scope.annullaModificaPassword = function(){
+		$scope.editPassword = false;	
+	};
+
+	$scope.modificaDatiSpedizione = function(){
+		$scope.editDatiSpedizione = true;	
+	};
+
+	$scope.annullaModificaDatiSpedizione = function(){
+		$scope.editDatiSpedizione = false;	
+	};
+
 	$scope.cambiaNome = function(nome, cognome){
 			var attributeList = [];
 		    var attribute = {
@@ -98,9 +144,11 @@ angular.module("applicationModule").controller("profiloController", ["$scope", "
 						console.log(res);
 						$scope.reloadAttributes();
 						$scope.openMessageModal("Dati cambiati con successo");
+						$scope.editNome = false;
 					},
 					function (reason){
-						console.log(reason);
+						$scope.openMessageModal("Problemi nell'aggiornamento dei dati: " + reason);
+						$scope.editNome = false;
 					}
 			);
 	};
@@ -120,14 +168,39 @@ angular.module("applicationModule").controller("profiloController", ["$scope", "
 						$scope.reloadAttributes();
 						$scope.openMessageModal("Dati cambiati con successo");
 						//$scope.openMessageModal("Email cambiata con successo");
+						$scope.editEmail = false;
 					},
 					function (reason){
-						console.log(reason);
+						$scope.openMessageModal("Problemi nell'aggiornamento dei dati: " + reason);
+						$scope.editEmail = false;
 					}
 			);
 		}else {
 			$scope.openMessageModal("le email non corrispondono");
 		}	
+	};
+
+	$scope.cambiaTelefono = function(telefono){
+		var attributeList = [];
+		var attribute = {
+			Name : 'custom:telefono',
+			Value : telefono
+		};
+		attribute = new AmazonCognitoIdentity.CognitoUserAttribute(attribute);
+		attributeList.push(attribute);
+		loginService.updateAttributes(attributeList).then(
+				function (res){
+					console.log(res);
+					$scope.reloadAttributes();
+					$scope.openMessageModal("Dati cambiati con successo");
+					//$scope.openMessageModal("Email cambiata con successo");
+					$scope.editTelefono = false;
+				},
+				function (reason){
+					$scope.openMessageModal("Problemi nell'aggiornamento dei dati: " + reason);
+					$scope.editTelefono = false;
+				}
+		);
 	};
 	
 	$scope.cambiaPassword = function(o, n, n1){
@@ -184,6 +257,7 @@ angular.module("applicationModule").controller("profiloController", ["$scope", "
 						$scope.setPendingCheckout(false);
 						$scope.changePath('/checkout');
 					}
+					$scope.editDatiSpedizione = false;
 					$scope.openMessageModal("Dati Aggiornati correttamente");
 				},
 				function (reason){
