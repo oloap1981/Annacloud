@@ -4,203 +4,202 @@
             <h3 class="title section mot"><span>Profilo</span></h3>
         </div>
     </div>
-    <div class="row profile" id="accordion">
+    <div class="row profile">
         <div class="col-sm-6">
             <h3 class="title-secondary">Informazioni utente</h3>
-            <div class="accordion-content default">
-                <form>
-                    <div class="row" ng-show="!editNome">
-                        <div class="col-sm-9">
-                            <div class="form-group">
-                                nome: {{nome}} {{cognome}}
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="form-group">
-                                <button ng-click="modificaNome()" class="btn btn-default btn-save">Modifica</button>
-                            </div>
-                        </div>
+            <h4 class="title-tertiary">Nome</h4>
+            <div class="row" ng-show="!editNome">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <input type="text" class="form-control readonly" placeholder="{{nome}}" readonly>
                     </div>
-                    <div class="row" ng-show="editNome"> 
-                        <div class="col-sm-4">
-                            <div class="form-group">
-                                <label for="nome" class="sr-only hidden"></label>
-                                <input ng-model="nome" type="text" class="form-control" id="nome" placeholder="Nome">
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="form-group">
-                                <label for="cognome" class="sr-only hidden"></label>
-                                <input ng-model="cognome" type="text" class="form-control" id="cognome" placeholder="Cognome">
-                            </div>
-                        </div>
-                        <div class="col-sm-2">
-                            <div class="form-group">
-                                    <button ng-click="cambiaNome(nome,cognome)" class="btn btn-default btn-save">Salva modifiche</button>
-                            </div>
-                        </div>
-                        <div class="col-sm-2">
-                            <div class="form-group">
-                                <button ng-click="annullaModificaNome()" class="btn btn-default btn-save">Annulla</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <hr>
-            <div class="accordion-contentx">
-                <form>
-                    <div class="row"  ng-show="!editEmail">
-                        <div class="col-sm-9">
-                            <div class="form-group">
-                                email: {{email}}
-                            </div>
-                    
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="form-group">
-                                <button ng-click="modificaEmail()" class="btn btn-default btn-save">Modifica</button>
-                            </div>
-                        </div>  
-                    </div>
-                    <div class="row" ng-show="editEmail">
-                        <div class="col-sm-4">
-                            <div class="form-group">
-                                <label for="email" class="sr-only hidden"></label>
-                                <input ng-model="email" type="email" class="form-control" id="email" placeholder="Indirizzo Email">
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="form-group">
-                                <label for="ripEmail" class="sr-only hidden"></label>
-                                <input ng-model="ripEmail" type="email" class="form-control" id="ripEmail" placeholder="Ripeti Email">
-                            </div>
-                        </div>
-                        <div class="col-sm-2">
-                            <div class="form-group">
-                                <button ng-click="cambiaEmail(email,ripEmail)" class="btn btn-default btn-save ">Salva modifiche</button>
-                            </div>
-                        </div>
-                        <div class="col-sm-2">
-                            <div class="form-group">
-                                <button ng-click="annullaModificaEmail()" class="btn btn-default btn-save ">Annulla</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <hr>
-            <div class="accordion-contentx">
-                <form>
-                    <div class="row" ng-show="!editTelefono">
-                        <div class="col-sm-9">
-                            <div class="form-group">
-                                tel: {{tel}}
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <button ng-click="modificaTelefono()" class="btn btn-default btn-save">Modifica</button>
-                        </div>
-                    </div>
-                    <div class="row" ng-show="editTelefono">
-                        <div class="col-sm-4">
-                            <div class="form-group">
-                                <label for="tel" class="sr-only hidden"></label>
-                                <input ng-model="tel" type="phone" class="form-control" id="tel" placeholder="Telefono">
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                        </div>
-                        <div class="col-sm-2">
-                            <button ng-click="cambiaTelefono(tel)" class="btn btn-action ">Salva modifiche</button>
-                        </div>
-                        <div class="col-sm-2">
-                            <button ng-click="annullaModificaTelefono()" class="btn btn-action ">Annulla</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <hr>
-            <div class="accordion-contentx">
-                <div class="row" ng-show="!editPassword">
-                    <button ng-click="modificaPassword()" class="btn btn-default btn-save">Modifica Password</button>
                 </div>
-                <div class="row" ng-show="editPassword">
-                    <form>
-                        <div class="form-group">
-                            <label for="passAtt" class="sr-only hidden"></label>
-                            <input ng-model="passAtt" type="password" class="form-control" id="passAtt" placeholder="Password Attuale">
-                        </div>
-                        <div class="form-group">
-                            <label for="pasNuo" class="sr-only hidden"></label>
-                            <input ng-model="pasNuo" type="password" class="form-control" id="pasNuo" placeholder="Nuova Password">
-                        </div>
-                        <div class="form-group">
-                            <label for="verPas" class="sr-only hidden"></label>
-                            <input ng-model="verPas" type="password" class="form-control" id="verPas" placeholder="Verifica Password">
-                        </div>
-                        <button ng-click="cambiaPassword(passAtt, pasNuo, verPas)" class="btn btn-default btn-save ">Salva
-                            modifiche</button>
-                        <button ng-click="annullaModificaPassword()" class="btn btn-default btn-save ">Annulla</button>
-                    </form>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <input type="text" class="form-control readonly" placeholder="{{cognome}}" readonly>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <button ng-click="modificaNome()" class="btn btn-default btn-save">Modifica nome</button>
+                </div>
+            </div>
+            <div class="row" ng-show="editNome"> 
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="nome" class="sr-only hidden"></label>
+                        <input ng-model="nome" type="text" class="form-control" id="nome" placeholder="Nome">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="cognome" class="sr-only hidden"></label>
+                        <input ng-model="cognome" type="text" class="form-control" id="cognome" placeholder="Cognome">
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <button ng-click="cambiaNome(nome,cognome)" class="btn btn-default btn-save">Conferma</button>
+                    <button ng-click="annullaModificaNome()" class="btn btn-default btn-save">Annulla</button>
+                </div>
+            </div>
+            <hr>
+            <h4 class="title-tertiary">Email</h4>
+            <div class="row"  ng-show="!editEmail">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <input type="text" class="form-control readonly" placeholder="{{email}}" readonly>
+                    </div>
+                </div>
+                <div class="col-sm-6"></div>
+                <div class="col-sm-12">
+                    <button ng-click="modificaEmail()" class="btn btn-default btn-save">Modifica email</button>
+                </div>  
+            </div>
+            <div class="row" ng-show="editEmail">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="email" class="sr-only hidden"></label>
+                        <input ng-model="email" type="email" class="form-control" id="email" placeholder="Indirizzo Email">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="ripEmail" class="sr-only hidden"></label>
+                        <input ng-model="ripEmail" type="email" class="form-control" id="ripEmail" placeholder="Ripeti Email">
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <button ng-click="cambiaEmail(email,ripEmail)" class="btn btn-default btn-save ">Conferma</button>
+                    <button ng-click="annullaModificaEmail()" class="btn btn-default btn-save ">Annulla</button>
+                </div>
+            </div>
+            <hr>
+            <h4 class="title-tertiary">Telefono</h4>
+            <div class="row" ng-show="!editTelefono">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <input type="text" class="form-control readonly" placeholder="{{tel}}" readonly>
+                    </div>
+                </div>
+                <div class="col-sm-6"></div>
+                <div class="col-sm-12">
+                    <button ng-click="modificaTelefono()" class="btn btn-default btn-save">Modifica telefono</button>
                 </div>
                 
+            </div>
+            <div class="row" ng-show="editTelefono">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="tel" class="sr-only hidden"></label>
+                        <input ng-model="tel" type="phone" class="form-control" id="tel" placeholder="Telefono">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                </div>
+                <div class="col-sm-12">
+                    <button ng-click="cambiaTelefono(tel)" class="btn btn-save ">Conferma</button>
+                    <button ng-click="annullaModificaTelefono()" class="btn btn-save ">Annulla</button>
+                </div>
+            </div>
+            <hr>
+            <div class="row" ng-show="!editPassword">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <input type="password" class="form-control readonly" placeholder="********" readonly>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <button ng-click="modificaPassword()" class="btn btn-default btn-save">Modifica Password</button>
+                </div>
+            </div>
+            <div class="row" ng-show="editPassword">
+                <div class="col-sm-6 clearfix">
+                    <div class="form-group">
+                        <label for="passAtt" class="sr-only hidden"></label>
+                        <input ng-model="passAtt" type="text" class="form-control" id="passAtt" placeholder="Password Attuale">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="pasNuo" class="sr-only hidden"></label>
+                                <input ng-model="pasNuo" type="password" class="form-control" id="pasNuo" placeholder="Nuova Password">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="verPas" class="sr-only hidden"></label>
+                                <input ng-model="verPas" type="password" class="form-control" id="verPas" placeholder="Verifica Password">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <button ng-click="cambiaPassword(passAtt, pasNuo, verPas)" class="btn btn-default btn-save ">Salva
+                        modifiche</button>
+                    <button ng-click="annullaModificaPassword()" class="btn btn-default btn-save ">Annulla</button>
+                </div>
             </div>
         </div>
         <a id="indirizzi"></a>
         <div class="col-sm-6">
             <h3 class="title-secondary">Indirizzo di spedizione</h3>
-            <div class="accordion-content default" ng-show="!editDatiSpedizione"><!-- INFO PER INDIRIZZO SPEDIZIONE -->
-                <form>
+            <div class="row" ng-show="!editDatiSpedizione"><!-- INFO PER INDIRIZZO SPEDIZIONE -->
+                <div class="col-sm-12">
                     <div class="form-group">
-                        {{nomeSpe}}
+                        <input type="text" class="form-control readonly" placeholder="{{nomeSpe}}" readonly>
                     </div>
-                    <div class="form-group">
-                        {{indSpe}}
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                {{cittaSpe}}
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                {{capSpe}}
-                            </div>
-                        </div>
-                    </div>
-                    <button ng-click="modificaDatiSpedizione()" class="btn btn-default btn-save ">Modifica</button>
-                </form>
-            </div>
-            <div class="accordion-content default" ng-show="editDatiSpedizione"><!-- FORM PER INDIRIZZO SPEDIZIONE -->
-                    <form>
-                        <div class="form-group">
-                            <label for="inputNome" class="sr-only hidden"></label>
-                            <input ng-model="nomeSpe" type="text" class="form-control" id="nomeSpe" placeholder="Nome e Cognome per spedizione">
-                        </div>
-                        <div class="form-group">
-                            <label for="inputCognome" class="sr-only hidden"></label>
-                            <input ng-model="indSpe" type="text" class="form-control" id="indSpe1" placeholder="Via, Numero Civico">
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="inputEmailReg" class="sr-only hidden"></label>
-                                    <input ng-model="cittaSpe" type="text" class="form-control" id="cittaSpe" placeholder="Citt&agrave; (Provincia)">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="capSpe" class="sr-only hidden"></label>
-                                    <input ng-model="capSpe" type="text" class="form-control" id="capSpe" placeholder="CAP" maxlength="5">
-                                </div>
-                            </div>
-                        </div>
-                        <button ng-click="cambiaIndirizzoSpedizione(nomeSpe, indSpe, cittaSpe, capSpe)" class="btn btn-default btn-save ">Salva modifiche</button>
-                        <button ng-click="annullaModificaDatiSpedizione()" class="btn btn-default btn-save ">Annulla</button>
-                    </form>
                 </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <input type="text" class="form-control readonly" placeholder="{{indSpe}}" readonly>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <input type="text" class="form-control readonly" placeholder="{{cittaSpe}}" readonly>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <input type="text" class="form-control readonly" placeholder="{{capSpe}}" readonly>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <button ng-click="modificaDatiSpedizione()" class="btn btn-default btn-save ">Modifica indirizzo</button>
+                </div>
+            </div>
+            <div class="row" ng-show="editDatiSpedizione"><!-- FORM PER INDIRIZZO SPEDIZIONE -->
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="inputNome" class="sr-only hidden"></label>
+                        <input ng-model="nomeSpe" type="text" class="form-control" id="nomeSpe" placeholder="Nome e Cognome per spedizione">
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="inputCognome" class="sr-only hidden"></label>
+                        <input ng-model="indSpe" type="text" class="form-control" id="indSpe1" placeholder="Via, Numero Civico">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputEmailReg" class="sr-only hidden"></label>
+                        <input ng-model="cittaSpe" type="text" class="form-control" id="cittaSpe" placeholder="Citt&agrave; (Provincia)">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="capSpe" class="sr-only hidden"></label>
+                        <input ng-model="capSpe" type="text" class="form-control" id="capSpe" placeholder="CAP" maxlength="5">
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <button ng-click="cambiaIndirizzoSpedizione(nomeSpe, indSpe, cittaSpe, capSpe)" class="btn btn-default btn-save ">Conferma</button>
+                    <button ng-click="annullaModificaDatiSpedizione()" class="btn btn-default btn-save ">Annulla</button>
+                </div>
+            </div>
+            <!--
             <h4 class="title-tertiary accordion-toggle hidden">Fatturazione <i class="caretx"></i></h4>
             <div class="accordion-content hidden">
                 <form>
@@ -232,7 +231,7 @@
                     </div>
                     <button ng-click="cambiaIndirizzoFatturazione(nomeFat, indFat, indFat2, cittaFat, capFat)" class="btn btn-default btn-save ">Salva modifiche</button>
                 </form>
-            </div>
+            </div>-->
         </div>
     </div>
 </div>

@@ -426,6 +426,12 @@ input {
         font-weight: lighter;
         width: 250px;
     }
+    &.readonly {
+        border: solid 1px #fff !important;
+        box-shadow: none !important;
+        //background-color: rgba(0,0,0,.03) !important;
+        background: transparent url('/images/disabled.png') center center !important;
+    }
 }
 
 
@@ -531,8 +537,10 @@ button:focus {outline:0;}
 
 .btn-save {
     color: #fff;
-    background: $brand-primary;
-    font-size: 1em !important;
+    font-weight: 500;
+    background: rgba($brand-color-logo-dark, .5);
+    font-size: .9em !important;
+    border-color: rgba($brand-color-logo-dark, 0);
     &:hover, &:active, &:focus {
         background: #fff !important;
         color: $brand-primary !important;
@@ -545,7 +553,7 @@ button:focus {outline:0;}
     font-size: 1em !important;
     &:hover, &:active, &:focus {
         background: #fff !important;
-        color: $brand-primary;
+        color: $brand-primary !important;
         border-color: $brand-primary;
     }
 }
