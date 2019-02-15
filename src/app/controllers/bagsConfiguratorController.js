@@ -1211,6 +1211,19 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			};
 			$('#spritespin').spritespin(dataSpin);
 			$(window).trigger("resize");
+
+			$('#prevFrame').click(function (e) {
+				var moveLeft = $('#spritespin').spritespin("data");
+				SpriteSpin.updateFrame(moveLeft, (moveLeft.frame + 1));
+			});
+
+			/* Same as the left navigation.
+			   The -1 will advance as if they dragged to the right. 
+			*/
+			$('#nextFrame').click(function (e) {
+				var moveRight = $('#spritespin').spritespin("data");
+				SpriteSpin.updateFrame(moveRight, (moveRight.frame - 1));
+			});
 		});
 
 
@@ -1747,6 +1760,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		});
 
 	};
+	
 
 	configController.closeZoom = function () {
 

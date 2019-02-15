@@ -2243,6 +2243,7 @@ a.link {
     }
 }
 
+
 #zoomCanvasWrapper  {
     position: absolute;
     top: -1500px;
@@ -2265,6 +2266,27 @@ a.link {
     display: none !important;
 }
 
+#prevFrame, #nextFrame {
+    position: absolute;
+    display: block;
+    padding: 20px 16px;
+    top: 50%;
+    margin-top: -25px;
+    border: solid 1px $standard-border-color;
+    //border-radius: 0 5px 5px 0;
+    background-color: #fff;
+    z-index: 10;
+
+}
+
+#prevFrame {
+    border-left: none;
+    left: 0;
+}
+#nextFrame {
+    border-right: none;
+    right: 0;
+}
 
 .controlHolder
 {
