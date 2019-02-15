@@ -174,11 +174,11 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 
 	$scope.getChangePasswordEmail = function(){
 		return $scope.changePasswordEmail;
-	}
+	};
 
 	$scope.setChangePasswordEmail = function(changePasswordEmail){
 		$scope.changePasswordEmail = changePasswordEmail;
-	}
+	};
 
 	$scope.setTempConfigurazione = function (configurazione) {
 		$scope.tempConfigurazione = configurazione;
@@ -457,11 +457,11 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		return message;
 	};
 
-	$scope.sendMailContatti = function(email, stringMessage, name, surname){
+	$scope.sendMailContatti = function(email, comments, name, surname){
 		var subject = "Annacloud: Richiesta informazioni da " + name + " " + surname;
-		var stringMessage = "Richiedente: " + name + " " + surname + "<br>" + "Email: " + email + "<br><br>Testo del messaggio:<br><br><div style='border:dotted 1px #ccc;padding: 15px;'>" + stringMessage + "</div>";
-		//var to = ["g.monti@marte5.com"];
-		var to = [URL.adminEmailAddress];
+		var stringMessage = "Richiedente: " + name + " " + surname + "<br>" + "Email: " + email + "<br><br>Testo del messaggio:<br><br><div style='border:dotted 1px #ccc;padding: 15px;'>" + comments + "</div>";
+		var to = ["g.monti@marte5.com"];
+		//var to = [URL.adminEmailAddress];
 		var cc = [];
 
 		var message = $scope.generateEmailMessage_generic(stringMessage, subject, to, cc);
@@ -493,7 +493,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 				}
 			}
 		);
-	}
+	};
 
 	$scope.generateEmailMessage_admin = function () {
 		var message = {};
@@ -708,17 +708,17 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 			templateUrl: 'views/modalePerEmailCambioPassword.html',
 			scope: $scope
 		});
-	}
+	};
 
 	$scope.okEmail = function(email){
 		$scope.setChangePasswordEmail(email);
 		$uibModalStack.dismissAll();
 		$scope.changePath('/cambio-password');
-	}
+	};
 
 	$scope.cancelEmail = function(){
 		$uibModalStack.dismissAll();
-	}
+	};
 
 	$scope.openConfigNameModal = function (oldName) {
 		if (oldName != undefined && oldName != "") {

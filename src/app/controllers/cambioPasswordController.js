@@ -26,13 +26,13 @@ angular.module("applicationModule").controller("cambioPasswordController", ["$sc
 				$scope.openMessageModal('Aggiornamento Password non possibile: ' + err);
 			}
 		});
-	}
+	};
 
 	cambioPasswordController.passwordUguali = function(){
 		return $scope.passwordCP != "" && $scope.passwordRepeatCP != "" && $scope.passwordRepeatCP == $scope.passwordCP;
-	}
+	};
 
 	$scope.$on("insertConfirmData", function(event, data){
 		cambioPasswordController.cognitoUserPasswordChange = data.data.cognitoUser;
-	})
+	});
 }]);

@@ -271,7 +271,7 @@ angular.module("applicationModule").service("loginService", function($q, $rootSc
 				broacastData.cognitoUser = cognitoUser;
 				$rootScope.$broadcast('insertConfirmData', {
 					data: broacastData
-				})
+				});
 				//cognitoUser.confirmPassword(verificationCode, newPassword, this);
 			}
 		});
