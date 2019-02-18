@@ -296,8 +296,6 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 				$scope.entitaTipoAccessorioSelezionato = [];
 			}
 		}
-		var mySwiper = $('#pippo');
-		mySwiper[0].swiper.slideTo(0, 1);
 	};
 
 	configController.ordinaEntita = function (entitaNonOrdinate) {
@@ -1128,7 +1126,13 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 
 		var date1 = new Date();
 		//$("#loader").show();
+		$("#openZoom").delay(200).hide();
+		$("#prevFrame").delay(200).hide();
+		$("#nextFrame").delay(200).hide();
+		$("#price-panel").delay(200).hide();
+
 		$("#loader").fadeIn("slow");
+
 
 		configController.setVisible(false);
 
@@ -1180,7 +1184,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 				],
 				onInit: function () {
 					if (firstExecInit) {
-
+						
 						firstExecInit = false;
 						$.fn.sepLine('first-divider', 'swiper-container', 'accessori'); // rif. descrizione funzione sepline: custom.js linea 77
 						$.fn.yammHeight('navbar', 'yamm-content'); // rif. descrizione funzione yammHeight: custom.js linea 86
@@ -1202,6 +1206,8 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 						$("#transition-image").delay(100).fadeOut();
 						$("#loader").delay(200).fadeOut("slow");
 						$("#openZoom").delay(200).fadeIn("slow");
+						$("#prevFrame").delay(200).fadeIn("slow");
+						$("#nextFrame").delay(200).fadeIn("slow");
 						$("#price-panel").delay(200).fadeIn("slow");
 
 						$scope.spinIcon = false;
@@ -1212,18 +1218,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			$('#spritespin').spritespin(dataSpin);
 			$(window).trigger("resize");
 
-			$('#prevFrame').click(function (e) {
-				var moveLeft = $('#spritespin').spritespin("data");
-				SpriteSpin.updateFrame(moveLeft, (moveLeft.frame + 1));
-			});
-
-			/* Same as the left navigation.
-			   The -1 will advance as if they dragged to the right. 
-			*/
-			$('#nextFrame').click(function (e) {
-				var moveRight = $('#spritespin').spritespin("data");
-				SpriteSpin.updateFrame(moveRight, (moveRight.frame - 1));
-			});
+			
 		});
 
 
@@ -1798,4 +1793,15 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 	$scope.cancel = function () {
 		$uibModalStack.dismissAll();
 	};
+
+	configController.previousFrame = function(){
+		var moveLeft = $('#spritespin').spritespin("data");
+		SpriteSpin.updateFrame(moveLeft, (moveLeft.frame - 1));
+	}
+
+	configController.nextFrame = function () {
+		var moveRight = $('#spritespin').spritespin("data");
+		SpriteSpin.updateFrame(moveRight, (moveRight.frame + 1));
+	}
+
 });
