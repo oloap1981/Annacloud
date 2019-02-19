@@ -1,4 +1,4 @@
-var app = angular.module('applicationModule', ['ngAnimate', 'ui.swiper', 'ui.bootstrap', 'ui.select', 'ngSanitize',  'ngRoute', 'angular-jwt', 'updateMeta', 'angular-page-loader'])
+var app = angular.module('applicationModule', ['ngAnimate', 'ui.swiper', 'ui.bootstrap', 'ui.select', 'ngSanitize',  'ngRoute', 'angular-jwt', 'updateMeta', 'angular-page-loader', 'pascalprecht.translate'])
 .directive('paypalContent', function(){
 	return {
 		restrict: 'E',
@@ -14,7 +14,7 @@ var app = angular.module('applicationModule', ['ngAnimate', 'ui.swiper', 'ui.boo
 	   templateUrl: 'views/checkoutContent.html'
    };
 });
-app.config(['$routeProvider', '$locationProvider', '$compileProvider', function ($routeProvider) {
+app.config(['$routeProvider', '$translateProvider', '$translatePartialLoaderProvider', '$locationProvider', '$compileProvider', function ($routeProvider, $translateProvider, $translatePartialLoaderProvider, $locationProvider, $compileProvider) {
 	
 	$routeProvider.
 	when('/', {
@@ -81,10 +81,21 @@ app.config(['$routeProvider', '$locationProvider', '$compileProvider', function 
 	otherwise({
 		redirectTo: '/'
 	});
-	
+
+	//gestione testi e traduzioni
+	$translatePartialLoaderProvider.addPart('home');
+	$translateProvider.useLoader('$translatePartialLoader', {
+		urlTemplate: 'https://s3.eu-central-1.amazonaws.com/unaduna-resources-bucket/i18n/{part}/{lang}.json'
+	  });
+	$translateProvider.preferredLanguage('it');
 }]);
 app.config(['$compileProvider', function ($compileProvider) {
 	$compileProvider.debugInfoEnabled(false);
 	$compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome-extension|javascript|data):/);
 	$compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome-extension|javascript|data):/);
 }]);
+app.run(function ($rootScope, $translate) {
+	$rootScope.$on('$translatePartialLoaderStructureChanged', function () {
+		$translate.refresh();
+	});
+});
