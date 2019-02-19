@@ -682,12 +682,18 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		}
 	};
 
-	$scope.salvaOAcquista = function(oldname, isAcquista){
-		if(!isAcquista || $scope.getTempConfigurazione().nome == ""){
+	$scope.salvaOAcquista = function(oldname, isAcquista, richiediNome){
+		if(richiediNome){
 			$scope.openConfigNameModal(oldname);
+			// $scope.okConfig($scope.getTempConfigurazione().nome, false);
 		} else {
-			$scope.okConfig($scope.getTempConfigurazione().nome, false);
+			if($scope.getTempConfigurazione().nome == ""){
+				$scope.openConfigNameModal(oldname);
+			} else {
+				$scope.okConfig($scope.getTempConfigurazione().nome, false);
+			}	
 		}
+		
 	};
 
 	/* **************************** */
@@ -700,8 +706,6 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 	/* *************** */
 	/* GESTIONE MODALI */
 	/* *************** */
-
-
 	$scope.openInsertEmailForPasswordChange = function(){
 		$scope.modalInstance = $uibModal.open({
 			animation: true,
@@ -975,25 +979,6 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 				return result;
 			} else return "";
 		} else return "";
-	};
-
-	$scope.getFigurino = function (nomeModello) {
-		var figurino = "";
-		if (nomeModello) {
-			switch (nomeModello) {
-				case "shoulderbag":
-					figurino = "images/figurino-shoulderbag.jpg";
-					break;
-				case "tote":
-					figurino = "images/figurino-tote.jpg";
-					break;
-				case "crossbody":
-					figurino = "images/figurino-crossbody.jpg";
-					break;
-			}
-		}
-		return figurino;
-
 	};
 
 	/* ************************ */

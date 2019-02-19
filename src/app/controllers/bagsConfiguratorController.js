@@ -1,4 +1,6 @@
-angular.module('applicationModule').controller('unadunaConfiguratorController2', function ($scope, listeService, loginService, $uibModal, $uibModalStack, $log, jwtHelper) {
+angular.module('applicationModule').controller('unadunaConfiguratorController2', function ($scope, listeService, loginService, $uibModal, $uibModalStack, $log, jwtHelper, $translatePartialLoader) {
+
+	$translatePartialLoader.addPart('configurator');
 
 	$scope.$log = $log;
 
@@ -61,6 +63,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 	$scope.metalleriaObbligatoria = [];
 
 	$scope.removable = false;
+	$scope.askForName = false;
 
 	$scope.symbolsUrlStack = [];
 	$scope.symbolArray = [];
@@ -852,6 +855,8 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 
 	configController.selezionaEntita = function (entita) {
 
+		$scope.askForName = true;
+
 		if (configController.normalizzaStringheMetallo(entita.nome) == $scope.mappaEntitaSelezionate[$scope.tipoEntitaSelezionata] && $scope.tipoEntitaSelezionata != "colore" && $scope.tipoEntitaSelezionata != "metalleria") {
 			$scope.nomeEntitaSelezionata = "";
 			delete $scope.mappaEntitaSelezionate[$scope.tipoEntitaSelezionata];
@@ -1550,8 +1555,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 							var configDaSalvare = configController.salvaConfigurazioneTemporanea();
 
 							$scope.hideLoader();
-							$scope.salvaOAcquista(configDaSalvare.nome, isCarrello);
-							//$scope.openConfigNameModal(configDaSalvare.nome);
+							$scope.salvaOAcquista(configDaSalvare.nome, isCarrello, $scope.askForName);
 						}
 					});
 			};
