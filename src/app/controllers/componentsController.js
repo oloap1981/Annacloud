@@ -704,13 +704,79 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 			$scope.openConfigNameModal(oldname);
 			// $scope.okConfig($scope.getTempConfigurazione().nome, false);
 		} else {
-			if($scope.getTempConfigurazione().nome == ""){
-				$scope.openConfigNameModal(oldname);
+
+			//controllo se esiste già il nome. Se esiste faccio un lavoro sui suffissi
+			var presente = $scope.checkNomePresente(oldname, false);
+			if(presente){
+				//duplico la configurazione, gli creo un nome uguale con un suffisso, salvo quella duplicata
+				$scope.salvaConfigurazioneDuplicata(false);
 			} else {
-				$scope.okConfig($scope.getTempConfigurazione().nome, false);
-			}	
+				if($scope.getTempConfigurazione().nome == ""){
+					$scope.openConfigNameModal(oldname);
+				}	
+			}
 		}
-		
+	};
+
+	$scope.salvaConfigurazioneDuplicata = function(forceCarrello){
+		var configurazioneDuplicata = $scope.getTempConfigurazione();
+		configurazioneDuplicata.codice = "";
+
+		var vecchioNome = $scope.getTempConfigurazione().nome;
+		var nuovoNome = $scope.generaNuovoNome(vecchioNome);
+
+		configurazioneDuplicata.nome = nuovoNome;
+		if(forceCarrello){
+			configurazioneDuplicata.carrello = true;
+		}
+
+		listeService.putConfigurazione(configurazioneDuplicata).then(
+			function (res) {
+				console.log(res);
+				configurazioneDuplicata.codice = res.data.codiceConfigurazioneRisposta;
+				$scope.setTempConfigurazione(configurazioneDuplicata);
+				//$scope.addToPreferiti($scope.getTempConfigurazione());//aggiunge ai preferiti locali
+				$scope.ricaricaListe($scope.getUserEmail(), "", true);
+				$scope.hideLoader();
+				if (configurazioneDuplicata.carrello) {
+					//$scope.addToCarrello($scope.getTempConfigurazione());//aggiunge ai preferiti locali
+					$scope.changePath('/carrello');
+				}
+			},
+			function (reason) {
+				console.log(reason);
+				$scope.hideLoader();
+				$scope.openMessageModal("errore aggiunta preferiti");
+			}
+		);
+	};
+
+	$scope.generaNuovoNome = function(vecchioNome){
+		var split = vecchioNome.split("_");
+		if(split.length == 1){
+			return vecchioNome + "_1";
+		} else {
+			if (!isNaN(parseInt(split[split.length - 1], 10))) {
+				var number = parseInt(split[split.length - 1]);
+				var nuovoNome = "";
+				for(var i = 0; i < split.length - 1; i++){
+					if(nuovoNome == ""){
+						nuovoNome = split[i];
+					} else {
+						nuovoNome = nuovoNome + "_" + split[i];
+					}
+				}
+				nuovoNome = nuovoNome + "_" + (number+1);
+				if($scope.checkNomePresente(nuovoNome, false)){
+					//ricorsione fino a che non trovo un nome che non c'è
+					return $scope.generaNuovoNome(nuovoNome);
+				} else {
+					return nuovoNome;
+				}
+			} else {
+				return vecchioNome + "_1";
+			}
+		}
 	};
 
 	/* **************************** */
@@ -813,15 +879,27 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		});
 	};
 
-	$scope.okConfig = function (configName) {
-		//controllo se il nome esiste già tra le configurazioni (preferiti)
+	$scope.checkNomePresente = function(configName, isCarrello){
 		var presente = false;
 		for (var i = 0; i < $scope.preferiti.length; i++) {
 			var configurazione = $scope.preferiti[i];
-			if(configurazione.nome === configName){
-				presente = true || presente;
+			if(isCarrello){
+				if(configurazione.nome === configName && configurazione.carrello){
+					presente = true || presente;
+				}
+			} else {
+				if(configurazione.nome === configName){
+					presente = true || presente;
+				}
 			}
+			
 		}
+		return presente;
+	}
+
+	$scope.okConfig = function (configName) {
+		//controllo se il nome esiste già tra le configurazioni (preferiti)
+		var presente = $scope.checkNomePresente(configName, false);
 		if(presente){
 			$uibModalStack.dismissAll();
 			$scope.openConfigNameModalNamePresent();

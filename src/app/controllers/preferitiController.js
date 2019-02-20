@@ -8,27 +8,34 @@ angular.module("applicationModule").controller("preferitiController", ["$scope",
 	};
 
 	$scope.addToCart = function(configurazione){
-		configurazione.carrello = true;
+		var localTempConfig = configurazione;
 		$scope.setLoaderMessage("aggiungo la configurazione al carrello...");
 		$scope.showLoader();
-		listeService.putConfigurazione(configurazione).then(
-				function (res){
-					if(res.errorMessage != undefined){
-						$scope.openMessageModal("si è verificato un problema nell inserimento della configurazione nel carrello");
-						console.log(res.errorMessage);
-					} else {
-						console.log(res);
-						$scope.openMessageModal("configurazione aggiunta correttamente al carrello");
-						$scope.ricaricaListe($scope.getUserEmail(), '', true);
-					}
-				},
-				function (reason){
-					console.log(reason);
-					$scope.openMessageModal("errore aggiunta preferiti");
-				}
-			);
-		};
 
+		var presente = $scope.checkNomePresente(localTempConfig.nome, true);
+		if(presente){
+			var nuovoNome = $scope.generaNuovoNome(localTempConfig.nome);
+			localTempConfig.codice = "";//in questo modo viene generata nuova
+			localTempConfig.nome = nuovoNome;
+		} 
+		localTempConfig.carrello = true;
+		listeService.putConfigurazione(localTempConfig).then(
+			function (res){
+				if(res.errorMessage != undefined){
+					$scope.openMessageModal("si è verificato un problema nell inserimento della configurazione nel carrello");
+					console.log(res.errorMessage);
+				} else {
+					console.log(res);
+					$scope.openMessageModal("configurazione aggiunta correttamente al carrello");
+					$scope.ricaricaListe($scope.getUserEmail(), '', true);
+				}
+			},
+			function (reason){
+				console.log(reason);
+				$scope.openMessageModal("errore aggiunta preferiti");
+			}
+		);
+	};
 
 	$scope.eliminaConfigurazione  = function (codice)  {
 		console.log("sto per eliminare la configurazione con codice " + codice);
