@@ -6,6 +6,8 @@ angular.module("applicationModule").controller("checkoutController", ["$scope", 
 	$scope.costoSpedizione = 0;
 	$scope.totale = 0;
 
+	$scope.fattura = false;
+
 	$scope.initCheckOut = function(){
 		
 		if($scope.getOrdineInCorso() == null || $scope.getOrdineInCorso() == undefined){
@@ -83,4 +85,5 @@ angular.module("applicationModule").controller("checkoutController", ["$scope", 
 			}
 		);
 	};
+
 }]);

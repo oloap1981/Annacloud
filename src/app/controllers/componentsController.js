@@ -37,6 +37,8 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 
 	$scope.pendingCheckout = false;
 
+	$scope.richiediFattura = false;
+
 	$scope.cleanUser = function () {
 
 		$scope.carrello = [];
@@ -59,6 +61,14 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		$scope.nextPath = "";
 
 	};
+
+	$scope.getRichiediFattura = function(){
+		return $scope.richiediFattura;
+	}
+
+	$scope.setRichiediFattura = function(value){
+		$scope.richiediFattura = value;
+	}
 
 	$scope.setPendingCheckout = function(value){
 		$scope.pendingCheckout = value;
@@ -552,6 +562,13 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		datiClienteMessagePart = datiClienteMessagePart.replace("CLIENTE_CITTA_SPEDIZIONE", $scope.cittaSpe);
 
 		adminMessage = adminMessage.replace("DATI_CLIENTE", datiClienteMessagePart);
+
+		// gestione richiesta fattura
+		var richiediFatturaString = "";
+		if($scope.getRichiediFattura()){
+			richiediFatturaString = MAIL.ORDER_MAIL_RICHIEDI_FATTURA_TEMPLATE
+		}
+		adminMessage = adminMessage.replace("RICHIEDI_FATTURA", richiediFatturaString);
 
 		$scope.emailMessage_cliente = message;
 		$scope.emailMessage_admin = adminMessage;

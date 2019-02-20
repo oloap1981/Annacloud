@@ -1801,11 +1801,11 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 	configController.previousFrame = function(){
 		var moveLeft = $('#spritespin').spritespin("data");
 		SpriteSpin.updateFrame(moveLeft, (moveLeft.frame - 1));
-	}
+	};
 
 	configController.nextFrame = function () {
 		var moveRight = $('#spritespin').spritespin("data");
 		SpriteSpin.updateFrame(moveRight, (moveRight.frame + 1));
-	}
+	};
 
 });

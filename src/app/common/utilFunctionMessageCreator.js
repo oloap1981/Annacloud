@@ -107,7 +107,8 @@ angular.module("applicationModule").service("UtilFunctionMessagesCreator", funct
 	this.sendEmailMessage = function (mailMessage){
 		var message = {};
 
-		message.functionName = "UnaDunaSendMailGmail";
+		message.functionName = "UnaDunaSendMail";
+		//message.functionName = "UnaDunaSendMailGmail";
 		message.toEmailAdresses = mailMessage.toEmailAddress;
 		message.ccEmailAddreses = mailMessage.ccEmailAddress;
 		message.emailSubject = mailMessage.emailSubject;

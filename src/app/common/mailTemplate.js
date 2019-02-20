@@ -488,6 +488,7 @@ angular.module('applicationModule').constant('MAIL',{
 							<p style='margin: 0;font-size: 14px;line-height: 14px'>CLIENTE_NOME_SPEDIZIONE</p>\
 							<p style='margin: 0;font-size: 14px;line-height: 14px'>CLIENTE_INDIRIZZO_SPEDIZIONE<br>CLIENTE_CAP_SPEDIZIONE CLIENTE_CITTA_SPEDIZIONE</p>\
 						</div>\
+						RICHIEDI_FATTURA\
 						</div>\
 						<!--[if mso]></td></tr></table><![endif]-->\
 					</div>\
@@ -499,6 +500,9 @@ angular.module('applicationModule').constant('MAIL',{
 				<!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->\
 			</div>\
 			</div>\
+		</div>",
+		ORDER_MAIL_RICHIEDI_FATTURA_TEMPLATE: "<div style='font-size:12px;line-height:14px;color:#555555;text-align:left;'>\
+			<p style='margin: 0;margin-top: 15px;font-size: 14px;line-height: 14px'><strong>Il cliente ha richiesto fattura</strong></p>\
 		</div>"
 	 }
 );
