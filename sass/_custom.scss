@@ -2294,7 +2294,7 @@ a.link {
 #prevFrame {
     border-left: none;
     padding-left: 0;
-    left: 0;
+    left: 30px;
     @media screen and (max-height: 670px) {
         left: 165px;
     }
@@ -2302,7 +2302,7 @@ a.link {
 #nextFrame {
     border-right: none;
     padding-right: 0;
-    right: 0;
+    right: 30px;
     @media screen and (max-height: 670px) {
         right: 165px;
     }
