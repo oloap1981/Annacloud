@@ -172,10 +172,15 @@ angular.module("applicationModule").service("listeService", ["$http", "UtilFunct
 	};
 
 	this.sendEmail = function(emailMessage){
+
+		var authorizationToken = "";
+		if(loginService.isLoggedIn()){//per il momento funziona anche senza token. Vediamo se serve in futuro
+			authorizationToken = loginService.getPostAccessToken();
+		} 
 		var config = {
 			headers : {
 				'Content-Type': 'application/json',
-				'Authorization': loginService.getPostAccessToken()
+				'Authorization': authorizationToken
 			}
 		};
 

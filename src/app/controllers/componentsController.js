@@ -470,7 +470,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 	$scope.sendMailContatti = function(email, comments, name, surname){
 		var subject = "Annacloud: Richiesta informazioni da " + name + " " + surname;
 		var stringMessage = "Richiedente: " + name + " " + surname + "<br>" + "Email: " + email + "<br><br>Testo del messaggio:<br><br><div style='border:dotted 1px #ccc;padding: 15px;'>" + comments + "</div>";
-		var to = ["g.monti@marte5.com"];
+		var to = ["info@annacloud.it"];
 		//var to = [URL.adminEmailAddress];
 		var cc = [];
 
