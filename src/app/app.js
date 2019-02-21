@@ -25,6 +25,14 @@ app.config(['$routeProvider', '$translateProvider', '$translatePartialLoaderProv
 			}]
 		}
 	}).
+	when('/home', {
+		templateUrl: 'views/homeContent.html',
+		resolve: {
+			translateReady: ['$translate', function($translate) {
+				return $translate.onReady();
+			}]
+		}
+	}).
 	when('/accedi', {
 		templateUrl: 'views/accessoContent.html',
 		resolve: {

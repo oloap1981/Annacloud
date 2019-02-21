@@ -1,6 +1,6 @@
 angular.module('applicationModule').controller('unadunaConfiguratorController2', function ($scope, listeService, loginService, $uibModal, $uibModalStack, $log, jwtHelper, $translatePartialLoader) {
 
-	$translatePartialLoader.addPart('configurator');
+	//$translatePartialLoader.addPart('configurator');
 
 	$scope.$log = $log;
 
