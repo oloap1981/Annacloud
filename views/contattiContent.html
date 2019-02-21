@@ -35,8 +35,11 @@
 			</div>
 		</div>
 		<div class="row quote text-center"  style="background-color: #fff; border-bottom: solid 1px #eee">
+			<div class="col-sm-12 clearfix top-buffer home-content wow fadeInUpSmall" data-wow-delay=".2s">
+				<h3 class="title section mot"><span>Contattaci</span></h3>
+			</div>
 			<div class="col-sm-6 clearfix bottom-buffer wow fadeInUpSmall" data-wow-delay=".2s" >
-				<div class="content contatti fist">
+				<div class="content contatti first">
 					<p class="text top-buffer">Email: <a href="mailto:info@annacloud.it">info@annacloud.it</a></p>
 					<p class="text top-buffer">Tel: 0571/1776800<br>Customer Care<br>dal lunedì al venerdì<br>dalle 9 alle 18.</p>
 				</div>
@@ -44,7 +47,6 @@
 			</div>
 			<div class="col-sm-6 clearfix bottom-buffer wow fadeInUpSmall" data-wow-delay=".2s">
 				<div class="content contatti last">
-					<p class="text top-buffer bottom-buffer">Contattaci</p>
 					<form name="contactForm" novalidate role="form">
 						<div class="row">
 							<div class="col-sm-12">
@@ -68,9 +70,11 @@
 						</div>
 						<button ng-click="submit()"  class="btn btn-default btn-save">Invia</button>
 						 <a href="javascript:void(0)" class="recover">Informativa sulla privacy</a>
-						<div class="checkbox">
-							<label style="font-size: .8em; width: 400px;"><input type="checkbox"class="js-switch">Ho preso visione dell’informativa e autorizzo il trattamento dei miei dati secondo quanto in essa riportato.</label></a>
-						</div>
+						<label class="checkbox-container text-left top-buffer" style="display: inline-block;margin-left: 2px; max-width: 400px;">
+							<small>Ho preso visione dell’informativa e autorizzo il trattamento dei miei dati secondo quanto in essa riportato.</small>
+							<input type="checkbox" />
+							<span class="checkmark"></span>
+						</label>
 					</form>
 				</div>
 				

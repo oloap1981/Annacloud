@@ -64,11 +64,11 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 
 	$scope.getRichiediFattura = function(){
 		return $scope.richiediFattura;
-	}
+	};
 
 	$scope.setRichiediFattura = function(value){
 		$scope.richiediFattura = value;
-	}
+	};
 
 	$scope.setPendingCheckout = function(value){
 		$scope.pendingCheckout = value;
@@ -566,7 +566,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		// gestione richiesta fattura
 		var richiediFatturaString = "";
 		if($scope.getRichiediFattura()){
-			richiediFatturaString = MAIL.ORDER_MAIL_RICHIEDI_FATTURA_TEMPLATE
+			richiediFatturaString = MAIL.ORDER_MAIL_RICHIEDI_FATTURA_TEMPLATE;
 		}
 		adminMessage = adminMessage.replace("RICHIEDI_FATTURA", richiediFatturaString);
 
@@ -895,7 +895,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 			
 		}
 		return presente;
-	}
+	};
 
 	$scope.okConfig = function (configName) {
 		//controllo se il nome esiste già tra le configurazioni (preferiti)
