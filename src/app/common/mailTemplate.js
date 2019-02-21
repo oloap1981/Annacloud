@@ -332,7 +332,7 @@ angular.module('applicationModule').constant('MAIL',{
 								<div style='color:#909090;text-align:left;'>\
 									<p style='margin: 0;font-size: 14px;line-height: 16px;text-align: justify'>Ciao e grazie per aver acquistato una borsa <strong>Anna Cloud</strong>.<br><br>La nostra filosofia non comprende solo la realizzazione di borse di alta fattura, ma anche un percorso di coinvolgimento del cliente durante tutta la fase di lavorazione.</p>\
 									<p style='margin: 0;font-size: 14px;line-height: 16px;text-align: justify'>&#160;</p>\
-									<p style='margin: 0;font-size: 14px;line-height: 16px;text-align: justify'>Riceverai la tua borsa tra circa 20 giorni; essendo un prodotto unico ci serve il tempo per realizzarlo su misura, proprio come lo vuoi tu.<br><br>Ma in questo tempo di terremo aggiornato su come procede il lavoro, cos&igrave; da farti capire cosa c&#8217;&egrave; dietro una borsa di qualit&agrave;.<br>Per qualunque informazione trovi di seguiti il nostro numero di assistenza.</p>\
+									<p style='margin: 0;font-size: 14px;line-height: 16px;text-align: justify'>Riceverai la tua borsa tra circa 20 giorni. Essendo un prodotto unico ci serve il tempo per realizzarlo su misura, proprio come lo vuoi tu.<br><br>Ma in questo tempo ti terremo aggiornato su come procede il lavoro, cos&igrave; da farti capire cosa c&#8217;&egrave; dietro una borsa di qualit&agrave;.<br>Per qualunque informazione trovi di seguito il nostro numero di assistenza: 0571/1776800.</p>\
 									<p style='margin: 0;font-size: 14px;line-height: 16px;text-align: justify'>&#160;</p>\
 									<p style='margin: 0;font-size: 14px;line-height: 16px;text-align: justify'>Un caro saluto e a presto</p>\
 									<p style='margin: 0;font-size: 14px;line-height: 16px;text-align: justify'><strong>Il team di Anna Cloud</strong></p>\
@@ -393,7 +393,7 @@ angular.module('applicationModule').constant('MAIL',{
 								<!--[if mso]><table width='100%' cellpadding='0' cellspacing='0' border='0'><tr><td style='padding-right: 10px; padding-left: 10px; padding-top: 25px; padding-bottom: 25px;'><![endif]-->\
 								<div style='color:#909090;line-height:120%; padding-right: 10px; padding-left: 10px; padding-top: 25px; padding-bottom: 25px;'>\
 								<div style='color:#909090;'>\
-									<p style='margin: 0;text-align: center'><span style='font-size: 12px; line-height: 14px'><strong>Anna Cloud</strong> &#232; un marchio<strong> Pelletteria Digitale srl</strong>.<br>Sede - Via San Tommaso, 21 -Santa Croce Sull&#8217;Arno (PI)<br>email: info@annacloud.it - CF/P.IVA: 02272250503<br><br><strong>Customer Care</strong><br>dal luned&#236; al venerd&#236; dalle 9 alle 18.<br><br>Copyright 2019 <strong>Anna Cloud</strong><br></span></p>\
+									<p style='margin: 0;text-align: center'><span style='font-size: 12px; line-height: 14px'><strong>Anna Cloud</strong> &#232; un marchio<strong> Pelletteria Digitale srl</strong>.<br>Sede - Via San Tommaso, 21 -Santa Croce Sull&#8217;Arno (PI)<br>email: info@annacloud.it - CF/P.IVA: 02272250503<br><br><strong>Customer Care</strong><br>Tel.0571/1776800<br>dal luned&#236; al venerd&#236; dalle 9 alle 18.<br><br>Copyright 2019 <strong>Anna Cloud</strong><br></span></p>\
 								</div>\
 								</div>\
 								<!--[if mso]></td></tr></table><![endif]-->\

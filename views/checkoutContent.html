@@ -14,10 +14,7 @@
                         <h4 class="title-tertiary ">Informazioni di contatto e consegna</h4>
                         <hr>
                     	<div class="shipment-info" >
-                            <h5>{{getNomeECognome()}}</h5>
-                            <h5>{{getIndirizzoSpedizione()}}</h5>
-                            <h5>{{getCittaSpedizione()}}</h5>
-                            <h5>{{getCAPSpedizione()}}</h5>
+                            <h5>{{getNomeECognome()}}<br>{{getIndirizzoSpedizione()}} - {{getCittaSpedizione()}} - {{getCAPSpedizione()}}</h5>
                             <!--button class="btn btn-default btn-save ">Modifica</button-->
                         </div>
                         <div class="order-buttons top-buffer text-center" ng-hide="canBuy()">
@@ -31,25 +28,27 @@
                             <hr>
 	                        <div  class="row">
 	                            <div class="col-sm-12 text-left">
-	                                <h5 class="" style="text-transform: uppercase">NOME CONFIGURAZIONE: {{conf.nome}}</h5>
-                                    <span>
-                                        <div ng-repeat="base in conf.elencoEntita" ng-if="base.categoria == 'modello'">
-                                            MODELLO: {{base.descrizione}}
-                                        </div><br/>
-                                        <div ng-repeat="base in conf.elencoEntita" ng-if="base.categoria != 'modello'">
-                                            {{base.categoria.toUpperCase()}}: {{traduciNomiOrdini(base)}}
-                                        </div><br/>
+	                                <h5 class="" style="text-transform: uppercase">NOME CONFIGURAZIONE: {{conf.nome}} <small ng-repeat="base in conf.elencoEntita" ng-if="base.categoria == 'modello'">({{base.descrizione}})</small></h5><span class="single-price" style="font-size: 1.3em; bottom: auto; top: 5px;">{{calcolaPrezzo(conf)}}&euro;</span>
+                                    <span style="display: inline-block; padding-left: 10px; border-left: dashed 1px #ccc; font-size: .75em;">
+                                        <p>
+                                            <span ng-repeat="base in conf.elencoEntita" ng-if="base.categoria != 'modello'">
+                                                {{base.categoria.toUpperCase()}}: {{traduciNomiOrdini(base)}}<br>
+                                            </span>
+                                        </p>
                                         <!-- Colore : {{getColoreConf(conf)}}<br>
                                         Iniziali: {{getInizialiConf(conf)}} -->
                                     </span>
-	                                <span class="single-price">{{calcolaPrezzo(conf)}}&euro;</span>
 	                                <!-- <p ng-click="eliminaDaOrdine(conf)" class="remove">elimina <small><i class="unaicon-remove"></i></small></p> -->
-	                            </div>          
-	                        </div>
+                                </div>          
+                            </div>          
                         </div>
                     </div>
                     <div class="order-state one summary checkout">
-                        <label>Richiedi Fattura (verrai ricontattato per i dati)<input type="checkbox" value="Richiedi Fattura" ng-model="fattura" ng-change="setRichiediFattura(fattura)" /></label>
+                        <label class="checkbox-container text-left">
+                            Richiedi Fattura <small style="font-weight: normal">(verrai ricontattato per i dati)</small>
+                            <input type="checkbox" value="Richiedi Fattura" ng-model="fattura" ng-change="setRichiediFattura(fattura)" />
+                            <span class="checkmark"></span>
+                        </label>
                     </div>
                     <div class="order-state one summary current normal no-border top-buffer bottom-buffer">
                         <div class="row">
@@ -62,7 +61,7 @@
                                 <span class="single-price"><b>{{costoSpedizione}}&euro;</b></span>
                             </div>
                         </div>
-	                        <hr>
+	                    <hr>
                         <div class="row">
                             <div class="col-sm-12 text-left">
                                 <span><b>TOTALE</b></span>
