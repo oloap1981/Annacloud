@@ -128,7 +128,7 @@ angular.module("applicationModule").service("UtilFunctionMessagesCreator", funct
 	};
 
 	this.saveLogMessage = function(data, utente, messaggio, nomeClasse, tipoLog){
-		var message = {}
+		var message = {};
 
 		message.functionName = "UnaDunaPutLogEvento";
 

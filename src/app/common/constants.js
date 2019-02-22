@@ -23,4 +23,4 @@ angular.module('applicationModule').constant('URLS',{
 	info: "INFO",
 	error: "ERR",
 	login: "LOGIN"
-});;
+});

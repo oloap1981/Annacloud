@@ -19,9 +19,9 @@ angular.module("applicationModule").controller("accessoController", ["$scope", "
 
 						//loggo informazioni sull'utente loggato
 						//data, utente, classe, messaggio
-						var data = new Date();
+						var dataLog = new Date();
 
-						logService.saveLog(data.toISOString(), email, "accessoController", "Utente correttamente loggato", LOG_TYPES.login).then(function(resLog){
+						logService.saveLog(dataLog.toISOString(), email, "accessoController", "Utente correttamente loggato", LOG_TYPES.login).then(function(resLog){
 							console.log(resLog);
 						}, function(reason){
 							console.log(reason);
