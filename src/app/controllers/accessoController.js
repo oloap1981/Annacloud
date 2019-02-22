@@ -1,10 +1,8 @@
-angular.module("applicationModule").controller("accessoController", ["$scope", "listeService", "loginService", "salvaUtenteService", function($scope, listeService, loginService, salvaUtenteService) {
+angular.module("applicationModule").controller("accessoController", ["$scope", "listeService", "loginService", "logService", "salvaUtenteService", "LOG_TYPES", function($scope, listeService, loginService, logService, salvaUtenteService, LOG_TYPES) {
 	
 	$scope.remember = {
 		       value : true,
 		     };
-	
-		
 
 	$scope.login = function (email, password){
 
@@ -18,6 +16,17 @@ angular.module("applicationModule").controller("accessoController", ["$scope", "
 						$scope.setUser(user);
 						$scope.reloadAttributes();
 						$scope.ricaricaListe(user.eMail, "");
+
+						//loggo informazioni sull'utente loggato
+						//data, utente, classe, messaggio
+						var data = new Date();
+
+						logService.saveLog(data.toISOString(), email, "accessoController", "Utente correttamente loggato", LOG_TYPES.login).then(function(resLog){
+							console.log(resLog);
+						}, function(reason){
+							console.log(reason);
+						});
+
 						if ($scope.remember.value == true){
 							loginService.setDeviceStatusRemembered().then(
 									function(greeting) {
