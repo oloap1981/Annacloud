@@ -24,7 +24,7 @@
                         <div class="col-sm-9">
                             <div class="col-sm-12">
                                 
-                                <h4 class="bag">{{conf.nome}} - ordine n. {{conf.codice}}</h4>
+                                <h4 class="bag">{{conf.nome}}<br><small>ordine n. {{conf.codice}}</small></h4>
                             </div>
                             <div class="col-sm-6 base">
                                 <h5 class="section-small left">Base </h5>
@@ -54,13 +54,14 @@
                         <div class="media">
                             <div class="media-left">
                                 <a href="#" onclick="return false">
-                                    <img  ng-src="{{conf.thumbnail}}" class="media-object bag-sample">
+                                    <img ng-src="{{conf.thumbnail}}" class="media-object bag-sample">
                                 </a>
                             </div>
                             <div class="media-body">
                                 <div class="col-sm-12">
                                     <p ng-click="rimuoviDaCarrello(conf)" class="remove">elimina <small><i class="unaicon-remove"></i></small></p>
-                                    <h4 class="media-heading bag">{{conf.nome}} - {{conf.codice}}</h4>
+                                    <h4 ng-if="conf.nome" class="media-heading bag">{{conf.nome}} - <small>ordine n.{{conf.codice}}</small></h4>
+                                    <h4 ng-if="!conf.nome" class="media-heading bag">Senza nome - <small>ordine n.{{conf.codice}}</small></h4>
                                 </div>
                                 <div class="col-md-6 col-sm-12 base">
                                     <h5 class="section-small left">Base </h5>

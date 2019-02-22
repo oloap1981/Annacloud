@@ -23,7 +23,7 @@
                     </div>
                     <div class="col-sm-9">
                         <div class="col-sm-12">
-                            <h4 class="bag">{{conf.nome}}</h4>
+                            <h4 class="bag">{{conf.nome}}&nbsp;</h4>
                         </div>
                         <div class="col-sm-6 base">
                             <h5 class="section-small left">Base </h5>
@@ -65,7 +65,8 @@
                         <div class="media-body">
                             <div class="col-sm-12">
                                 <p ng-click="eliminaConfigurazione(conf.codice)" class="remove">elimina <small><i class="unaicon-remove"></i></small></p>
-                                <h4 class="media-heading bag">{{conf.nome}}</h4>
+                                <h4 ng-if="conf.nome" class="media-heading bag">{{conf.nome}}</h4>
+                                <h4 ng-if="!conf.nome" class="media-heading bag">Senza nome</h4>
                             </div>
                             <div class="col-md-6 col-sm-12 base">
                                 <h5 class="section-small left">Base </h5>

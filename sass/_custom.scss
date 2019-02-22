@@ -467,6 +467,7 @@ b {
 }
 
 button:focus {outline:none;}
+button:active {opacity:1 !important};
 
 .btn {
     font-family: $font-family-sans-serif-title;
@@ -3809,12 +3810,17 @@ Image credits: unsplash.com
   height: 20px;
   width: 20px;
   border: solid 1px $standard-border-color;
-  background-color: rgba($brand-color-logo, 0);
 }
 
 /* On mouse-over, add a grey background color */
 .checkbox-container:hover input ~ .checkmark {
-  border: solid 1px$standard-border-color;
+  border: solid 1px $standard-border-color;
+  background-color:  #fff
+}
+
+/* On focus, add a default color */
+.checkbox-container input:focus ~ .checkmark {
+  border: solid 1px $brand-color-logo-dark;
   background-color:  #fff
 }
 

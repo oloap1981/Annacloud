@@ -1,4 +1,4 @@
-var app = angular.module('applicationModule', ['ngAnimate', 'ui.swiper', 'ui.bootstrap', 'ui.select', 'ngSanitize',  'ngRoute', 'angular-jwt', 'updateMeta', 'angular-page-loader', 'pascalprecht.translate'])
+var app = angular.module('applicationModule', ['ngTouch', 'ngAnimate', 'ui.swiper', 'ui.bootstrap', 'ui.select', 'ngSanitize',  'ngRoute', 'angular-jwt', 'updateMeta', 'angular-page-loader', 'pascalprecht.translate'])
 .directive('paypalContent', function(){
 	return {
 		restrict: 'E',
@@ -14,6 +14,18 @@ var app = angular.module('applicationModule', ['ngAnimate', 'ui.swiper', 'ui.boo
 	   templateUrl: 'views/checkoutContent.html'
    };
 });
+
+/*app.directive("ngMobileClick", [function () {
+	return function (scope, elem, attrs) {
+		elem.bind("touchstart click", function (e) {
+			e.preventDefault();
+			e.stopPropagation();
+
+			scope.$apply(attrs["ngMobileClick"]);
+		});
+	}
+}])*/
+
 app.config(['$routeProvider', '$translateProvider', '$translatePartialLoaderProvider', '$locationProvider', '$compileProvider', function ($routeProvider, $translateProvider, $translatePartialLoaderProvider, $locationProvider, $compileProvider) {
 	
 	$routeProvider.
