@@ -1,12 +1,4 @@
-angular.module("applicationModule").service("listeService", ["$http", "UtilFunctionMessagesCreator", "loginService", function($http, UtilFunctionMessagesCreator, loginService) {
-	
-	this.urlGetService = "https://5mjp7r5urj.execute-api.eu-central-1.amazonaws.com/UnadunaGet";
-	this.urlGetServiceNode = 'https://ig24v3ii6b.execute-api.eu-central-1.amazonaws.com/unaDunaGetAccessori';
-	this.urlPostService = "https://i51umjhba2.execute-api.eu-central-1.amazonaws.com/unadunaPost";
-	this.urlDeleteService ="https://gtjby1j5oi.execute-api.eu-central-1.amazonaws.com/UnadunaDelete";
-	this.urlOtherService ="https://779m9s40ij.execute-api.eu-central-1.amazonaws.com/UnaDunaOther";
-	this.tipiAccessoriList = [];
-	this.accessoriesList = [];
+angular.module("applicationModule").service("listeService", ["$http", "UtilFunctionMessagesCreator", "loginService", "AWS_SERVICE_URLS", function($http, UtilFunctionMessagesCreator, loginService, AWS_SERVICE_URLS) {
 	
 	this.addAccessories = function(newObj) {
 		accessoriesList.push(newObj);
@@ -23,7 +15,7 @@ angular.module("applicationModule").service("listeService", ["$http", "UtilFunct
 				'Content-Type': 'application/json'
 			}
 		};
-		return $http.post(this.urlGetService, requestMessage, config);
+		return $http.post(AWS_SERVICE_URLS.urlGetService, requestMessage, config);
 	};
 	
 	this.getAccessori = function(nomeModello){
@@ -33,7 +25,7 @@ angular.module("applicationModule").service("listeService", ["$http", "UtilFunct
 				'Content-Type': 'application/json'
 			}
 		};
-		return $http.post(this.urlGetService, requestMessage, config);
+		return $http.post(AWS_SERVICE_URLS.urlGetService, requestMessage, config);
 	};
 	
 	this.getConfigurazione = function(codiceConfigurazione){
@@ -43,7 +35,7 @@ angular.module("applicationModule").service("listeService", ["$http", "UtilFunct
 				'Content-Type': 'application/json'
 			}
 		};
-		return $http.post(this.urlGetService, requestMessage, config);
+		return $http.post(AWS_SERVICE_URLS.urlGetService, requestMessage, config);
 	};
 	
 	this.getConfigurazioni = function(){
@@ -54,7 +46,7 @@ angular.module("applicationModule").service("listeService", ["$http", "UtilFunct
 				'Authorization': loginService.getPostAccessToken()
 			}
 		};
-		return $http.post(this.urlGetService, requestMessage, config);
+		return $http.post(AWS_SERVICE_URLS.urlGetService, requestMessage, config);
 	};
 	
 	this.getConfigurazioniUtente = function(codiceUtente){
@@ -65,7 +57,7 @@ angular.module("applicationModule").service("listeService", ["$http", "UtilFunct
 				'Authorization': loginService.getPostAccessToken()
 			}
 		};
-		return $http.post(this.urlGetService, requestMessage, config);
+		return $http.post(AWS_SERVICE_URLS.urlGetService, requestMessage, config);
 	};
 
 	this.getConfigurazioniPreconfigurate = function(){
@@ -76,7 +68,7 @@ angular.module("applicationModule").service("listeService", ["$http", "UtilFunct
 				'Authorization': ''
 			}
 		};
-		return $http.post(this.urlGetService, requestMessage, config);
+		return $http.post(AWS_SERVICE_URLS.urlGetService, requestMessage, config);
 	};
 	
 	this.getCarrelloUtente = function(codiceUtente){
@@ -87,7 +79,7 @@ angular.module("applicationModule").service("listeService", ["$http", "UtilFunct
 				'Authorization': loginService.getPostAccessToken()
 			}
 		};
-		return $http.post(this.urlGetService, requestMessage, config);
+		return $http.post(AWS_SERVICE_URLS.urlGetService, requestMessage, config);
 	};
 	
 	this.getOrdini = function(codiceOrdine){
@@ -98,7 +90,7 @@ angular.module("applicationModule").service("listeService", ["$http", "UtilFunct
 				'Authorization': loginService.getPostAccessToken()
 			}
 		};
-		return $http.post(this.urlGetService, requestMessage, config);
+		return $http.post(AWS_SERVICE_URLS.urlGetService, requestMessage, config);
 	};
 	
 	this.getOrdini = function(){
@@ -109,7 +101,7 @@ angular.module("applicationModule").service("listeService", ["$http", "UtilFunct
 				'Authorization': loginService.getPostAccessToken()
 			}
 		};
-		return $http.post(this.urlGetService, requestMessage, config);
+		return $http.post(AWS_SERVICE_URLS.urlGetService, requestMessage, config);
 	};
 	
 	this.getOrdiniUtente = function(codiceUtente){
@@ -120,7 +112,7 @@ angular.module("applicationModule").service("listeService", ["$http", "UtilFunct
 				'Authorization': loginService.getPostAccessToken()
 			}
 		};
-		return $http.post(this.urlGetService, requestMessage, config);
+		return $http.post(AWS_SERVICE_URLS.urlGetService, requestMessage, config);
 	};
 	
 	this.putConfigurazione = function(configurazione){
@@ -131,7 +123,7 @@ angular.module("applicationModule").service("listeService", ["$http", "UtilFunct
 				'Authorization': loginService.getPostAccessToken()
 			}
 		};
-		return $http.post(this.urlPostService, requestMessage, config);
+		return $http.post(AWS_SERVICE_URLS.urlPostService, requestMessage, config);
 	};
 	
 	this.putOrdine = function(ordine){
@@ -142,7 +134,7 @@ angular.module("applicationModule").service("listeService", ["$http", "UtilFunct
 				'Authorization': loginService.getPostAccessToken()
 			}
 		};
-		return $http.post(this.urlPostService, requestMessage, config);
+		return $http.post(AWS_SERVICE_URLS.urlPostService, requestMessage, config);
 	};
 	
 	this.deleteConfigurazione = function(cod){
@@ -155,7 +147,7 @@ angular.module("applicationModule").service("listeService", ["$http", "UtilFunct
 		
 		var message = UtilFunctionMessagesCreator.deleteConfigurazioneMessage(cod);
 		
-		return $http.post(this.urlDeleteService, message, config);
+		return $http.post(AWS_SERVICE_URLS.urlDeleteService, message, config);
 	};
 
 	this.svuotaCarrello = function(configurazioni){
@@ -168,7 +160,7 @@ angular.module("applicationModule").service("listeService", ["$http", "UtilFunct
 
 		var message = UtilFunctionMessagesCreator.svuotaCarrelloMessage(configurazioni);
 
-		return $http.post(this.urlPostService, message, config);
+		return $http.post(AWS_SERVICE_URLS.urlPostService, message, config);
 	};
 
 	this.sendEmail = function(emailMessage){
@@ -185,7 +177,7 @@ angular.module("applicationModule").service("listeService", ["$http", "UtilFunct
 		};
 
 		var message = UtilFunctionMessagesCreator.sendEmailMessage(emailMessage);
-		return $http.post(this.urlOtherService, message, config);
+		return $http.post(AWS_SERVICE_URLS.urlOtherService, message, config);
 	};
 
 	this.saveImage = function(base64Image, filename){
@@ -197,6 +189,6 @@ angular.module("applicationModule").service("listeService", ["$http", "UtilFunct
 		};
 
 		var message = UtilFunctionMessagesCreator.saveImageMessage(base64Image, filename);
-		return $http.post(this.urlOtherService, message, config);
+		return $http.post(AWS_SERVICE_URLS.urlOtherService, message, config);
 	};
 }]);
