@@ -409,6 +409,14 @@ table {
 /*label {
     //font-family: $font-family-sans-serif-title;
 }*/
+input, textarea {
+    &:focus {
+        @include transition(all 150ms ease-in-out);
+        outline: none !important;
+        box-shadow:none !important;
+        border: solid 1px $brand-color-logo-dark  !important;
+    }
+}
 input {
     padding: 5px;
     font-size: 1.5em;
@@ -458,7 +466,7 @@ b {
     display: block;
 }
 
-button:focus {outline:0;}
+button:focus {outline:none;}
 
 .btn {
     font-family: $font-family-sans-serif-title;
@@ -467,31 +475,43 @@ button:focus {outline:0;}
     margin: 2px;
 
     &:hover {
-        @include transition(all 100ms ease-in-out);
-        //box-shadow: 0 2px 4px rgba(0,0,0,.15);
+        @include transition(all 150ms ease-in-out);
+        box-shadow: 0 0 0 rgba(0,0,0,0);
     }
     &:active {
-        @include transition(all 50ms ease-in-out);
-        //box-shadow: 0 0 0 rgba(0,0,0,0);
+        @include transition(all 150ms ease-in-out);
+        box-shadow: 0 0 0 rgba(0,0,0,0);
+    }
+    &:focus {
+        @include transition(all 150ms ease-in-out);
+        outline: none !important;
+        box-shadow: 0 0 0 rgba(0,0,0,0);
+    }
+    &:disabled {
+        border-color: #ccc !important;
+        background: transparent url('/images/disabled.png') center center !important;
+        color: #999 !important;
+        &:hover, &:active, &:focus  {
+            border-color: #ccc !important;
+            background: transparent url('/images/disabled.png') center center !important;
+            color: #999 !important;
+        }
     }
 
 }
 
 .btn-default, .btn-save, .btn-action {
     color: $brand-primary;
-    &:hover, &:active, &:focus {
-        //background-color: $brand-primary !important;
-        background: rgba($brand-color-logo-dark, 0.85);
+    &:hover{
+        background: rgba($brand-color-logo-dark, .85) !important;
         color: #fff !important;
     }
+    &:focus {
+       background: rgba($brand-color-logo-dark, .85) !important;
+       color: #fff !important;
+   }
     &:active {
-        //background-color: $brand-primary !important;
-        background: rgba($brand-color-logo-dark, 0.85);
-        color: #fff !important;
-    }
-     &:focus {
-        //background-color: $brand-primary !important;
-        background: rgba($brand-color-logo-dark, 0.85);
+        background: rgba($brand-color-logo-dark, 1) !important;
         color: #fff !important;
     }
 }
@@ -499,15 +519,15 @@ button:focus {outline:0;}
 .btn-reverse {
     background: rgba($brand-color-logo-dark, 0.85);
     color: #fff;
-    &:hover, &:active, &:focus {
-        background-color: transparent;
-        color: $brand-primary !important;
-    }
-    &:active {
+    &:hover{
         background-color: transparent;
         color: $brand-primary !important;
     }
     &:focus {
+        background-color: transparent;
+        color: $brand-primary !important;
+    }
+    &:active {
         background-color: transparent;
         color: $brand-primary !important;
     }
@@ -1757,7 +1777,7 @@ a.link {
     @media screen and (max-width: $screen-xs-max) {
         position: relative;
         bottom: 0;
-        outline: 0;
+        outline: none;
         //border-top: solid 10px #fff;
     
     }
