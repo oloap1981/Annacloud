@@ -32,13 +32,15 @@ angular.module("applicationModule").controller("accessoController", ["$scope", "
 									function(greeting) {
 									  console.log('Success: remembered ' + greeting);
 									}, function(reason) {
-									  console.log('Failed: ' + reason);
+										logService.saveLog(dataLog.toISOString(), email, "accessoController - login - setDeviceStatusRemembered", "errore: " + reason, LOG_TYPES.error);
+									  	console.log('Failed: ' + reason);
 									});
 						}else{
 							loginService.setDeviceStatusNotRemembered().then(
 									function(greeting) {
 									  console.log('Success: not remembered ' + greeting);
 									}, function(reason) {
+										logService.saveLog(dataLog.toISOString(), email, "accessoController - login - setDeviceStatusNotRemembered", "errore: " + reason, LOG_TYPES.error);
 									  console.log('Failed: ' + reason);
 									});
 						}
@@ -57,6 +59,7 @@ angular.module("applicationModule").controller("accessoController", ["$scope", "
 								listeService.putConfigurazione(localTempConfigurazione).then(
 									function (res){
 										if(res.errorMessage != null || res.errorMessage != undefined){
+											logService.saveLog(dataLog.toISOString(), confUser.email, "accessoController - login - putConfigurazione", "si è verificato un problema nel salvataggio della configurazione "+localTempConfigurazione.nome+": " + res.errorMessage, LOG_TYPES.error);
 											$scope.openMessageModal("si è verificato un problema nel salvataggio della configurazione");
 											console.log(res.errorMessage);
 										} else {
@@ -67,6 +70,7 @@ angular.module("applicationModule").controller("accessoController", ["$scope", "
 									},
 									function (reason){
 										console.log(reason);
+										logService.saveLog(dataLog.toISOString(), confUser.email, "accessoController - login - putConfigurazione", "si è verificato un problema nel salvataggio della configurazione " + localTempConfigurazione.nome + ": " + reason, LOG_TYPES.error);
 										$scope.openMessageModal("errore aggiunta preferiti");
 									}
 								);
@@ -83,6 +87,7 @@ angular.module("applicationModule").controller("accessoController", ["$scope", "
 				  if(reason.code == "NotAuthorizedException"){
 					$scope.openMessageModal("Nome utente o password errati");	
 				  } else {
+					logService.saveLog(dataLog.toISOString(), email, "accessoController - login", "si è verificato un problema durante il login: " + reason, LOG_TYPES.error);
 					$scope.openMessageModal(reason.message);
 				  }
 			}

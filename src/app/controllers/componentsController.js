@@ -380,6 +380,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 			},
 			function (reason) {
 				console.log(reason);
+				logService.saveLog(dataLog.toISOString(), $scope.getUserEmail(), "componentsController - reloadAttributes", "Problemi durante download Attributi: " + reason, LOG_TYPES.error);
 			}
 		);
 	};
@@ -396,6 +397,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 					//ho un errore
 					console.log(res.errorMessage);
 					$scope.openMessageModal("C'è stato un problema nel salvataggio dell'ordine");
+					logService.saveLog(dataLog.toISOString(), $scope.getUserEmail(), "componentsController - completaOperazioniOrdneAcquistato", "C'è stato un problema nel salvataggio dell'ordine: " + res.errorMessage, LOG_TYPES.error);
 				} else {
 					$scope.openMessageModal("Grazie per il tuo acquisto su Anna Cloud. Riceverai a breve una email di conferma.");
 					//preparo l'invio delle mail
@@ -409,12 +411,14 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 							if (res2.errorMessage != null && res2.errorMessage != "") {
 								console.log(res2.errorMessage);
 								$scope.openMessageModal("C'è stato un problema nell'invio della mail di riepilogo al cliente, contattare l'amministratore");
+								logService.saveLog(dataLog.toISOString(), $scope.getUserEmail(), "componentsController - completaOperazioniOrdneAcquistato - sendMail", "C'è stato un problema nell'invio della mail di riepilogo al cliente, contattare l'amministratore: " + res2.errorMessage, LOG_TYPES.error);
 							} else {
 
 								listeService.sendEmail(adminMessage).then(
 									function (res2) {
 										if (res2.errorMessage != null && res2.errorMessage != "") {
 											console.log(res2.errorMessage);
+											logService.saveLog(dataLog.toISOString(), $scope.getUserEmail(), "componentsController - completaOperazioniOrdneAcquistato - sendMail", "C'è stato un problema nell'invio della mail di riepilogo all'admin, contattare l'amministratore: " + res2.errorMessage, LOG_TYPES.error);
 											$scope.openMessageModal("C'è stato un problema nell'invio della mail di riepilogo all'admin, contattare l'amministratore");
 										} else {
 											$scope.ordineInCorso = null;
@@ -429,6 +433,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 			},
 			function (reason) {
 				console.log(reason);
+				logService.saveLog(dataLog.toISOString(), $scope.getUserEmail(), "componentsController - completaOperazioniOrdneAcquistato - putOrdine", "errore salvataggio ordine: " + reason, LOG_TYPES.error);
 				$scope.openMessageModal("errore salvataggio ordine");
 			}
 		);
@@ -487,6 +492,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 			function (res2) {
 				if (res2.errorMessage != null && res2.errorMessage != "") {
 					console.log(res2.errorMessage);
+					logService.saveLog(dataLog.toISOString(), $scope.getUserEmail(), "componentsController - sendMailContatti - sendEmail", "C'è stato un problema nell'invio della mail di riepilogo al cliente, contattare l'amministratore: " + res2.errorMessage, LOG_TYPES.error);
 					$scope.openMessageModal("C'è stato un problema nell'invio della mail di riepilogo al cliente, contattare l'amministratore");
 				} else {
 
@@ -494,6 +500,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 						function (res2) {
 							if (res2.errorMessage != null && res2.errorMessage != "") {
 								console.log(res2.errorMessage);
+								logService.saveLog(dataLog.toISOString(), $scope.getUserEmail(), "componentsController - sendMailContatti - sendEmail", "C'è stato un problema nell'invio della mail di riepilogo all'admin, contattare l'amministratore: " + res2.errorMessage, LOG_TYPES.error);
 								$scope.openMessageModal("C'è stato un problema nell'invio della mail di riepilogo all'admin, contattare l'amministratore");
 							} else {
 								$scope.openMessageModal(name + ", grazie per averci contattato. Verrai contattato quanto prima da un nostro responsabile.");
@@ -617,6 +624,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 					},
 					function (reason) {
 						console.log(reason);
+						logService.saveLog(dataLog.toISOString(), email, "componentsController - getCurrentUser - sendEmail", "problema nell'ottenere gli attributi dell'utente: " + reason, LOG_TYPES.error);
 					}
 				);
 			}
@@ -627,6 +635,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 	},
 		function (reason) {
 			console.log('reason');
+			logService.saveLog(dataLog.toISOString(), "", "componentsController - sendMailContatti - sendEmail", "problema nell'ottenere gli attributi dell'utente: " + reason, LOG_TYPES.error);
 		}
 	);
 
@@ -642,6 +651,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 			},
 			function (reason) {
 				console.log(reason);
+				logService.saveLog(dataLog.toISOString(), $scope.getUserEmail(), "componentsController - svuotaCarrello - sendEmail", "Problema durante lo svuotamento del carrello per l'ordine " + ordine.codice + ": " + reason, LOG_TYPES.error);
 				$scope.openMessageModal("errore salvataggio ordine");
 			}
 		);
@@ -745,6 +755,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 			},
 			function (reason) {
 				console.log(reason);
+				logService.saveLog(dataLog.toISOString(), $scope.getUserEmail(), "componentsController - salvaConfigurazioneDuplicata - putConfigurazione", "errore salvataggio configurazione " + configurazioneDuplicata.nome + ": " + reason, LOG_TYPES.error);
 				$scope.hideLoader();
 				$scope.openMessageModal("errore aggiunta preferiti");
 			}
@@ -924,15 +935,13 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 				},
 				function (reason) {
 					console.log(reason);
+					logService.saveLog(dataLog.toISOString(), $scope.getUserEmail(), "componentsController - okConfig - putConfigurazione", "errore salvataggio configurazione " + getTempConfigurazione().nome + ": " + reason, LOG_TYPES.error);
 					$scope.hideLoader();
-					$scope.openMessageModal("errore aggiunta preferiti");
+					$scope.openMessageModal("errore salvataggio configurazione");
 				}
 			);
 			$uibModalStack.dismissAll();
 		}
-
-		
-		//$scope.modalInstance.close();
 	};
 
 	$scope.cancelConfig = function () {
