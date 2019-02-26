@@ -1545,6 +1545,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 					function (res2) {
 						if (res2.errorMessage != null && res2.errorMessage != "") {
 							console.log(res2.errorMessage);
+							logService.saveLog(dataLog.toISOString(), confUser.email, "bagsConfiguratorController - salvaConfigurazione - saveImage", "si è verificato un problema nel salvataggio dell'immagine di thumbnail per la configurazione " + $scope.configurazione.nome + ": " + res2.errorMessage, LOG_TYPES.error);
 							$scope.openMessageModal("C'è stato un problema nel salvataggio dell immagine su S3");
 							$scope.hideLoader();
 						} else {
