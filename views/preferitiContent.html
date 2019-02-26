@@ -23,7 +23,8 @@
                     </div>
                     <div class="col-sm-9">
                         <div class="col-sm-12">
-                            <h4 class="bag">{{conf.nome}}&nbsp;</h4>
+                            <h4 ng-if="conf.nome" class="bag">{{conf.nome}}</h4>
+                            <h4 ng-if="!conf.nome" class=" bag">Senza nome</h4>
                         </div>
                         <div class="col-sm-6 base">
                             <h5 class="section-small left">Base </h5>

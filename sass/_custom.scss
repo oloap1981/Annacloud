@@ -521,15 +521,15 @@ button:active {opacity:1 !important};
     background: rgba($brand-color-logo-dark, 0.85);
     color: #fff;
     &:hover{
-        background-color: transparent;
+        background-color: transparent !important;
         color: $brand-primary !important;
     }
     &:focus {
-        background-color: transparent;
+        background-color: transparent !important;
         color: $brand-primary !important;
     }
     &:active {
-        background-color: transparent;
+        background-color: transparent !important;
         color: $brand-primary !important;
     }
 }
@@ -2069,6 +2069,15 @@ a.link {
             }
         }
     }*/
+
+    .riepilogo-accessori {
+        display: inline-block;
+        padding: 5px 10px;
+        margin: 0 0 0 5px;
+        border-left: dashed 1px #ccc;
+        font-size: .75em;
+
+    }
 }
 
 .shipment-info {
