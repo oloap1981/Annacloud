@@ -1,4 +1,4 @@
-angular.module("applicationModule").controller("componentsController", ["$scope", "MAIL", "EMAIL_CONFIGURATION", "loginService", "listeService", "$location", "$uibModal", "$uibModalStack", "jwtHelper", function ($scope, MAIL, EMAIL_CONFIGURATION, loginService, listeService, $location, $uibModal, $uibModalStack, jwtHelper) {
+angular.module("applicationModule").controller("componentsController", ["$scope", "MAIL", "EMAIL_CONFIGURATION", "loginService", "logService", "listeService", "$location", "$uibModal", "$uibModalStack", "jwtHelper", "LOG_TYPES", function ($scope, MAIL, EMAIL_CONFIGURATION, loginService, logService, listeService, $location, $uibModal, $uibModalStack, jwtHelper, LOG_TYPES) {
 
 	$scope.user = null;
 	$scope.costoSpedizione = 19.50;
@@ -345,6 +345,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 	};
 
 	$scope.reloadAttributes = function () {
+		var dataLog = new Date();
 		loginService.getUserAttributes().then(
 			function (attList) {
 				console.log(attList);
@@ -389,7 +390,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		//aggiorno l'ordine su DB e poi lo elimino da locale
 		$scope.ordineInCorso.pagato = true;
 		$scope.ordineInCorso.stato = 1;
-
+		var dataLog = new Date();
 		listeService.putOrdine($scope.ordineInCorso).then(
 			function (res) {
 				console.log(res);
@@ -485,6 +486,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		var stringMessage_c = name + ", grazie per averci scritto.<br>Verrai contattato al pi&ugrave; presto da un nostro responsabile.";
 		var to_c = [email];
 		var cc_c = [];
+		var dataLog = new Date();
 
 		var courtesyMessage = $scope.generateEmailMessage_generic(stringMessage_c, subject_c, to_c, cc_c);
 
@@ -583,6 +585,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 
 	loginService.getCurrentUser().then(function (data) {
 		$scope.setUser(data);
+		var dataLog = new Date();
 		if (data != null) {
 			if (data.signInUserSession != null) {
 				var idToken = jwtHelper.decodeToken(data.signInUserSession.idToken.jwtToken);
@@ -641,6 +644,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 
 	$scope.svuotaCarrello = function (ordine) {
 
+		var dataLog = new Date();
 		console.log("sto per svuotare il carrello");
 		//ottenfo la lista dei codici delle configurazioni
 		var listaCodici = $scope.getListaCodiciConfigurazioni(ordine);
@@ -731,7 +735,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 	$scope.salvaConfigurazioneDuplicata = function(forceCarrello){
 		var configurazioneDuplicata = $scope.getTempConfigurazione();
 		configurazioneDuplicata.codice = "";
-
+		var dataLog = new Date();
 		var vecchioNome = $scope.getTempConfigurazione().nome;
 		var nuovoNome = $scope.generaNuovoNome(vecchioNome);
 
@@ -911,6 +915,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 	$scope.okConfig = function (configName) {
 		//controllo se il nome esiste già tra le configurazioni (preferiti)
 		var presente = $scope.checkNomePresente(configName, false);
+		var dataLog = new Date();
 		if(presente){
 			$uibModalStack.dismissAll();
 			$scope.openConfigNameModalNamePresent();
@@ -935,7 +940,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 				},
 				function (reason) {
 					console.log(reason);
-					logService.saveLog(dataLog.toISOString(), $scope.getUserEmail(), "componentsController - okConfig - putConfigurazione", "errore salvataggio configurazione " + getTempConfigurazione().nome + ": " + reason, LOG_TYPES.error);
+					logService.saveLog(dataLog.toISOString(), $scope.getUserEmail(), "componentsController - okConfig - putConfigurazione", "errore salvataggio configurazione " + $scope.getTempConfigurazione().nome + ": " + reason, LOG_TYPES.error);
 					$scope.hideLoader();
 					$scope.openMessageModal("errore salvataggio configurazione");
 				}

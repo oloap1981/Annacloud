@@ -1,4 +1,4 @@
-angular.module('applicationModule').controller('unadunaConfiguratorController2', function ($scope, listeService, loginService, $uibModal, $uibModalStack, $log, jwtHelper, $translatePartialLoader) {
+angular.module('applicationModule').controller('unadunaConfiguratorController2', function ($scope, listeService, loginService, logService, $uibModal, $uibModalStack, $log, jwtHelper, $translatePartialLoader, LOG_TYPES) {
 
 	//$translatePartialLoader.addPart('configurator');
 
@@ -1510,7 +1510,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 
 	configController.salvaConfigurazione = function (isCarrello) {
 		$scope.configurazione.carrello = isCarrello;
-
+		var dataLog = new Date();
 		var resolution = 560;
 		var destinationResolution = 560;
 		var frameNumber = 0;
