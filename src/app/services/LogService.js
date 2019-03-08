@@ -1,7 +1,7 @@
 angular.module("applicationModule").service("logService", ["$http", "UtilFunctionMessagesCreator", "loginService", "AWS_SERVICE_URLS", function($http, UtilFunctionMessagesCreator, loginService, AWS_SERVICE_URLS) {
 	
-	this.saveLog = function(data, utente, classe, messaggio, tipoLog){
-		var requestMessage = UtilFunctionMessagesCreator.saveLogMessage(data, utente, classe, messaggio, tipoLog);
+	this.saveLog = function(data, utente, messaggio, classe, tipoLog){
+		var requestMessage = UtilFunctionMessagesCreator.saveLogMessage(data, utente, messaggio, classe, tipoLog);
 		var config = {
 			headers: {
 				'Content-Type': 'application/json'

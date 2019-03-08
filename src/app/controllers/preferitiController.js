@@ -37,24 +37,26 @@ angular.module("applicationModule").controller("preferitiController", ["$scope",
 		);
 	};
 
-	$scope.eliminaConfigurazione  = function (codice)  {
-		console.log("sto per eliminare la configurazione con codice " + codice);
-		$scope.setLoaderMessage("sto eliminando la configurazione...");
-		$scope.showLoader();
-		listeService.deleteConfigurazione(codice).then(function(data){
-				if(data.errorMessage != null && data.errorMessage != undefined){
-					$scope.hideLoader();
-					$scope.openMessageModal("si è verificato un errore nella cancellazione della configurazione");
-					console.log("errorMessage");
-				} else {
-					$scope.ricaricaListe($scope.getUserEmail(), "", true);
+	$scope.eliminaConfigurazione  = function (codice, nome)  {
+		if(confirm("Sicuro di voler eliminare la configurazione "+nome+"?")){
+			console.log("sto per eliminare la configurazione con codice " + codice);
+			$scope.setLoaderMessage("sto eliminando la configurazione...");
+			$scope.showLoader();
+			listeService.deleteConfigurazione(codice).then(function(data){
+					if(data.errorMessage != null && data.errorMessage != undefined){
+						$scope.hideLoader();
+						$scope.openMessageModal("si è verificato un errore nella cancellazione della configurazione");
+						console.log("errorMessage");
+					} else {
+						$scope.ricaricaListe($scope.getUserEmail(), "", true);
+					}
+		
+				},
+				function (reason){
+					console.log(reason);
+					$scope.openMessageModal("errore cancellazione");
 				}
-	
-			},
-			function (reason){
-				console.log(reason);
-				$scope.openMessageModal("errore cancellazione");
-			}
-		);
+			);
+		}
 	};
 }]);

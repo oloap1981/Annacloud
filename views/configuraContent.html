@@ -97,7 +97,7 @@
 		<h3 class="total-price ">{{contr.priceManager.price}}&euro;</h3>
 		<p class="price-detail">22% IVA inclusa,<br>spese di sped. escluse</p>
 		<div ng-if="contr.isLogged()">
-			<a href="" class="btn btn-default btn-block" ng-click="contr.aggiungiAlCarrello()">Acquista</a>
+			<a href="" class="btn btn-default btn-block" ng-click="contr.aggiungiAlCarrello()" ng-hide="isCurrentUserAdmin()">Acquista</a>
 			<a href="" style="padding-top: 5px; display: block;"  ng-click="contr.aggiungiAiPreferiti()"><small>salva</small></a>
 		</div>
 		<div ng-if="!contr.isLogged()">
@@ -397,7 +397,7 @@
 				</div>
 				<div ng-if="contr.isLogged()">
 					<div class="col-xs-4 text-center" style="padding:0px;">
-						<a href="" class="btn btn-default" ng-click="contr.aggiungiAlCarrello()">Acquista</a>
+						<a href="" class="btn btn-default" ng-click="contr.aggiungiAlCarrello()" ng-hide="isCurrentUserAdmin()">Acquista</a>
 					</div>
 					<div class="col-xs-4 text-center" style="padding-left:5px;">
 						<a href="" class="btn" ng-click="contr.aggiungiAiPreferiti()">Salva</a>

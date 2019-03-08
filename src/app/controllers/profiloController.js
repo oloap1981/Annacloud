@@ -202,6 +202,7 @@ angular.module("applicationModule").controller("profiloController", ["$scope", "
 				}
 		);
 	};
+
 	
 	$scope.cambiaPassword = function(o, n, n1){
 		if (n == n1){

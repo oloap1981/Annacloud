@@ -1,6 +1,7 @@
-angular.module("applicationModule").controller("componentsController", ["$scope", "MAIL", "EMAIL_CONFIGURATION", "loginService", "logService", "listeService", "$location", "$uibModal", "$uibModalStack", "jwtHelper", "LOG_TYPES", function ($scope, MAIL, EMAIL_CONFIGURATION, loginService, logService, listeService, $location, $uibModal, $uibModalStack, jwtHelper, LOG_TYPES) {
+angular.module("applicationModule").controller("componentsController", ["$scope", "MAIL", "EMAIL_CONFIGURATION", "loginService", "logService", "listeService", "$location", "$uibModal", "$uibModalStack", "jwtHelper", "LOG_TYPES", "ROLES", function ($scope, MAIL, EMAIL_CONFIGURATION, loginService, logService, listeService, $location, $uibModal, $uibModalStack, jwtHelper, LOG_TYPES, ROLES) {
 
 	$scope.user = null;
+	$scope.role = "";
 	$scope.costoSpedizione = 19.50;
 
 	$scope.testoAvviso = "";
@@ -27,7 +28,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 	$scope.cognome = "";
 	$scope.indSpe = "";
 	$scope.cittaSpe = "";
-	$scope.capSpe = 0;
+	$scope.capSpe = "";
 	$scope.indSpe2 = "";
 	$scope.nomeSpe = "";
 
@@ -249,6 +250,18 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		return $scope.user;
 	};
 
+	$scope.setRole = function (t) {
+		$scope.role = t;
+	};
+
+	$scope.getRole = function () {
+		return $scope.role;
+	};
+
+	$scope.isCurrentUserAdmin = function(){
+		return $scope.role === ROLES.ADMIN;
+	};
+
 	$scope.logOut = function () {
 		$scope.setUser(null);
 		$scope.cleanUser();
@@ -313,6 +326,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		$scope.showLoader();
 		listeService.getConfigurazioniUtente(email).then(function (data) {
 			$scope.preferiti = data.data.configurazioni;
+			$scope.preferiti.sort(function(a,b) {return (a.codice > b.codice) ? -1 : ((b.codice > a.codice) ? 1 : 0);}); 
 			$scope.hideLoader();
 			var tempCarrello = [];
 			for (var i = 0; i < $scope.preferiti.length; i++) {
@@ -381,7 +395,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 			},
 			function (reason) {
 				console.log(reason);
-				logService.saveLog(dataLog.toISOString(), $scope.getUserEmail(), "componentsController - reloadAttributes", "Problemi durante download Attributi: " + reason, LOG_TYPES.error);
+				logService.saveLog(dataLog.toISOString(), $scope.getUserEmail(), "componentsController - reloadAttributes", "Problemi durante download Attributi: " + reason.errorMessage, LOG_TYPES.error);
 			}
 		);
 	};
@@ -434,7 +448,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 			},
 			function (reason) {
 				console.log(reason);
-				logService.saveLog(dataLog.toISOString(), $scope.getUserEmail(), "componentsController - completaOperazioniOrdneAcquistato - putOrdine", "errore salvataggio ordine: " + reason, LOG_TYPES.error);
+				logService.saveLog(dataLog.toISOString(), $scope.getUserEmail(), "componentsController - completaOperazioniOrdneAcquistato - putOrdine", "errore salvataggio ordine: " + reason.errorMessage, LOG_TYPES.error);
 				$scope.openMessageModal("errore salvataggio ordine");
 			}
 		);
@@ -589,6 +603,13 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		if (data != null) {
 			if (data.signInUserSession != null) {
 				var idToken = jwtHelper.decodeToken(data.signInUserSession.idToken.jwtToken);
+
+				if(idToken["cognito:roles"] == undefined){
+					$scope.setRole(ROLES.REGULAR);
+				} else {
+					$scope.setRole(idToken["cognito:roles"][0]);
+				}
+
 				var email = idToken.email;
 				$scope.ricaricaListe(email, "", true);
 				//tiro giu' anche gli attributi dell'utente
@@ -627,7 +648,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 					},
 					function (reason) {
 						console.log(reason);
-						logService.saveLog(dataLog.toISOString(), email, "componentsController - getCurrentUser - sendEmail", "problema nell'ottenere gli attributi dell'utente: " + reason, LOG_TYPES.error);
+						logService.saveLog(dataLog.toISOString(), email, "componentsController - getCurrentUser - sendEmail", "problema nell'ottenere gli attributi dell'utente: " + reason.errorMessage, LOG_TYPES.error);
 					}
 				);
 			}
@@ -638,7 +659,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 	},
 		function (reason) {
 			console.log('reason');
-			logService.saveLog(dataLog.toISOString(), "", "componentsController - sendMailContatti - sendEmail", "problema nell'ottenere gli attributi dell'utente: " + reason, LOG_TYPES.error);
+			logService.saveLog(dataLog.toISOString(), "", "componentsController - sendMailContatti - sendEmail", "problema nell'ottenere gli attributi dell'utente: " + reason.errorMessage, LOG_TYPES.error);
 		}
 	);
 
@@ -655,7 +676,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 			},
 			function (reason) {
 				console.log(reason);
-				logService.saveLog(dataLog.toISOString(), $scope.getUserEmail(), "componentsController - svuotaCarrello - sendEmail", "Problema durante lo svuotamento del carrello per l'ordine " + ordine.codice + ": " + reason, LOG_TYPES.error);
+				logService.saveLog(dataLog.toISOString(), $scope.getUserEmail(), "componentsController - svuotaCarrello - sendEmail", "Problema durante lo svuotamento del carrello per l'ordine " + ordine.codice + ": " + reason.errorMessage, LOG_TYPES.error);
 				$scope.openMessageModal("errore salvataggio ordine");
 			}
 		);
@@ -759,9 +780,9 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 			},
 			function (reason) {
 				console.log(reason);
-				logService.saveLog(dataLog.toISOString(), $scope.getUserEmail(), "componentsController - salvaConfigurazioneDuplicata - putConfigurazione", "errore salvataggio configurazione " + configurazioneDuplicata.nome + ": " + reason, LOG_TYPES.error);
+				logService.saveLog(dataLog.toISOString(), $scope.getUserEmail(), "componentsController - salvaConfigurazioneDuplicata - putConfigurazione", "errore salvataggio configurazione " + configurazioneDuplicata.nome + ": " + reason.errorMessage, LOG_TYPES.error);
 				$scope.hideLoader();
-				$scope.openMessageModal("errore aggiunta preferiti");
+				$scope.openMessageModal("Si è verificato un errore, riprovare tra qualche secondo. Se il problema persiste contattare l'amministratore.");
 			}
 		);
 	};
@@ -823,10 +844,6 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 	};
 
 	$scope.openConfigNameModal = function (oldName) {
-		if (oldName != undefined && oldName != "") {
-			$scope.avvisoInputNome = "Aggiorna il nome della borsa";
-			$scope.vecchioNomeBorsa = oldName;
-		}
 
 		$scope.modalInstance = $uibModal.open({
 			animation: true,
@@ -940,7 +957,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 				},
 				function (reason) {
 					console.log(reason);
-					logService.saveLog(dataLog.toISOString(), $scope.getUserEmail(), "componentsController - okConfig - putConfigurazione", "errore salvataggio configurazione " + $scope.getTempConfigurazione().nome + ": " + reason, LOG_TYPES.error);
+					logService.saveLog(dataLog.toISOString(), $scope.getUserEmail(), "componentsController - okConfig - putConfigurazione", "errore salvataggio configurazione " + $scope.getTempConfigurazione().nome + ": " + reason.errorMessage, LOG_TYPES.error);
 					$scope.hideLoader();
 					$scope.openMessageModal("errore salvataggio configurazione");
 				}

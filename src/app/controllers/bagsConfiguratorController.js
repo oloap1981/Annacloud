@@ -1509,6 +1509,12 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 	};
 
 	configController.salvaConfigurazione = function (isCarrello) {
+		if($scope.isCurrentUserAdmin()){
+			$scope.configurazione.tipo = "P";//se sono utente ADMIN creo sempre una preconfigurata
+		} else {
+			$scope.configurazione.tipo = "N";
+		}
+
 		$scope.configurazione.carrello = isCarrello;
 		var dataLog = new Date();
 		var resolution = 560;
@@ -1550,13 +1556,13 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 							$scope.hideLoader();
 						} else {
 							$scope.configurazione.thumbnail = res2.data.imageUrl;
-							$scope.configurazione.tipo = "N";
 							configController.assegnaUtenteAConfigurazione();
 
 							var configDaSalvare = configController.salvaConfigurazioneTemporanea();
 
 							$scope.hideLoader();
 							$scope.salvaOAcquista(configDaSalvare.nome, isCarrello, $scope.askForName);
+							$scope.askForName = false;
 						}
 					});
 			};

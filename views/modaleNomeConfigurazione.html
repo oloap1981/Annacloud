@@ -5,10 +5,10 @@
 <div class="modal-body">
     <div class="form-group">
         <label for="nome" class="sr-only hidden"></label>
-        <input ng-model="nome" type="text" class="form-control" id="nome" placeholder="Nome" value="{{vecchioNomeBorsa}}">
+        <input ng-model="nomeConfigurazione" type="text" class="form-control" id="nome" value="">
     </div>
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancelConfig()">Annulla</button>
-    <button type="button" class="btn btn-primary" ng-click="okConfig(nome, true)" ng-disabled="!nome">Salva</button>
+    <button type="button" class="btn btn-primary" ng-click="okConfig(nomeConfigurazione, true)" ng-disabled="!nome">Salva</button>
 </div>

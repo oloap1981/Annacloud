@@ -69,7 +69,7 @@
 							<li ng-show="user!==null" class="utente">
 								<a href="javascript:void(0)" id="user-menu" data-toggle="dropdown"><i class="unaicon-login"></i> <span class="hidden-xs"></span></a>
 								<ul class="dropdown-menu" aria-labelledby="user-menu">
-									<li><a href="#!/ordini">I tuoi Ordini</a></li>
+									<li ng-hide="isCurrentUserAdmin()"><a href="#!/ordini">I tuoi Ordini</a></li>
 									<li><a href="#!/profilo">Profilo</a></li>
 									<li><a href="#!/logout" ng-click="logOut()">Esci</a></li>
 								</ul>
@@ -80,7 +80,7 @@
 							<li class="favoriti">
 								<a href="#!/preferiti"><i class="unaicon-favourite"></i> <span class="hidden-xsx" ng-cloak>({{preferiti.length}})</span></a>
 							</li>
-							<li class="carrello">
+							<li class="carrello" ng-hide="isCurrentUserAdmin()">
 								<a href="#!/carrello"><i class="unaicon-cart"></i> <span class="hidden-xsx" ng-cloak>({{carrello.length}})</span></a>
 							</li>
 						</ul>
@@ -88,7 +88,7 @@
 					<div class="collapse navbar-collapse">
 						<ul class="nav navbar-nav navbar-left">
 							<li ng-show="user!==null">
-								<p class="navbar-text">Benvenuto, <strong ng-cloak>{{nome + " " + cognome}}</strong></p>
+								<p class="navbar-text">Benvenuto, <strong ng-cloak>{{nome + " " + cognome}}</strong><strong ng-show="isCurrentUserAdmin()"> - AMMINISTRATORE</strong></p>
 								<!-- {{user.username}} -->
 							</li>
 							<li ng-show="user==null">

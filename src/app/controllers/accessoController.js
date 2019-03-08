@@ -1,4 +1,4 @@
-angular.module("applicationModule").controller("accessoController", ["$scope", "listeService", "loginService", "logService", "salvaUtenteService", "LOG_TYPES", function($scope, listeService, loginService, logService, salvaUtenteService, LOG_TYPES) {
+angular.module("applicationModule").controller("accessoController", ["$scope", "listeService", "loginService", "logService", "salvaUtenteService", "jwtHelper", "LOG_TYPES", "ROLES", function($scope, listeService, loginService, logService, salvaUtenteService, jwtHelper, LOG_TYPES, ROLES) {
 	
 	$scope.remember = {
 		       value : true,
@@ -14,6 +14,14 @@ angular.module("applicationModule").controller("accessoController", ["$scope", "
 						var user = data;
 						user.eMail = email;
 						$scope.setUser(user);
+
+						var idToken = jwtHelper.decodeToken(user.signInUserSession.idToken.jwtToken);
+						if(idToken["cognito:roles"] == undefined){
+							$scope.setRole(ROLES.REGULAR);
+						} else {
+							$scope.setRole(idToken["cognito:roles"][0]);
+						}
+
 						$scope.reloadAttributes();
 						$scope.ricaricaListe(user.eMail, "");
 
@@ -21,7 +29,7 @@ angular.module("applicationModule").controller("accessoController", ["$scope", "
 						//data, utente, classe, messaggio
 						var dataLog = new Date();
 
-						logService.saveLog(dataLog.toISOString(), email, "accessoController", "Utente correttamente loggato", LOG_TYPES.login).then(function(resLog){
+						logService.saveLog(dataLog.toISOString(), email, "Utente correttamente loggato", "accessoController", LOG_TYPES.login).then(function(resLog){
 							console.log(resLog);
 						}, function(reason){
 							console.log(reason);
@@ -32,7 +40,7 @@ angular.module("applicationModule").controller("accessoController", ["$scope", "
 									function(greeting) {
 									  console.log('Success: remembered ' + greeting);
 									}, function(reason) {
-										logService.saveLog(dataLog.toISOString(), email, "accessoController - login - setDeviceStatusRemembered", "errore: " + reason, LOG_TYPES.error);
+										logService.saveLog(dataLog.toISOString(), email, "accessoController - login - setDeviceStatusRemembered", "errore: " + reason.errorMessage, LOG_TYPES.error);
 									  	console.log('Failed: ' + reason);
 									});
 						}else{
@@ -40,7 +48,7 @@ angular.module("applicationModule").controller("accessoController", ["$scope", "
 									function(greeting) {
 									  console.log('Success: not remembered ' + greeting);
 									}, function(reason) {
-										logService.saveLog(dataLog.toISOString(), email, "accessoController - login - setDeviceStatusNotRemembered", "errore: " + reason, LOG_TYPES.error);
+										logService.saveLog(dataLog.toISOString(), email, "accessoController - login - setDeviceStatusNotRemembered", "errore: " + reason.errorMessage, LOG_TYPES.error);
 									  console.log('Failed: ' + reason);
 									});
 						}
@@ -70,7 +78,7 @@ angular.module("applicationModule").controller("accessoController", ["$scope", "
 									},
 									function (reason){
 										console.log(reason);
-										logService.saveLog(dataLog.toISOString(), confUser.email, "accessoController - login - putConfigurazione", "si è verificato un problema nel salvataggio della configurazione " + localTempConfigurazione.nome + ": " + reason, LOG_TYPES.error);
+										logService.saveLog(dataLog.toISOString(), confUser.email, "accessoController - login - putConfigurazione", "si è verificato un problema nel salvataggio della configurazione " + localTempConfigurazione.nome + ": " + reason.errorMessage, LOG_TYPES.error);
 										$scope.openMessageModal("errore aggiunta preferiti");
 									}
 								);
@@ -87,7 +95,7 @@ angular.module("applicationModule").controller("accessoController", ["$scope", "
 				  if(reason.code == "NotAuthorizedException"){
 					$scope.openMessageModal("Nome utente o password errati");	
 				  } else {
-					logService.saveLog(dataLog.toISOString(), email, "accessoController - login", "si è verificato un problema durante il login: " + reason, LOG_TYPES.error);
+					logService.saveLog(dataLog.toISOString(), email, "accessoController - login", "si è verificato un problema durante il login: " + reason.errorMessage, LOG_TYPES.error);
 					$scope.openMessageModal(reason.message);
 				  }
 			}
