@@ -42,7 +42,7 @@
 				<li ng-show="contr.isLogged()" class="utente">
 					<a href="" id="user-menu" data-toggle="dropdown"><i class="unaicon-login"></i> <span class="hidden-xs"></span></a>
 					<ul class="dropdown-menu" aria-labelledby="user-menu">
-						<li><a href="#!/ordini">I tuoi Ordini</a></li>
+						<li ng-hide="isCurrentUserAdmin()"><a href="#!/ordini">I tuoi Ordini</a></li>
 						<li><a href="#!/profilo">Profilo</a></li>
 						<li><a href="#!/logout" ng-click="logOut()">Esci</a></li>
 					</ul>
@@ -55,7 +55,7 @@
 					<a href="#!/preferiti" ng-click="setPreferiti()"><i class="unaicon-favourite"></i> <span class="hidden-xsx">({{getPreferitiSize()}})</span></a>
 				</li>
 				<li class="carrello">
-					<a href="#!/carrello" ng-click="setCarrello()"><i class="unaicon-cart"></i> <span class="hidden-xsx">({{getCarrelloSize()}})</span></a>
+					<a href="#!/carrello" ng-click="setCarrello()" ng-hide="isCurrentUserAdmin()"><i class="unaicon-cart"></i> <span class="hidden-xsx">({{getCarrelloSize()}})</span></a>
 				</li>
 			</ul>
 		</div>
