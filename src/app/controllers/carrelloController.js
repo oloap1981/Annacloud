@@ -37,6 +37,7 @@ angular.module("applicationModule").controller("carrelloController", ["$scope", 
 		utenteOrdine = {};
 		utenteOrdine.email = $scope.getUserEmail();
 		ordine.utente = utenteOrdine;
+		ordine.email = utenteOrdine.email;
 
 		ordine.configurazioni = $scope.getCarrello();
 

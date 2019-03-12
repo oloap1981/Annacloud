@@ -55,10 +55,10 @@ angular.module("applicationModule").service("UtilFunctionMessagesCreator", funct
 		return message;
 	};
 	
-	this.getOrdiniUtenteMessage = function(codiceUtente){
+	this.getOrdiniUtenteMessage = function(emailUtente){
 		var message = {};
 		message.functionName = "UnaDunaGetOrdiniUtente";
-		message.codiceUtente = codiceUtente;
+		message.emailUtente = emailUtente;
 		return message;
 	};
 	
