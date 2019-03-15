@@ -26,4 +26,10 @@ angular.module('applicationModule').constant('URLS',{
 }).constant('ROLES', {
 	ADMIN: "arn:aws:iam::801532940274:role/Annacloud_Utenti_Admin",
 	REGULAR: "arn:aws:iam::801532940274:role/Annacloud_Utenti_Registrati"
+}).constant('ORDERSTATUS', {
+	ORDINATO: 1,
+	LAVORAZIONE1: 2,
+	LAVORAZIONE2: 3,
+	SPEDIZIONE: 4,
+	ARCHIVIATO: 5
 });

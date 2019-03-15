@@ -1,5 +1,4 @@
-
-<div ng-controller="administratorController as admin" ng-init="admin.initAdmin()">
+<div ng-controller="administratorController" ng-init="initAdmin()">
     <div class="container-fluid no-padding" style="min-width: 1200px;">
         <nav class="navbar navbar-default admin nomargin ">
             <ul class="nav navbar-nav fixed-navbar-left">
@@ -21,7 +20,6 @@
         </nav>
     </div>
     <div class="container-fluid" style="min-width: 1200px; max-width: 1200px">
-        
         <div class="row">
             <div class="col-xs-3 stage-label"><h3 class="Slabel">Ordinato</h3></div>
             <div class="col-xs-3 stage-label"><h3 class="Slabel">Lavorazione #1</h3></div>
@@ -30,118 +28,42 @@
         </div>
         <div class="row">
             <div class="col-xs-3 stage">
-                <div class="ordine ritardo">
+                <div class="ordine" ng-repeat="ordine in ordinato" >
                     <div class="item clearfix">
-                        <!-- <img src="https://s3.eu-central-1.amazonaws.com/unaduna-images-bucket/1544711449915_crossbody.png"> -->
-                        <h4 class="item-data"><span>Ordine:</span>1544029763635<br><span>Data:</span>12/02/2019<br><span>Utente:</span>oloap1981@gmail.com</h4>
+                        <h4 class="item-data"><span>Ordine:</span>{{ordine.codice}}<br><span>Data:</span>{{convertDate(ordine.codice)}}<br><span>Utente:</span>{{ordine.email}}</h4>
                     </div>
                     <div class="action">
-                        <a href="javascript:void(0)" ng-click="openSchedaOrdine()" class="dettagli">vedi dettagli</a><a href="javascript:void(0)" class="precedente off">&lt;</a><a href="javascript:void(0)" class="successivo">&gt;</a>
-                    </div>
-                </div>
-                <div class="ordine">
-                    <div class="item clearfix">
-                        <img src="https://s3.eu-central-1.amazonaws.com/unaduna-images-bucket/1544711449915_crossbody.png">
-                        <h4 class="item-data"><span>Ordine:</span>1544029763635<br><span>Data:</span>12/02/2019</h4>
-                    </div>
-                    <div class="action">
-                        <a href="javascript:void(0)" ng-click="openSchedaOrdine()" class="dettagli">vedi dettagli</a><a href="javascript:void(0)" class="precedente off">&lt;</a><a href="javascript:void(0)" class="successivo">&gt;</a>
-                    </div>
-                </div>
-                <div class="ordine">
-                    <div class="item clearfix">
-                        <img src="https://s3.eu-central-1.amazonaws.com/unaduna-images-bucket/1544711449915_crossbody.png">
-                        <h4 class="item-data"><span>Ordine:</span>1544029763635<br><span>Data:</span>12/02/2019</h4>
-                    </div>
-                    <div class="action">
-                        <a href="javascript:void(0)" class="dettagli">vedi dettagli</a><a href="javascript:void(0)" class="precedente off">&lt;</a><a href="javascript:void(0)" class="successivo">&gt;</a>
-                    </div>
-                </div>
-                <div class="ordine">
-                    <div class="item clearfix">
-                        <img src="https://s3.eu-central-1.amazonaws.com/unaduna-images-bucket/1544711449915_crossbody.png">
-                        <h4 class="item-data"><span>Ordine:</span>1544029763635<br><span>Data:</span>12/02/2019</h4>
-                    </div>
-                    <div class="action">
-                        <a href="javascript:void(0)" class="dettagli">vedi dettagli</a><a href="javascript:void(0)" class="precedente off">&lt;</a><a href="javascript:void(0)" class="successivo">&gt;</a>
-                    </div>
-                </div>
-                <div class="ordine">
-                    <div class="item clearfix">
-                        <img src="https://s3.eu-central-1.amazonaws.com/unaduna-images-bucket/1544711449915_crossbody.png">
-                        <h4 class="item-data"><span>Ordine:</span>1544029763635<br><span>Data:</span>12/02/2019</h4>
-                    </div>
-                    <div class="action">
-                        <a href="javascript:void(0)" class="dettagli">vedi dettagli</a><a href="javascript:void(0)" class="precedente off">&lt;</a><a href="javascript:void(0)" class="successivo">&gt;</a>
-                    </div>
-                </div>
-                <div class="ordine">
-                    <div class="item clearfix">
-                        <img src="https://s3.eu-central-1.amazonaws.com/unaduna-images-bucket/1544711449915_crossbody.png">
-                        <h4 class="item-data"><span>Ordine:</span>1544029763635<br><span>Data:</span>12/02/2019</h4>
-                    </div>
-                    <div class="action">
-                        <a href="javascript:void(0)" class="dettagli">vedi dettagli</a><a href="javascript:void(0)" class="precedente off">&lt;</a><a href="javascript:void(0)" class="successivo">&gt;</a>
-                    </div>
-                </div>
-                <div class="ordine">
-                    <div class="item clearfix">
-                        <img src="https://s3.eu-central-1.amazonaws.com/unaduna-images-bucket/1544711449915_crossbody.png">
-                        <h4 class="item-data"><span>Ordine:</span>1544029763635<br><span>Data:</span>12/02/2019</h4>
-                    </div>
-                    <div class="action">
-                        <a href="javascript:void(0)" class="dettagli">vedi dettagli</a><a href="javascript:void(0)" class="precedente off">&lt;</a><a href="javascript:void(0)" class="successivo">&gt;</a>
-                    </div>
-                </div>
-                <div class="ordine">
-                    <div class="item clearfix">
-                        <img src="https://s3.eu-central-1.amazonaws.com/unaduna-images-bucket/1544711449915_crossbody.png">
-                        <h4 class="item-data"><span>Ordine:</span>1544029763635<br><span>Data:</span>12/02/2019</h4>
-                    </div>
-                    <div class="action">
-                        <a href="javascript:void(0)" class="dettagli">vedi dettagli</a><a href="javascript:void(0)" class="precedente off">&lt;</a><a href="javascript:void(0)" class="successivo">&gt;</a>
+                        <a href="javascript:void(0)" ng-click="openSchedaOrdine(ordine)" class="dettagli">vedi dettagli</a><a href="javascript:void(0)" class="precedente off">&lt;</a><a href="javascript:void(0)" class="successivo" ng-click="updateStatus(ordine, 2)">&gt;</a>
                     </div>
                 </div>
             </div>
             <div class="col-xs-3 stage">
-                <div class="ordine ritardo">
+                <div class="ordine" ng-repeat="ordine in lavorazione1" >
                     <div class="item clearfix">
-                        <img src="https://s3.eu-central-1.amazonaws.com/unaduna-images-bucket/1544711449915_crossbody.png">
-                        <h4 class="item-data"><span>Ordine:</span>1544029763635<br><span>Data:</span>12/02/2019</h4>
+                        <h4 class="item-data"><span>Ordine:</span>{{ordine.codice}}<br><span>Data:</span>{{convertDate(ordine.codice)}}<br><span>Utente:</span>{{ordine.email}}</h4>
                     </div>
                     <div class="action">
-                        <a href="javascript:void(0)" class="dettagli">vedi dettagli</a><a href="javascript:void(0)" class="precedente">&lt;</a><a href="javascript:void(0)" class="successivo">&gt;</a>
-                    </div>
-                </div>
-                <div class="ordine">
-                    <div class="item clearfix">
-                        <img src="https://s3.eu-central-1.amazonaws.com/unaduna-images-bucket/1544711449915_crossbody.png">
-                        <h4 class="item-data"><span>Ordine:</span>1544029763635<br><span>Data:</span>12/02/2019</h4>
-                    </div>
-                    <div class="action">
-                        <a href="javascript:void(0)" class="dettagli">vedi dettagli</a><a href="javascript:void(0)" class="precedente">&lt;</a><a href="javascript:void(0)" class="successivo">&gt;</a>
+                        <a href="javascript:void(0)" class="dettagli">vedi dettagli</a><a href="javascript:void(0)" class="precedente" ng-click="updateStatus(ordine, 1)">&lt;</a><a href="javascript:void(0)" class="successivo" ng-click="updateStatus(ordine, 3)">&gt;</a>
                     </div>
                 </div>
             </div>
             <div class="col-xs-3 stage">
-                <div class="ordine">
+                <div class="ordine" ng-repeat="ordine in lavorazione2" >
                     <div class="item clearfix">
-                        <img src="https://s3.eu-central-1.amazonaws.com/unaduna-images-bucket/1544711449915_crossbody.png">
-                        <h4 class="item-data"><span>Ordine:</span>1544029763635<br><span>Data:</span>12/02/2019</h4>
+                        <h4 class="item-data"><span>Ordine:</span>{{ordine.codice}}<br><span>Data:</span>{{convertDate(ordine.codice)}}<br><span>Utente:</span>{{ordine.email}}</h4>
                     </div>
                     <div class="action">
-                        <a href="javascript:void(0)" class="dettagli">vedi dettagli</a><a href="javascript:void(0)" class="precedente">&lt;</a><a href="javascript:void(0)" class="successivo ">&gt;</a>
+                        <a href="javascript:void(0)" class="dettagli">vedi dettagli</a><a href="javascript:void(0)" class="precedente" ng-click="updateStatus(ordine, 2)">&lt;</a><a href="javascript:void(0)" class="successivo " ng-click="updateStatus(ordine, 4)">&gt;</a>
                     </div>
                 </div>
             </div>
             <div class="col-xs-3 stage">
-                <div class="ordine">
+                <div class="ordine" ng-repeat="ordine in spedizione" >
                     <div class="item clearfix">
-                        <img src="https://s3.eu-central-1.amazonaws.com/unaduna-images-bucket/1544711449915_crossbody.png">
-                        <h4 class="item-data"><span>Ordine:</span>1544029763635<br><span>Data:</span>12/02/2019</h4>
+                        <h4 class="item-data"><span>Ordine:</span>{{ordine.codice}}<br><span>Data:</span>{{convertDate(ordine.codice)}}<br><span>Utente:</span>{{ordine.email}}</h4>
                     </div>
                     <div class="action">
-                        <a href="javascript:void(0)" class="dettagli">vedi dettagli</a><a href="javascript:void(0)" class="precedente">&lt;</a><a href="javascript:void(0)" class="save"><i class="fa fa-floppy-o"></i></a>
+                        <a href="javascript:void(0)" class="dettagli">vedi dettagli</a><a href="javascript:void(0)" class="precedente" ng-click="updateStatus(ordine, 3)">&lt;</a><a href="javascript:void(0)" class="save" ng-click="updateStatus(ordine, 5)"><i class="fa fa-floppy-o"></i></a>
                     </div>
                 </div>
             </div>

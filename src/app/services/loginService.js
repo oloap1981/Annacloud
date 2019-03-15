@@ -417,4 +417,26 @@ angular.module("applicationModule").service("loginService", function($q, $rootSc
 	    return deferred.promise;
 	};
 	
+	this.listUsers = function(parametersList){
+		AWS.config.update({accessKeyId: 'AKIAJQUPU6OHCOSKFVGQ', secretAccessKey: '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'});
+
+		var CognitoIdentityServiceProvider = AWS.CognitoIdentityServiceProvider;
+		var client = new CognitoIdentityServiceProvider({ apiVersion: '2016-04-19', region: 'eu-central-1' });
+		
+		parametersList.UserPoolId = 'eu-central-1_NMPGOZAz3';
+
+		// var userPool = this.getUserPool();
+		var deferred = $q.defer();
+		client.listUsers(parametersList, function(err, result){
+			if (err) {
+				deferred.reject (err);
+				return;
+			}
+			deferred.resolve (result);
+			console.log('call result: ' + result);
+		});
+		
+		return deferred.promise;
+	}
+
 });

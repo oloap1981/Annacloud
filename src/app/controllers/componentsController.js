@@ -1,4 +1,4 @@
-angular.module("applicationModule").controller("componentsController", ["$scope", "MAIL", "EMAIL_CONFIGURATION", "loginService", "logService", "listeService", "$location", "$uibModal", "$uibModalStack", "jwtHelper", "LOG_TYPES", "ROLES", function ($scope, MAIL, EMAIL_CONFIGURATION, loginService, logService, listeService, $location, $uibModal, $uibModalStack, jwtHelper, LOG_TYPES, ROLES) {
+angular.module("applicationModule").controller("componentsController", ["$scope", "MAIL", "EMAIL_CONFIGURATION", "loginService", "logService", "listeService", "$location", "$uibModal", "$uibModalStack", "jwtHelper", "LOG_TYPES", "ROLES", "ORDERSTATUS", function ($scope, MAIL, EMAIL_CONFIGURATION, loginService, logService, listeService, $location, $uibModal, $uibModalStack, jwtHelper, LOG_TYPES, ROLES, ORDERSTATUS) {
 
 	$scope.user = null;
 	$scope.role = "";
@@ -874,16 +874,20 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		});
 	};
 
-	$scope.openSchedaOrdine = function () {
+	$scope.openSchedaOrdine = function (ordine) {
 		$scope.modalInstance = $uibModal.open({
 			animation: true,
 			templateUrl: 'views/modaleSchedaOrdine.html',
 			scope: $scope,
 			resolve: {
-				testoAvviso: function () {
-					return $scope.testoAvviso;
+				ordineScheda: function () {
+					return ordine;
 				}
-			}
+			},
+			controller: ['ordineScheda', function(ordineScheda) {
+				// now we can add the value to the scope and use it as we please...
+				$scope.ordine = ordineScheda;
+			}]
 		});
 	};
 	$scope.openSchedaCliente = function () {
@@ -1106,6 +1110,28 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 			} else return "";
 		} else return "";
 	};
+
+	$scope.traduciStatoOrdini = function(stato){
+		var result = "";
+		switch(stato){
+			case ORDERSTATUS.ORDINATO: 
+				result = "ORDINATO";
+				break;
+			case ORDERSTATUS.LAVORAZIONE1:
+				result = "LAVORAZIONE1";
+				break;
+			case ORDERSTATUS.LAVORAZIONE2:
+				result = "LAVORAZIONE2";
+				break;
+			case ORDERSTATUS.SPEDIZIONE:
+				result = "SPEDIZIONE";
+				break;
+			case ORDERSTATUS.ARCHIVIATO:
+				result = "ARCHIVIATO";
+				break;
+		}
+		return result;
+	}
 
 	/* ************************ */
 	/* FUNZIONI GESTIONE LOADER */

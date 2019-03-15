@@ -1,39 +1,27 @@
 <div class="modal-header">
     
-    <h3 class="modal-title">Ordine n° 1234321</h3>
+    <h3 class="modal-title">Ordine n° {{ordine.codice}}</h3>
     <hr style="margin-bottom: 0;">
 </div>
 <div class="modal-body">
     <table class="text-left">
-        <tr>
-            <td style="width:35%;vertical-align: top"><img style="width:90%; height: auto; border:solid 1px #eee; margin-right: 10px" src="https://s3.eu-central-1.amazonaws.com/unaduna-images-bucket/1544711449915_crossbody.png"></td>
+        <tr ng-repeat="configurazione in ordine.configurazioni">
+            <td style="width:35%;vertical-align: top"><img style="width:90%; height: auto; border:solid 1px #eee; margin-right: 10px" src="{{configurazione.thumbnail}}"></td>
             <td>
-                <h3 style="padding-bottom: 10px; margin: 0;">Crossbody</h3>
+                <h3 style="padding-bottom: 10px; margin: 0;">{{configurazione.nome}}</h3>
                 <table style="width: 100%;">
                     <tr>
-                        <td>
-                            <h4 style="padding-bottom: 0;">Base</h4>
-                        </td>
                         <td>
                             <h4 style="padding-bottom: 0;">Accessori</h4>
                         </td>
                     </tr>
                     <tr>
-                        <td style="width: 50%">
-                            <p>voce<br>
-                                voce<br>
-                                voce<br>
-                                voce<br>
-                                voce
-                                <p>
-                        </td>
-                        <td style="width: 50%">
-                            <p>voce<br>
-                                voce<br>
-                                voce<br>
-                                voce<br>
-                                voce
-                                <p>
+                        <td style="width: 70%">
+                            <p class="riepilogo-accessori">
+                                <span ng-repeat="base in configurazione.elencoEntita" ng-if="base.categoria != 'modello'">
+                                    {{base.categoria.toUpperCase()}}: {{traduciNomiOrdini(base)}}<br>
+                                </span>
+                            </p>
                         </td>
                     </tr>
                 </table>

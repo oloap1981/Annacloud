@@ -1,5 +1,5 @@
 
-<div ng-controller="administratorController as admin" ng-init="admin.initAdmin()">
+<div ng-controller="administratorControllerClienti" ng-init="initAdmin()">
     <div class="container-fluid no-padding" style="min-width: 800px;">
         <nav class="navbar navbar-default admin nomargin ">
             <ul class="nav navbar-nav fixed-navbar-left">
@@ -32,37 +32,24 @@
         </div>
         <div class="row">
             <div class="col-xs-6 stage">
-                <div class="ordine ">
+                <div class="ordine " ng-repeat="utente in utenti">
                     <div class="item clearfix">
     
-                        <h4 class="item-data">Paolo Rossi (2 ordini)</h4>
+                        <h4 class="item-data">{{utente.nome}} {{utente.cognome}}</h4>
                     </div>
                     <div class="action">
-                        <a href="javascript:void(0)" ng-click="openSchedaCliente()" style="width: 50%">vedi dettagli cliente</a><a href="javascript:void(0)" ng-click="openOrdiniCliente()" style="width: 50%">visualizza ordini&nbsp;&nbsp;</a>
-                    </div>
-                </div>
-                <div class="ordine ">
-                    <div class="item clearfix">
-                
-                        <h4 class="item-data">Paolo Rossi (2 ordini)</h4>
-                    </div>
-                    <div class="action">
-                        <a href="javascript:void(0)" ng-click="openSchedaCliente()" style="width: 50%">vedi dettagli cliente</a><a href="javascript:void(0)" ng-click="openOrdiniCliente()" style="width: 50%">visualizza ordini&nbsp;&nbsp;</a>
+                        <a href="javascript:void(0)" ng-click="openSchedaCliente()" style="width: 50%">vedi dettagli cliente</a><a href="javascript:void(0)" ng-click="loadOrders(utente.email)" style="width: 50%">visualizza ordini&nbsp;&nbsp;</a>
                     </div>
                 </div>
             </div>
             <div class="col-xs-6 stage">
-                <div class="ordine ">
+                <div class="ordine " ng-repeat="ordine in ordini">
                     <div class="item clearfix">
-                        <h4 class="item-data"><span>Ordine:</span>1544029763635<br><span>Data:</span>12/02/2019</h4>
-                        <div class="action">
-                            <a href="javascript:void(0)" ng-click="openSchedaOrdine()" class="dettagli" style="width: 100%">vedi dettagli</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="ordine ">
-                    <div class="item clearfix">
-                        <h4 class="item-data"><span>Ordine:</span>1544029763635<br><span>Data:</span>12/02/2019</h4>
+                        <h4 class="item-data">
+                            <span>Ordine:</span>{{ordine.codice}}<br>
+                            <span>Data:</span>{{convertDate(ordine.codice)}}<br>
+                            <span>Stato:</span>{{traduciStatoOrdini(ordine.stato)}}
+                        </h4>
                         <div class="action">
                             <a href="javascript:void(0)" ng-click="openSchedaOrdine()" class="dettagli" style="width: 100%">vedi dettagli</a>
                         </div>

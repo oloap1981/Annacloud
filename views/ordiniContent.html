@@ -95,8 +95,8 @@
                         </div>
                     </div>
                     <div class="order-state  one " ng-class="{'current': ord.stato == 1 }">Ordinato</div>
-                    <div class="order-state  two " ng-class="{'current': ord.stato == 2 }">In lavorazione</div>
-                    <div class="order-state  three " ng-class="{'current': ord.stato == 3 }">In spedizione</div>
+                    <div class="order-state  two " ng-class="{'current': (ord.stato == 2 || ord.stato == 3) }">In lavorazione</div>
+                    <div class="order-state  three " ng-class="{'current': ord.stato == 4 }">In spedizione</div>
                     <p ng-click="eliminaOrdine(ord.codice)" ng-if="ord.stato == 0" class="text-center top-buffer">elimina ordine<small><i class="unaicon-remove"></i></small></p>
                 </div>
             </div>
