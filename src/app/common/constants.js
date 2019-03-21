@@ -12,8 +12,8 @@ angular.module('applicationModule').constant('URLS',{
 }).constant('EMAIL_CONFIGURATION', {
 	adminEmailAddress: 'info@annacloud.it'
 }).constant('AWS_SERVICE_URLS', {
-	
 	urlGetService: "https://5mjp7r5urj.execute-api.eu-central-1.amazonaws.com/UnadunaGet",
+	urlGetSecureService: "https://1dqsq1rbvf.execute-api.eu-central-1.amazonaws.com/UnadunaGetSecure",
 	urlGetServiceNode: 'https://ig24v3ii6b.execute-api.eu-central-1.amazonaws.com/unaDunaGetAccessori',
 	urlPostService: "https://i51umjhba2.execute-api.eu-central-1.amazonaws.com/unadunaPost",
 	urlDeleteService: "https://gtjby1j5oi.execute-api.eu-central-1.amazonaws.com/UnadunaDelete",

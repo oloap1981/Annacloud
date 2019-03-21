@@ -1,4 +1,4 @@
-angular.module("applicationModule").controller("administratorControllerClienti", ["$scope", "loginService", "logService", "listeService", "getOrdiniService", "$location", "ORDERSTATUS", function($scope, loginService, logService, listeService, getOrdiniService, $location, ORDERSTATUS) {
+angular.module("applicationModule").controller("administratorControllerClienti", ["$scope", "chiaviService", "loginService", "logService", "listeService", "getOrdiniService", "$location", "ORDERSTATUS", function($scope, chiaviService, loginService, logService, listeService, getOrdiniService, $location, ORDERSTATUS) {
 
 	$scope.utenti = [];
 	$scope.ordini = [];
@@ -24,10 +24,21 @@ angular.module("applicationModule").controller("administratorControllerClienti",
 	};
 
 	$scope.loadUsers = function(){
-		loginService.listUsers({}).then(function(data){
-			$scope.utenti = $scope.inizializzaUtenti(data.Users);
-		}, function(reason){
-			var reasonR = reason;
+		var email = $scope.getUserEmail();
+		//chiamata per ottere le chiavi
+		chiaviService.getChiave(email).then(function(data) {
+
+			var chiavePubblica = data.data.chiave.chiavePubblica;
+			var chiavePrivata = data.data.chiave.chiavePrivata;
+
+			loginService.listUsers({}, chiavePubblica, chiavePrivata).then(function(data){
+				$scope.utenti = $scope.inizializzaUtenti(data.Users);
+			}, function(reason){
+				var reasonR = reason;
+			});
+		}, 
+		function(reason){
+			var reason = reason;
 		});
 	};
 
@@ -79,4 +90,11 @@ angular.module("applicationModule").controller("administratorControllerClienti",
 			});
 		} else return listaDaOrdinare;
 	};
+
+	$scope.schedaCliente = function(utente){
+
+		
+
+		openSchedaCliente();
+	}
 }]);

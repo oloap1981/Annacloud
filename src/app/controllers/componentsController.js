@@ -890,16 +890,19 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 			}]
 		});
 	};
-	$scope.openSchedaCliente = function () {
+	$scope.openSchedaCliente = function (cliente) {
 		$scope.modalInstance = $uibModal.open({
 			animation: true,
 			templateUrl: 'views/modaleSchedaCliente.html',
 			scope: $scope,
 			resolve: {
-				testoAvviso: function () {
-					return $scope.testoAvviso;
+				clienteScheda: function () {
+					return cliente;
 				}
-			}
+			},
+			controller: ['clienteScheda', function(clienteScheda) {
+				$scope.cliente = clienteScheda;
+			}]
 		});
 	};
 	$scope.openOrdiniCliente = function () {

@@ -417,26 +417,35 @@ angular.module("applicationModule").service("loginService", function($q, $rootSc
 	    return deferred.promise;
 	};
 	
-	this.listUsers = function(parametersList){
-		AWS.config.update({accessKeyId: 'AKIAJQUPU6OHCOSKFVGQ', secretAccessKey: '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'});
+	this.listUsers = function(parametersList, publicKey, privateKey){
 
-		var CognitoIdentityServiceProvider = AWS.CognitoIdentityServiceProvider;
-		var client = new CognitoIdentityServiceProvider({ apiVersion: '2016-04-19', region: 'eu-central-1' });
-		
-		parametersList.UserPoolId = 'eu-central-1_NMPGOZAz3';
-
-		// var userPool = this.getUserPool();
 		var deferred = $q.defer();
-		client.listUsers(parametersList, function(err, result){
-			if (err) {
-				deferred.reject (err);
-				return;
-			}
-			deferred.resolve (result);
-			console.log('call result: ' + result);
-		});
-		
-		return deferred.promise;
-	}
+		this.getCurrentUser().then(function (data) {
+			if (data != null) {
+				if (data.signInUserSession != null) {
+					var idToken = data.signInUserSession;
 
+					AWS.config.update({accessKeyId: publicKey, secretAccessKey: privateKey});
+
+					var CognitoIdentityServiceProvider = AWS.CognitoIdentityServiceProvider;
+					var client = new CognitoIdentityServiceProvider({ apiVersion: '2016-04-19', region: 'eu-central-1', sessionTokens: idToken.accessToken });
+					
+					parametersList.UserPoolId = 'eu-central-1_NMPGOZAz3';
+
+					
+					client.listUsers(parametersList, function(err, result){
+						if (err) {
+							deferred.reject (err);
+							return;
+						}
+						console.log('call result: ' + result);
+						deferred.resolve (result);
+					});
+					
+					
+				}
+			}
+		});
+		return deferred.promise;
+	};
 });

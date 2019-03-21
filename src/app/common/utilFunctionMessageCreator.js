@@ -76,6 +76,13 @@ angular.module("applicationModule").service("UtilFunctionMessagesCreator", funct
 		return message;
 	};
 
+	this.getChiaviMessage = function(emailUtente){
+		var message = {};
+		message.functionName = "UnaDunaGetChiave";
+		message.emailUtente = emailUtente;
+		return message;
+	}
+
 	this.putConfigurazioneMessage = function(configurazione){
 		var message = {};
 		message.functionName = "UnaDunaPutConfigurazione";
