@@ -431,7 +431,6 @@ angular.module("applicationModule").service("loginService", function($q, $rootSc
 					var client = new CognitoIdentityServiceProvider({ apiVersion: '2016-04-19', region: 'eu-central-1', sessionTokens: idToken.accessToken });
 					
 					parametersList.UserPoolId = 'eu-central-1_NMPGOZAz3';
-
 					
 					client.listUsers(parametersList, function(err, result){
 						if (err) {

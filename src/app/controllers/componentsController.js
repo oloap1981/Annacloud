@@ -890,6 +890,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 			}]
 		});
 	};
+
 	$scope.openSchedaCliente = function (cliente) {
 		$scope.modalInstance = $uibModal.open({
 			animation: true,
@@ -1134,7 +1135,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 				break;
 		}
 		return result;
-	}
+	};
 
 	/* ************************ */
 	/* FUNZIONI GESTIONE LOADER */

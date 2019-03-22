@@ -8,7 +8,7 @@ angular.module("applicationModule").controller("administratorController", ["$sco
 
 	$scope.initAdmin = function () {
 
-		$scope.loadOrders()
+		$scope.loadOrders();
 
 		var altezza = $(window).height() - $('.navbar').outerHeight()-95;
 		$('.stage').outerHeight(altezza);
@@ -20,7 +20,7 @@ angular.module("applicationModule").controller("administratorController", ["$sco
 	};
 
 	$scope.convertDate = function(millis){
-		var n = Number(millis)
+		var n = Number(millis);
 		var date = new Date(n);
 		var dateString = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
 		return dateString;
@@ -39,14 +39,14 @@ angular.module("applicationModule").controller("administratorController", ["$sco
 				$scope.openMessageModal("errore aggiornamento ordine");
 			}
 		);
-	}
+	};
 
 	$scope.svuotaListe = function(){
 		$scope.ordinato = [];
 		$scope.lavorazione1 = [];
 		$scope.lavorazione2 = [];
 		$scope.spedizione = [];
-	}
+	};
 
 	$scope.loadOrders = function(){
 		//scarico tutti gli ordini presenti su database (pensare ad una strategia per quando gli ordini saranno tanti)
@@ -90,7 +90,7 @@ angular.module("applicationModule").controller("administratorController", ["$sco
 				  // code block
 			  }
 		});
-	}
+	};
 
 	$scope.ordinaListaOrdini = function(listaDaOrdinare){
 		if(listaDaOrdinare.length > 0){
@@ -106,5 +106,12 @@ angular.module("applicationModule").controller("administratorController", ["$sco
 				return 0;
 			});
 		} else return listaDaOrdinare;
+	};
+
+	$scope.search = function(item) {
+		if (!$scope.query || (item.codice.toLowerCase().indexOf($scope.query) != -1) || (item.email.toLowerCase().indexOf($scope.query.toLowerCase()) != -1) || ($scope.convertDate(item.codice).indexOf($scope.query.toLowerCase()) != -1) ){
+			return true;
+		}
+		return false;
 	};
 }]);

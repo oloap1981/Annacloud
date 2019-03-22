@@ -21,6 +21,11 @@
     </div>
     <div class="container-fluid" style="min-width: 1200px; max-width: 1200px">
         <div class="row">
+            <div class="col-xs-12 stage-label">
+                <input type="text" placeholder="Cerca l'ordine" ng-model="query" />
+            </div>
+        </div>
+        <div class="row">
             <div class="col-xs-3 stage-label"><h3 class="Slabel">Ordinato</h3></div>
             <div class="col-xs-3 stage-label"><h3 class="Slabel">Lavorazione #1</h3></div>
             <div class="col-xs-3 stage-label"><h3 class="Slabel">Lavorazione #2</h3></div>
@@ -28,7 +33,7 @@
         </div>
         <div class="row">
             <div class="col-xs-3 stage">
-                <div class="ordine" ng-repeat="ordine in ordinato" >
+                <div class="ordine" ng-repeat="ordine in ordinato | filter: search" >
                     <div class="item clearfix">
                         <h4 class="item-data"><span>Ordine:</span>{{ordine.codice}}<br><span>Data:</span>{{convertDate(ordine.codice)}}<br><span>Utente:</span>{{ordine.email}}</h4>
                     </div>
@@ -38,32 +43,32 @@
                 </div>
             </div>
             <div class="col-xs-3 stage">
-                <div class="ordine" ng-repeat="ordine in lavorazione1" >
+                <div class="ordine" ng-repeat="ordine in lavorazione1 | filter: search" >
                     <div class="item clearfix">
                         <h4 class="item-data"><span>Ordine:</span>{{ordine.codice}}<br><span>Data:</span>{{convertDate(ordine.codice)}}<br><span>Utente:</span>{{ordine.email}}</h4>
                     </div>
                     <div class="action">
-                        <a href="javascript:void(0)" class="dettagli">vedi dettagli</a><a href="javascript:void(0)" class="precedente" ng-click="updateStatus(ordine, 1)">&lt;</a><a href="javascript:void(0)" class="successivo" ng-click="updateStatus(ordine, 3)">&gt;</a>
+                        <a href="javascript:void(0)" ng-click="openSchedaOrdine(ordine)" class="dettagli">vedi dettagli</a><a href="javascript:void(0)" class="precedente" ng-click="updateStatus(ordine, 1)">&lt;</a><a href="javascript:void(0)" class="successivo" ng-click="updateStatus(ordine, 3)">&gt;</a>
                     </div>
                 </div>
             </div>
             <div class="col-xs-3 stage">
-                <div class="ordine" ng-repeat="ordine in lavorazione2" >
+                <div class="ordine" ng-repeat="ordine in lavorazione2 | filter: search" >
                     <div class="item clearfix">
                         <h4 class="item-data"><span>Ordine:</span>{{ordine.codice}}<br><span>Data:</span>{{convertDate(ordine.codice)}}<br><span>Utente:</span>{{ordine.email}}</h4>
                     </div>
                     <div class="action">
-                        <a href="javascript:void(0)" class="dettagli">vedi dettagli</a><a href="javascript:void(0)" class="precedente" ng-click="updateStatus(ordine, 2)">&lt;</a><a href="javascript:void(0)" class="successivo " ng-click="updateStatus(ordine, 4)">&gt;</a>
+                        <a href="javascript:void(0)" ng-click="openSchedaOrdine(ordine)" class="dettagli">vedi dettagli</a><a href="javascript:void(0)" class="precedente" ng-click="updateStatus(ordine, 2)">&lt;</a><a href="javascript:void(0)" class="successivo " ng-click="updateStatus(ordine, 4)">&gt;</a>
                     </div>
                 </div>
             </div>
             <div class="col-xs-3 stage">
-                <div class="ordine" ng-repeat="ordine in spedizione" >
+                <div class="ordine" ng-repeat="ordine in spedizione | filter: search" >
                     <div class="item clearfix">
                         <h4 class="item-data"><span>Ordine:</span>{{ordine.codice}}<br><span>Data:</span>{{convertDate(ordine.codice)}}<br><span>Utente:</span>{{ordine.email}}</h4>
                     </div>
                     <div class="action">
-                        <a href="javascript:void(0)" class="dettagli">vedi dettagli</a><a href="javascript:void(0)" class="precedente" ng-click="updateStatus(ordine, 3)">&lt;</a><a href="javascript:void(0)" class="save" ng-click="updateStatus(ordine, 5)"><i class="fa fa-floppy-o"></i></a>
+                        <a href="javascript:void(0)" ng-click="openSchedaOrdine(ordine)" class="dettagli">vedi dettagli</a><a href="javascript:void(0)" class="precedente" ng-click="updateStatus(ordine, 3)">&lt;</a><a href="javascript:void(0)" class="save" ng-click="updateStatus(ordine, 5)"><i class="fa fa-floppy-o"></i></a>
                     </div>
                 </div>
             </div>

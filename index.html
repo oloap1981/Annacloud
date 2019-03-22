@@ -70,6 +70,8 @@
 								<a href="javascript:void(0)" id="user-menu" data-toggle="dropdown"><i class="unaicon-login"></i> <span class="hidden-xs"></span></a>
 								<ul class="dropdown-menu" aria-labelledby="user-menu">
 									<li ng-hide="isCurrentUserAdmin()"><a href="#!/ordini">I tuoi Ordini</a></li>
+									<li ng-show="isCurrentUserAdmin()"><a href="#!/admin-ordini">Amministrazione Ordini</a></li>
+									<li ng-show="isCurrentUserAdmin()"><a href="#!/admin-clienti">Amministrazione Clienti</a></li>
 									<li><a href="#!/profilo">Profilo</a></li>
 									<li><a href="#!/logout" ng-click="logOut()">Esci</a></li>
 								</ul>

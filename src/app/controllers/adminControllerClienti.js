@@ -17,7 +17,7 @@ angular.module("applicationModule").controller("administratorControllerClienti",
 	};
 
 	$scope.convertDate = function(millis){
-		var n = Number(millis)
+		var n = Number(millis);
 		var date = new Date(n);
 		var dateString = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
 		return dateString;
@@ -31,14 +31,18 @@ angular.module("applicationModule").controller("administratorControllerClienti",
 			var chiavePubblica = data.data.chiave.chiavePubblica;
 			var chiavePrivata = data.data.chiave.chiavePrivata;
 
-			loginService.listUsers({}, chiavePubblica, chiavePrivata).then(function(data){
+			var parameters = {};
+			// var attributes = ["telefono"]
+			// parameters.AttributesToGet = attributes;
+
+			loginService.listUsers(parameters, chiavePubblica, chiavePrivata).then(function(data){
 				$scope.utenti = $scope.inizializzaUtenti(data.Users);
 			}, function(reason){
 				var reasonR = reason;
 			});
 		}, 
 		function(reason){
-			var reason = reason;
+			var reasonR = reason;
 		});
 	};
 
@@ -48,7 +52,7 @@ angular.module("applicationModule").controller("administratorControllerClienti",
 			$scope.ordini = $scope.ordinaListaOrdini(data.data.ordini);
 			$scope.hideLoader();
 		});
-	}
+	};
 	
 	$scope.inizializzaUtenti = function(users){
 		var utenti = [];
@@ -58,6 +62,10 @@ angular.module("applicationModule").controller("administratorControllerClienti",
 			utente.nome = $scope.getAttributeValue(user.Attributes, "name");
 			utente.cognome = $scope.getAttributeValue(user.Attributes, "family_name");
 			utente.email = $scope.getAttributeValue(user.Attributes, "email");
+			utente.telefono = $scope.getAttributeValue(user.Attributes, "custom:telefono");
+			utente.indSpe = $scope.getAttributeValue(user.Attributes, "custom:indSpe");
+			utente.capSpe = $scope.getAttributeValue(user.Attributes, "custom:capSpe");
+			utente.cittaSpe = $scope.getAttributeValue(user.Attributes, "custom:cittaSpe");
 
 			utenti.push(utente);
 		});
@@ -92,9 +100,13 @@ angular.module("applicationModule").controller("administratorControllerClienti",
 	};
 
 	$scope.schedaCliente = function(utente){
+		$scope.openSchedaCliente(utente);
+	};
 
-		
-
-		openSchedaCliente();
-	}
+	$scope.search = function(item) {
+		if (!$scope.query || (item.cognome.toLowerCase().indexOf($scope.query) != -1) || (item.nome.toLowerCase().indexOf($scope.query.toLowerCase()) != -1) || (item.email.toLowerCase().indexOf($scope.query.toLowerCase()) != -1) ){
+			return true;
+		}
+		return false;
+	};
 }]);

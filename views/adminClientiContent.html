@@ -31,11 +31,15 @@
             </div>
         </div>
         <div class="row">
+            <div class="col-xs-12 stage-label">
+                <input type="text" placeholder="Cerca l'utente" ng-model="query" />
+            </div>
+        </div>
+        <div class="row">
             <div class="col-xs-6 stage">
-                <div class="ordine " ng-repeat="utente in utenti">
+                <div class="ordine " ng-repeat="utente in utenti | filter: search">
                     <div class="item clearfix">
-    
-                        <h4 class="item-data">{{utente.nome}} {{utente.cognome}}</h4>
+                        <h4 class="item-data">{{utente.nome}} {{utente.cognome}} ({{utente.email}})</h4>
                     </div>
                     <div class="action">
                         <a href="javascript:void(0)" ng-click="schedaCliente(utente)" style="width: 50%">vedi dettagli cliente</a><a href="javascript:void(0)" ng-click="loadOrders(utente.email)" style="width: 50%">visualizza ordini&nbsp;&nbsp;</a>
@@ -51,7 +55,7 @@
                             <span>Stato:</span>{{traduciStatoOrdini(ordine.stato)}}
                         </h4>
                         <div class="action">
-                            <a href="javascript:void(0)" ng-click="openSchedaOrdine()" class="dettagli" style="width: 100%">vedi dettagli</a>
+                            <a href="javascript:void(0)" ng-click="openSchedaOrdine(ordine)" class="dettagli" style="width: 100%">vedi dettagli</a>
                         </div>
                     </div>
                 </div>
