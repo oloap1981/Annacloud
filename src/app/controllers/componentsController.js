@@ -719,6 +719,9 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		if (nomeAccessorio == "ciondoli") {
 			return "charms";
 		}
+		if (nomeAccessorio == "ciondolo") {
+			return "ciondoli";
+		}
 		return nomeAccessorio;
 	};
 
@@ -1015,10 +1018,52 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 							result = entita.nome;
 						}
 						break;
+					case "tracolla":
+						splitted = entita.nome.split("_");
+						if (splitted.length == 3) {
+							result = splitted[2];
+						} else {
+							result = entita.nome;
+						}
+						break;
 					case "colore":
 						splitted = entita.nome.split("_");
 						if (splitted.length == 2) {
 							result = splitted[1];
+						} else if (splitted.length == 3) {
+							result = splitted[2];
+						} else {
+							result = entita.nome;
+						}
+						break;
+					case "fodere":
+						splitted = entita.nome.split("_");
+						if (splitted.length == 3) {
+							result = splitted[2];
+						} else {
+							result = entita.nome;
+						}
+						break;
+					case "ciondolo":
+						splitted = entita.nome.split("_");
+						if (splitted.length == 3) {
+							result = splitted[2];
+						} else {
+							result = entita.nome;
+						}
+						break;
+					case "strozzino":
+						splitted = entita.nome.split("_");
+						if (splitted.length == 3) {
+							result = splitted[2];
+						} else {
+							result = entita.nome;
+						}
+						break;
+					case "corde":
+						splitted = entita.nome.split("_");
+						if (splitted.length == 3) {
+							result = splitted[2];
 						} else {
 							result = entita.nome;
 						}
@@ -1064,10 +1109,20 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 							result = entita.nome;
 						}
 						break;
+					case "tracolla":
+						splitted = entita.nome.split("_");
+						if (splitted.length == 3) {
+							result = splitted[2];
+						} else {
+							result = entita.nome;
+						}
+						break;
 					case "colore":
 						splitted = entita.nome.split("_");
 						if (splitted.length == 2) {
 							result = splitted[1];
+						} else if(splitted.length == 3) {
+							result = splitted[2];
 						} else {
 							result = entita.nome;
 						}
@@ -1102,6 +1157,38 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 						splitted = entita.nome.split("_");
 						if (splitted.length == 2) {
 							result = splitted[1];
+						} else {
+							result = entita.nome;
+						}
+						break;
+					case "fodere":
+						splitted = entita.nome.split("_");
+						if (splitted.length == 3) {
+							result = splitted[2];
+						} else {
+							result = entita.nome;
+						}
+						break;
+					case "ciondolo":
+						splitted = entita.nome.split("_");
+						if (splitted.length == 3) {
+							result = splitted[2];
+						} else {
+							result = entita.nome;
+						}
+						break;
+					case "strozzino":
+						splitted = entita.nome.split("_");
+						if (splitted.length == 3) {
+							result = splitted[2];
+						} else {
+							result = entita.nome;
+						}
+						break;
+					case "corde":
+						splitted = entita.nome.split("_");
+						if (splitted.length == 3) {
+							result = splitted[2];
 						} else {
 							result = entita.nome;
 						}

@@ -434,6 +434,9 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		if (nomeAccessorio == "ciondoli") {
 			return "charms";
 		}
+		if (nomeAccessorio == "ciondolo") {
+			return "ciondoli";
+		}
 		return nomeAccessorio;
 	};
 
@@ -484,13 +487,43 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			$scope.modelloSelezionato = modello.nome;
 			$scope.tipiAccessoriModelloSelezionato = $scope.tipiAccessori.get(modello.nome);
 
-			var singolaEntita = configController.getSingolaEntita("metalleria", modello.nome, "metalleria_argento");
-			var entitaMetalleria = configController.getInternalEntitaObjct(singolaEntita.categoria, singolaEntita.codice, singolaEntita.nome, singolaEntita.nome, singolaEntita.prezzo, singolaEntita.categoria, singolaEntita.urlStripe, 3, singolaEntita.urlStripe, singolaEntita.nomeStile, singolaEntita.nomeBorchia, singolaEntita.colore, singolaEntita.metallo, []);
-			$scope.metalleriaObbligatoria = configController.getUrlMetalleria(modello.nome, "argento");
-			configController.aggiungiElementoAStack($scope.metalleriaObbligatoria, 3, false, entitaMetalleria);
+			if(configController.singolaEntitaPresente("metalleria", modello.nome, "metalleria_argento")){
+				var singolaEntita = configController.getSingolaEntita("metalleria", modello.nome, "metalleria_argento");
+				var entitaMetalleria = configController.getInternalEntitaObjct(singolaEntita.categoria, singolaEntita.codice, singolaEntita.nome, singolaEntita.nome, singolaEntita.prezzo, singolaEntita.categoria, singolaEntita.urlStripe, 3, singolaEntita.urlStripe, singolaEntita.nomeStile, singolaEntita.nomeBorchia, singolaEntita.colore, singolaEntita.metallo, []);
+				$scope.metalleriaObbligatoria = configController.getUrlMetalleria(modello.nome, "argento");
+				configController.aggiungiElementoAStack($scope.metalleriaObbligatoria, 3, false, entitaMetalleria);
+			}
+
+			if(modello.nome == "bucket_pelle"){
+				$scope.coloreSelezionato = "anise";
+				//creo un set di default di accessori: corda, strozzino, ciondolo (,tracolla?)
+				var singolaEntitaColore = configController.getSingolaEntita("colore", modello.nome, "CORPO_RES_ANISE");
+				var entitaColore = configController.getInternalEntitaObjct(singolaEntitaColore.categoria, singolaEntitaColore.codice, singolaEntitaColore.nome, singolaEntitaColore.nome, singolaEntitaColore.prezzo, singolaEntitaColore.categoria, singolaEntitaColore.urlStripe, 5, singolaEntitaColore.urlStripe, singolaEntitaColore.nomeStile, singolaEntitaColore.nomeBorchia, singolaEntitaColore.colore, singolaEntitaColore.metallo, []);
+				configController.aggiungiElementoAStack(entitaColore.urlStripe, 5, false, entitaColore);
+
+				var singolaEntitaCorda = configController.getSingolaEntita("corde", modello.nome, "CORDA_RES_ANISE");
+				var entitaCorda = configController.getInternalEntitaObjct(singolaEntitaCorda.categoria, singolaEntitaCorda.codice, singolaEntitaCorda.nome, singolaEntitaCorda.nome, singolaEntitaCorda.prezzo, singolaEntitaCorda.categoria, singolaEntitaCorda.urlStripe, 6, singolaEntitaCorda.urlStripe, singolaEntitaCorda.nomeStile, singolaEntitaCorda.nomeBorchia, singolaEntitaCorda.colore, singolaEntitaCorda.metallo, []);
+				configController.aggiungiElementoAStack(entitaCorda.urlStripe, 6, false, entitaCorda);
+
+				var singolaEntitaCiondolo = configController.getSingolaEntita("ciondolo", modello.nome, "CIONDOLO_RES_ANISE");
+				var entitaCiondolo= configController.getInternalEntitaObjct(singolaEntitaCiondolo.categoria, singolaEntitaCiondolo.codice, singolaEntitaCiondolo.nome, singolaEntitaCiondolo.nome, singolaEntitaCiondolo.prezzo, singolaEntitaCiondolo.categoria, singolaEntitaCiondolo.urlStripe, 7, singolaEntitaCiondolo.urlStripe, singolaEntitaCiondolo.nomeStile, singolaEntitaCiondolo.nomeBorchia, singolaEntitaCiondolo.colore, singolaEntitaCiondolo.metallo, []);
+				configController.aggiungiElementoAStack(entitaCiondolo.urlStripe, 7, false, entitaCiondolo);
+
+				var singolaEntitaStrozzino = configController.getSingolaEntita("strozzino", modello.nome, "STROZZINO_RES_ANISE");
+				var entitaStrozzino = configController.getInternalEntitaObjct(singolaEntitaStrozzino.categoria, singolaEntitaStrozzino.codice, singolaEntitaStrozzino.nome, singolaEntitaStrozzino.nome, singolaEntitaStrozzino.prezzo, singolaEntitaStrozzino.categoria, singolaEntitaStrozzino.urlStripe, 8, singolaEntitaStrozzino.urlStripe, singolaEntitaStrozzino.nomeStile, singolaEntitaStrozzino.nomeBorchia, singolaEntitaStrozzino.colore, singolaEntitaStrozzino.metallo, []);
+				configController.aggiungiElementoAStack(entitaStrozzino.urlStripe, 8, false, entitaStrozzino);
+
+				var singolaEntitaFodera = configController.getSingolaEntita("fodere", modello.nome, "FODERA_RES_ARTE");
+				var entitaFodera = configController.getInternalEntitaObjct(singolaEntitaFodera.categoria, singolaEntitaFodera.codice, singolaEntitaFodera.nome, singolaEntitaFodera.nome, singolaEntitaFodera.prezzo, singolaEntitaFodera.categoria, singolaEntitaFodera.urlStripe, 9, singolaEntitaFodera.urlStripe, singolaEntitaFodera.nomeStile, singolaEntitaFodera.nomeBorchia, singolaEntitaFodera.colore, singolaEntitaFodera.metallo, []);
+				configController.aggiungiElementoAStack(entitaFodera.urlStripe, 9, false, entitaFodera);
+
+				var singolaEntitaTracolla = configController.getSingolaEntita("tracolla", modello.nome, "TRACOLLA_RES_ANISE");
+				var entitaTracolla = configController.getInternalEntitaObjct(singolaEntitaTracolla.categoria, singolaEntitaTracolla.codice, singolaEntitaTracolla.nome, singolaEntitaTracolla.nome, singolaEntitaTracolla.prezzo, singolaEntitaTracolla.categoria, singolaEntitaTracolla.urlStripe, 11, singolaEntitaTracolla.urlStripe, singolaEntitaTracolla.nomeStile, singolaEntitaTracolla.nomeBorchia, singolaEntitaStrozzino.colore, singolaEntitaTracolla.metallo, []);
+				configController.aggiungiElementoAStack(entitaTracolla.urlStripe, 11, false, entitaTracolla);
+			}
 
 			//apro il pannello dei colori
-			configController.selezioneTipoAccessorio("colore");
+			configController.selezioneTipoAccessorio(modello.accessorioInizialeSelezionato);
 			configController.caricaSpinner();
 			$scope.showDropdownButton = true;
 		});
@@ -1173,7 +1206,6 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 				height: 960,
 				source: dataSourceString,
 				frames: 8,
-				framesX: 8,
 				sense: 1,
 				rendering: renderType,
 				responsive: true,
@@ -1249,6 +1281,16 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		}
 		return "";
 	};
+
+	configController.singolaEntitaPresente = function(categoria, modello, nome) {
+		for (var i = 0; i < $scope.entita.length; i++) {
+			var singolaEntita = $scope.entita[i];
+			if (singolaEntita.modello == modello && singolaEntita.categoria == categoria && singolaEntita.nome == nome) {
+				return true;
+			}
+		}
+		return false;
+	}
 
 	configController.getSingolaEntita = function (categoria, modello, nome) {
 		for (var i = 0; i < $scope.entita.length; i++) {
@@ -1726,9 +1768,6 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 					"click": function () { this.closable = true; },
 					"hide.bs.dropdown": function () { return this.closable; }
 				});
-
-
-
 			});
 		})(jQuery);
 
