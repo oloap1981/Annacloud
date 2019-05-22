@@ -494,6 +494,14 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 				configController.aggiungiElementoAStack($scope.metalleriaObbligatoria, 3, false, entitaMetalleria);
 			}
 
+			if(modello.nome == "bucket_paglia"){
+
+				var singolaEntitaFodera = configController.getSingolaEntita("fodere", modello.nome, "FODERA_RES_ARTE");
+				var entitaFodera = configController.getInternalEntitaObjct(singolaEntitaFodera.categoria, singolaEntitaFodera.codice, singolaEntitaFodera.nome, singolaEntitaFodera.nome, singolaEntitaFodera.prezzo, singolaEntitaFodera.categoria, singolaEntitaFodera.urlStripe, 9, singolaEntitaFodera.urlStripe, singolaEntitaFodera.nomeStile, singolaEntitaFodera.nomeBorchia, singolaEntitaFodera.colore, singolaEntitaFodera.metallo, []);
+				configController.aggiungiElementoAStack(entitaFodera.urlStripe, 9, false, entitaFodera);
+
+			}
+
 			if(modello.nome == "bucket_pelle"){
 				$scope.coloreSelezionato = "anise";
 				//creo un set di default di accessori: corda, strozzino, ciondolo (,tracolla?)
@@ -1290,7 +1298,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			}
 		}
 		return false;
-	}
+	};
 
 	configController.getSingolaEntita = function (categoria, modello, nome) {
 		for (var i = 0; i < $scope.entita.length; i++) {
