@@ -990,7 +990,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 				$scope.openMessageModal("errore salvataggio configurazione");
 			}
 		);
-	}
+	};
 
 	/* ********************** */
 	/* FUNZIONI DI TRADUZIONE */
