@@ -702,7 +702,12 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 	configController.isColore = function (entita) {
 		if (entita != undefined) {
 			if (entita.categoria != undefined && entita.categoria != "") {
-				return entita.categoria == 'colore';
+				return entita.categoria == 'colore' ||
+				entita.categoria == 'tracolla' ||
+				entita.categoria == 'corde' ||
+				entita.categoria == 'strozzino' ||
+				entita.categoria == 'ciondolo' ||
+				entita.categoria == 'fodere';
 			}
 		}
 		return false;
