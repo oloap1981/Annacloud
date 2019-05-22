@@ -435,7 +435,10 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			return "charms";
 		}
 		if (nomeAccessorio == "ciondolo") {
-			return "ciondoli";
+			return "ciondolo";
+		}
+		if (nomeAccessorio == "corde") {
+			return "cordicella";
 		}
 		return nomeAccessorio;
 	};
@@ -496,9 +499,9 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 
 			if(modello.nome == "bucket_paglia"){
 
-				var singolaEntitaFodera = configController.getSingolaEntita("fodere", modello.nome, "FODERA_RES_ARTE");
-				var entitaFodera = configController.getInternalEntitaObjct(singolaEntitaFodera.categoria, singolaEntitaFodera.codice, singolaEntitaFodera.nome, singolaEntitaFodera.nome, singolaEntitaFodera.prezzo, singolaEntitaFodera.categoria, singolaEntitaFodera.urlStripe, 9, singolaEntitaFodera.urlStripe, singolaEntitaFodera.nomeStile, singolaEntitaFodera.nomeBorchia, singolaEntitaFodera.colore, singolaEntitaFodera.metallo, []);
-				configController.aggiungiElementoAStack(entitaFodera.urlStripe, 9, false, entitaFodera);
+				var singolaEntitaFoderaPaglia = configController.getSingolaEntita("fodere", modello.nome, "FODERA_RES_ARTE");
+				var entitaFoderaPaglia = configController.getInternalEntitaObjct(singolaEntitaFoderaPaglia.categoria, singolaEntitaFoderaPaglia.codice, singolaEntitaFoderaPaglia.nome, singolaEntitaFoderaPaglia.nome, singolaEntitaFoderaPaglia.prezzo, singolaEntitaFoderaPaglia.categoria, singolaEntitaFoderaPaglia.urlStripe, 9, singolaEntitaFoderaPaglia.urlStripe, singolaEntitaFoderaPaglia.nomeStile, singolaEntitaFoderaPaglia.nomeBorchia, singolaEntitaFoderaPaglia.colore, singolaEntitaFoderaPaglia.metallo, []);
+				configController.aggiungiElementoAStack(entitaFoderaPaglia.urlStripe, 9, false, entitaFoderaPaglia);
 
 			}
 
