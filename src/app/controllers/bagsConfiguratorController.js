@@ -83,6 +83,10 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 
 	$scope.showDropdownButton = false;
 
+	configController.modelFilter = function (item) { 
+		return item.attivo; 
+	};
+
 	configController.getRepeaterClass = function (accessorio, index) {
 		var toReturn = "";
 		if (index == 0) {
@@ -497,8 +501,8 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			if(modello.nome == "bucket_paglia"){
 
 				var singolaEntitaFodera = configController.getSingolaEntita("fodere", modello.nome, "FODERA_RES_ARTE");
-				var entitaFodera = configController.getInternalEntitaObjct(singolaEntitaFodera.categoria, singolaEntitaFodera.codice, singolaEntitaFodera.nome, singolaEntitaFodera.nome, singolaEntitaFodera.prezzo, singolaEntitaFodera.categoria, singolaEntitaFodera.urlStripe, 9, singolaEntitaFodera.urlStripe, singolaEntitaFodera.nomeStile, singolaEntitaFodera.nomeBorchia, singolaEntitaFodera.colore, singolaEntitaFodera.metallo, []);
-				configController.aggiungiElementoAStack(entitaFodera.urlStripe, 9, false, entitaFodera);
+				var entitaFodera = configController.getInternalEntitaObjct(singolaEntitaFodera.categoria, singolaEntitaFodera.codice, singolaEntitaFodera.nome, singolaEntitaFodera.nome, singolaEntitaFodera.prezzo, singolaEntitaFodera.categoria, singolaEntitaFodera.urlStripe, 6, singolaEntitaFodera.urlStripe, singolaEntitaFodera.nomeStile, singolaEntitaFodera.nomeBorchia, singolaEntitaFodera.colore, singolaEntitaFodera.metallo, []);
+				configController.aggiungiElementoAStack(entitaFodera.urlStripe, 6, false, entitaFodera);
 
 			}
 
@@ -522,8 +526,8 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 				configController.aggiungiElementoAStack(entitaStrozzino.urlStripe, 8, false, entitaStrozzino);
 
 				var singolaEntitaFodera = configController.getSingolaEntita("fodere", modello.nome, "FODERA_RES_ARTE");
-				var entitaFodera = configController.getInternalEntitaObjct(singolaEntitaFodera.categoria, singolaEntitaFodera.codice, singolaEntitaFodera.nome, singolaEntitaFodera.nome, singolaEntitaFodera.prezzo, singolaEntitaFodera.categoria, singolaEntitaFodera.urlStripe, 9, singolaEntitaFodera.urlStripe, singolaEntitaFodera.nomeStile, singolaEntitaFodera.nomeBorchia, singolaEntitaFodera.colore, singolaEntitaFodera.metallo, []);
-				configController.aggiungiElementoAStack(entitaFodera.urlStripe, 9, false, entitaFodera);
+				var entitaFodera = configController.getInternalEntitaObjct(singolaEntitaFodera.categoria, singolaEntitaFodera.codice, singolaEntitaFodera.nome, singolaEntitaFodera.nome, singolaEntitaFodera.prezzo, singolaEntitaFodera.categoria, singolaEntitaFodera.urlStripe, 10, singolaEntitaFodera.urlStripe, singolaEntitaFodera.nomeStile, singolaEntitaFodera.nomeBorchia, singolaEntitaFodera.colore, singolaEntitaFodera.metallo, []);
+				configController.aggiungiElementoAStack(entitaFodera.urlStripe, 10, false, entitaFodera);
 
 				var singolaEntitaTracolla = configController.getSingolaEntita("tracolla", modello.nome, "TRACOLLA_RES_ANISE");
 				var entitaTracolla = configController.getInternalEntitaObjct(singolaEntitaTracolla.categoria, singolaEntitaTracolla.codice, singolaEntitaTracolla.nome, singolaEntitaTracolla.nome, singolaEntitaTracolla.prezzo, singolaEntitaTracolla.categoria, singolaEntitaTracolla.urlStripe, 11, singolaEntitaTracolla.urlStripe, singolaEntitaTracolla.nomeStile, singolaEntitaTracolla.nomeBorchia, singolaEntitaStrozzino.colore, singolaEntitaTracolla.metallo, []);
@@ -998,7 +1002,12 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			$scope.metalloVincolante = entita.metallo;
 		}
 
-		configController.aggiungiStrato(url, entita.ordine, (entita.categoria != "colore" && entita.categoria != "metalleria"), entita);
+		configController.aggiungiStrato(url, entita.ordine, (entita.categoria != "colore" && 
+		entita.categoria != "metalleria" && 
+		entita.categoria != "fodere" && 
+		entita.categoria != "strozzino" && 
+		entita.categoria != "tracolla" && 
+		entita.categoria != "corde"), entita);
 
 		if ($scope.tipoEntitaSelezionata == "stile") {
 			if ($scope.stack.indexOf(url) == -1) {
@@ -1537,6 +1546,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 
 		for (var i = 0; i < size; i++) {
 			tempModelli[modelliNonOrdinati[i].ordineInterfaccia - 1] = modelliNonOrdinati[i];
+			
 		}
 
 		return tempModelli;
@@ -1564,12 +1574,13 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 	};
 
 	configController.salvaConfigurazione = function (isCarrello) {
-		if($scope.isCurrentUserAdmin()){
-			$scope.configurazione.tipo = "P";//se sono utente ADMIN creo sempre una preconfigurata
-		} else {
-			$scope.configurazione.tipo = "N";
-		}
 
+		if($scope.configurazione.tipo != undefined && $scope.configurazione.tipo == "N"){
+			if($scope.isCurrentUserAdmin()){
+				$scope.configurazione.tipo = "P";//se sono utente ADMIN creo sempre una preconfigurata
+			}
+		}
+		
 		$scope.configurazione.carrello = isCarrello;
 		var dataLog = new Date();
 		var resolution = 560;

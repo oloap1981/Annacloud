@@ -751,7 +751,10 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 			} else {
 				if($scope.getTempConfigurazione().nome == ""){
 					$scope.openConfigNameModal(oldname);
-				}	
+				} else {
+					//salvo la configurazione con il nome che già possiede
+					$scope.salva($scope.getTempConfigurazione().nome);
+				}
 			}
 		}
 	};
@@ -948,31 +951,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 			$uibModalStack.dismissAll();
 			$scope.openConfigNameModalNamePresent();
 		} else {
-			$scope.getTempConfigurazione().nome = configName;
-
-			$scope.setLoaderMessage("salvo la configurzione '" + configName + "' creata...");
-			$scope.showLoader();
-
-			listeService.putConfigurazione($scope.getTempConfigurazione()).then(
-				function (res) {
-					console.log(res);
-					$scope.getTempConfigurazione().codice = res.data.codiceConfigurazioneRisposta;
-					//$scope.addToPreferiti($scope.getTempConfigurazione());//aggiunge ai preferiti locali
-					$scope.ricaricaListe($scope.getUserEmail(), "", true);
-					$scope.hideLoader();
-					if ($scope.getTempConfigurazione().carrello) {
-						//$scope.addToCarrello($scope.getTempConfigurazione());//aggiunge ai preferiti locali
-						$scope.changePath('/carrello');
-					}
-
-				},
-				function (reason) {
-					console.log(reason);
-					logService.saveLog(dataLog.toISOString(), $scope.getUserEmail(), "componentsController - okConfig - putConfigurazione", "errore salvataggio configurazione " + $scope.getTempConfigurazione().nome + ": " + reason.errorMessage, LOG_TYPES.error);
-					$scope.hideLoader();
-					$scope.openMessageModal("errore salvataggio configurazione");
-				}
-			);
+			$scope.salva(configName);
 			$uibModalStack.dismissAll();
 		}
 	};
@@ -984,6 +963,34 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 	$scope.ok = function () {
 		$uibModalStack.dismissAll();
 	};
+
+	$scope.salva = function(configName) {
+		$scope.getTempConfigurazione().nome = configName;
+
+		$scope.setLoaderMessage("salvo la configurzione '" + configName + "' creata...");
+		$scope.showLoader();
+
+		listeService.putConfigurazione($scope.getTempConfigurazione()).then(
+			function (res) {
+				console.log(res);
+				$scope.getTempConfigurazione().codice = res.data.codiceConfigurazioneRisposta;
+				//$scope.addToPreferiti($scope.getTempConfigurazione());//aggiunge ai preferiti locali
+				$scope.ricaricaListe($scope.getUserEmail(), "", true);
+				$scope.hideLoader();
+				if ($scope.getTempConfigurazione().carrello) {
+					//$scope.addToCarrello($scope.getTempConfigurazione());//aggiunge ai preferiti locali
+					$scope.changePath('/carrello');
+				}
+
+			},
+			function (reason) {
+				console.log(reason);
+				logService.saveLog(dataLog.toISOString(), $scope.getUserEmail(), "componentsController - okConfig - putConfigurazione", "errore salvataggio configurazione " + $scope.getTempConfigurazione().nome + ": " + reason.errorMessage, LOG_TYPES.error);
+				$scope.hideLoader();
+				$scope.openMessageModal("errore salvataggio configurazione");
+			}
+		);
+	}
 
 	/* ********************** */
 	/* FUNZIONI DI TRADUZIONE */
