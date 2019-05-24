@@ -1185,6 +1185,8 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 
 	//qui avviene la richiesta del modello in base agli accessori selezionati
 	configController.caricaSpinner = function () {
+		
+
 		$scope.showZoom = false;
 
 		var date1 = new Date();
@@ -1253,6 +1255,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 						$(".riepilogo").fadeIn();
 						$("#transition-image").show();
 
+						$(".accessori-categoria")[0].swiper.update();//ricaricolo swiper prima dello spinner per evitare visualizzazioni errate dell'array
 					}
 				},
 				onComplete: function () {
@@ -1274,6 +1277,8 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 
 						$scope.spinIcon = false;
 						$scope.spinAnim = false;
+
+						
 					}
 				}
 			};
