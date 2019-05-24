@@ -31,7 +31,7 @@
                                 <table>
                                     <tr ng-repeat="base in conf.elencoEntita" ng-if="base.categoria == 'modello'">
                                         <td><span>MODELLO:</span></td>
-                                        <td>{{base.descrizione}}</td>
+                                        <td>{{base.descrizione.replace('_', ' ').toUpperCase()}}</td>
                                     </tr>
                                     <tr>
                                 </table>
@@ -68,7 +68,7 @@
                                     <table>
                                         <tr ng-repeat="base in conf.elencoEntita" ng-if="base.categoria == 'modello'">
                                             <td><span>MODELLO:</span></td>
-                                            <td>{{base.descrizione}}</td>
+                                            <td>{{base.descrizione.replace('_', ' ').toUpperCase()}}</td>
                                         </tr>
                                     </table>
                                 </div>

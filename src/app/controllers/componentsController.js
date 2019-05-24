@@ -416,7 +416,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 				} else {
 					$scope.openMessageModal("Grazie per il tuo acquisto su Anna Cloud. Riceverai a breve una email di conferma.");
 					//preparo l'invio delle mail
-					$scope.ordineInCorso.codice = res.data.codiceConfigurazioneRisposta;
+					$scope.ordineInCorso.codice = res.data.codiceOrdineRisposta;
 					$scope.generateMessageText();
 					var clientMessage = $scope.generateEmailMessage_client();
 					var adminMessage = $scope.generateEmailMessage_admin();
@@ -1090,7 +1090,8 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 				var resutl = "";
 				switch (entita.categoria) {
 					case "modello":
-						result = entita.nome;
+						var temp = entita.nome.replace('_', ' ');
+						result = temp.toUpperCase();
 						break;
 					case "ciondoli":
 						var temp = entita.nome.toLowerCase();
