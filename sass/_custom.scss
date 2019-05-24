@@ -1860,34 +1860,20 @@ a.link {
         img {
             opacity:.5;
         }
-        span {
-            @include transition(all 200ms ease-out);
-            @media (pointer: hover) {
-                bottom: 120px;
-                color: $brand-primary;
-                border: solid 1px $brand-primary;
-                background: #fff;
-                font-weight: normal;
-            }
-            @media screen and (pointer: none) and (max-width: $screen-xs) {
-                bottom: 130px;
-             
-            }
-             
-        }
+        
         
     }
     img {
         width: 100%;
     }
-    span {
+    .price {
         display: inline-block;
         width: 80%;
         padding: 10px 0;
         font-size: 0.85em;
         font-weight: lighter;
         text-transform: uppercase;
-        border: solid 1px white;
+        //border: solid 1px white;
         position: relative;
         bottom: 0;
         margin-bottom: 10px;
@@ -1896,6 +1882,23 @@ a.link {
             font-size: .65em;
             padding: 0;
         }
+    }
+    .full-price {
+        font-weight: 400;
+        font-size: 1.25em; 
+    }
+    .barred {
+        text-decoration: line-through;
+        font-size: 1em; 
+    }
+    .discount-price {
+        font-weight: 400;
+        font-size: 1.25em; 
+        //background: #f00;
+        color: #f00;
+        padding: 2px;
+        font-size: 1em;
+
     }
     .leTwinsLabel {
         width: 60%; height: auto;position: absolute; top: 0; left: 0; z-index: 10;
@@ -2628,9 +2631,18 @@ a.link {
         .size {
             margin: 10px 0 0;
         }
-        .total-price {
+        .total-price, .discount-price {
             display: block;
             margin: 10px 0;
+        }
+        .discount-price {
+            color: #f00;
+            margin-top: 0;
+        }
+        .barred {
+            margin-bottom: 0;
+            font-size: 1.2em;
+            text-decoration: line-through;
         }
         .price-detail {
             margin: 0 0 10px;
@@ -2659,9 +2671,19 @@ a.link {
             font-size: 22px;
             font-weight: 100;
             display: inline-block;
-            padding-top: 7px;
+            padding-top: 12px;
             
         } 
+        .barred {
+            font-size: .6em;
+            text-decoration: line-through;
+            position: absolute;
+            top: 1px;
+        }
+        .discount-price {
+            color: #f00;
+            font-size: .8em;
+        }
         .model {
             margin: 0;
             padding: 0;
@@ -2669,8 +2691,8 @@ a.link {
             color: #999;
         }
         .info{
-            color: #ccc;
-            font-size: 10px;
+            color: #000;
+            font-size: 9px;
             p {
                 margin: 3px 0 0 0;
             }

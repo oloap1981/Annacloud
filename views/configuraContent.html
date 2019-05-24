@@ -11,7 +11,7 @@
 		<div class="container">
 			<ul class="nav navbar-nav fixed-navbar-left">
 				<li class="home">
-					<a href="#!/home" class="link" ><i class="fa fa-home hidden"></i><img src="images/logonew-big.png" class="hidden-xs" style="height: 25px;"><img src="images/logonew-mobile-conf-big.png" class=" visible-xs-inline-block" style="height: 15px"></a>
+					<a href="#!/home" class="link" ><i class="fa fa-home hidden"></i><img src="images/logonew-mobile-conf-big.png" class="hidden-xs" style="height: 25px;padding:5px"><img src="images/logonew-mobile-conf-big.png" class=" visible-xs-inline-block" style="height: 15px"></a>
 				</li>
 				<li class="dropdown yamm-fw keep-open">
 					<a id="nuovaConfigurazioneToggle" href="javascript:void(0)" class="active dropdown-toggle active link modello" ng-click="contr.switchShowDropdown()" ng-show="showDropdownButton"><i class="unaicon-bag-reset visible-xs"></i> <span class="hidden-xs">cambia modello</span></a>
@@ -25,7 +25,7 @@
 								</div>
 								<div class="col-xs-12 bags-line">
 									<!-- CON IL REPEATER VADO A ELENCARE TUTTI I MODELLI DI BORSA DISPONIBILI  -->
-									<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center no-margin no-padding bags-line" ng-repeat="modello in modelli | filter: contr.modelFilter">
+									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-center no-margin no-padding bags-line" ng-repeat="modello in modelli | filter: contr.modelFilter">
 										<a href="#" onclick="return false" class="modello-borsa" id="start3dbutton" type="button" ng-click="contr.scegliModello(modello)">
 										<img ng-src="{{modello.urlThumbnail}}" class="hidden visible-xs" style="padding: 20px; padding-bottom: 0;" />
 										<img ng-src="{{modello.urlThumbnailHD}}" class="hidden-xs" /><h5 class="nome no-margin">{{modello.nome}}<!--<br><small>{{getModelSizes(modello.nome)}}cm</small>--></h5></a>
@@ -94,8 +94,9 @@
 	<div id="price-panel" ng-show="modelloSelezionato != ''">
 		<p class="size">{{contr.getModelloSelezionato()}}<br>{{getModelSizes(modelloSelezionato)}} cm</p>
 		<hr>
-		<h3 class="total-price ">{{contr.priceManager.price}}&euro;</h3>
-		<p class="price-detail">22% IVA inclusa,<br>spese di sped. escluse</p>
+		<h3 class="total-price barred">{{contr.priceManager.price}}&euro;</h3>
+		<h3 class="discount-price ">280&euro;</h3>
+		<p class="price-detail">22% IVA inc.<br>spedizione gratuita<br>consegna in 7 giorni lavorativi</p>
 		<div ng-if="contr.isLogged()">
 			<a href="" class="btn btn-default btn-block" ng-click="contr.aggiungiAlCarrello()" ng-hide="isCurrentUserAdmin()">Acquista</a>
 			<a href="" style="padding-top: 5px; display: block;"  ng-click="contr.aggiungiAiPreferiti()"><small>salva</small></a>
@@ -393,7 +394,7 @@
 		<div class="container price-container">
 			<div class="row">
 				<div class="col-xs-4 text-center" style="padding-right:5px;">
-					<h3 class="price nomargin">{{contr.priceManager.price}}&euro;</h3>
+					<h3 class="price nomargin"> <span class="barred">{{contr.priceManager.price}}&euro;</span> <span class="discount-price">280,90&euro;</span></h3>
 				</div>
 				<div ng-if="contr.isLogged()">
 					<div class="col-xs-4 text-center" style="padding:0px;">
@@ -411,7 +412,7 @@
 			</div>
 			<div class="row info ">
 				<div class="col-sm-12 text-center clearfix">
-					<p>22% IVA inclusa, spese di sped. escluse</p>
+					<p>22% IVA inc. spedizione gratuita consegna in 7 giorni lavorativi</p>
 				</div>
 			</div>
 		</div>

@@ -51,7 +51,20 @@
 
 <body ng-app="applicationModule" ng-controller="componentsController" class="ng-scope">
 	<page-loader latency="2000" bg-color="#ffffff">
-		<img class="gif-loader" src="images/annacloud-png-anim-logo.png">
+		<div class="loader">
+			<!--<img class="gif-loader hidden" src="images/annacloud-png-anim-logo.png">-->
+			<div class="la-ball-grid-pulse la-2x custom">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
 	</page-loader>
 	<div class="container no-padding" style="box-shadow: 0 0 20px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.0);">
 		<div ng-hide="hideElement()" ng-cloak>
@@ -135,11 +148,12 @@
 							<div class="col-sm-4">
 								<ul class="nav navbar-nav navbar-nav-flex">
 									<li>
-										<a href="#" onclick="return false" class="primary" data-toggle="dropdown">Scopri</a>
-										<ul class="dropdown-menu dropdown-menu-centered" aria-labelledby="user-menu">
+										<a href="#!/esperienza" class="primary">Scopri</a>
+										<!--<a href="#" onclick="return false" class="primary" data-toggle="dropdown">Scopri</a>-->
+										<!--<ul class="dropdown-menu dropdown-menu-centered" aria-labelledby="user-menu">
 											<li><a href="#!/visione" class="secondary">Visione</a></li>
 											<li><a href="#!/esperienza" class="secondary">Esperienza</a></li>
-										</ul>
+										</ul>-->
 									</li>
 									<li>
 										<a href="#!/contatti" class="primary">Chi siamo</a>
@@ -164,11 +178,12 @@
 								</ul>-->
 							</li>
 							<li>
-								<a href="#" onclick="return false" data-toggle="dropdown" class="">Scopri</a>
-								<ul class="dropdown-menu " aria-labelledby="user-menu">
+								<a href="#!/esperienza" class="">Scopri</a>
+								<!--<a href="#" onclick="return false" data-toggle="dropdown" class="">Scopri</a>-->
+								<!--<ul class="dropdown-menu " aria-labelledby="user-menu">
 									<li><a href="#!/visione">Visione</a></li>
 									<li><a href="#!/esperienza">Esperienza</a></li>
-								</ul>
+								</ul>-->
 							</li>
 							<li>
 								<a a href="#!/contatti" class="">Chi siamo</a>
@@ -222,9 +237,9 @@
 					<div class="col-md-2 col-sm-3 hidden-xs">
 						<h3>Scopri</h3>
 						<ul>
-							<li>
+							<!--<li>
 								<a href="#!/visione" class="" ng-click="setVisione()">Visione</a>
-							</li>
+							</li>-->
 							<li>
 								<a href="#!/esperienza" class="" ng-click="setEsperienza()">Esperienza</a>
 							</li>
@@ -264,8 +279,20 @@
 
 	<!---  LOADER   -->
 	<div id="loaderOverlay" style="visibility:hidden">
-		<img class="gif-loader" src="images/annacloud-png-anim-logo.png">
-		<!-- <span class="loaderMessage">{{getLoaderMessage()}}</span> -->
+		<div id="loader" class="loader">
+			<!--<img class="gif-loader hidden" src="images/annacloud-png-anim-logo.png">-->
+			<div class="la-ball-grid-pulse la-2x custom">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
 	</div>
 
 	<!-- build:js js/vendor.js -->

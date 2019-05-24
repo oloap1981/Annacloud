@@ -91,12 +91,14 @@ angular.module("applicationModule").controller("accessoController", ["$scope", "
 						}
 					});
 			}, function(reason) {
-				  console.log(reason);
-				  if(reason.code == "NotAuthorizedException"){
+				console.log(reason);
+				var dataLog = new Date();
+				if (reason.code == "NotAuthorizedException" || reason.code == "UserNotFoundException"){
 					$scope.openMessageModal("Nome utente o password errati");	
 				  } else {
-					logService.saveLog(dataLog.toISOString(), email, "accessoController - login", "si è verificato un problema durante il login: " + reason.errorMessage, LOG_TYPES.error);
-					$scope.openMessageModal(reason.message);
+					logService.saveLog(dataLog.toISOString(), email, "accessoController - login", "si è verificato un problema durante il login: " + reason.message, LOG_TYPES.error);
+					//$scope.openMessageModal(reason.message);
+					$scope.openMessageModal("Si &egrave; verificato un problema di connessione. Se il problema presiste, riprovare in un secondo momento. Grazie.");
 				  }
 			}
 		);
