@@ -94,8 +94,8 @@
 	<div id="price-panel" ng-show="modelloSelezionato != ''">
 		<p class="size">{{contr.getModelloSelezionato()}}<br>{{getModelSizes(modelloSelezionato)}} cm</p>
 		<hr>
-		<h3 class="total-price barred">{{contr.priceManager.price}}&euro;</h3>
-		<h3 class="discount-price ">280&euro;</h3>
+		<h3 class="total-price barred">{{contr.priceManager.fullPrice}}&euro;</h3>
+		<h3 class="discount-price ">{{contr.priceManager.price}}&euro;</h3>
 		<p class="price-detail">22% IVA inc.<br>spedizione gratuita<br>consegna in 7 giorni lavorativi</p>
 		<div ng-if="contr.isLogged()">
 			<a href="" class="btn btn-default btn-block" ng-click="contr.aggiungiAlCarrello()" ng-hide="isCurrentUserAdmin()">Acquista</a>

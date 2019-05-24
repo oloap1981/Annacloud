@@ -720,7 +720,19 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 			return "charms";
 		}
 		if (nomeAccessorio == "ciondolo") {
-			return "ciondoli";
+			return "nappa";
+		}
+		if (nomeAccessorio == "corde") {
+			return "filo";
+		}
+		if (nomeAccessorio == "strozzino") {
+			return "chiusura";
+		}
+		if (nomeAccessorio == "corde") {
+			return "filo";
+		}
+		if (nomeAccessorio == "fodere") {
+			return "fodera";
 		}
 		return nomeAccessorio;
 	};
@@ -732,6 +744,10 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 			return "35X30";
 		} else if (modelName == "crossbody") {
 			return "24X15";
+		} else if (modelName == "bucket_paglia") {
+			return "35X30";
+		} else if (modelName == "bucket_pelle") {
+			return "35X30";
 		} else {
 			return "";
 		}
@@ -1094,7 +1110,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 						result = temp.toUpperCase();
 						break;
 					case "ciondoli":
-						var temp = entita.nome.toLowerCase();
+						temp = entita.nome.toLowerCase();
 						var splitted = temp.split("_");
 						if (splitted.length == 5) {
 							result = splitted[1] + " " + splitted[3];
