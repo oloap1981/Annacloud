@@ -15,7 +15,7 @@ angular.module('applicationModule').constant('URLS',{
 	urlGetService: "https://5mjp7r5urj.execute-api.eu-central-1.amazonaws.com/UnadunaGet",
 	urlGetSecureService: "https://1dqsq1rbvf.execute-api.eu-central-1.amazonaws.com/UnadunaGetSecure",
 	urlGetServiceNode: 'https://ig24v3ii6b.execute-api.eu-central-1.amazonaws.com/unaDunaGetAccessori',
-	urlPostService: "https://i51umjhba2.execute-api.eu-central-1.amazonaws.com/unadunaPost",
+	urlPostService: "https://1xc116fzlg.execute-api.eu-central-1.amazonaws.com/UnaDunaPutSecure",
 	urlDeleteService: "https://gtjby1j5oi.execute-api.eu-central-1.amazonaws.com/UnadunaDelete",
 	urlOtherService: "https://779m9s40ij.execute-api.eu-central-1.amazonaws.com/UnaDunaOther"
 }).constant('LOG_TYPES', {

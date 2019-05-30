@@ -51,6 +51,10 @@
                     <div class="order-buttons">
                         <a href="javascript:void(0)" class="btn btn-default " ng-click="goToPage(conf)">modifica il modello</a>
                         <a href="javascript:void(0)" class="btn btn-default" ng-click="addToCart(conf)" ng-hide="isCurrentUserAdmin()">aggiungi al carrello</a>
+                        <div ng-show="isCurrentUserAdmin()">
+                            <a href="javascript:void(0)" class="btn btn-default" ng-click="editPreconfig(conf)">modifica setting</a>
+                            <input ng-model="conf.ordineInterfaccia"/>
+                        </div>
                         <p ng-click="eliminaConfigurazione(conf.codice, conf.nome)" class="remove">elimina <small><i class="unaicon-remove"></i></small></p>
                     </div>
                 </div>
@@ -92,7 +96,14 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="order-buttons">
-                        <a href="javascript:void(0)" class="btn btn-default " ng-click="goToPage(conf)">modifica il modello</a>            
+                        <a href="javascript:void(0)" class="btn btn-default " ng-click="goToPage(conf)">modifica il modello</a>    
+                        <div ng-show="isCurrentUserAdmin()">
+                            <label>Ordine</label><input ng-model="conf.ordineInterfaccia"><br/>
+                            <label>Influencer</label><select ng-model="conf.urlImmagineInfluencer">
+                                <option ng-repeat="item in influencers" value="{{item.imageUrl}}" data-image="{{item.imageUrl}}">{{getInfluencerName(item.imageUrl)}}</option>
+                            </select><br/>
+                            <a href="javascript:void(0)" class="btn btn-default" ng-click="editPreconfig(conf)">salva</a>
+                        </div>        
                         <a href="javascript:void(0)" class="btn  btn-default" ng-click="addToCart(conf)" ng-hide="isCurrentUserAdmin()">aggiungi al carrello</a>
                     </div>
                 </div>

@@ -343,7 +343,23 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 
 	$scope.caricaListePreconfigurati = function (email, page, showLoader) {
 		listeService.getConfigurazioniPreconfigurate().then(function (data) {
+
 			$scope.preconfigurati = data.data.configurazioni;
+			$scope.preconfigurati.sort(function(a,b) {
+				return (a.codice > b.codice) ? -1 : ((b.codice > a.codice) ? 1 : 0);
+			}); 
+			$scope.preconfigurati.sort(function(a,b) {
+				if(a.ordineInterfaccia == 0 && b.ordineInterfaccia == 0){
+					return 0;
+				} else if (a.ordineInterfaccia == 0 && b.ordineInterfaccia > 0){
+					return 1;
+				} else if (a.ordineInterfaccia > 0 && b.ordineInterfaccia == 0){
+					return -1;
+				} else {
+					return (a.ordineInterfaccia < b.ordineInterfaccia) ? -1 : ((b.ordineInterfaccia < a.ordineInterfaccia) ? 1 : 0);
+				}
+			}); 
+			//
 		});
 	};
 
