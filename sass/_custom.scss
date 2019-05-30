@@ -3415,26 +3415,36 @@ footer {
         pointer-events: none;
     }
     
-    .swiper-pagination-bullet {
+    .swiper-container-horizontal>.swiper-pagination .swiper-pagination-bullet {
         background: $brand-color-logo !important;
         opacity: .2 !important;
         width: 10px;
         height: 10px;
-        margin: 0 2px ;
+        margin: 0 2px;
+        @media screen and (min-width: $screen-sm) {
+            width: 12px;
+            height: 12px;
+            margin: 0 5px;
+        }
         @media screen and (min-width: $screen-md) {
             width: 15px;
             height: 15px;
-            margin: 0 10px;
+            margin: 0 8px;
         }
         @media screen and (min-width: $screen-lg) {
             width: 20px;
             height: 20px;
-            margin: 0 13px;
+            margin: 0 10px;
         }
         
         &.swiper-pagination-bullet-active {
             opacity: 1 !important;
             
+        }
+    }
+    .swiper-pagination {
+        @media screen and (max-width: $screen-xs) {
+            //display: none;
         }
     }
 }
