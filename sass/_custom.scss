@@ -1278,15 +1278,16 @@ a.link {
         top: 15vw;
     }
 }
-.slogan-2 {
-    right: 0;
-    bottom: 5vw;
-    text-align: right; 
+.slogan-2 { // temporaneamente l'unico visibile
+    //right: 0;
+    bottom: 10vw;
+    //text-align: right; 
+    text-align: center; 
     span {
-        padding-right: 8vw;
+        //padding-right: 8vw;
         
         &.cta {
-            padding-left: 1.5vw;
+            //padding-left: 1.5vw;
         }
     }
     @media screen and (max-width: $screen-xs) {
@@ -1881,7 +1882,7 @@ a.link {
         margin-bottom: 10px;
         @media screen and (max-width: $screen-sm) {
             width: 100%;
-            font-size: .65em;
+            //font-size: .65em;
             padding: 0;
         }
     }
@@ -3375,12 +3376,16 @@ footer {
         width: 50px;
         top: 0;
         height: 100%;
+        display: none;
+         @media screen and (max-width: $screen-xs) {
+            display: block;
+        }
     }
 
     .swiper-slide {
         margin-bottom: 50px;
         @media screen and (max-width: $screen-xs) {
-            margin-bottom: 50px;
+            margin-bottom: 0px;
         }
     }
     .swiper-button-prev,
@@ -3408,6 +3413,12 @@ footer {
             background-size: 4vw, cover;
         }  
     }
+    .swiper-button-next, .swiper-button-prev {
+        width: 50px;
+        bottom: 0;
+        height: 50px;
+        top: auto;
+    }
 
     .swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled {
         opacity: 0;
@@ -3420,7 +3431,7 @@ footer {
         opacity: .2 !important;
         width: 10px;
         height: 10px;
-        margin: 0 2px;
+        margin: 0 5px;
         @media screen and (min-width: $screen-sm) {
             width: 12px;
             height: 12px;
@@ -3442,13 +3453,12 @@ footer {
             
         }
     }
-    .swiper-pagination {
+    .swiper-container-horizontal>.swiper-pagination {
         @media screen and (max-width: $screen-xs) {
-            //display: none;
+            display: none !important;
         }
     }
 }
-
 
 #paypal-button {
     border-radius: 0 !important;
