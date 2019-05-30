@@ -2,7 +2,8 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 
 	$scope.user = null;
 	$scope.role = "";
-	$scope.costoSpedizione = 19.50;
+	$scope.costoSpedizione = 0;
+	//$scope.costoSpedizione = 19.50;
 
 	$scope.testoAvviso = "";
 	$scope.avvisoInputNome = "Dai un nome alla tua configurazione";

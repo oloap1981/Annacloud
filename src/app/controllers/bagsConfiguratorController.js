@@ -436,6 +436,9 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 	};
 
 	configController.traduciCategoriaAccessorio = function (nomeAccessorio) {
+		if (nomeAccessorio == "colore") {
+			return "corpo";
+		}
 		if (nomeAccessorio == "ciondoli") {
 			return "charms";
 		}
