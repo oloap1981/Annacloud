@@ -745,9 +745,9 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		} else if (modelName == "crossbody") {
 			return "24X15";
 		} else if (modelName == "bucket_paglia") {
-			return "35X30";
+			return "21X30";
 		} else if (modelName == "bucket_pelle") {
-			return "35X30";
+			return "21X30";
 		} else {
 			return "";
 		}

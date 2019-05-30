@@ -885,16 +885,17 @@ a.link {
         width: 100px;
     }
 }
+
 .logo-big {
     /*position: absolute;
     z-index: 1000;
     left: 50%;
     top: 70px;*/
     display: inline-block;
-    width: 130px;
+    width: 132px;
     height: 24px;
     text-align: center;
-    background: url('/images/logonew-big.png') no-repeat center center;
+    background: url('/images/logonew-big@2.png') no-repeat center center;
     background-size: contain;
 }
 
@@ -905,6 +906,7 @@ a.link {
         margin-left: -100px;
     }
 }
+
 .navbar>.container .logo-small,
 .navbar>.container-fluid .logo-small {
     margin-left: -65px;
@@ -1901,7 +1903,8 @@ a.link {
         font-size: 1.25em;
 
     }
-    .leTwinsLabel {
+
+    .influencer-label {
         width: 60%; height: auto;position: absolute; top: 0; left: 0; z-index: 10;
         @media screen and (min-width: $screen-sm) {
             width: 50%;
@@ -2329,16 +2332,16 @@ a.link {
     border-left: none;
     padding-left: 0;
     left: 30px;
-    @media screen and (max-height: 670px) {
-        left: 165px;
+    @media screen and (max-height: 700px) {
+        left: 200px;
     }
 }
 #nextFrame {
     border-right: none;
     padding-right: 0;
     right: 30px;
-    @media screen and (max-height: 670px) {
-        right: 165px;
+    @media screen and (max-height: 700px) {
+        right: 200px;
     }
 }
 
@@ -3415,15 +3418,20 @@ footer {
     .swiper-pagination-bullet {
         background: $brand-color-logo !important;
         opacity: .2 !important;
-        width: 20px;
-        height: 20px;
-        margin: 0 10px !important;
-        @media screen and (max-width: $screen-xs) {
+        width: 10px;
+        height: 10px;
+        margin: 0 2px ;
+        @media screen and (min-width: $screen-md) {
             width: 15px;
             height: 15px;
-            margin: 0 5px !important;
-            
+            margin: 0 10px;
         }
+        @media screen and (min-width: $screen-lg) {
+            width: 20px;
+            height: 20px;
+            margin: 0 13px;
+        }
+        
         &.swiper-pagination-bullet-active {
             opacity: 1 !important;
             
