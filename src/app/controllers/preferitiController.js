@@ -2,6 +2,7 @@ angular.module("applicationModule").controller("preferitiController", ["$scope",
 	function($scope, loginService, listeService, $location) {
 
 		$scope.influencers = [
+			{imageUrl: ""},
 			{imageUrl:"https://s3.eu-central-1.amazonaws.com/unaduna-images-bucket/MODELLI/INFLUENCER-LABEL/hudakattam-label.png"},
 			{imageUrl:"https://s3.eu-central-1.amazonaws.com/unaduna-images-bucket/MODELLI/INFLUENCER-LABEL/lemods-label.png"},
 			{imageUrl:"https://s3.eu-central-1.amazonaws.com/unaduna-images-bucket/MODELLI/INFLUENCER-LABEL/letwins-label.png"}
@@ -19,7 +20,7 @@ angular.module("applicationModule").controller("preferitiController", ["$scope",
 				}
 			}
 			return result;
-		}
+		};
 	
 		$scope.goToPage = function(conf){
 			$scope.setTempConfigurazione(conf);

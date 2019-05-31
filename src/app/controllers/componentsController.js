@@ -303,6 +303,20 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		var numeroEntita = configurazione.elencoEntita.length;
 		for (var i = 0; i < numeroEntita; i++) {
 			var entita = configurazione.elencoEntita[i];
+			if(entita.categoria == "modello"){
+				prezzoCalcolato += entita.prezzoPieno;
+			} else {
+				prezzoCalcolato += entita.prezzo;
+			}
+		}
+		return prezzoCalcolato;
+	};
+
+	$scope.calcolaPrezzoScontato = function (configurazione) {
+		var prezzoCalcolato = 0;
+		var numeroEntita = configurazione.elencoEntita.length;
+		for (var i = 0; i < numeroEntita; i++) {
+			var entita = configurazione.elencoEntita[i];
 			prezzoCalcolato += entita.prezzo;
 		}
 		return prezzoCalcolato;

@@ -505,6 +505,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			$scope.coloreSelezionato = "black";
 
 			var entitaModello = configController.getInternalEntitaObjct("modello", modello.codice, modello.nome, modello.nome, modello.prezzo, modello.prezzoPieno, "modello", modello.urlStripe, 0, modello.urlStripe, "", "", "", "", modello.accessori, modello.accessorioInizialeSelezionato);
+			entitaModello.prezzoPieno = modello.prezzoPieno;
 			configController.aggiungiElementoAStack(url, 0, false, entitaModello);
 			$scope.modelloSelezionato = modello.nome;
 			$scope.tipiAccessoriModelloSelezionato = $scope.tipiAccessori.get(modello.nome);
@@ -1615,7 +1616,13 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 
 	configController.salvaConfigurazione = function (isCarrello) {
 
-		if($scope.configurazione.tipo != undefined && $scope.configurazione.tipo == "N"){
+		if($scope.configurazione.tipo == undefined){
+			if($scope.isCurrentUserAdmin()){
+				$scope.configurazione.tipo = "P";//se sono utente ADMIN creo sempre una preconfigurata
+			} else {
+				$scope.configurazione.tipo = "N";
+			}
+		} else if($scope.configurazione.tipo == "N"){
 			if($scope.isCurrentUserAdmin()){
 				$scope.configurazione.tipo = "P";//se sono utente ADMIN creo sempre una preconfigurata
 			}
