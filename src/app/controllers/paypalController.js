@@ -44,7 +44,6 @@
 									{
 										amount: {
 											total: $scope.calcolaPrezzoOrdine($scope.getOrdineInCorso()) + $scope.getCostoSpedizione(),
-											//total: '100',
 											currency: 'EUR'
 										}
 									}

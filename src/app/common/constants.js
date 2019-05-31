@@ -10,6 +10,7 @@ angular.module('applicationModule').constant('URLS',{
 	requestTypeModelli: 'MODELLI',
 	requestTypeEntita: 'ENTITA'
 }).constant('EMAIL_CONFIGURATION', {
+	//adminEmailAddress: 'paolo.salvadori@sevenit.it'
 	adminEmailAddress: 'info@annacloud.it'
 }).constant('AWS_SERVICE_URLS', {
 	urlGetService: "https://5mjp7r5urj.execute-api.eu-central-1.amazonaws.com/UnadunaGet",
