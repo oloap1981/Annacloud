@@ -330,9 +330,9 @@ angular.module('applicationModule').constant('MAIL',{
 								<!--[if mso]><table width='100%' cellpadding='0' cellspacing='0' border='0'><tr><td style='padding-right: 30px; padding-left: 30px; padding-top: 30px; padding-bottom: 30px;'><![endif]-->\
 								<div style='color:#909090;line-height:120%; padding-right: 30px; padding-left: 30px; padding-top: 30px; padding-bottom: 30px;'>\
 								<div style='color:#909090;text-align:left;'>\
-									<p style='margin: 0;font-size: 14px;line-height: 16px;text-align: justify'>Ciao e grazie per aver acquistato una borsa <strong>Anna Cloud</strong>.<br><br>La nostra filosofia non comprende solo la realizzazione di borse di alta fattura, ma anche un percorso di coinvolgimento del cliente durante tutta la fase di lavorazione.</p>\
+									<p style='margin: 0;font-size: 14px;line-height: 16px;text-align: justify'>Ciao <strong>NOME_ACQUIRENTE</strong>.<br><br>La nostra filosofia non comprende solo la realizzazione di borse di alta fattura, ma anche un processo produttivo organizzato e just in time.</p>\
 									<p style='margin: 0;font-size: 14px;line-height: 16px;text-align: justify'>&#160;</p>\
-									<p style='margin: 0;font-size: 14px;line-height: 16px;text-align: justify'>Riceverai la tua borsa tra circa 20 giorni. Essendo un prodotto unico ci serve il tempo per realizzarlo su misura, proprio come lo vuoi tu.<br><br>Ma in questo tempo ti terremo aggiornato su come procede il lavoro, cos&igrave; da farti capire cosa c&#8217;&egrave; dietro una borsa di qualit&agrave;.<br>Per qualunque informazione trovi di seguito il nostro numero di assistenza: 0571/1776800.</p>\
+									<p style='margin: 0;font-size: 14px;line-height: 16px;text-align: justify'>Riceverai la tua borsa entro un massimo di 7 giorni lavorativi. Essendo un prodotto unico ci serve il tempo per realizzarlo su misura, proprio come lo vuoi tu.<br><br>Ti invieremo una mail non appena il tuo ordine sar&#224; spedito dal nostro magazzino.</p>\
 									<p style='margin: 0;font-size: 14px;line-height: 16px;text-align: justify'>&#160;</p>\
 									<p style='margin: 0;font-size: 14px;line-height: 16px;text-align: justify'>Un caro saluto e a presto</p>\
 									<p style='margin: 0;font-size: 14px;line-height: 16px;text-align: justify'><strong>Il team di Anna Cloud</strong></p>\

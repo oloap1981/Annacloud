@@ -62,7 +62,7 @@ angular.module("applicationModule").controller("carrelloController", ["$scope", 
 		var totale = 0;
 		for(var i = 0; i < carrello.length; i++){
 			var configurazione = carrello[i];
-			totale += $scope.calcolaPrezzo(configurazione);
+			totale += $scope.calcolaPrezzoScontato(configurazione);
 		}
 		return totale;
 	};

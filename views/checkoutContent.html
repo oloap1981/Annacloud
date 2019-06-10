@@ -13,9 +13,8 @@
                     <div class="order-state one summary checkout">
                         <h4 class="title-tertiary ">Informazioni di contatto e consegna</h4>
                         <hr>
-                    	<div class="shipment-info" >
+                    	<div class="shipment-info" ng-show="canBuy()">
                             <h5>{{getNomeECognome()}}<br>{{getIndirizzoSpedizione()}} - {{getCittaSpedizione()}} - {{getCAPSpedizione()}}</h5>
-                            <!--button class="btn btn-default btn-save ">Modifica</button-->
                         </div>
                         <div class="order-buttons top-buffer text-center" ng-hide="canBuy()">
                             <span style="color: #c00"><b>Non si puo' procedere all'acquisto,<br>mancano i dati di spedizione</b></span><p class="top-buffer"><a href="javascript:void(0);" ng-click="inserisciIndirizzoSpedizione()" class="btn btn-action btn-block"><b>aggiungi</b></a></p>
@@ -28,8 +27,8 @@
                             <hr>
 	                        <div  class="row">
 	                            <div class="col-sm-12 text-left">
-	                                <h5 ng-if="conf.nome" style="text-transform: uppercase">{{conf.nome}} <small ng-repeat="base in conf.elencoEntita" ng-if="base.categoria == 'modello'">({{base.descrizione.replace('_',' ')}})</small></h5><span class="single-price" style="font-size: 1.3em; bottom: auto; top: 5px;">{{calcolaPrezzo(conf)}}&euro;</span>
-	                                <h5 ng-if="!conf.nome" style="text-transform: uppercase">Senza nome <small ng-repeat="base in conf.elencoEntita" ng-if="base.categoria == 'modello'">({{base.descrizione}})</small></h5><span class="single-price" style="font-size: 1.3em; bottom: auto; top: 5px;">{{calcolaPrezzo(conf)}}&euro;</span>
+	                                <h5 ng-if="conf.nome" style="text-transform: uppercase">{{conf.nome}} <small ng-repeat="base in conf.elencoEntita" ng-if="base.categoria == 'modello'">({{base.descrizione.replace('_',' ')}})</small></h5><span class="single-price" style="font-size: 1.3em; bottom: auto; top: 5px;">{{calcolaPrezzoScontato(conf)}}&euro;</span>
+	                                <h5 ng-if="!conf.nome" style="text-transform: uppercase">Senza nome <small ng-repeat="base in conf.elencoEntita" ng-if="base.categoria == 'modello'">({{base.descrizione}})</small></h5><span class="single-price" style="font-size: 1.3em; bottom: auto; top: 5px;">{{calcolaPrezzoScontato(conf)}}&euro;</span>
                                     <p class="riepilogo-accessori">
                                             <span ng-repeat="base in conf.elencoEntita" ng-if="base.categoria != 'modello'">
                                                 {{base.categoria.toUpperCase()}}: {{traduciNomiOrdini(base)}}<br>

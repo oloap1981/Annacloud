@@ -327,7 +327,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		var totale = 0;
 		for (var i = 0; i < configurazioni.length; i++) {
 			var configurazione = configurazioni[i];
-			totale += $scope.calcolaPrezzo(configurazione);
+			totale += $scope.calcolaPrezzoScontato(configurazione);
 		}
 		return totale;
 	};
@@ -574,6 +574,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		var message = MAIL.ORDER_MAIL_BASE_TEMPLATE;
 
 		message = message.replace("CODICE_ORDINE", $scope.ordineInCorso.codice);//CODICE_ORDINE
+		message = message.replace("NOME_ACQUIRENTE", $scope.nomeSpe);
 		//genero l'elenco delle congurazioni
 		var confMessageParts = "";
 		for (var i = 0; i < $scope.ordineInCorso.configurazioni.length; i++) {
@@ -1097,6 +1098,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 						} else {
 							result = entita.nome;
 						}
+						result = $scope.traduciNomeFodere(result);
 						break;
 					case "ciondolo":
 						splitted = entita.nome.split("_");
@@ -1129,6 +1131,37 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 				return result;
 			} else return "";
 		} else return "";
+	};
+
+	$scope.traduciNomeFodere = function(daTradurre){
+		var result = daTradurre;
+		switch(daTradurre.toUpperCase()){
+			case "AVOCADO":
+				result = "FLAMINGO";
+				break;
+			case "NERO":
+				result = "BLACK";
+				break;
+			case "TURTLE":
+				result = "SAVE THE SEA";
+				break;
+			case "PANDA":
+				result = "PANDA";
+				break;
+			case "ARANCIO":
+				result = "ORANGE";
+				break;
+			case "SUMMER":
+				result = "SUMMER";
+				break;
+			case "VIOLENZA":
+				result = "GIRL POWER";
+				break;
+			case "ARTE":
+				result = "ART";
+				break;
+		}
+		return result;
 	};
 
 	$scope.traduciNomiOrdini = function (entita) {
@@ -1223,6 +1256,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 						} else {
 							result = entita.nome;
 						}
+						result = $scope.traduciNomeFodere(result);
 						break;
 					case "ciondolo":
 						splitted = entita.nome.split("_");
