@@ -3,7 +3,7 @@
 			
 		 paypal.Button.render(
 				{
-					env: 'sandbox', // sandbox | production
+					env: 'production', // sandbox | production
 
 					// Specify the style of the button
 					style: {
@@ -34,7 +34,7 @@
 					// Create a PayPal app: https://developer.paypal.com/developer/applications/create
 					client: {
 						sandbox: 'AT1iiIpFRZhumzfgjO0TKil1W1MsCHFXzqhcbB8o7cCqfdujMn0o1ie1b1pwHgzqBavu7pp0WQoeq4X4',
-						production: ''
+						production: 'AW4rVOqOs5QNw3Dib95I1G0DYf7-Yz4jXrCPMbN7w6fJ8BuvSlSp000bSgRbQRDFpe4l0Iii9mZJPtnO'
 					},
 
 					payment: function (data, actions) {
@@ -44,6 +44,7 @@
 									{
 										amount: {
 											total: $scope.calcolaPrezzoOrdine($scope.getOrdineInCorso()) + $scope.getCostoSpedizione(),
+											//total: 0.1,
 											currency: 'EUR'
 										}
 									}
