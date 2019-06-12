@@ -1626,6 +1626,10 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			if($scope.isCurrentUserAdmin()){
 				$scope.configurazione.tipo = "P";//se sono utente ADMIN creo sempre una preconfigurata
 			}
+		} else if($scope.configurazione.tipo == "P"){
+			if(!$scope.isCurrentUserAdmin()){
+				$scope.configurazione.tipo = "N";//se sono utente ADMIN creo sempre una preconfigurata
+			}
 		}
 		
 		$scope.configurazione.carrello = isCarrello;

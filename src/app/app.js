@@ -194,7 +194,7 @@ app.config(['$routeProvider', '$translateProvider', '$translatePartialLoaderProv
 
 	//gestione testi e traduzioni
 	$translatePartialLoaderProvider.addPart('home');
-	$translateProvider.useSanitizeValueStrategy('escape');
+	$translateProvider.useSanitizeValueStrategy('sanitizeParameters');
 	$translateProvider.preferredLanguage('it');
 	$translateProvider.useLoader('$translatePartialLoader', {
 		urlTemplate: 'https://s3.eu-central-1.amazonaws.com/unaduna-resources-bucket/i18n/{part}/{lang}.json'
