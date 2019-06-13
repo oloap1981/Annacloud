@@ -124,7 +124,7 @@ app.config(['$routeProvider', '$translateProvider', '$translatePartialLoaderProv
 		}
 	}).
 	when('/chi-siamo',  {
-		templateUrl: 'views/contattiContent.html',
+		templateUrl: 'views/chiSiamoContent.html',
 		resolve: {
 			translateReady: ['$translate', function($translate) {
 				return $translate.onReady();
