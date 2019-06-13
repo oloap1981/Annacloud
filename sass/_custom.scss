@@ -1203,6 +1203,7 @@ a.link {
     }
 }
 
+
 .slogan-1, .slogan-2, .slogan-3, .slogan-4, .slogan-5 {
     position: absolute;
     //font-family: 'Butler';
@@ -1216,12 +1217,14 @@ a.link {
         font-size: 2.75vw;
         @include transition(all 500ms ease-in-out);
         &.cta {
-            //line-height: 5vw;
+            line-height: 7vw;
             //padding-top: .3vw;
-            background: rgba($brand-color, .9);
+            margin-left: 2vw;
+            border: solid 2px #fff;
+            background: rgba($brand-color, .1) !important;
             &:hover {
                 @include transition(all 100ms ease-in-out);
-                background: rgba(255,255,255, .9);
+                background: rgba(255,255,255, 1) !important;
                 color: $brand-color;
             }
         }
@@ -1233,7 +1236,7 @@ a.link {
         //padding: .75vw 1.4vw;
         //border: solid 2px rgba(255,255,255,.8);
         i {
-            font-size: 2.25vw;
+            font-size: 1.25vw;
             padding-left: 10px;
             padding-right: 10px;
         }
@@ -1278,11 +1281,38 @@ a.link {
         top: 15vw;
     }
 }
+.slogan-2 {
+     position: absolute;
+    //font-family: 'Butler';
+    font-weight: normal !important;
+    color: #fff;
+    font-weight: lighter;
+    span {
+        background: rgba($brand-color-logo, 0);
+        padding: 1vw 2vw;
+        line-height: 3vw;//6vw;
+        font-size: 1.75vw;
+        @include transition(all 500ms ease-in-out);
+        &.cta {
+            line-height: 7vw;
+            //padding-top: .3vw;
+            margin-left: 2vw;
+            background: rgba($brand-color, .9);
+            &:hover {
+                @include transition(all 100ms ease-in-out);
+                background: rgba(255,255,255, .9);
+                color: $brand-color;
+            }
+        }
+        
+    }
+}
 .slogan-2 { // temporaneamente l'unico visibile
     //right: 0;
-    bottom: 10vw;
+    left: 4vw;
+    top: 4vw;
     //text-align: right; 
-    text-align: center; 
+    text-align: left; 
     span {
         //padding-right: 8vw;
         
