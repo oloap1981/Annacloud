@@ -326,7 +326,15 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		var screenHeight = $("#canvasWrapper").innerHeight();
 
 		var placeHolder = "";
-		var minSize = (screenWidth > screenHeight ? screenHeight : screenWidth);
+		var minSize = 0;
+		if(screenWidth == 0 && screenHeight > 0){
+			minSize = screenHeight;
+		} else if (screenWidth > 0 && screenHeight == 0) {
+			minSize = screenWidth;
+		} else {
+			minSize = (screenWidth > screenHeight ? screenHeight : screenWidth);
+		}
+		
 		if (minSize <= 560) {
 			placeHolder = "560";
 		} else if (minSize > 560 && minSize < 720) {
@@ -1780,7 +1788,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 
 				var configurazione = $scope.getTempConfigurazione();
 				if (configurazione != null && configurazione != undefined) {
-					//c'è già una conlocale, la vado a caricarefigurazione presente in 
+					//c'è già una configurazione presente in locale, la vado a caricare
 					$scope.configurazione = configurazione;
 					if (configurazione.tipo === "P") {
 						//se è preconfigurata, tolgo l'id in modo che quando la salvo risulti nuova
@@ -1789,6 +1797,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 					configController.caricaConfigurazioneModello();
 					configController.ricaricaPrezzo();
 					$scope.showDropdownButton = true;
+					
 				} else {
 					//non ci sono configurazioni in locale, apro il selettore del modello
 					$scope.showDropdownButton = false;

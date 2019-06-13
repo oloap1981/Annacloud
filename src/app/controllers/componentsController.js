@@ -34,11 +34,8 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 	$scope.nomeSpe = "";
 
 	$scope.changePasswordEmail = "";
-
 	$scope.nextPath = "";
-
 	$scope.pendingCheckout = false;
-
 	$scope.richiediFattura = false;
 
 	$scope.cleanUser = function () {
