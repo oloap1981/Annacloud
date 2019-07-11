@@ -38,6 +38,11 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 	$scope.pendingCheckout = false;
 	$scope.richiediFattura = false;
 
+
+	$scope.replaceOrigin = function(oldUrl){
+		return oldUrl.replace("unaduna-images-bucket.s3.eu-central-1.amazonaws.com","d3ijrzg42gep0a.cloudfront.net");
+	}
+
 	$scope.cleanUser = function () {
 
 		$scope.carrello = [];

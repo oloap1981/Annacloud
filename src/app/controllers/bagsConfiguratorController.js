@@ -1156,6 +1156,18 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		}
 	};
 
+	configController.redirectStack = function(oldStack){
+		var tempStack = [];
+		for (var i = 0; i < oldStack.length; i++) {
+			if (oldStack[i] != "") {
+				//gestisco la risoluzione appena prima di passare le immagini alla merge
+				url = $scope.replaceOrigin(oldStack[i]);
+				tempStack.push(url);
+			}
+		}
+		return tempStack;
+	}
+
 	configController.pulisciStack = function () {
 		var tempStack = [];
 		for (var i = 0; i < $scope.stack.length; i++) {
@@ -1226,7 +1238,6 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 	//qui avviene la richiesta del modello in base agli accessori selezionati
 	configController.caricaSpinner = function () {
 		
-
 		$scope.showZoom = false;
 
 		var date1 = new Date();
@@ -1256,6 +1267,8 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		if ($scope.symbolsUrlStack.length > 0) {
 			cleanStack = cleanStack.concat($scope.symbolsUrlStack);
 		}
+
+		var redirectStack = configController.redirectStack(cleanStack);//metto le url del cloudfront al posto di quelle di S3
 
 		var firstExecInit = true;
 		var firstExecComplete = true;
