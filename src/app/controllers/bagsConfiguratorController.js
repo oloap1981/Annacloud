@@ -295,7 +295,9 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 						}
 					}
 				}
-			}
+            }
+
+
 
 			//ordinamento delle entità
 			if ($scope.tipoEntitaSelezionata != 'iniziali') {
@@ -303,7 +305,13 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			} else {
 				$scope.entitaTipoAccessorioSelezionato = [];
 			}
-		}
+        }
+        
+        function ritardo() {
+            $(".accessori-thumb")[0].swiper.slideTo(0,0);
+        }
+
+        setTimeout(ritardo, 400);
 	};
 
 	configController.ordinaEntita = function (entitaNonOrdinate) {
@@ -530,7 +538,8 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 				var singolaEntitaFoderaPaglia = configController.getSingolaEntita("fodere", modello.nome, "FODERA_RES_ARTE");
 				var entitaFoderaPaglia = configController.getInternalEntitaObjct(singolaEntitaFoderaPaglia.categoria, singolaEntitaFoderaPaglia.codice, singolaEntitaFoderaPaglia.nome, singolaEntitaFoderaPaglia.nome, singolaEntitaFoderaPaglia.prezzo, 0, singolaEntitaFoderaPaglia.categoria, singolaEntitaFoderaPaglia.urlStripe, 6, singolaEntitaFoderaPaglia.urlStripe, singolaEntitaFoderaPaglia.nomeStile, singolaEntitaFoderaPaglia.nomeBorchia, singolaEntitaFoderaPaglia.colore, singolaEntitaFoderaPaglia.metallo, [], "");
 				configController.aggiungiElementoAStack(entitaFoderaPaglia.urlStripe, 6, false, entitaFoderaPaglia);
-
+                
+                
 			}
 
 			if(modello.nome == "bucket_pelle"){
@@ -564,7 +573,15 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			//apro il pannello dei colori
 			configController.selezioneTipoAccessorio(modello.accessorioInizialeSelezionato);
 			configController.caricaSpinner();
-			$scope.showDropdownButton = true;
+            $scope.showDropdownButton = true;
+            
+            // resetto la posizione dello slider categorie per evitare che la la prima voce rimanga fuori dallo schermo a sx
+            $(".accessori-categoria")[0].swiper.slideTo(0);
+            function ritardo() {
+                $(".accessori-thumb")[0].swiper.slideTo(0,0);
+            }
+
+            setTimeout(ritardo, 400);
 		});
 	};
 
@@ -1235,6 +1252,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 
 	};
 
+    var firstSlideTo = true;
 	//qui avviene la richiesta del modello in base agli accessori selezionati
 	configController.caricaSpinner = function () {
 		
@@ -1301,16 +1319,19 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 				],
 				onInit: function () {
 					if (firstExecInit) {
-						
-						firstExecInit = false;
-						$.fn.sepLine('first-divider', 'swiper-container', 'accessori'); // rif. descrizione funzione sepline: custom.js linea 77
+                        firstExecInit = false;
+                        $.fn.sepLine('first-divider', 'swiper-container', 'accessori'); // rif. descrizione funzione sepline: custom.js linea 77
 						$.fn.yammHeight('navbar', 'yamm-content'); // rif. descrizione funzione yammHeight: custom.js linea 86
 						$(".riepilogo").fadeIn();
 						$("#transition-image").show();
-
+                        
 						$(".accessori-categoria")[0].swiper.update();//ricaricolo swiper prima dello spinner per evitare visualizzazioni errate dell'array
 						$(".accessori-thumb")[0].swiper.update();//ricaricolo swiper prima dello spinner per evitare visualizzazioni errate dell'array
-					}
+                    }
+                    if (firstSlideTo){
+                        firstSlideTo = false;
+                        $(".accessori-thumb")[0].swiper.slideTo(0);
+                    }
 				},
 				onComplete: function () {
 					if (firstExecComplete) {
@@ -1320,7 +1341,9 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 							$("#spinIcon").fadeIn().delay(100).fadeOut();
 							$("#spinIcon img").animate({ 'margin-left': '50px' }, 1000);
 							//$('#a-middle').animate({opacity:'1'}, 500);
-							$('.accessori').animate({ opacity: '1' }, 500, function () { });
+							$('.accessori').animate({ opacity: '1' }, 500, function () { 
+                                //alert("ASJASHJKAHSJAHSAKJHS");
+                            });
 						}
 						$("#transition-image").delay(100).fadeOut();
 						$("#loader").delay(200).fadeOut("slow");
@@ -1332,7 +1355,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 						$scope.spinIcon = false;
 						$scope.spinAnim = false;
 
-						
+                        
 					}
 				}
 			};

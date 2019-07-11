@@ -107,6 +107,10 @@
 /*-------------------------------*/
 /* override e aggiunte a stili bootstrap      */
 /*-------------------------------*/
+
+* {
+    //-webkit-overflow-scrolling: touch !important;
+}
 .col-lg-5,
 .col-md-5,
 .col-sm-5,
@@ -2444,6 +2448,7 @@ a.link {
         border-right: none;
     }
     .yamm-content {
+        -webkit-overflow-scrolling: touch !important;
         border: solid 1px $standard-border-color;
         border-top: none;
         //border-bottom: none;
@@ -2855,7 +2860,7 @@ a.link {
                 height: 28px;
             }
             @media (pointer: coarse) {
-                left: -57px;
+                //left: -57px;
             }
         }
         .swiper-button-next {
@@ -2865,7 +2870,7 @@ a.link {
                 height: 28px;
             }
             @media (pointer: coarse) {
-               right: -67px;
+               //right: -67px;
             }
         }
     }
@@ -2966,7 +2971,7 @@ a.link {
                 height: 62px;
             }
             @media (pointer: coarse) {
-                left: -57px;
+                //left: -57px;
             }
         }
         .swiper-button-next {
@@ -2976,7 +2981,7 @@ a.link {
                 height: 62px;
             }
             @media (pointer: coarse) {
-               right: -67px;
+               //right: -67px;
             }
         }
 
