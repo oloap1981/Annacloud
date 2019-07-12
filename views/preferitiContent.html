@@ -23,7 +23,7 @@
                     </div>
                     <div class="col-sm-9">
                         <div class="col-sm-12">
-                            <h4 ng-if="conf.nome" class="bag">{{conf.nome}}</h4>
+                            <h4 ng-if="conf.nome" class="bag">{{conf.nome}} - URL: {{getPublicUrl(conf)}}</h4>
                             <h4 ng-if="!conf.nome" class=" bag">Senza nome</h4>
                         </div>
                         <div class="col-sm-6 base">
@@ -69,7 +69,7 @@
                         <div class="media-body">
                             <div class="col-sm-12">
                                 <p ng-click="eliminaConfigurazione(conf.codice, conf.nome)" class="remove">elimina <small><i class="unaicon-remove"></i></small></p>
-                                <h4 ng-if="conf.nome" class="media-heading bag">{{conf.nome}}</h4>
+                                <h4 ng-if="conf.nome" class="media-heading bag">{{conf.nome}} - URL: {{getPublicUrl(conf)}}</h4>
                                 <h4 ng-if="!conf.nome" class="media-heading bag">Senza nome</h4>
                             </div>
                             <div class="col-md-6 col-sm-12 base">

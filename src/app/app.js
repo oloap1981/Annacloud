@@ -93,12 +93,6 @@ app.config(['$routeProvider', '$translateProvider', '$translatePartialLoaderProv
 			}]
 		}
 	}).
-	/*when('/come-funziona', {
-		templateUrl: 'comefunzionaContent.html'
-	}).
-	when('/shop', {
-		templateUrl: 'shopContent.html'
-	}).*/
 	when('/collezione', {
 		templateUrl: 'views/collezioneContent.html',
 		resolve: {
@@ -139,9 +133,18 @@ app.config(['$routeProvider', '$translateProvider', '$translatePartialLoaderProv
 			}]
 		}
 	}).
-	when('/configura',  {
+	when('/configura/:id?',  {
 		templateUrl: 'views/configuraContent.html',
 		controller: 'unadunaConfiguratorController2',
+		resolve: {
+			translateReady: ['$translate', function($translate) {
+				return $translate.onReady();
+			}]
+		}
+	}).
+	when('/configurazione/:id',  {
+		templateUrl: 'views/configurazioneContent.html',
+		controller: 'configurazioneController',
 		resolve: {
 			translateReady: ['$translate', function($translate) {
 				return $translate.onReady();

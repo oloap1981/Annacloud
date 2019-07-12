@@ -1,5 +1,5 @@
-angular.module("applicationModule").controller("preferitiController", ["$scope", "loginService", "listeService", "$location",
-	function($scope, loginService, listeService, $location) {
+angular.module("applicationModule").controller("preferitiController", ["$scope", "loginService", "listeService", "$location", "$window",
+	function($scope, loginService, listeService, $location, $window) {
 
 		$scope.influencers = [
 			{imageUrl: ""},
@@ -26,6 +26,10 @@ angular.module("applicationModule").controller("preferitiController", ["$scope",
 			$scope.setTempConfigurazione(conf);
 			$location.url('/configura');
 		};
+
+		$scope.getPublicUrl = function(conf){
+			return new $window.URL($location.absUrl()).origin + "/#!/configura/" + conf.codice;
+		}
 
 		$scope.addToCart = function(configurazione){
 			var localTempConfig = configurazione;

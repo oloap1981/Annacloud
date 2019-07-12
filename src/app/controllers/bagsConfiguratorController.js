@@ -1,6 +1,7 @@
-angular.module('applicationModule').controller('unadunaConfiguratorController2', function ($scope, listeService, loginService, logService, $uibModal, $uibModalStack, $log, jwtHelper, $translatePartialLoader, LOG_TYPES) {
+angular.module('applicationModule').controller('unadunaConfiguratorController2', function ($scope, listeService, loginService, logService, $uibModal, $uibModalStack, $log, jwtHelper, $translatePartialLoader, LOG_TYPES, $routeParams) {
 
 	//$translatePartialLoader.addPart('configurator');
+	$scope.configurazioneId = $routeParams.id;
 
 	$scope.$log = $log;
 
@@ -1812,8 +1813,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		return normalizedConfig;
 	};
 
-	configController.initConfiguratore = function () {
-
+	configController.inizializationOperations = function(){
 		$scope.mappaEntitaSelezionate.colore = "black";
 		$scope.mappaEntitaSelezionate.metalleria = "argento";
 
@@ -1843,10 +1843,6 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 
 		configController.visibleManager.loaderVisible = true;
 		configController.visibleManager.spinnerVisible = false;
-
-		// $(document).on('click', '.yamm .dropdown-menu', function (e) {
-		// 	e.stopPropagation();
-		// });
 
 		/* gestione elementi dell'interfaccia */
 		var aperto = 0;
@@ -1900,6 +1896,23 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		});
 
 		configController.priceManager.price = 0;
+	}
+
+	configController.initConfiguratore = function () {
+
+		//controllo che il configuratore non sia stato chiamato con un parametro
+		if($scope.configurazioneId != null && $scope.configurazioneId != undefined && $scope.configurazioneId != ""){
+			// l'id c'è, provo a caricare la configurazione
+			listeService.getConfigurazione($scope.configurazioneId).then(function (res2) {
+				var configurazione = res2.data.configurazione;
+				if(configurazione != undefined){
+					$scope.setTempConfigurazione(configurazione);
+				}
+				configController.inizializationOperations();
+			});
+		} else {
+			configController.inizializationOperations();
+		}
 	};
 
 	configController.openZoom = function () {
