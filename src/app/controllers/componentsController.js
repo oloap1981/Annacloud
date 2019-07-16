@@ -41,7 +41,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 
 	$scope.replaceOrigin = function(oldUrl){
 		return oldUrl.replace("unaduna-images-bucket.s3.eu-central-1.amazonaws.com","d3ijrzg42gep0a.cloudfront.net");
-	}
+	};
 
 	$scope.cleanUser = function () {
 

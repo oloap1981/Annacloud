@@ -1,4 +1,4 @@
-var app = angular.module('applicationModule', ['ngTouch', 'ngAnimate', 'ui.swiper', 'ui.bootstrap', 'ui.select', 'ngSanitize',  'ngRoute', 'angular-jwt', 'updateMeta', 'angular-page-loader', 'pascalprecht.translate'])
+var app = angular.module('applicationModule', ['ngTouch', 'ngAnimate', 'ui.swiper', 'ui.bootstrap', 'ui.select', 'ngSanitize', 'ngRoute', 'angular-jwt', 'updateMeta', 'angular-page-loader', 'pascalprecht.translate', 'ngclipboard'])
 .directive('paypalContent', function(){
 	return {
 		restrict: 'E',
