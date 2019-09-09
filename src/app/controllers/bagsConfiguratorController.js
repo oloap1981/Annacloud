@@ -1184,7 +1184,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			}
 		}
 		return tempStack;
-	}
+	};
 
 	configController.pulisciStack = function () {
 		var tempStack = [];
@@ -1896,7 +1896,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		});
 
 		configController.priceManager.price = 0;
-	}
+	};
 
 	configController.initConfiguratore = function () {
 

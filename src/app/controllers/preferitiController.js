@@ -29,7 +29,7 @@ angular.module("applicationModule").controller("preferitiController", ["$scope",
 
 		$scope.getPublicUrl = function(conf){
 			return new $window.URL($location.absUrl()).origin + "/#!/configura/" + conf.codice;
-		}
+		};
 
 		$scope.addToCart = function(configurazione){
 			var localTempConfig = configurazione;
@@ -41,7 +41,8 @@ angular.module("applicationModule").controller("preferitiController", ["$scope",
 				var nuovoNome = $scope.generaNuovoNome(localTempConfig.nome);
 				localTempConfig.codice = "";//in questo modo viene generata nuova
 				localTempConfig.nome = nuovoNome;
-			} 
+            }
+            
 			localTempConfig.carrello = true;
 			listeService.putConfigurazione(localTempConfig).then(
 				function (res){

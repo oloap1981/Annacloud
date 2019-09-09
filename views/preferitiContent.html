@@ -69,8 +69,9 @@
                         <div class="media-body">
                             <div class="col-sm-12">
                                 <p ng-click="eliminaConfigurazione(conf.codice, conf.nome)" class="remove">elimina <small><i class="unaicon-remove"></i></small></p>
-                                <h4 ng-if="conf.nome" class="media-heading bag">{{conf.nome}} - URL: {{getPublicUrl(conf)}}</h4>
+                                <h4 ng-if="conf.nome" class="media-heading bag">{{conf.nome}}  <small  ng-show="isCurrentUserAdmin()"><a class="btn btn-small btn-default" href="javascript:void(0)" ngclipboard data-clipboard-text="{{getPublicUrl(conf)}}"><i class="fa fa-clipboard"></i> Copia indirizzo</a></small></h4>
                                 <h4 ng-if="!conf.nome" class="media-heading bag">Senza nome</h4>
+                                
                             </div>
                             <div class="col-md-6 col-sm-12 base">
                                 <h5 class="section-small left">Base </h5>
