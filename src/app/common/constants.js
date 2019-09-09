@@ -32,5 +32,6 @@ angular.module('applicationModule').constant('URLS',{
 	LAVORAZIONE1: 2,
 	LAVORAZIONE2: 3,
 	SPEDIZIONE: 4,
-	ARCHIVIATO: 5
+	ARCHIVIATO: 5,
+	LAVORAZIONE: 6
 });

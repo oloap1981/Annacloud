@@ -4,6 +4,7 @@ angular.module("applicationModule").controller("administratorController", ["$sco
 	$scope.ordinato = [];
 	$scope.lavorazione1 = [];
 	$scope.lavorazione2 = [];
+	$scope.lavorazione = [];
 	$scope.spedizione = [];
 
 	$scope.initAdmin = function () {
@@ -45,6 +46,7 @@ angular.module("applicationModule").controller("administratorController", ["$sco
 		$scope.ordinato = [];
 		$scope.lavorazione1 = [];
 		$scope.lavorazione2 = [];
+		$scope.lavorazione = [];
 		$scope.spedizione = [];
 	};
 
@@ -73,12 +75,16 @@ angular.module("applicationModule").controller("administratorController", ["$sco
 				  break;
 				case ORDERSTATUS.LAVORAZIONE1:
 				  // code block
-				  $scope.lavorazione1.push(ordine);
+				  $scope.lavorazione.push(ordine);
 				  break;
 				case ORDERSTATUS.LAVORAZIONE2:
 					// code block
-					$scope.lavorazione2.push(ordine);
+					$scope.lavorazione.push(ordine);
 					break;
+				case ORDERSTATUS.LAVORAZIONE:
+						// code block
+						$scope.lavorazione.push(ordine);
+						break;
 				case ORDERSTATUS.SPEDIZIONE:
 					// code block
 					$scope.spedizione.push(ordine);
