@@ -195,6 +195,11 @@ app.config(['$routeProvider', '$translateProvider', '$translatePartialLoaderProv
 		}
 	});
 
+	$locationProvider.html5Mode({
+		enabled: true,
+		requireBase: false
+ 	});
+	
 	//gestione testi e traduzioni
 	$translatePartialLoaderProvider.addPart('home');
 	$translateProvider.useSanitizeValueStrategy('sanitizeParameters');
