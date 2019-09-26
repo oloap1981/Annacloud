@@ -38,6 +38,7 @@ app.config(['$routeProvider', '$translateProvider', '$translatePartialLoaderProv
 		}
 	}).
 	when('/home', {
+		controller: 'homeController',
 		templateUrl: 'views/homeContent.html',
 		resolve: {
 			translateReady: ['$translate', function($translate) {
@@ -70,7 +71,7 @@ app.config(['$routeProvider', '$translateProvider', '$translatePartialLoaderProv
 		}
 	}).
 	when('/preferiti', {
-		templateUrl: 'views/preferitiContent.html',
+		templateUrl: '/views/preferitiContent.html',
 		resolve: {
 			translateReady: ['$translate', function($translate) {
 				return $translate.onReady();
@@ -195,10 +196,7 @@ app.config(['$routeProvider', '$translateProvider', '$translatePartialLoaderProv
 		}
 	});
 
-	$locationProvider.html5Mode({
-		enabled: true,
-		requireBase: false
- 	});
+	$locationProvider.html5Mode(true);
 	
 	//gestione testi e traduzioni
 	$translatePartialLoaderProvider.addPart('home');

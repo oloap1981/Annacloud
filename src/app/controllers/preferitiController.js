@@ -28,7 +28,7 @@ angular.module("applicationModule").controller("preferitiController", ["$scope",
 		};
 
 		$scope.getPublicUrl = function(conf){
-			return new $window.URL($location.absUrl()).origin + "/#!/configura/" + conf.codice;
+			return new $window.URL($location.absUrl()).origin + "/configura/" + conf.codice;
 		};
 
 		$scope.addToCart = function(configurazione){

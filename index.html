@@ -3,6 +3,8 @@
 
 <head>
 	<title>AnnaCloud.it</title>
+	<base href="/"/>
+
 	<meta charset="utf-8" />
 	<meta http-equiv="Content-Language" content="en" />
 	<meta name="description" content="Descrizione" />
@@ -45,6 +47,9 @@
     <meta name="msapplication-navbutton-color" content="#fdfdfd">
     <meta name="apple-mobile-web-app-status-bar-style" content="#fdfdfd">
 	<meta name="theme-color" content="#fdfdfd">
+
+	
+
 	<style>
 		[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
 			display: none !important;
@@ -74,7 +79,7 @@
 			<div class="main-header-content">
 				<nav class="navbar main-navbar navbar-default nomargin" role="navigation">
 					<div class="container">
-						<a class="logo-small hidden visible-xs-block text-hide" href="#!/home">AnnaCloud</a>
+						<a class="logo-small hidden visible-xs-block text-hide" href="home">AnnaCloud</a>
 						<div class="navbar-header navbar-right">
 							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
 								<span class="sr-only">Toggle navigation</span>
@@ -86,21 +91,21 @@
 								<li ng-show="user!==null" class="utente">
 									<a href="javascript:void(0)" id="user-menu" data-toggle="dropdown"><i class="unaicon-login"></i> <span class="hidden-xs"></span></a>
 									<ul class="dropdown-menu" aria-labelledby="user-menu">
-										<li ng-hide="isCurrentUserAdmin()"><a href="#!/ordini">I tuoi Ordini</a></li>
-										<li ng-show="isCurrentUserAdmin()"><a href="#!/admin-ordini">Amministrazione Ordini</a></li>
-										<li ng-show="isCurrentUserAdmin()"><a href="#!/admin-clienti">Amministrazione Clienti</a></li>
-										<li><a href="#!/profilo">Profilo</a></li>
-										<li><a href="#!/logout" ng-click="logOut()">Esci</a></li>
+										<li ng-hide="isCurrentUserAdmin()"><a href="ordini">I tuoi Ordini</a></li>
+										<li ng-show="isCurrentUserAdmin()"><a href="admin-ordini">Amministrazione Ordini</a></li>
+										<li ng-show="isCurrentUserAdmin()"><a href="admin-clienti">Amministrazione Clienti</a></li>
+										<li><a href="profilo">Profilo</a></li>
+										<li><a href="logout" ng-click="logOut()">Esci</a></li>
 									</ul>
 								</li>
 								<li ng-show="user==null" class="utente">
-									<a href="#!/accedi" id="user-menu"><i class="unaicon-login"></i> <span class="hidden-xs">accedi</span></a>
+									<a href="accedi" id="user-menu"><i class="unaicon-login"></i> <span class="hidden-xs">accedi</span></a>
 								</li>
 								<li class="favoriti">
-									<a href="#!/preferiti"><i class="unaicon-favourite"></i> <span class="hidden-xsx" ng-cloak>({{preferiti.length}})</span></a>
+									<a href="preferiti"><i class="unaicon-favourite"></i> <span class="hidden-xsx" ng-cloak>({{preferiti.length}})</span></a>
 								</li>
 								<li class="carrello" ng-hide="isCurrentUserAdmin()">
-									<a href="#!/carrello"><i class="unaicon-cart"></i> <span class="hidden-xsx" ng-cloak>({{carrello.length}})</span></a>
+									<a href="carrello"><i class="unaicon-cart"></i> <span class="hidden-xsx" ng-cloak>({{carrello.length}})</span></a>
 								</li>
 							</ul>
 						</div>
@@ -166,14 +171,14 @@
 						</div>
 						<ul class="nav navbar-nav mobile-menu visible-xs-block">
 							<li>
-								<a href="#!/configura" class="">Crea</a>
+								<a href="configura" class="">Crea</a>
 								<ul class="dropdown-menu hidden" aria-labelledby="user-menu">
 									<li><a href="#!/accedi" ng-click="setAccesso()">Come funziona</a></li>
 									<li><a href="#!/configura" ng-click="setConfigurator()">Configura</a></li>
 								</ul>
 							</li>
                             <li>
-                                <a href="#!/esperienza" class="">Scopri</a>
+                                <a href="esperienza" class="">Scopri</a>
                                 <!--<a href="#" onclick="return false" data-toggle="dropdown" class="">Scopri</a>-->
                                 <!--<ul class="dropdown-menu " aria-labelledby="user-menu">
                                     <li><a href="#!/visione">Visione</a></li>
@@ -182,14 +187,14 @@
                             </li>
 							<li>
 								<!--<a href="#" onclick="return false" data-toggle="dropdown" class="">Atelier</a>-->
-								<a href="#!/chi-siamo" class="">Chi Siamo</a>
+								<a href="chi-siamo" class="">Chi Siamo</a>
 								<!--<ul class="dropdown-menu " aria-labelledby="user-menu">
 									<li><a href="#!/404">Shop</a></li>
 									<li><a href="#!/collezione">Collezione</a></li>
 								</ul>-->
 							</li>
 							<li>
-								<a a href="#!/contatti" class="">Contattaci</a>
+								<a a href="contatti" class="">Contattaci</a>
 								<ul class="dropdown-menu hidden" aria-labelledby="user-menu">
 									<li><a href="#!/team">Team</a></li>
 									<li><a href="#!/contatti">Contatti</a></li>
@@ -221,7 +226,7 @@
 								<a href="#!/home" class="">Come funziona</a>
 							</li>-->
 							<li>
-								<a href="#!/configura" class="">Configura</a>
+								<a href="configura" class="">Configura</a>
 							</li>
 						</ul>
 					</div>
@@ -230,7 +235,7 @@
 						<h3>Shop</h3>
 						<ul>
 							<li>
-								<a href="#!/404" class="">Accessori</a>
+								<a href="404" class="">Accessori</a>
 							</li>
 							<!--<li>
 									<a href="#!/collezione" class="">Collezione</a>
@@ -244,10 +249,10 @@
 								<a href="#!/visione" class="" ng-click="setVisione()">Visione</a>
 							</li>-->
 							<li>
-								<a href="#!/esperienza" class="" ng-click="setEsperienza()">Esperienza</a>
+								<a href="esperienza" class="" ng-click="setEsperienza()">Esperienza</a>
 							</li>
 							<li>
-								<a href="#!/contatti" class="">Contatti</a>
+								<a href="contatti" class="">Contatti</a>
 							</li>
 						</ul>
 					</div>
@@ -255,7 +260,7 @@
 						<h3>Chi siamo</h3>
 						<ul>
 							<li>
-								<a href="#!/team" class="">Team</a>
+								<a href="team" class="">Team</a>
 							</li>
 
 						</ul>

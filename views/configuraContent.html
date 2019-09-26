@@ -11,7 +11,7 @@
 		<div class="container">
 			<ul class="nav navbar-nav fixed-navbar-left">
 				<li class="home">
-					<a href="#!/home" class="link" ><i class="fa fa-home hidden"></i><img src="images/logonew-mobile-conf-big.png" class="hidden-xs" style="height: 25px;padding:5px"><img src="images/logonew-mobile-conf-big.png" class=" visible-xs-inline-block" style="height: 15px"></a>
+					<a href="home" class="link" ><i class="fa fa-home hidden"></i><img src="images/logonew-mobile-conf-big.png" class="hidden-xs" style="height: 25px;padding:5px"><img src="images/logonew-mobile-conf-big.png" class=" visible-xs-inline-block" style="height: 15px"></a>
 				</li>
 				<li class="dropdown yamm-fw keep-open">
 					<a id="nuovaConfigurazioneToggle" href="javascript:void(0)" class="active dropdown-toggle active link modello" ng-click="contr.switchShowDropdown()" ng-show="showDropdownButton"><i class="unaicon-bag-reset visible-xs"></i> <span class="hidden-xs">cambia modello</span></a>
@@ -43,20 +43,20 @@
 				<li ng-show="contr.isLogged()" class="utente">
 					<a href="" id="user-menu" data-toggle="dropdown"><i class="unaicon-login"></i> <span class="hidden-xs"></span></a>
 					<ul class="dropdown-menu" aria-labelledby="user-menu">
-						<li ng-hide="isCurrentUserAdmin()"><a href="#!/ordini">I tuoi Ordini</a></li>
-						<li><a href="#!/profilo">Profilo</a></li>
-						<li><a href="#!/logout" ng-click="logOut()">Esci</a></li>
+						<li ng-hide="isCurrentUserAdmin()"><a href="ordini">I tuoi Ordini</a></li>
+						<li><a href="profilo">Profilo</a></li>
+						<li><a href="logout" ng-click="logOut()">Esci</a></li>
 					</ul>
 				</li>
 				<li ng-show="!contr.isLogged()">
-					<a href="#!/accedi" id="user-menu" ng-click="setAccesso()"><i class="unaicon-login"></i> <span class="hidden-xs">accedi</span></a>
+					<a href="accedi" id="user-menu" ng-click="setAccesso()"><i class="unaicon-login"></i> <span class="hidden-xs">accedi</span></a>
 			
 				</li>
 				<li class="favoriti">
-					<a href="#!/preferiti" ng-click="setPreferiti()"><i class="unaicon-favourite"></i> <span class="hidden-xsx">({{getPreferitiSize()}})</span></a>
+					<a href="preferiti" ng-click="setPreferiti()"><i class="unaicon-favourite"></i> <span class="hidden-xsx">({{getPreferitiSize()}})</span></a>
 				</li>
 				<li class="carrello">
-					<a href="#!/carrello" ng-click="setCarrello()" ng-hide="isCurrentUserAdmin()"><i class="unaicon-cart"></i> <span class="hidden-xsx">({{getCarrelloSize()}})</span></a>
+					<a href="carrello" ng-click="setCarrello()" ng-hide="isCurrentUserAdmin()"><i class="unaicon-cart"></i> <span class="hidden-xsx">({{getCarrelloSize()}})</span></a>
 				</li>
 			</ul>
 		</div>
