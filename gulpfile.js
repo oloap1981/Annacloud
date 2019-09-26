@@ -12,6 +12,8 @@ var del = require('del');
 var config = {
     js: 'src/app/**/*.js',
     js_ext: 'src/lib/**/*.js',
+    hta: '.htaccess',
+    sitemap: 'sitemap.xml',
   	images: 'images/*.*',
     fonts: 'fonts/*.*',
     assets: 'assets/*.*',
@@ -30,7 +32,7 @@ var dist = {
     eb: '.ebextensions/'
 }
 
-gulp.task('build', ['copy-views', 'copy-eb', 'copy-assets', 'copy-fonts', 'copy-images', 'minifyjs'], function(){
+gulp.task('build', ['copy-views', 'copy-eb', 'copy-assets', 'copy-fonts', 'copy-images', 'copy-sitemap', 'copy-htaccess', 'minifyjs'], function(){
     del(config.temp);
 });
 
@@ -56,6 +58,16 @@ gulp.task('copy-images', ['clean-images'], function(){
   return gulp.src([config.images])
     .pipe(gulp.dest(dist.path + dist.images));
 });
+
+gulp.task('copy-sitemap', ['clean-map'], function(){
+    return gulp.src([config.sitemap])
+      .pipe(gulp.dest(dist.path));
+  });
+
+  gulp.task('copy-htaccess', ['clean-hta'], function(){
+    return gulp.src([config.hta])
+      .pipe(gulp.dest(dist.path));
+  });
 
 gulp.task('copy-fonts', ['clean-fonts'], function(){
   return gulp.src([config.fonts])
@@ -103,6 +115,14 @@ gulp.task('templatecache', function() {
 //Helper Tasks
 gulp.task('clean-images', function(){
     del.sync(dist.path + dist.images);
+});
+
+gulp.task('clean-map', function(){
+    del.sync(dist.path + "sitemap.xml");
+});
+
+gulp.task('clean-hta', function(){
+    del.sync(dist.path + ".htaccess");
 });
 
 gulp.task('clean-fonts', function(){
