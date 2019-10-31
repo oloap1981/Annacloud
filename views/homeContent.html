@@ -7,6 +7,69 @@
 <update-script content="structuredData" type="application/ld+json"></update-script>
 
 <div class="home-content wow" ng-controller="homeController" ng-init="homeInit({boxClasses:'home-content wow'})">
+
+    <!-- inizio banner shopping-->
+    <div class="jumbotron quote-section page-header index wow fadeIn hidden visible-xs" data-wow-delay="0.1s">
+        <div class="container">
+            <h2 class="title wow fadeIn" data-wow-delay="1s" ng-bind-html="'header_1' | translate"></h2>
+            <!-- {{ 'header_1_b' | translate }}
+    			<a href="#!/configura" class="btn btn-conf top-buffer">{{ 'header_1_c' | translate }}</a> -->
+        </div>
+    </div>
+    <section class="swipe hidden-xs">
+        <swiper grab-cursor="false" keyboard-control="false" slides-per-view="1" loop="false" effect="fade" autoplay="5000" speed="500" watchOverflow="true">
+            <slides>
+                <slide><img src="images/home-header-2.jpg" class="responsive">
+                    <h3 class="slogan-2">
+                        <span>Testo per</span><br>
+                        <span>lo shopping.</span><br>
+                        <a href="shopping">
+                            <span class="cta">Acquista ora <i class="fa fa-chevron-right"></i></span>
+                        </a>
+                    </h3>
+                </slide>
+            </slides>
+            <!--<pagination></pagination>-->
+        </swiper>
+    </section>
+    <section class="swipe hidden visible-xs-block">
+        <swiper grab-cursor="false" keyboard-control="false" slides-per-view="1" effect="fade" loop="false" autoplay="5000" speed="500">
+            <slides>
+                <!--<slide>
+    					<img src="images/home-header-1-xs.jpg" class="responsive">
+    				</slide>-->
+                <slide>
+                    <img src="images/home-header-2-xs.jpg" class="responsive">
+                </slide>
+                <!--<slide>
+    					<img src="images/home-header-3-xs.jpg" class="responsive">
+    				</slide>-->
+            </slides>
+            <!--<pagination></pagination>-->
+        </swiper>
+    </section>
+    <!-- fine banner al shopping-->
+    
+    
+    <!-- inizio testo introduttivo shopping-->
+    <div class="jumbotron quote-section wow fadeIn " data-wow-delay="0.1s">
+        <div class="container top-buffer">
+            <div class="row">
+                <div class="col-sm-4 clearfix">
+                    <h2 class="title">{{ 'testo_1_titolo_a' | translate }} <b>{{ 'testo_1_titolo_b' | translate }}</b></h2>
+    
+                </div>
+                <div class="col-sm-8 clearfix">
+                    <p class="subtitle" style="max-width: 100%;">{{ 'testo_1_corpo_a' | translate }} <b>{{ 'testo_1_corpo_b' | translate }}</b> {{ 'testo_1_corpo_c' | translate }} <b>{{ 'testo_1_corpo_d' | translate }}</b> {{ 'testo_1_corpo_e' | translate }} <br /><b>{{ 'testo_1_corpo_f' | translate }}</b></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- fine testo introduttivo shopping-->
+
+
+
+    <!-- inizio banner al configuratore-->
 	<div class="jumbotron quote-section page-header index wow fadeIn hidden visible-xs" data-wow-delay="0.1s">
 		<div class="container">
 			<h2 class="title wow fadeIn" data-wow-delay="1s" ng-bind-html="'header_1' | translate"></h2>
@@ -39,31 +102,12 @@
 			</slides>
 			<!--<pagination></pagination>-->
 		</swiper>
-	</section>
-	
-	<div class="container text-center top-buffer bottom-buffer hidden ">
-		<div class="row top-buffer bottom-buffer wow fadein"  data-wow-delay="0.1s">
-			<div class="container text-center">
-				<div class="row">
-					<div class="col-sm-12">
-						<div class="divider"></div>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-12 clearfix bottom-buffer top-buffer home-content wow fadeInUpSmall" data-wow-delay=".2s">
-				<h2 class="title section top-buffer"><span>{{ 'testo_1_titolo_a' | translate }} <b>{{ 'testo_1_titolo_b' | translate }}</span></h2>
-				<p class="subtitle bottom-buffer">{{ 'testo_1_corpo_a' | translate }} <b>{{ 'testo_1_corpo_b' | translate }}</b> {{ 'testo_1_corpo_c' | translate }} <b>{{ 'testo_1_corpo_d' | translate }}</b> {{ 'testo_1_corpo_e' | translate }} <br/><b>{{ 'testo_1_corpo_f' | translate }}</p>
-			</div>
-			<div class="container text-center">
-				<div class="row">
-					<div class="col-sm-12">
-						<div class="divider reverse"></div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="jumbotron quote-section wow fadeIn hidden" data-wow-delay="0.1s">
+    </section>
+    <!-- fine banner al configuratore-->
+
+
+    <!-- inizio testo introduttivo configuratore-->
+	<div class="jumbotron quote-section wow fadeIn " data-wow-delay="0.1s">
 		<div class="container top-buffer">
 			<div class="row">
 				<div class="col-sm-4 clearfix">
@@ -75,32 +119,10 @@
 				</div>	
 			</div>
 		</div>
-	</div>
-	<div class="jumbotron quote-section collection wow fadeIn hidden" data-wow-delay="0.4s">
-		<img src="images/jumbotron-collezione-home-xl.jpg" class="hidden visible-xl-block responsive" >
-		<img src="images/jumbotron-collezione-home-md-lg.jpg" class="hidden-xs hidden-xl responsive" >
-		<img src="images/jumbotron-collezione-home-xs.jpg"  class="hidden visible-xs-block responsive">
-	</div>
-	<div class="jumbotron quote-section collection wow fadeIn hidden" data-wow-delay="0.4s">
-		<div class="container container-quota-section-image">
-			<div class="quote-section-image">
-				<img src="images/collezione-static-bg.png" class="hidden visible-xs-block responsive" style="position: absolute; top:0;left:0; width: 100%;">
-				<div class="row">
-					<div class="col-sm-12 clearfix">
-						<div class="row">
-							<div class="col-sm-4 clearfix">
-								<h2 class="title">{{ 'testo_2_titolo' | translate }}</h2>
-							</div>
-							<div class="col-sm-8 clearfix">
-								<p class="subtitle" style="max-width: 100%;"><b>{{ 'testo_2_corpo_a' | translate }}</b>{{ 'testo_2_corpo_b' | translate }}</p>
-								<a href="collezione" class="btn btn-default">{{ 'testo_2_bottone' | translate }}</a> <a href="configura" class="btn hidden btn-default anim">Crea</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+    </div>
+    <!-- fine testo introduttivo configuratore-->
+
+   
 	
 	<div class="container text-center top-buffer">
 		<div class="row top-buffer">
@@ -116,9 +138,9 @@
 						<slide ng-repeat="conf in getPreconfigurati()"><a href="javascript:void(0);" class="bag-box home-content wow fadeIn" data-wow-delay="0.4s" ng-click="modificaConfig(conf)">
 							<img src="{{conf.urlImmagineInfluencer}}" class="influencer-label" /><div class="img-container"><img ng-src="{{conf.thumbnail}}" /></div><div class="price">{{conf.nome}}<br><span class="full-price barred">{{calcolaPrezzo(conf)}}&euro;</span> <span class="discount-price">{{calcolaPrezzoScontato(conf)}} &euro;</div></a></slide>
 					</slides>
-        <prev></prev>
-        <next></next>
-					 <pagination></pagination>
+                    <prev></prev>
+                    <next></next>
+                    <pagination></pagination>
 				</swiper>
 			</section>
 		</div>
