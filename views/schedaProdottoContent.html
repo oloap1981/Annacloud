@@ -9,14 +9,14 @@
 <div class="home-content wow" ng-controller="schedaProdottoController" ng-init="homeInit({boxClasses:'home-content wow'})">
 	
 	<div class="container text-center top-buffer">
-        <div class="col-sm-8 col-sm-offset-2">
+        <div class="col-md-8 col-md-offset-2 col-sm-12">
             <div class="row top-buffer scheda-prodotto">
                 <div class="col-sm-6 clearfix bottom-buffer home-content top-buffer">
                     <section class="swipe swipe-featured">
                         <swiper class="" grab-cursor="true" keyboard-control="true" slides-per-view="1" >
                             <slides>
                                 <slide ng-repeat="conf in getPreconfigurati()">
-                                    <a href="javascript:void(0);" class="bag-box home-content wow fadeIn" data-wow-delay="0.4s">
+                                    <a href="{{conf.thumbnail}}" class="bag-box home-content wow fadeIn"  data-lightbox="borsa-1"  data-wow-delay="0.4s">
                                         <div class="img-container"><img ng-src="{{conf.thumbnail}}" /></div>
                                     </a>
                                 </slide>
@@ -51,7 +51,7 @@
                             </tr>
                             <tr>
                                 <td><span>Tracolla:</span></td>
-                                <td>velour conciato in modo ecologico colorecelyon enastro in cotone organico</td>
+                                <td>velour conciato in modo ecologico colore celyon e nastro in cotone organico</td>
                             </tr>
                             <tr>
                                 <td><span>Laccio:</span></td>
