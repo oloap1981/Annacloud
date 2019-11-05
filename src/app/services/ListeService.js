@@ -70,6 +70,17 @@ angular.module("applicationModule").service("listeService", ["$http", "UtilFunct
 		};
 		return $http.post(AWS_SERVICE_URLS.urlGetService, requestMessage, config);
 	};
+
+	this.getConfigurazioniShopping = function(){
+		var requestMessage = UtilFunctionMessagesCreator.getConfigurazioniShoppingMessage();
+		var config = {
+			headers: {
+				'Content-Type': 'application/json',
+				'Authorization': ''
+			}
+		};
+		return $http.post(AWS_SERVICE_URLS.urlGetService, requestMessage, config);
+	};
 	
 	this.getCarrelloUtente = function(codiceUtente){
 		var requestMessage = UtilFunctionMessagesCreator.getCarrelloUtenteMessage(codiceUtente);

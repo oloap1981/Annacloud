@@ -1,8 +1,6 @@
 angular.module("applicationModule").controller("shoppingController", ["$scope", "$location", "$translatePartialLoader", 
 	function($scope, $location, $translatePartialLoader, $translate) {
 	
-		
-
 		$scope.homeInit = function(config){
 			$translatePartialLoader.addPart('home');
 			$scope.wowInit(config);
@@ -12,4 +10,5 @@ angular.module("applicationModule").controller("shoppingController", ["$scope", 
 			$scope.setTempConfigurazione(conf);
 			$location.url('/configura');
 		};
+
 }]);

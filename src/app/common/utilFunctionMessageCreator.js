@@ -41,6 +41,13 @@ angular.module("applicationModule").service("UtilFunctionMessagesCreator", funct
 		return message;
 	};
 
+	this.getConfigurazioniShoppingMessage = function(){
+		var message = {};
+		message.functionName = "UnaDunaGetConfigurazioniShopping";
+		message.ifCarrello = false;
+		return message;
+	};
+
 	this.getCarrelloUtenteMessage = function(codiceUtente){
 		var message = {};
 		message.functionName = "UnaDunaGetConfigurazioniUtente";

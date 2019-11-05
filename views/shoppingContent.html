@@ -14,7 +14,23 @@
 				<h3 class="title section mot top-buffer"><span>Shopping</span></h3>
 				<p class="subtitle bottom-buffer">Acquista tutto buono no caro</p>
 			</div>
-			<div class="col-lg-3 col-md-4 col-sm-4 col-xs-6 clearfix bottom-buffer home-content top-buffer">
+			<div class="col-lg-3 col-md-4 col-sm-4 col-xs-6 clearfix bottom-buffer home-content top-buffer" 
+			ng-repeat="conf in getShopping()"
+			ng-init="thumbimage = getConfigurationImagesArray(conf)[0]"
+			>
+                <a href="scheda-prodotto" class="swiper-slide bag-box shopping">
+					<div class="img-container" 
+						ng-mouseover="thumbimage = getConfigurationImagesArray(conf)[1]"
+						ng-mouseout="thumbimage = getConfigurationImagesArray(conf)[0]">
+						<img ng-src="{{thumbimage}}">
+					</div>
+                    <div class="price">
+                        Pink<br>
+                        <span class="desc">{{conf.descrizione}}</span><br>
+                        <span class="full-price barred hidden">{{conf.prezzo}} €</span><span class="discount-price">{{conf.prezzoScontato}} €</span></div>
+                </a>
+			</div>
+			<!-- <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6 clearfix bottom-buffer home-content top-buffer">
                 <a href="scheda-prodotto" class="swiper-slide bag-box shopping">
                     <div class="img-container"><img src="https://s3.eu-central-1.amazonaws.com/unaduna-images-bucket/1564158169139_PINK.png" onmouseover="this.src='https://s3.eu-central-1.amazonaws.com/unaduna-images-bucket/1564158742564_SMILE.png'" onmouseout="this.src='https://s3.eu-central-1.amazonaws.com/unaduna-images-bucket/1564158169139_PINK.png'"></div>
                     <div class="price">
@@ -22,7 +38,7 @@
                         <span class="desc">Neque porro quisquam est qui dolorem ipsum...</span><br>
                         <span class="full-price barred hidden">159€</span><span class="discount-price">139 €</span></div>
                 </a>
-			</div>
+			</div> -->
 		</div>
 	</div>
 	<div class="container text-center">

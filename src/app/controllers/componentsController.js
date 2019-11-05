@@ -20,6 +20,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 	$scope.preferiti = [];
 	$scope.ordineInCorso = null;
 	$scope.preconfigurati = [];
+	$scope.shopping = [];
 
 	$scope.tempConfigurazione = null;
 
@@ -225,6 +226,10 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		return $scope.preconfigurati;
 	};
 
+	$scope.getShopping = function() {
+		return $scope.shopping;
+	}
+
 	$scope.getPreferiti = function () {
 		return $scope.preferiti;
 	};
@@ -260,6 +265,14 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 	$scope.getRole = function () {
 		return $scope.role;
 	};
+
+	$scope.getConfigurationImagesArray = function(config) {
+		return config.thumbnail.split(",");
+	}
+
+	$scope.getConfigurationMainImage = function(config) {
+		return config.thumbnail.split(",")[0];
+	}
 
 	$scope.isCurrentUserAdmin = function(){
 		return $scope.role === ROLES.ADMIN;
@@ -366,6 +379,28 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 				return (a.codice > b.codice) ? -1 : ((b.codice > a.codice) ? 1 : 0);
 			}); 
 			$scope.preconfigurati.sort(function(a,b) {
+				if(a.ordineInterfaccia == 0 && b.ordineInterfaccia == 0){
+					return 0;
+				} else if (a.ordineInterfaccia == 0 && b.ordineInterfaccia > 0){
+					return 1;
+				} else if (a.ordineInterfaccia > 0 && b.ordineInterfaccia == 0){
+					return -1;
+				} else {
+					return (a.ordineInterfaccia < b.ordineInterfaccia) ? -1 : ((b.ordineInterfaccia < a.ordineInterfaccia) ? 1 : 0);
+				}
+			}); 
+			//
+		});
+	};
+
+	$scope.caricaListeShopping = function (email, page, showLoader) {
+		listeService.getConfigurazioniShopping().then(function (data) {
+
+			$scope.shopping = data.data.configurazioni;
+			$scope.shopping.sort(function(a,b) {
+				return (a.codice > b.codice) ? -1 : ((b.codice > a.codice) ? 1 : 0);
+			}); 
+			$scope.shopping.sort(function(a,b) {
 				if(a.ordineInterfaccia == 0 && b.ordineInterfaccia == 0){
 					return 0;
 				} else if (a.ordineInterfaccia == 0 && b.ordineInterfaccia > 0){
@@ -737,6 +772,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 
 	$scope.wowInit = function (config) {
 		$scope.caricaListePreconfigurati();
+		$scope.caricaListeShopping();
 		if (config) {
 			new WOW(config).init();
 		} else {
