@@ -1119,7 +1119,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 	configController.aggiungiStrato = function (strato, ordine, eliminabile, entita) {
 
 		configController.aggiungiElementoAStack(strato, ordine, eliminabile, entita);
-		configController.caricaSpinner();
+		//configController.caricaSpinner();
 	};
 
 	configController.aggiungiElementoAStack = function (strato, ordine, eliminabile, entita) {
@@ -1922,9 +1922,6 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		pz.y(-300);
 		pz.x(-70);
 
-
-		// html2canvas(document.querySelector("#spritespin"), { async:false }).then(canvas => {
-		// html2canvas(document.querySelector("#spritespin"), { async:false }).then( function(canvas) {
 		html2canvas(document.querySelector("#spritespin")).then(function (canvas) {
 			//$("#loader").show();
 			$("#loader").fadeIn("slow");
