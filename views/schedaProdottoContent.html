@@ -1,0 +1,106 @@
+<update-title title="Annacloud.it - Home Page"></update-title>
+<update-meta http-equiv="Content-Language" content="es"></update-meta>
+<update-meta name="description" content="Dove le nuove tecnologie incontrano innovazione, sostenibilità e artigianato."></update-meta>
+<update-meta property="og:title" content="Annacloud.it - Home Page"></update-meta>
+<update-meta property="og:description" content="Dove le nuove tecnologie incontrano innovazione, sostenibilità e artigianato."></update-meta>
+<update-meta itemprop="description" content="Dove le nuove tecnologie incontrano innovazione, sostenibilità e artigianato."></update-meta>
+<update-script content="structuredData" type="application/ld+json"></update-script>
+
+<div class="home-content wow" ng-controller="schedaProdottoController" ng-init="homeInit({boxClasses:'home-content wow'})">
+	
+	<div class="container text-center top-buffer">
+        <div class="col-sm-8 col-sm-offset-2">
+            <div class="row top-buffer scheda-prodotto">
+                <div class="col-sm-6 clearfix bottom-buffer home-content top-buffer">
+                    <section class="swipe swipe-featured">
+                        <swiper class="" grab-cursor="true" keyboard-control="true" slides-per-view="1" >
+                            <slides>
+                                <slide ng-repeat="conf in getPreconfigurati()">
+                                    <a href="javascript:void(0);" class="bag-box home-content wow fadeIn" data-wow-delay="0.4s">
+                                        <div class="img-container"><img ng-src="{{conf.thumbnail}}" /></div>
+                                    </a>
+                                </slide>
+                            </slides>
+                            <prev></prev>
+                            <next></next>
+                            <pagination></pagination>
+                        </swiper>
+                    </section>
+                </div>
+                <div class="col-sm-6 clearfix bottom-buffer home-content top-buffer">
+                    <div class="col-sm-12 base">
+                        <h2 class="bag">Streets Of Autumn</h2>
+                        <p>Breve descrizione del prodotto</p>
+                        <h2 class="bag top-buffer bottom-buffer">640 &euro;</h2>
+                        <a href="#" class="btn btn-big btn-default ">Acquista</a>
+                    </div>
+                    <div class="col-sm-12 base">
+                        <h2 class="section-small left">Informazioni</h2>
+                        <table>
+                            <tr>
+                                <td><span>Corpo:</span></td>
+                                <td>tessuto ricavato da plastica riciclata 100%</td>
+                            </tr>
+                            <tr>
+                                <td><span>Bande orizzontali:</span></td>
+                                <td>velour colore piombo, tapenade e celyon conciati in modo ecologico</td>
+                            </tr>
+                            <tr>
+                                <td><span>Fodera:</span></td>
+                                <td>Fodera nera in cotone ecologico</td>
+                            </tr>
+                            <tr>
+                                <td><span>Tracolla:</span></td>
+                                <td>velour conciato in modo ecologico colorecelyon enastro in cotone organico</td>
+                            </tr>
+                            <tr>
+                                <td><span>Laccio:</span></td>
+                                <td>in corda di cotone</td>
+                            </tr>
+                            <tr>
+                                <td><span>Etichetta:</span></td>
+                                <td>prodotta con filati ricavati da bottiglie riciclate</td>
+                            </tr>
+                            <tr>
+                                <td><span>Etichetta tubolare:</span></td>
+                                <td>prodotta con filati ricavati da bottiglie riciclate e occhiello a vela</td>
+                            </tr>
+                            <tr>
+                                <td><span>Occhielli:</span></td>
+                                <td>a vela colore canna di fucile</td>
+                            </tr>
+                            <tr>
+                                <td><span>D Ring:</span></td>
+                                <td>canna di fucile</td>
+                            </tr>
+                            <tr>
+                                <td><span>Anello rettangolare:</span></td>
+                                <td>colore canna di fucile</td>
+                            </tr>
+                            <tr>
+                                <td><span>Cerniera e cursore:</span></td>
+                                <td>colorecanna di fucile</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+		</div>
+	</div>
+	
+    <div class="container text-center  bottom-buffer">
+        <div class="row top-buffer bottom-buffer wow fadein" data-wow-delay="0.1s">
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="divider"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 clearfix bottom-buffer top-buffer home-content wow fadeInUpSmall" data-wow-delay=".2s">
+                <h2 class="title section top-buffer"><span>Titolone</span></h2>
+                <p class="subtitle bottom-buffer" style="text-align :justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut turpis eget libero elementum fermentum. Suspendisse maximus ornare velit vitae feugiat. Phasellus vitae risus in est placerat venenatis. Sed blandit efficitur commodo. Proin aliquet lacus augue, quis consequat nulla facilisis nec. Curabitur dignissim nunc elit, sit amet ornare dolor interdum sit amet. Vivamus consequat faucibus leo, ut consectetur ligula tincidunt ac. Etiam pulvinar lacus ac elit varius venenatis. Phasellus commodo venenatis justo, quis posuere dolor consectetur et. Morbi vestibulum augue nec libero elementum, feugiat aliquam nisl lacinia. Aliquam laoreet quis nisl quis ultricies. Nulla id erat felis. Sed in augue maximus, suscipit ex eleifend, volutpat nibh.</p>
+            </div>
+        </div>
+    </div>
+</div>

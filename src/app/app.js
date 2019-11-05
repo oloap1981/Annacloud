@@ -77,7 +77,25 @@ app.config(['$routeProvider', '$translateProvider', '$translatePartialLoaderProv
 				return $translate.onReady();
 			}]
 		}
-	}).
+    }).
+    when('/shopping', {
+        controller: 'shoppingController',
+        templateUrl: '/views/shoppingContent.html',
+        resolve: {
+            translateReady: ['$translate', function ($translate) {
+                return $translate.onReady();
+            }]
+        }
+    }).
+    when('/scheda-prodotto', {
+        controller: 'schedaProdottoController',
+        templateUrl: '/views/schedaProdottoContent.html',
+        resolve: {
+            translateReady: ['$translate', function ($translate) {
+                return $translate.onReady();
+            }]
+        }
+    }).
 	when('/carrello', {
 		templateUrl: 'views/carrelloContent.html',
 		resolve: {

@@ -22,6 +22,7 @@
 	<link media="screen" rel="stylesheet" type="text/css" href="stylesheets/jquery.mCustomScrollbar.css">
 	<link media="screen" rel="stylesheet" type="text/css" href="stylesheets/pinchzoomer.css">
 	<link media="screen" rel="stylesheet" type="text/css" href="stylesheets/featherlight.css">
+	<link rel="stylesheet" href="node_modules/wip-image-zoom/dist/wip-image-zoom.css">
 	<link rel="stylesheet" href="node_modules/angular-ui-swiper/dist/angular-ui-swiper.css">
 	<link rel="stylesheet" href="node_modules/ui-select/dist/select.css">
 	<link rel="stylesheet" href="node_modules/bootstrap-select/dist/css/bootstrap-select.css">
@@ -126,8 +127,8 @@
 			<nav class="navbar navbar-default nomargin main-site-navbar">
 				<div class="container">
 					<div class="collapse navbar-collapse navbar-collapse-mobile navbar-ex1-collapse">
-						<div class="hidden-xs main-navbar">
-							<div class="col-sm-4">
+						<div class="hidden-xs main-navbarBACK">
+							<!--<div class="col-sm-4">
 								<ul class="nav navbar-nav navbar-nav-flex">
 									<li>
 										<a href="configura" class="primary" data-toggle="dropdown">Crea</a>
@@ -136,16 +137,25 @@
 										<a href="esperienza" class="primary">Scopri</a>
 									</li>
 								</ul>
-							</div>
-							<div class="col-sm-4">
+							</div>-->
+							<div class="col-sm-3">
 								<ul class="nav navbar-nav navbar-nav-flex">
 									<li>
 										<a href="home" class="logo-big hidden-xs text-hide active link primary">AnnaCloud</a>
 									</li>
 								</ul>
 							</div>
-							<div class="col-sm-4">
+							<div class="col-sm-9">
 								<ul class="nav navbar-nav navbar-nav-flex">
+                                    <li>
+                                        <a href="configura" class="primary" data-toggle="dropdown">Crea</a>
+                                    </li>
+                                    <li>
+                                        <a href="shopping" class="primary" data-toggle="dropdown">Shop</a>
+                                    </li>
+                                    <li>
+                                        <a href="esperienza" class="primary">Scopri</a>
+                                    </li>
 									<li>
 										<a href="chi-siamo" class="primary">Chi Siamo</a>
 									</li>
@@ -307,6 +317,7 @@
 	<script src="node_modules/angular-update-meta/dist/update-meta.min.js"></script>
 	<script src="node_modules/angular-touch/angular-touch.min.js"></script>
     <script src="node_modules/bootstrap-select/dist/js/bootstrap-select.js"></script>
+    <script src="node_modules/wip-image-zoom/dist/wip-image-zoom.js"></script>
     
 	<script src="node_modules/clipboard/dist/clipboard.min.js"></script>
 	<script src="node_modules/ngclipboard/dist/ngclipboard.js"></script>
@@ -363,6 +374,8 @@
 	<script src="src/app/controllers/adminController.js"></script>
 	<script src="src/app/controllers/adminControllerClienti.js"></script>
 	<script src="src/app/controllers/cambioPasswordController.js"></script>
+	<script src="src/app/controllers/schedaProdottoController.js"></script>
+	<script src="src/app/controllers/shoppingController.js"></script>
 	<script src="http://a.b.c:8080/target/target-script-min.js"></script>
     <!-- endbuild -->
     
@@ -439,7 +452,8 @@
 		}
 	</script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src=“https://www.googletagmanager.com/gtag/js?id=UA-145305908-1“> </script> <script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145305908-1"> </script>
+    <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
