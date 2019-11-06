@@ -6,7 +6,7 @@
 <update-meta itemprop="description" content="Dove le nuove tecnologie incontrano innovazione, sostenibilità e artigianato."></update-meta>
 <update-script content="structuredData" type="application/ld+json"></update-script>
 
-<div class="home-content wow" ng-controller="shoppingController" ng-init="homeInit({boxClasses:'home-content wow'})">
+<div class="home-content wow" ng-controller="shoppingController">
 	
 	<div class="container text-center top-buffer">
 		<div class="row top-buffer">
@@ -18,16 +18,16 @@
 			ng-repeat="conf in getShopping()"
 			ng-init="thumbimage = getConfigurationImagesArray(conf)[0]"
 			>
-                <a href="scheda-prodotto" class="swiper-slide bag-box shopping">
+                <a href="#" class="swiper-slide bag-box shopping" ng-click="schedaProdotto(conf)">
 					<div class="img-container" 
 						ng-mouseover="thumbimage = getConfigurationImagesArray(conf)[1]"
 						ng-mouseout="thumbimage = getConfigurationImagesArray(conf)[0]">
 						<img ng-src="{{thumbimage}}">
 					</div>
                     <div class="price">
-                        Pink<br>
-                        <span class="desc">{{conf.descrizione}}</span><br>
-                        <span class="full-price barred hidden">{{conf.prezzo}} €</span><span class="discount-price">{{conf.prezzoScontato}} €</span></div>
+                        {{conf.nome}}<br>
+                        <span class="desc">{{conf.descrizioneBreve}}</span><br>
+                        <span class="full-price barred hidden">{{calcolaPrezzo(conf)}} €</span><span class="discount-price">{{calcolaPrezzoScontato(conf)}} €</span></div>
                 </a>
 			</div>
 			<!-- <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6 clearfix bottom-buffer home-content top-buffer">

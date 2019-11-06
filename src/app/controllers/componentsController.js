@@ -22,6 +22,8 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 	$scope.preconfigurati = [];
 	$scope.shopping = [];
 
+	$scope.shoppingSelected = null;
+
 	$scope.tempConfigurazione = null;
 
 	$scope.email = "";
@@ -52,6 +54,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		$scope.preconfigurati = [];
 
 		$scope.tempConfigurazione = null;
+		$scope.shoppingSelected = null;
 
 		$scope.email = "";
 		$scope.tel = "";
@@ -202,6 +205,14 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 	$scope.getTempConfigurazione = function () {
 		return $scope.tempConfigurazione;
 	};
+
+	$scope.setShoppingSelected = function(selected) {
+		$scope.shoppingSelected = selected;
+	}
+
+	$scope.getShoppingSelected = function() {
+		return $scope.shoppingSelected;
+	}
 
 	$scope.getCarrello = function () {
 		return $scope.carrello;
@@ -620,7 +631,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 			var configMessagePart = MAIL.ORDER_MAIL_CONFIGURATION_TEMPLATE;
 
 			configMessagePart = configMessagePart.replace("CONF_NAME", configurazione.nome);
-			configMessagePart = configMessagePart.replace("CONF_IMAGE", configurazione.thumbnail);
+			configMessagePart = configMessagePart.replace("CONF_IMAGE", configurazione.thumbnail.split(',')[0]);
 			//
 			var elencoEntitaPartMessage = "";
 			for (var j = 0; j < configurazione.elencoEntita.length; j++) {

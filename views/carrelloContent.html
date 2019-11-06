@@ -19,7 +19,7 @@
                 <div ng-repeat="conf in getCarrello()" class="col-sm-12 bag-item clearfix visible-xs">
                     <div class="col-sm-8 no-padding">
                         <div class="col-sm-3">
-                            <img  ng-src="{{conf.thumbnail}}" class="bag-sample">
+                            <img  ng-src="{{conf.thumbnail.split(',')[0]}}" class="bag-sample">
                         </div>
                         <div class="col-sm-9">
                             <div class="col-sm-12">
@@ -54,7 +54,7 @@
                         <div class="media">
                             <div class="media-left">
                                 <a href="#" onclick="return false">
-                                    <img ng-src="{{conf.thumbnail}}" class="media-object bag-sample">
+                                    <img ng-src="{{conf.thumbnail.split(',')[0]}}" class="media-object bag-sample">
                                 </a>
                             </div>
                             <div class="media-body">

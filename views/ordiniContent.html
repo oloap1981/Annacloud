@@ -24,7 +24,7 @@
                         <div ng-repeat="configurazione in ord.configurazioni" class="visible-xs">
                             <div class="col-sm-12 no-padding">
                                 <div class="col-sm-3">
-                                    <img src="{{configurazione.thumbnail}}" class="bag-sample">
+                                    <img src="{{configurazione.thumbnail.split(',')[0]}}" class="bag-sample">
                                 </div>
                                 <div class="col-sm-9">
                                     <div class="col-sm-12">
@@ -58,7 +58,7 @@
                             <div class="media">
                                 <div class="media-left">
                                     <a href="#">
-                                        <img src="{{configurazione.thumbnail}}" class="media-object bag-sample">
+                                        <img src="{{configurazione.thumbnail.split(',')[0]}}" class="media-object bag-sample">
                                     </a>
                                 </div>
                                 <div class="media-body">

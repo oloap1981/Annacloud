@@ -11,4 +11,13 @@ angular.module("applicationModule").controller("shoppingController", ["$scope", 
 			$location.url('/configura');
 		};
 
+
+		$scope.schedaProdotto = function(conf) {
+
+			// setto il prodotto selezionato
+			$scope.setShoppingSelected(conf);
+
+			// cambio pagina
+			$scope.changePath('/scheda-prodotto');
+		}
 }]);

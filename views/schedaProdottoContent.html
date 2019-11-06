@@ -6,7 +6,7 @@
 <update-meta itemprop="description" content="Dove le nuove tecnologie incontrano innovazione, sostenibilità e artigianato."></update-meta>
 <update-script content="structuredData" type="application/ld+json"></update-script>
 
-<div class="home-content wow" ng-controller="schedaProdottoController" ng-init="homeInit({boxClasses:'home-content wow'})">
+<div class="home-content wow" ng-controller="schedaProdottoController" ng-init="schedaProdottoInit()">
 	
 	<div class="container text-center top-buffer">
         <div class="col-md-8 col-md-offset-2 col-sm-12">
@@ -15,9 +15,9 @@
                     <section class="swipe swipe-featured">
                         <swiper class="" grab-cursor="true" keyboard-control="true" slides-per-view="1" >
                             <slides>
-                                <slide ng-repeat="conf in getPreconfigurati()">
-                                    <a href="{{conf.thumbnail}}" class="bag-box home-content wow fadeIn"  data-lightbox="borsa-1"  data-wow-delay="0.4s">
-                                        <div class="img-container"><img ng-src="{{conf.thumbnail}}" /></div>
+                                <slide ng-repeat="thumb in thumbnails">
+                                    <a href="{{thumb}}" class="bag-box home-content wow fadeIn"  data-lightbox="borsa-1"  data-wow-delay="0.4s">
+                                        <div class="img-container"><img ng-src="{{thumb}}" /></div>
                                     </a>
                                 </slide>
                             </slides>
@@ -29,14 +29,15 @@
                 </div>
                 <div class="col-sm-6 clearfix bottom-buffer home-content top-buffer">
                     <div class="col-sm-12 base">
-                        <h2 class="bag">Streets Of Autumn</h2>
-                        <p>Breve descrizione del prodotto</p>
-                        <h2 class="bag top-buffer bottom-buffer">640 &euro;</h2>
-                        <a href="#" class="btn btn-big btn-default ">Acquista</a>
+                        <h2 class="bag">{{shoppingSelected.nome}}</h2>
+                        <p>{{shoppingSelected.descrizioneBreve}}</p>
+                        <h2 class="bag top-buffer bottom-buffer">{{calcolaPrezzoScontato(shoppingSelected)}} &euro;</h2>
+                        <a href="#" class="btn btn-big btn-default " ng-click="shoppingAcquista()">Acquista</a>
                     </div>
                     <div class="col-sm-12 base">
                         <h2 class="section-small left">Informazioni</h2>
-                        <table>
+                        <p ng-bind-html="shoppingSelected.info"></p>ss
+                        <!-- <table>
                             <tr>
                                 <td><span>Corpo:</span></td>
                                 <td>tessuto ricavato da plastica riciclata 100%</td>
@@ -81,7 +82,7 @@
                                 <td><span>Cerniera e cursore:</span></td>
                                 <td>colorecanna di fucile</td>
                             </tr>
-                        </table>
+                        </table> -->
                     </div>
                 </div>
             </div>
@@ -99,7 +100,7 @@
             </div>
             <div class="col-sm-12 clearfix bottom-buffer top-buffer home-content wow fadeInUpSmall" data-wow-delay=".2s">
                 <h2 class="title section top-buffer"><span>Titolone</span></h2>
-                <p class="subtitle bottom-buffer" style="text-align :justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut turpis eget libero elementum fermentum. Suspendisse maximus ornare velit vitae feugiat. Phasellus vitae risus in est placerat venenatis. Sed blandit efficitur commodo. Proin aliquet lacus augue, quis consequat nulla facilisis nec. Curabitur dignissim nunc elit, sit amet ornare dolor interdum sit amet. Vivamus consequat faucibus leo, ut consectetur ligula tincidunt ac. Etiam pulvinar lacus ac elit varius venenatis. Phasellus commodo venenatis justo, quis posuere dolor consectetur et. Morbi vestibulum augue nec libero elementum, feugiat aliquam nisl lacinia. Aliquam laoreet quis nisl quis ultricies. Nulla id erat felis. Sed in augue maximus, suscipit ex eleifend, volutpat nibh.</p>
+                <p class="subtitle bottom-buffer" style="text-align :justify" ng-bind-html="shoppingSelected.descrizione"></p>
             </div>
         </div>
     </div>
