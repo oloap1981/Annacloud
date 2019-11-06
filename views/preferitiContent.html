@@ -49,7 +49,7 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="order-buttons">
-                        <a href="javascript:void(0)" class="btn btn-default " ng-click="goToPage(conf)">modifica il modello</a>
+                        <a href="javascript:void(0)" class="btn btn-default " ng-if="conf.tipo != 'SC'" ng-click="goToPage(conf)">modifica il modello</a>
                         <a href="javascript:void(0)" class="btn btn-default" ng-click="addToCart(conf)" ng-hide="isCurrentUserAdmin()">aggiungi al carrello</a>
                         <div ng-show="isCurrentUserAdmin()">
                             <span>Per gestire le preconfigurate, devi visualizzare questa pagina in versione desktop</span>
@@ -96,7 +96,7 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="order-buttons">
-                        <a href="javascript:void(0)" class="btn btn-default " ng-click="goToPage(conf)">modifica il modello</a>    
+                        <a href="javascript:void(0)" class="btn btn-default "  ng-if="conf.tipo != 'SC'" ng-click="goToPage(conf)">modifica il modello</a>    
                         <div ng-show="isCurrentUserAdmin()">
                             <div style="height: 20px;"></div>
                             <div style="margin: 15px 0; width: auto; float: left; margin-right: 10px;">

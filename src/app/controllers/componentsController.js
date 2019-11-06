@@ -208,11 +208,11 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 
 	$scope.setShoppingSelected = function(selected) {
 		$scope.shoppingSelected = selected;
-	}
+	};
 
 	$scope.getShoppingSelected = function() {
 		return $scope.shoppingSelected;
-	}
+	};
 
 	$scope.getCarrello = function () {
 		return $scope.carrello;
@@ -239,7 +239,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 
 	$scope.getShopping = function() {
 		return $scope.shopping;
-	}
+	};
 
 	$scope.getPreferiti = function () {
 		return $scope.preferiti;
@@ -279,11 +279,11 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 
 	$scope.getConfigurationImagesArray = function(config) {
 		return config.thumbnail.split(",");
-	}
+	};
 
 	$scope.getConfigurationMainImage = function(config) {
 		return config.thumbnail.split(",")[0];
-	}
+	};
 
 	$scope.isCurrentUserAdmin = function(){
 		return $scope.role === ROLES.ADMIN;

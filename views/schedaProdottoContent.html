@@ -9,8 +9,8 @@
 <div class="home-content wow" ng-controller="schedaProdottoController" ng-init="schedaProdottoInit()">
 	
 	<div class="container text-center top-buffer">
-        <div class="col-md-8 col-md-offset-2 col-sm-12">
-            <div class="row top-buffer scheda-prodotto">
+        <div class="col-md-8 col-md-offset-2 col-sm-12 scheda-prodotto">
+            <div class="row top-buffer">
                 <div class="col-sm-6 clearfix bottom-buffer home-content top-buffer">
                     <section class="swipe swipe-featured">
                         <swiper class="" grab-cursor="true" keyboard-control="true" slides-per-view="1" >
@@ -36,7 +36,7 @@
                     </div>
                     <div class="col-sm-12 base">
                         <h2 class="section-small left">Informazioni</h2>
-                        <p ng-bind-html="shoppingSelected.info"></p>ss
+                        <div ng-bind-html="shoppingSelected.info"></div>
                         <!-- <table>
                             <tr>
                                 <td><span>Corpo:</span></td>
@@ -99,7 +99,7 @@
                 </div>
             </div>
             <div class="col-sm-12 clearfix bottom-buffer top-buffer home-content wow fadeInUpSmall" data-wow-delay=".2s">
-                <h2 class="title section top-buffer"><span>Titolone</span></h2>
+                <h2 class="title section top-buffer"><span>Titolo</span></h2>
                 <p class="subtitle bottom-buffer" style="text-align :justify" ng-bind-html="shoppingSelected.descrizione"></p>
             </div>
         </div>
