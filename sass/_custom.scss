@@ -1900,6 +1900,7 @@ a.link {
     }
 
     &.shopping {
+        margin: 0;
         &:hover {
             div, img, span {
                 @include transition(all 0ms ease-in-out);
@@ -1908,6 +1909,13 @@ a.link {
                 opacity:1;
             }
         }
+        .price {
+            height: 115px;
+            @media screen and (max-width: $screen-sm) {
+                height: auto;
+            }
+        }
+
     }
     img {
         width: 100%;
@@ -2046,6 +2054,7 @@ a.link {
     text-align: left;
     @media screen and (max-width: $screen-xs-max) {
         text-align: center;
+        padding: 0;
     }
     .section-small {
         font-size: 1.2em;

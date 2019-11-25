@@ -20,7 +20,7 @@ angular.module("applicationModule").controller("schedaProdottoController", ["$sc
 			} else {
 				$scope.salvaTempELogin();
 			}
-		}
+		};
 
 		$scope.aggiungiAlCarrello = function () {
 			$scope.salvaConfigurazione(true);

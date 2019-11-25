@@ -8,13 +8,13 @@
 
 <div class="home-content wow" ng-controller="shoppingController">
 	
-	<div class="container text-center top-buffer">
+	<div class="container text-center">
 		<div class="row top-buffer">
-			<div class="col-sm-12 clearfix bottom-buffer home-content " >
-				<h3 class="title section mot top-buffer"><span>Shopping</span></h3>
-				<p class="subtitle bottom-buffer">Le nostre borse a tiratura limitata</p>
+			<div class="col-sm-12 clearfix bottom-buffer" >
+				<h3 class="title section mot"><span>Shop</span></h3>
+				<p class="subtitle bottom-buffer">Testo introduttivo shop</p>
 			</div>
-			<div class="col-lg-3 col-md-4 col-sm-4 col-xs-6 clearfix bottom-buffer home-content top-buffer" 
+			<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 clearfix home-content top-buffer" 
 			ng-repeat="conf in getShopping()"
 			ng-init="thumbimage = getConfigurationImagesArray(conf)[0]"
 			>

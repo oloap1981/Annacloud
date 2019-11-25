@@ -19,5 +19,5 @@ angular.module("applicationModule").controller("shoppingController", ["$scope", 
 
 			// cambio pagina
 			$scope.changePath('/scheda-prodotto');
-		}
+		};
 }]);
