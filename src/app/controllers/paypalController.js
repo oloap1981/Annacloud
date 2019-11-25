@@ -1,68 +1,68 @@
- angular.module("applicationModule").controller("cartController", ["$scope", "loginService", "listeService",
-		function($scope, loginService, listeService) {
-			
-		 paypal.Button.render(
-				{
-					env: 'sandbox', // sandbox | production
+angular.module("applicationModule").controller("cartController", ["$scope", "loginService", "listeService",
+	function ($scope, loginService, listeService) {
 
-					// Specify the style of the button
-					style: {
-						layout: 'horizontal',  // horizontal | vertical
-						size:   'medium',    // medium | large | responsive
-						shape:  'rect',      // pill | rect
-						color:  'gold'       // gold | blue | silver | white | black
-					},
+		paypal.Button.render(
+			{
+				env: 'production', // sandbox | production
 
-					// Specify allowed and disallowed funding sources
-					//
-					// Options:
-					// - paypal.FUNDING.CARD
-					// - paypal.FUNDING.CREDIT
-					// - paypal.FUNDING.ELV
-					funding: {
-						allowed: [
-							paypal.FUNDING.CARD,
-							paypal.FUNDING.CREDIT
-						],
-						disallowed: []
-					},
+				// Specify the style of the button
+				style: {
+					layout: 'horizontal',  // horizontal | vertical
+					size: 'medium',    // medium | large | responsive
+					shape: 'rect',      // pill | rect
+					color: 'gold'       // gold | blue | silver | white | black
+				},
 
-					// Enable Pay Now checkout flow (optional)
-					commit: true,
+				// Specify allowed and disallowed funding sources
+				//
+				// Options:
+				// - paypal.FUNDING.CARD
+				// - paypal.FUNDING.CREDIT
+				// - paypal.FUNDING.ELV
+				funding: {
+					allowed: [
+						paypal.FUNDING.CARD,
+						paypal.FUNDING.CREDIT
+					],
+					disallowed: []
+				},
 
-					// PayPal Client IDs - replace with your own
-					// Create a PayPal app: https://developer.paypal.com/developer/applications/create
-					client: {
-						sandbox: 'AT1iiIpFRZhumzfgjO0TKil1W1MsCHFXzqhcbB8o7cCqfdujMn0o1ie1b1pwHgzqBavu7pp0WQoeq4X4',
-						production: 'AW4rVOqOs5QNw3Dib95I1G0DYf7-Yz4jXrCPMbN7w6fJ8BuvSlSp000bSgRbQRDFpe4l0Iii9mZJPtnO'
-					},
+				// Enable Pay Now checkout flow (optional)
+				commit: true,
 
-					payment: function (data, actions) {
-						return actions.payment.create({
-							payment: {
-								transactions: [
-									{
-										amount: {
-											total: $scope.calcolaPrezzoOrdine($scope.getOrdineInCorso()) + $scope.getCostoSpedizione(),
-											//total: 0.1,
-											currency: 'EUR'
-										}
+				// PayPal Client IDs - replace with your own
+				// Create a PayPal app: https://developer.paypal.com/developer/applications/create
+				client: {
+					sandbox: 'AT1iiIpFRZhumzfgjO0TKil1W1MsCHFXzqhcbB8o7cCqfdujMn0o1ie1b1pwHgzqBavu7pp0WQoeq4X4',
+					production: 'AW4rVOqOs5QNw3Dib95I1G0DYf7-Yz4jXrCPMbN7w6fJ8BuvSlSp000bSgRbQRDFpe4l0Iii9mZJPtnO'
+				},
+
+				payment: function (data, actions) {
+					return actions.payment.create({
+						payment: {
+							transactions: [
+								{
+									amount: {
+										total: $scope.calcolaPrezzoOrdine($scope.getOrdineInCorso()) + $scope.getCostoSpedizione(),
+										//total: 0.1,
+										currency: 'EUR'
 									}
-								]
-							}
+								}
+							]
+						}
+					});
+				},
+
+				onAuthorize: function (data, actions) {
+					return actions.payment.execute()
+						.then(function () {
+							$scope.svuotaCarrello($scope.getOrdineInCorso());//il carrello lo svuoto solo se il pagamento è andato a buon fine
+							$scope.completaOperazioniOrdneAcquistato();
 						});
-					},
+				},
 
-					onAuthorize: function (data, actions) {
-						return actions.payment.execute()
-							.then(function () {
-								$scope.svuotaCarrello($scope.getOrdineInCorso());//il carrello lo svuoto solo se il pagamento è andato a buon fine
-								$scope.completaOperazioniOrdneAcquistato();
-							});
-					}, 
-
-					onError: function(err){
-						alert("Ci sono stati dei problemi durante il checkout. Il pagamento non è andato a buon fine, controllare Paypal per ulteriori dettagli");
-					}
-				} , '#paypal-button' ); 
+				onError: function (err) {
+					alert("Ci sono stati dei problemi durante il checkout. Il pagamento non è andato a buon fine, controllare Paypal per ulteriori dettagli");
+				}
+			}, '#paypal-button');
 	}]);

@@ -1,21 +1,53 @@
-angular.module("applicationModule").controller("schedaProdottoController", ["$scope", "$location", "$translatePartialLoader", "$translate", "loginService", "jwtHelper",
-	function($scope, $location, $translatePartialLoader, $translate, loginService, jwtHelper) {
-	
-		$scope.shoppingSelected = null;		
+angular.module("applicationModule").controller("schedaProdottoController", ["$scope", "$location", "$translatePartialLoader", "$translate", "$routeParams", "loginService", "jwtHelper", "listeService",
+	function ($scope, $location, $translatePartialLoader, $translate, $routeParams, loginService, jwtHelper, listeService) {
+
+		$scope.configurazioneId = $routeParams.id;
+
+		$scope.shoppingSelected = [];
+		$scope.shoppingSelected.nome = "";
+		$scope.shoppingSelected.descrizioneBreve = "";
+		$scope.shoppingSelected.elencoEntita = [];
+
+		$scope.prezzo = "";
+
 		$scope.thumbnails = [];
 
-		$scope.schedaProdottoInit = function(){
-			$scope.shoppingSelected = $scope.getShoppingSelected();
-			$scope.thumbnails = $scope.shoppingSelected.thumbnail.split(",");
+		$scope.schedaProdottoInit = function () {
+			// devo scaricare qui la configurazione
+			if ($scope.configurazioneId != null && $scope.configurazioneId != undefined && $scope.configurazioneId != "") {
+				// l'id c'è, provo a caricare la configurazione
+				$scope.showLoader();
+				listeService.getConfigurazione($scope.configurazioneId).then(function (res2) {
+
+
+					if (res2.data.configurazione != undefined) {
+						//$scope.setTempConfigurazione(configurazione);
+						$scope.shoppingSelected = res2.data.configurazione;
+						$scope.prezzo = "" + $scope.calcolaPrezzoScontato($scope.shoppingSelected);
+						$scope.thumbnails = $scope.shoppingSelected.thumbnail.split(",");
+						$scope.hideLoader();
+					} else {
+						// alert no configurazione trovata
+						$scope.hideLoader();
+						$scope.openMessageModal("Non è stata trovata nessun oggetto con l'id " + $scope.configurazioneId);
+						$scope.changePath('/shopping' + conf.codice);
+					}
+				});
+			} else {
+				//alert no id configurazione passato
+				$scope.openMessageModal("Non è stato passato nessun identificativo di configurazione");
+				$scope.changePath('/shopping' + conf.codice);
+
+			}
 		};
 
-		$scope.translateHDThumbnail = function(thumbnail){
+		$scope.translateHDThumbnail = function (thumbnail) {
 			var split = thumbnail.split(".");
 			return split[0] + "_H." + split[1];
 		};
 
-		$scope.shoppingAcquista = function(){
-			if($scope.isLogged()){
+		$scope.shoppingAcquista = function () {
+			if ($scope.isLogged()) {
 				$scope.aggiungiAlCarrello();
 			} else {
 				$scope.salvaTempELogin();
@@ -25,13 +57,13 @@ angular.module("applicationModule").controller("schedaProdottoController", ["$sc
 		$scope.aggiungiAlCarrello = function () {
 			$scope.salvaConfigurazione(true);
 		};
-	
+
 		$scope.salvaTempELogin = function () {
-			
+
 			$scope.setNextPath("/scheda-prodotto");
 			$scope.changePath('/accedi');
 		};
-	
+
 		$scope.salvaConfigurazione = function (isCarrello) {
 
 			$scope.shoppingSelected.carrello = true;
@@ -43,12 +75,12 @@ angular.module("applicationModule").controller("schedaProdottoController", ["$sc
 			$scope.salvaConfigurazioneTemporanea();
 			$scope.salvaOAcquista($scope.shoppingSelected.nome, true, false);
 		};
-	
+
 		$scope.salvaConfigurazioneTemporanea = function () {
 			// var arrayIniziali = configController.generateArrayEntitaIniziali();
 			$scope.setTempConfigurazione($scope.shoppingSelected);
 		};
-	
+
 		$scope.isLogged = function () {
 			return loginService.isLoggedIn();
 		};
@@ -64,4 +96,10 @@ angular.module("applicationModule").controller("schedaProdottoController", ["$sc
 			}
 			$scope.shoppingSelected.utente = user;
 		};
-}]);
+
+		$scope.getEmptyConfig = function () {
+			var config = [];
+			config.nome = "";
+			config.descrizioneBreve = "";
+		};
+	}]);
