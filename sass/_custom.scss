@@ -1232,7 +1232,22 @@ a.link {
                 color: $brand-color;
             }
         }
-        
+    }
+    &.bevel {
+        text-shadow: 1px 1px 1px rgba(0,0,0,.75);
+    }
+    &.dark {
+        color: $brand-primary;
+        span {
+            &.cta {
+                border: solid 2px $brand-color;
+                background: rgba(#fff, .1) !important;
+                &:hover {
+                    background: rgba($brand-color, 1) !important;
+                    color: #fff;
+                }
+            }
+        }
     }
     a {
         color: inherit;
@@ -1484,6 +1499,9 @@ a.link {
     .jumbotron & {
         text-align: right;
     }
+    .jumbotron-center & {
+        text-align: center;
+    }
     @media screen and (max-width: $screen-sm) {
         font-size:1.5em !important;
         text-align: center !important;
@@ -1493,7 +1511,7 @@ a.link {
         &.mot {
             position: relative;
             //background: url(../images/pattern-2.png) repeat-x center 8px;
-            max-width: 480px;
+            max-width: 650px;
             margin-left: auto;
             margin-right: auto;
             span {
@@ -1541,9 +1559,12 @@ a.link {
     font-weight: lighter !important;
     color: $brand-primary-light;
     font-family: $font-family-sans-serif-title;
-    max-width: 480px;
+    //max-width: 480px;
     margin-left: auto;
     margin-right: auto;
+    .jumbotron-center & {
+        text-align: center;
+    }
     @media screen and (max-width: $screen-xs-max) {
         font-size: 1.1em !important;
     }
@@ -1599,6 +1620,12 @@ a.link {
     position: relative;
     @media screen and (max-width: $screen-sm) {
         padding: 40px 0;
+    }
+    @media screen and (max-width: $screen-xs) {
+        .btn {
+            min-width: inherit;
+            width: 100%;
+        }
     }
     
     //min-height: 350px;

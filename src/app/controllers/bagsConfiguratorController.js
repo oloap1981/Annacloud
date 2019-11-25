@@ -84,8 +84,8 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 
 	$scope.showDropdownButton = false;
 
-	configController.modelFilter = function (item) {
-		return item.attivo;
+	configController.modelFilter = function (item) { 
+		return item.attivo; 
 	};
 
 	configController.getRepeaterClass = function (accessorio, index) {
@@ -296,7 +296,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 						}
 					}
 				}
-			}
+            }
 
 
 
@@ -306,13 +306,13 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			} else {
 				$scope.entitaTipoAccessorioSelezionato = [];
 			}
-		}
+        }
+        
+        function ritardo() {
+            $(".accessori-thumb")[0].swiper.slideTo(0,0);
+        }
 
-		function ritardo() {
-			$(".accessori-thumb")[0].swiper.slideTo(0, 0);
-		}
-
-		setTimeout(ritardo, 400);
+        setTimeout(ritardo, 400);
 	};
 
 	configController.ordinaEntita = function (entitaNonOrdinate) {
@@ -328,7 +328,13 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		}
 
 		return tempEntita;
-	};
+    };
+    
+    /*configController.ordinaEntita = function (entitaNonOrdinate) {
+        return entitaNonOrdinate.sort(function (entita1, entita2) {
+            entita1.ordineInterfaccia - entita2.ordineInterfaccia;
+        });
+    };*/
 
 	configController.getResolutionPlaceHolder = function () {
 		var screenWidth = $("#canvasWrapper").innerWidth();
@@ -336,14 +342,14 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 
 		var placeHolder = "";
 		var minSize = 0;
-		if (screenWidth == 0 && screenHeight > 0) {
+		if(screenWidth == 0 && screenHeight > 0){
 			minSize = screenHeight;
 		} else if (screenWidth > 0 && screenHeight == 0) {
 			minSize = screenWidth;
 		} else {
 			minSize = (screenWidth > screenHeight ? screenHeight : screenWidth);
 		}
-
+		
 		if (minSize <= 560) {
 			placeHolder = "560";
 		} else if (minSize > 560 && minSize < 720) {
@@ -481,7 +487,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 
 		configController.initConfigurazione();
 		//$scope.configurazione.nome = modello.nome;
-
+		
 		configController.priceManager.fullPrice = modello.prezzoPieno;
 
 		//carico solo gli accessori relativi al modello scelto
@@ -527,46 +533,46 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			$scope.modelloSelezionato = modello.nome;
 			$scope.tipiAccessoriModelloSelezionato = $scope.tipiAccessori.get(modello.nome);
 
-			if (configController.singolaEntitaPresente("metalleria", modello.nome, "metalleria_argento")) {
+			if(configController.singolaEntitaPresente("metalleria", modello.nome, "metalleria_argento")){
 				var singolaEntita = configController.getSingolaEntita("metalleria", modello.nome, "metalleria_argento");
 				var entitaMetalleria = configController.getInternalEntitaObjct(singolaEntita.categoria, singolaEntita.codice, singolaEntita.nome, singolaEntita.nome, singolaEntita.prezzo, 0, singolaEntita.categoria, singolaEntita.urlStripe, 3, singolaEntita.urlStripe, singolaEntita.nomeStile, singolaEntita.nomeBorchia, singolaEntita.colore, singolaEntita.metallo, [], "");
 				$scope.metalleriaObbligatoria = configController.getUrlMetalleria(modello.nome, "argento");
 				configController.aggiungiElementoAStack($scope.metalleriaObbligatoria, 3, false, entitaMetalleria);
 			}
 
-			if (modello.nome == "bucket_paglia") {
+			if(modello.nome == "bucket_paglia"){
 
-				var singolaEntitaFoderaPaglia = configController.getSingolaEntita("fodere", modello.nome, "FODERA_RES_ARTE");
+				var singolaEntitaFoderaPaglia = configController.getSingolaEntita("fodere", modello.nome, "FODERA_RES_NERO");
 				var entitaFoderaPaglia = configController.getInternalEntitaObjct(singolaEntitaFoderaPaglia.categoria, singolaEntitaFoderaPaglia.codice, singolaEntitaFoderaPaglia.nome, singolaEntitaFoderaPaglia.nome, singolaEntitaFoderaPaglia.prezzo, 0, singolaEntitaFoderaPaglia.categoria, singolaEntitaFoderaPaglia.urlStripe, 6, singolaEntitaFoderaPaglia.urlStripe, singolaEntitaFoderaPaglia.nomeStile, singolaEntitaFoderaPaglia.nomeBorchia, singolaEntitaFoderaPaglia.colore, singolaEntitaFoderaPaglia.metallo, [], "");
 				configController.aggiungiElementoAStack(entitaFoderaPaglia.urlStripe, 6, false, entitaFoderaPaglia);
-
-
+                
+                
 			}
 
-			if (modello.nome == "bucket_pelle") {
-				$scope.coloreSelezionato = "anise";
+			if(modello.nome == "bucket_pelle"){
+				$scope.coloreSelezionato = "cherrypie";
 				//creo un set di default di accessori: corda, strozzino, ciondolo (,tracolla?)
-				var singolaEntitaColore = configController.getSingolaEntita("colore", modello.nome, "CORPO_RES_ANISE");
+				var singolaEntitaColore = configController.getSingolaEntita("colore", modello.nome, "CORPO_RES_CHERRYPIE");
 				var entitaColore = configController.getInternalEntitaObjct(singolaEntitaColore.categoria, singolaEntitaColore.codice, singolaEntitaColore.nome, singolaEntitaColore.nome, singolaEntitaColore.prezzo, 0, singolaEntitaColore.categoria, singolaEntitaColore.urlStripe, 5, singolaEntitaColore.urlStripe, singolaEntitaColore.nomeStile, singolaEntitaColore.nomeBorchia, singolaEntitaColore.colore, singolaEntitaColore.metallo, [], "");
 				configController.aggiungiElementoAStack(entitaColore.urlStripe, 5, false, entitaColore);
 
-				var singolaEntitaCorda = configController.getSingolaEntita("corde", modello.nome, "CORDA_RES_ANISE");
+				var singolaEntitaCorda = configController.getSingolaEntita("corde", modello.nome, "CORDA_RES_CHERRYPIE");
 				var entitaCorda = configController.getInternalEntitaObjct(singolaEntitaCorda.categoria, singolaEntitaCorda.codice, singolaEntitaCorda.nome, singolaEntitaCorda.nome, singolaEntitaCorda.prezzo, 0, singolaEntitaCorda.categoria, singolaEntitaCorda.urlStripe, 6, singolaEntitaCorda.urlStripe, singolaEntitaCorda.nomeStile, singolaEntitaCorda.nomeBorchia, singolaEntitaCorda.colore, singolaEntitaCorda.metallo, [], "");
 				configController.aggiungiElementoAStack(entitaCorda.urlStripe, 6, false, entitaCorda);
 
-				var singolaEntitaCiondolo = configController.getSingolaEntita("ciondolo", modello.nome, "CIONDOLO_RES_ANISE");
+				var singolaEntitaCiondolo = configController.getSingolaEntita("ciondolo", modello.nome, "CIONDOLO_RES_CHERRYPIE");
 				var entitaCiondolo = configController.getInternalEntitaObjct(singolaEntitaCiondolo.categoria, singolaEntitaCiondolo.codice, singolaEntitaCiondolo.nome, singolaEntitaCiondolo.nome, singolaEntitaCiondolo.prezzo, 0, singolaEntitaCiondolo.categoria, singolaEntitaCiondolo.urlStripe, 7, singolaEntitaCiondolo.urlStripe, singolaEntitaCiondolo.nomeStile, singolaEntitaCiondolo.nomeBorchia, singolaEntitaCiondolo.colore, singolaEntitaCiondolo.metallo, [], "");
 				configController.aggiungiElementoAStack(entitaCiondolo.urlStripe, 7, false, entitaCiondolo);
 
-				var singolaEntitaStrozzino = configController.getSingolaEntita("strozzino", modello.nome, "STROZZINO_RES_ANISE");
+				var singolaEntitaStrozzino = configController.getSingolaEntita("strozzino", modello.nome, "STROZZINO_RES_CHERRYPIE");
 				var entitaStrozzino = configController.getInternalEntitaObjct(singolaEntitaStrozzino.categoria, singolaEntitaStrozzino.codice, singolaEntitaStrozzino.nome, singolaEntitaStrozzino.nome, singolaEntitaStrozzino.prezzo, 0, singolaEntitaStrozzino.categoria, singolaEntitaStrozzino.urlStripe, 8, singolaEntitaStrozzino.urlStripe, singolaEntitaStrozzino.nomeStile, singolaEntitaStrozzino.nomeBorchia, singolaEntitaStrozzino.colore, singolaEntitaStrozzino.metallo, [], "");
 				configController.aggiungiElementoAStack(entitaStrozzino.urlStripe, 8, false, entitaStrozzino);
 
-				var singolaEntitaFodera = configController.getSingolaEntita("fodere", modello.nome, "FODERA_RES_ARTE");
+				var singolaEntitaFodera = configController.getSingolaEntita("fodere", modello.nome, "FODERA_RES_NERO");
 				var entitaFodera = configController.getInternalEntitaObjct(singolaEntitaFodera.categoria, singolaEntitaFodera.codice, singolaEntitaFodera.nome, singolaEntitaFodera.nome, singolaEntitaFodera.prezzo, 0, singolaEntitaFodera.categoria, singolaEntitaFodera.urlStripe, 10, singolaEntitaFodera.urlStripe, singolaEntitaFodera.nomeStile, singolaEntitaFodera.nomeBorchia, singolaEntitaFodera.colore, singolaEntitaFodera.metallo, [], "");
 				configController.aggiungiElementoAStack(entitaFodera.urlStripe, 10, false, entitaFodera);
 
-				var singolaEntitaTracolla = configController.getSingolaEntita("tracolla", modello.nome, "TRACOLLA_RES_ANISE");
+				var singolaEntitaTracolla = configController.getSingolaEntita("tracolla", modello.nome, "TRACOLLA_RES_CHERRYPIE");
 				var entitaTracolla = configController.getInternalEntitaObjct(singolaEntitaTracolla.categoria, singolaEntitaTracolla.codice, singolaEntitaTracolla.nome, singolaEntitaTracolla.nome, singolaEntitaTracolla.prezzo, 0, singolaEntitaTracolla.categoria, singolaEntitaTracolla.urlStripe, 11, singolaEntitaTracolla.urlStripe, singolaEntitaTracolla.nomeStile, singolaEntitaTracolla.nomeBorchia, singolaEntitaStrozzino.colore, singolaEntitaTracolla.metallo, [], "");
 				configController.aggiungiElementoAStack(entitaTracolla.urlStripe, 11, false, entitaTracolla);
 			}
@@ -574,15 +580,15 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			//apro il pannello dei colori
 			configController.selezioneTipoAccessorio(modello.accessorioInizialeSelezionato);
 			configController.caricaSpinner();
-			$scope.showDropdownButton = true;
+            $scope.showDropdownButton = true;
+            
+            // resetto la posizione dello slider categorie per evitare che la la prima voce rimanga fuori dallo schermo a sx
+            $(".accessori-categoria")[0].swiper.slideTo(0);
+            function ritardo() {
+                $(".accessori-thumb")[0].swiper.slideTo(0,0);
+            }
 
-			// resetto la posizione dello slider categorie per evitare che la la prima voce rimanga fuori dallo schermo a sx
-			$(".accessori-categoria")[0].swiper.slideTo(0);
-			function ritardo() {
-				$(".accessori-thumb")[0].swiper.slideTo(0, 0);
-			}
-
-			setTimeout(ritardo, 400);
+            setTimeout(ritardo, 400);
 		});
 	};
 
@@ -629,11 +635,11 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			$scope.coloreVincolante = configController.getColoreVincolante($scope.configurazione);//scelgo il nero come colore vincolante di default
 			$scope.metalloVincolante = configController.getMetalloVincolante($scope.configurazione);
 			var accessorioInizialeSelezionato = "";
-			switch (modello.nome) {
+			switch(modello.nome){
 				case "bucket_paglia":
 					accessorioInizialeSelezionato = "fodere";
 					break;
-				default:
+				default: 
 					accessorioInizialeSelezionato = "colore";
 			}
 			configController.caricaConfigurazioneElencoEntita(accessorioInizialeSelezionato);
@@ -661,15 +667,15 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			var entita = elencoEntita[i];
 			if (entita.categoria != "modello") {
 				var spilt = [];
-				if (entita.categoria == "tracolle") {
+				if(entita.categoria == "tracolle"){
 					split = entita.nome.split('_');
 					var categoriaTracolla = split[0] + '_' + split[1];
 					configController.selezionaCategoriaTracolla(categoriaTracolla);
-				} else if (entita.categoria == "ciondoli") {
+				} else if (entita.categoria == "ciondoli"){
 					split = entita.nome.split('_');
 					var categoriaCiondolo = split[0] + '_' + split[1];
 					configController.selezionaCategoriaCiondolo(categoriaCiondolo);
-				}
+				} 
 				//else {
 				//	configController.selezioneTipoAccessorio(entita.categoria);
 				//}
@@ -700,7 +706,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		entita.metallo = (metallo == undefined ? "" : metallo);
 		entita.accessori = (accessori == undefined ? [] : accessori);
 
-		if (categoria == "modello") {
+		if(categoria == "modello"){
 			entita.accessorioInizialeSelezionato = accessorioInizialeSelezionato;
 			entita.prezzoPieno = prezzoPieno;
 		}
@@ -767,11 +773,11 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		if (entita != undefined) {
 			if (entita.categoria != undefined && entita.categoria != "") {
 				return entita.categoria == 'colore' ||
-					entita.categoria == 'tracolla' ||
-					entita.categoria == 'corde' ||
-					entita.categoria == 'strozzino' ||
-					entita.categoria == 'ciondolo' ||
-					entita.categoria == 'fodere';
+				entita.categoria == 'tracolla' ||
+				entita.categoria == 'corde' ||
+				entita.categoria == 'strozzino' ||
+				entita.categoria == 'ciondolo' ||
+				entita.categoria == 'fodere';
 			}
 		}
 		return false;
@@ -947,7 +953,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		}
 	};
 
-	configController.eliminaTracolla = function () {
+	configController.eliminaTracolla = function(){
 		$scope.nomeTracollaSelezionata = "";
 		configController.removeEntitaToConfigurazione("tracolle", "");
 		$scope.stack[20] = "";
@@ -955,7 +961,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		configController.caricaSpinner();
 	};
 
-	configController.eliminaCiondolo = function () {
+	configController.eliminaCiondolo = function(){
 		$scope.nomeCiondoloSelezionato = "";
 		configController.removeEntitaToConfigurazione("ciondoli", "");
 		$scope.stack[12] = "";
@@ -1062,12 +1068,12 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			$scope.metalloVincolante = entita.metallo;
 		}
 
-		configController.aggiungiStrato(url, entita.ordine, (entita.categoria != "colore" &&
-			entita.categoria != "metalleria" &&
-			entita.categoria != "fodere" &&
-			entita.categoria != "strozzino" &&
-			entita.categoria != "tracolla" &&
-			entita.categoria != "corde"), entita);
+		configController.aggiungiStrato(url, entita.ordine, (entita.categoria != "colore" && 
+		entita.categoria != "metalleria" && 
+		entita.categoria != "fodere" && 
+		entita.categoria != "strozzino" && 
+		entita.categoria != "tracolla" && 
+		entita.categoria != "corde"), entita);
 
 		if ($scope.tipoEntitaSelezionata == "stile") {
 			if ($scope.stack.indexOf(url) == -1) {
@@ -1174,7 +1180,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		}
 	};
 
-	configController.redirectStack = function (oldStack) {
+	configController.redirectStack = function(oldStack){
 		var tempStack = [];
 		for (var i = 0; i < oldStack.length; i++) {
 			if (oldStack[i] != "") {
@@ -1189,7 +1195,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 	configController.pulisciStack = function () {
 		var tempStack = [];
 		for (var i = 0; i < $scope.stack.length; i++) {
-			if ($scope.stack[i] != "" && $scope.stack[i] != undefined) {
+			if ($scope.stack[i] != "") {
 				//gestisco la risoluzione appena prima di passare le immagini alla merge
 				url = $scope.stack[i].replace("RES", configController.getResolutionPlaceHolder());
 				tempStack.push(url);
@@ -1253,10 +1259,10 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 
 	};
 
-	var firstSlideTo = true;
+    var firstSlideTo = true;
 	//qui avviene la richiesta del modello in base agli accessori selezionati
 	configController.caricaSpinner = function () {
-
+		
 		$scope.showZoom = false;
 
 		var date1 = new Date();
@@ -1320,19 +1326,19 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 				],
 				onInit: function () {
 					if (firstExecInit) {
-						firstExecInit = false;
-						$.fn.sepLine('first-divider', 'swiper-container', 'accessori'); // rif. descrizione funzione sepline: custom.js linea 77
+                        firstExecInit = false;
+                        $.fn.sepLine('first-divider', 'swiper-container', 'accessori'); // rif. descrizione funzione sepline: custom.js linea 77
 						$.fn.yammHeight('navbar', 'yamm-content'); // rif. descrizione funzione yammHeight: custom.js linea 86
 						$(".riepilogo").fadeIn();
 						$("#transition-image").show();
-
+                        
 						$(".accessori-categoria")[0].swiper.update();//ricaricolo swiper prima dello spinner per evitare visualizzazioni errate dell'array
 						$(".accessori-thumb")[0].swiper.update();//ricaricolo swiper prima dello spinner per evitare visualizzazioni errate dell'array
-					}
-					if (firstSlideTo) {
-						firstSlideTo = false;
-						$(".accessori-thumb")[0].swiper.slideTo(0);
-					}
+                    }
+                    if (firstSlideTo){
+                        firstSlideTo = false;
+                        $(".accessori-thumb")[0].swiper.slideTo(0);
+                    }
 				},
 				onComplete: function () {
 					if (firstExecComplete) {
@@ -1342,9 +1348,9 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 							$("#spinIcon").fadeIn().delay(100).fadeOut();
 							$("#spinIcon img").animate({ 'margin-left': '50px' }, 1000);
 							//$('#a-middle').animate({opacity:'1'}, 500);
-							$('.accessori').animate({ opacity: '1' }, 500, function () {
-								//alert("ASJASHJKAHSJAHSAKJHS");
-							});
+							$('.accessori').animate({ opacity: '1' }, 500, function () { 
+                                //alert("ASJASHJKAHSJAHSAKJHS");
+                            });
 						}
 						$("#transition-image").delay(100).fadeOut();
 						$("#loader").delay(200).fadeOut("slow");
@@ -1356,14 +1362,14 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 						$scope.spinIcon = false;
 						$scope.spinAnim = false;
 
-
+                        
 					}
 				}
 			};
 			$('#spritespin').spritespin(dataSpin);
 			$(window).trigger("resize");
 
-
+			
 		});
 
 
@@ -1390,7 +1396,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		return "";
 	};
 
-	configController.singolaEntitaPresente = function (categoria, modello, nome) {
+	configController.singolaEntitaPresente = function(categoria, modello, nome) {
 		for (var i = 0; i < $scope.entita.length; i++) {
 			var singolaEntita = $scope.entita[i];
 			if (singolaEntita.modello == modello && singolaEntita.categoria == categoria && singolaEntita.nome == nome) {
@@ -1632,7 +1638,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 
 		for (var i = 0; i < size; i++) {
 			tempModelli[modelliNonOrdinati[i].ordineInterfaccia - 1] = modelliNonOrdinati[i];
-
+			
 		}
 
 		return tempModelli;
@@ -1661,22 +1667,22 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 
 	configController.salvaConfigurazione = function (isCarrello) {
 
-		if ($scope.configurazione.tipo == undefined) {
-			if ($scope.isCurrentUserAdmin()) {
+		if($scope.configurazione.tipo == undefined){
+			if($scope.isCurrentUserAdmin()){
 				$scope.configurazione.tipo = "P";//se sono utente ADMIN creo sempre una preconfigurata
 			} else {
 				$scope.configurazione.tipo = "N";
 			}
-		} else if ($scope.configurazione.tipo == "N") {
-			if ($scope.isCurrentUserAdmin()) {
+		} else if($scope.configurazione.tipo == "N"){
+			if($scope.isCurrentUserAdmin()){
 				$scope.configurazione.tipo = "P";//se sono utente ADMIN creo sempre una preconfigurata
 			}
-		} else if ($scope.configurazione.tipo == "P") {
-			if (!$scope.isCurrentUserAdmin()) {
+		} else if($scope.configurazione.tipo == "P"){
+			if(!$scope.isCurrentUserAdmin()){
 				$scope.configurazione.tipo = "N";//se sono utente ADMIN creo sempre una preconfigurata
 			}
 		}
-
+		
 		$scope.configurazione.carrello = isCarrello;
 		var dataLog = new Date();
 		var resolution = 560;
@@ -1731,14 +1737,14 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		});
 	};
 
-	configController.rimuoviEntitaIniziali = function () {
+	configController.rimuoviEntitaIniziali = function(){
 		var index = -1;
-		for (var i = 0; i < $scope.configurazione.elencoEntita.length; i++) {
-			if ($scope.configurazione.elencoEntita[i].categoria == "iniziali") {
+		for(var i = 0; i < $scope.configurazione.elencoEntita.length; i++){
+			if($scope.configurazione.elencoEntita[i].categoria == "iniziali"){
 				index = i;
 			}
 		}
-		if (index > -1) {
+		if(index > -1){
 			$scope.configurazione.elencoEntita.splice(index, 1);
 		}
 	};
@@ -1746,14 +1752,14 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 	configController.salvaConfigurazioneTemporanea = function () {
 		// var arrayIniziali = configController.generateArrayEntitaIniziali();
 		var elencoEntita = $scope.configurazione.elencoEntita;
-		if ($scope.inizialiPreview != "") {
+		if($scope.inizialiPreview != ""){
 			var entitaIniziali = configController.generateEntitaIniziali();
 			configController.rimuoviEntitaIniziali();
 			elencoEntita.push(entitaIniziali);
 		}
 
 		// var elencoTotaleEntita = elencoEntita.concat(arrayIniziali);
-
+		
 		$scope.configurazione.elencoEntita = elencoEntita;
 
 		var configurazioneNormalizzata = configController.normalizeConfig($scope.configurazione);
@@ -1813,7 +1819,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		return normalizedConfig;
 	};
 
-	configController.inizializationOperations = function () {
+	configController.inizializationOperations = function(){
 		$scope.mappaEntitaSelezionate.colore = "black";
 		$scope.mappaEntitaSelezionate.metalleria = "argento";
 
@@ -1833,7 +1839,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 					configController.caricaConfigurazioneModello();
 					configController.ricaricaPrezzo();
 					$scope.showDropdownButton = true;
-
+					
 				} else {
 					//non ci sono configurazioni in locale, apro il selettore del modello
 					$scope.showDropdownButton = false;
@@ -1901,11 +1907,11 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 	configController.initConfiguratore = function () {
 
 		//controllo che il configuratore non sia stato chiamato con un parametro
-		if ($scope.configurazioneId != null && $scope.configurazioneId != undefined && $scope.configurazioneId != "") {
+		if($scope.configurazioneId != null && $scope.configurazioneId != undefined && $scope.configurazioneId != ""){
 			// l'id c'è, provo a caricare la configurazione
 			listeService.getConfigurazione($scope.configurazioneId).then(function (res2) {
 				var configurazione = res2.data.configurazione;
-				if (configurazione != undefined) {
+				if(configurazione != undefined){
 					$scope.setTempConfigurazione(configurazione);
 				}
 				configController.inizializationOperations();
@@ -1935,7 +1941,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		});
 
 	};
-
+	
 
 	configController.closeZoom = function () {
 
@@ -1953,13 +1959,13 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 	/*
 		GESTIONE DEL MODALE PER LA CONFERMA DEL CAMBIO MODELLO
 	*/
-	configController.switchShowDropdown = function () {
+	configController.switchShowDropdown = function(){
 		//mettere modale che avverte
-		if ($scope.showDropdownButton) {
+		if($scope.showDropdownButton){
 			$uibModal.open({
 				templateUrl: 'views/modaleCancellaConfigurazione.html',
 				scope: $scope
-			});
+			  });
 		} else {
 			$scope.showDropdownButton = false;
 		}
@@ -1968,13 +1974,13 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 	$scope.ok = function () {
 		$scope.showDropdownButton = false;
 		$uibModalStack.dismissAll();
-	};
+	  };
 
 	$scope.cancel = function () {
 		$uibModalStack.dismissAll();
 	};
 
-	configController.previousFrame = function () {
+	configController.previousFrame = function(){
 		var moveLeft = $('#spritespin').spritespin("data");
 		SpriteSpin.updateFrame(moveLeft, (moveLeft.frame - 1));
 	};

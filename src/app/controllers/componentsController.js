@@ -42,8 +42,8 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 	$scope.richiediFattura = false;
 
 
-	$scope.replaceOrigin = function(oldUrl){
-		return oldUrl.replace("unaduna-images-bucket.s3.eu-central-1.amazonaws.com","d3ijrzg42gep0a.cloudfront.net");
+	$scope.replaceOrigin = function (oldUrl) {
+		return oldUrl.replace("unaduna-images-bucket.s3.eu-central-1.amazonaws.com", "d3ijrzg42gep0a.cloudfront.net");
 	};
 
 	$scope.cleanUser = function () {
@@ -70,15 +70,15 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 
 	};
 
-	$scope.getRichiediFattura = function(){
+	$scope.getRichiediFattura = function () {
 		return $scope.richiediFattura;
 	};
 
-	$scope.setRichiediFattura = function(value){
+	$scope.setRichiediFattura = function (value) {
 		$scope.richiediFattura = value;
 	};
 
-	$scope.setPendingCheckout = function(value){
+	$scope.setPendingCheckout = function (value) {
 		$scope.pendingCheckout = value;
 	};
 
@@ -190,11 +190,11 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		return $scope.indSpe2;
 	};
 
-	$scope.getChangePasswordEmail = function(){
+	$scope.getChangePasswordEmail = function () {
 		return $scope.changePasswordEmail;
 	};
 
-	$scope.setChangePasswordEmail = function(changePasswordEmail){
+	$scope.setChangePasswordEmail = function (changePasswordEmail) {
 		$scope.changePasswordEmail = changePasswordEmail;
 	};
 
@@ -206,11 +206,11 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		return $scope.tempConfigurazione;
 	};
 
-	$scope.setShoppingSelected = function(selected) {
+	$scope.setShoppingSelected = function (selected) {
 		$scope.shoppingSelected = selected;
 	};
 
-	$scope.getShoppingSelected = function() {
+	$scope.getShoppingSelected = function () {
 		return $scope.shoppingSelected;
 	};
 
@@ -237,7 +237,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		return $scope.preconfigurati;
 	};
 
-	$scope.getShopping = function() {
+	$scope.getShopping = function () {
 		return $scope.shopping;
 	};
 
@@ -277,15 +277,15 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		return $scope.role;
 	};
 
-	$scope.getConfigurationImagesArray = function(config) {
+	$scope.getConfigurationImagesArray = function (config) {
 		return config.thumbnail.split(",");
 	};
 
-	$scope.getConfigurationMainImage = function(config) {
+	$scope.getConfigurationMainImage = function (config) {
 		return config.thumbnail.split(",")[0];
 	};
 
-	$scope.isCurrentUserAdmin = function(){
+	$scope.isCurrentUserAdmin = function () {
 		return $scope.role === ROLES.ADMIN;
 	};
 
@@ -329,7 +329,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		var numeroEntita = configurazione.elencoEntita.length;
 		for (var i = 0; i < numeroEntita; i++) {
 			var entita = configurazione.elencoEntita[i];
-			if(entita.categoria == "modello"){
+			if (entita.categoria == "modello") {
 				prezzoCalcolato += entita.prezzoPieno;
 			} else {
 				prezzoCalcolato += entita.prezzo;
@@ -367,7 +367,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		$scope.showLoader();
 		listeService.getConfigurazioniUtente(email).then(function (data) {
 			$scope.preferiti = data.data.configurazioni;
-			$scope.preferiti.sort(function(a,b) {return (a.codice > b.codice) ? -1 : ((b.codice > a.codice) ? 1 : 0);}); 
+			$scope.preferiti.sort(function (a, b) { return (a.codice > b.codice) ? -1 : ((b.codice > a.codice) ? 1 : 0); });
 			$scope.hideLoader();
 			var tempCarrello = [];
 			for (var i = 0; i < $scope.preferiti.length; i++) {
@@ -386,20 +386,20 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		listeService.getConfigurazioniPreconfigurate().then(function (data) {
 
 			$scope.preconfigurati = data.data.configurazioni;
-			$scope.preconfigurati.sort(function(a,b) {
+			$scope.preconfigurati.sort(function (a, b) {
 				return (a.codice > b.codice) ? -1 : ((b.codice > a.codice) ? 1 : 0);
-			}); 
-			$scope.preconfigurati.sort(function(a,b) {
-				if(a.ordineInterfaccia == 0 && b.ordineInterfaccia == 0){
+			});
+			$scope.preconfigurati.sort(function (a, b) {
+				if (a.ordineInterfaccia == 0 && b.ordineInterfaccia == 0) {
 					return 0;
-				} else if (a.ordineInterfaccia == 0 && b.ordineInterfaccia > 0){
+				} else if (a.ordineInterfaccia == 0 && b.ordineInterfaccia > 0) {
 					return 1;
-				} else if (a.ordineInterfaccia > 0 && b.ordineInterfaccia == 0){
+				} else if (a.ordineInterfaccia > 0 && b.ordineInterfaccia == 0) {
 					return -1;
 				} else {
 					return (a.ordineInterfaccia < b.ordineInterfaccia) ? -1 : ((b.ordineInterfaccia < a.ordineInterfaccia) ? 1 : 0);
 				}
-			}); 
+			});
 			//
 		});
 	};
@@ -408,20 +408,20 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		listeService.getConfigurazioniShopping().then(function (data) {
 
 			$scope.shopping = data.data.configurazioni;
-			$scope.shopping.sort(function(a,b) {
+			$scope.shopping.sort(function (a, b) {
 				return (a.codice > b.codice) ? -1 : ((b.codice > a.codice) ? 1 : 0);
-			}); 
-			$scope.shopping.sort(function(a,b) {
-				if(a.ordineInterfaccia == 0 && b.ordineInterfaccia == 0){
+			});
+			$scope.shopping.sort(function (a, b) {
+				if (a.ordineInterfaccia == 0 && b.ordineInterfaccia == 0) {
 					return 0;
-				} else if (a.ordineInterfaccia == 0 && b.ordineInterfaccia > 0){
+				} else if (a.ordineInterfaccia == 0 && b.ordineInterfaccia > 0) {
 					return 1;
-				} else if (a.ordineInterfaccia > 0 && b.ordineInterfaccia == 0){
+				} else if (a.ordineInterfaccia > 0 && b.ordineInterfaccia == 0) {
 					return -1;
 				} else {
 					return (a.ordineInterfaccia < b.ordineInterfaccia) ? -1 : ((b.ordineInterfaccia < a.ordineInterfaccia) ? 1 : 0);
 				}
-			}); 
+			});
 			//
 		});
 	};
@@ -566,7 +566,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		return message;
 	};
 
-	$scope.sendMailContatti = function(email, comments, name, surname){
+	$scope.sendMailContatti = function (email, comments, name, surname) {
 		var subject = "Annacloud: Richiesta informazioni da " + name + " " + surname;
 		var stringMessage = "Richiedente: " + name + " " + surname + "<br>" + "Email: " + email + "<br><br>Testo del messaggio:<br><br><div style='border:dotted 1px #ccc;padding: 15px;'>" + comments + "</div>";
 		var to = ["info@annacloud.it"];
@@ -668,7 +668,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 
 		// gestione richiesta fattura
 		var richiediFatturaString = "";
-		if($scope.getRichiediFattura()){
+		if ($scope.getRichiediFattura()) {
 			richiediFatturaString = MAIL.ORDER_MAIL_RICHIEDI_FATTURA_TEMPLATE;
 		}
 		adminMessage = adminMessage.replace("RICHIEDI_FATTURA", richiediFatturaString);
@@ -684,7 +684,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 			if (data.signInUserSession != null) {
 				var idToken = jwtHelper.decodeToken(data.signInUserSession.idToken.jwtToken);
 
-				if(idToken["cognito:roles"] == undefined){
+				if (idToken["cognito:roles"] == undefined) {
 					$scope.setRole(ROLES.REGULAR);
 				} else {
 					$scope.setRole(idToken["cognito:roles"][0]);
@@ -783,7 +783,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 
 	$scope.wowInit = function (config) {
 		$scope.caricaListePreconfigurati();
-		$scope.caricaListeShopping();
+
 		if (config) {
 			new WOW(config).init();
 		} else {
@@ -834,19 +834,19 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		}
 	};
 
-	$scope.salvaOAcquista = function(oldname, isAcquista, richiediNome){
-		if(richiediNome){
+	$scope.salvaOAcquista = function (oldname, isAcquista, richiediNome) {
+		if (richiediNome) {
 			$scope.openConfigNameModal(oldname);
 			// $scope.okConfig($scope.getTempConfigurazione().nome, false);
 		} else {
 
 			//controllo se esiste già il nome. Se esiste faccio un lavoro sui suffissi
 			var presente = $scope.checkNomePresente(oldname, false);
-			if(presente){
+			if (presente) {
 				//duplico la configurazione, gli creo un nome uguale con un suffisso, salvo quella duplicata
 				$scope.salvaConfigurazioneDuplicata(false);
 			} else {
-				if($scope.getTempConfigurazione().nome == ""){
+				if ($scope.getTempConfigurazione().nome == "") {
 					$scope.openConfigNameModal(oldname);
 				} else {
 					//salvo la configurazione con il nome che già possiede
@@ -856,7 +856,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		}
 	};
 
-	$scope.salvaConfigurazioneDuplicata = function(forceCarrello){
+	$scope.salvaConfigurazioneDuplicata = function (forceCarrello) {
 		var configurazioneDuplicata = $scope.getTempConfigurazione();
 		configurazioneDuplicata.codice = "";
 		var dataLog = new Date();
@@ -864,7 +864,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		var nuovoNome = $scope.generaNuovoNome(vecchioNome);
 
 		configurazioneDuplicata.nome = nuovoNome;
-		if(forceCarrello){
+		if (forceCarrello) {
 			configurazioneDuplicata.carrello = true;
 		}
 
@@ -890,23 +890,23 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		);
 	};
 
-	$scope.generaNuovoNome = function(vecchioNome){
+	$scope.generaNuovoNome = function (vecchioNome) {
 		var split = vecchioNome.split("_");
-		if(split.length == 1){
+		if (split.length == 1) {
 			return vecchioNome + "_1";
 		} else {
 			if (!isNaN(parseInt(split[split.length - 1], 10))) {
 				var number = parseInt(split[split.length - 1]);
 				var nuovoNome = "";
-				for(var i = 0; i < split.length - 1; i++){
-					if(nuovoNome == ""){
+				for (var i = 0; i < split.length - 1; i++) {
+					if (nuovoNome == "") {
 						nuovoNome = split[i];
 					} else {
 						nuovoNome = nuovoNome + "_" + split[i];
 					}
 				}
-				nuovoNome = nuovoNome + "_" + (number+1);
-				if($scope.checkNomePresente(nuovoNome, false)){
+				nuovoNome = nuovoNome + "_" + (number + 1);
+				if ($scope.checkNomePresente(nuovoNome, false)) {
 					//ricorsione fino a che non trovo un nome che non c'è
 					return $scope.generaNuovoNome(nuovoNome);
 				} else {
@@ -921,14 +921,14 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 	/* **************************** */
 	/* GESTIONE EVENTI IN BROADCAST */
 	/* **************************** */
-	$scope.$on("openMessageModal",function(event, data){
+	$scope.$on("openMessageModal", function (event, data) {
 		$scope.openMessageModal(data);
 	});
 
 	/* *************** */
 	/* GESTIONE MODALI */
 	/* *************** */
-	$scope.openInsertEmailForPasswordChange = function(){
+	$scope.openInsertEmailForPasswordChange = function () {
 		$scope.modalInstance = $uibModal.open({
 			animation: true,
 			templateUrl: 'views/modalePerEmailCambioPassword.html',
@@ -936,13 +936,13 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		});
 	};
 
-	$scope.okEmail = function(email){
+	$scope.okEmail = function (email) {
 		$scope.setChangePasswordEmail(email);
 		$uibModalStack.dismissAll();
 		$scope.changePath('/cambio-password');
 	};
 
-	$scope.cancelEmail = function(){
+	$scope.cancelEmail = function () {
 		$uibModalStack.dismissAll();
 	};
 
@@ -987,7 +987,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 					return ordine;
 				}
 			},
-			controller: ['ordineScheda', function(ordineScheda) {
+			controller: ['ordineScheda', function (ordineScheda) {
 				// now we can add the value to the scope and use it as we please...
 				$scope.ordine = ordineScheda;
 			}]
@@ -1004,7 +1004,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 					return cliente;
 				}
 			},
-			controller: ['clienteScheda', function(clienteScheda) {
+			controller: ['clienteScheda', function (clienteScheda) {
 				$scope.cliente = clienteScheda;
 			}]
 		});
@@ -1022,20 +1022,20 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		});
 	};
 
-	$scope.checkNomePresente = function(configName, isCarrello){
+	$scope.checkNomePresente = function (configName, isCarrello) {
 		var presente = false;
 		for (var i = 0; i < $scope.preferiti.length; i++) {
 			var configurazione = $scope.preferiti[i];
-			if(isCarrello){
-				if(configurazione.nome === configName && configurazione.carrello){
+			if (isCarrello) {
+				if (configurazione.nome === configName && configurazione.carrello) {
 					presente = true || presente;
 				}
 			} else {
-				if(configurazione.nome === configName){
+				if (configurazione.nome === configName) {
 					presente = true || presente;
 				}
 			}
-			
+
 		}
 		return presente;
 	};
@@ -1044,7 +1044,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		//controllo se il nome esiste già tra le configurazioni (preferiti)
 		var presente = $scope.checkNomePresente(configName, false);
 		var dataLog = new Date();
-		if(presente){
+		if (presente) {
 			$uibModalStack.dismissAll();
 			$scope.openConfigNameModalNamePresent();
 		} else {
@@ -1061,7 +1061,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		$uibModalStack.dismissAll();
 	};
 
-	$scope.salva = function(configName) {
+	$scope.salva = function (configName) {
 		$scope.getTempConfigurazione().nome = configName;
 
 		$scope.setLoaderMessage("salvo la configurzione '" + configName + "' creata...");
@@ -1182,9 +1182,9 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		} else return "";
 	};
 
-	$scope.traduciNomeFodere = function(daTradurre){
+	$scope.traduciNomeFodere = function (daTradurre) {
 		var result = daTradurre;
-		switch(daTradurre.toUpperCase()){
+		switch (daTradurre.toUpperCase()) {
 			case "AVOCADO":
 				result = "FLAMINGO";
 				break;
@@ -1258,7 +1258,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 						splitted = entita.nome.split("_");
 						if (splitted.length == 2) {
 							result = splitted[1];
-						} else if(splitted.length == 3) {
+						} else if (splitted.length == 3) {
 							result = splitted[2];
 						} else {
 							result = entita.nome;
@@ -1340,10 +1340,10 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		} else return "";
 	};
 
-	$scope.traduciStatoOrdini = function(stato){
+	$scope.traduciStatoOrdini = function (stato) {
 		var result = "";
-		switch(stato){
-			case ORDERSTATUS.ORDINATO: 
+		switch (stato) {
+			case ORDERSTATUS.ORDINATO:
 				result = "ORDINATO";
 				break;
 			case ORDERSTATUS.LAVORAZIONE1:

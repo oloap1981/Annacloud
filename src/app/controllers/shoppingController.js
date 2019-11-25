@@ -2,8 +2,9 @@ angular.module("applicationModule").controller("shoppingController", ["$scope", 
 	function ($scope, $location, $translatePartialLoader, $translate) {
 
 
-		$scope.homeInit = function (config) {
+		$scope.initShopping = function (config) {
 			$translatePartialLoader.addPart('home');
+			$scope.caricaListeShopping();
 			$scope.wowInit(config);
 		};
 
