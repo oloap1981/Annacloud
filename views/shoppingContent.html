@@ -12,7 +12,7 @@
 		<div class="row top-buffer">
 			<div class="col-sm-12 clearfix bottom-buffer" >
 				<h3 class="title section mot"><span>Shop</span></h3>
-				<p class="subtitle bottom-buffer">Testo introduttivo shop</p>
+				<!--<p class="subtitle bottom-buffer hidden">Testo introduttivo shop</p>-->
 			</div>
 			<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 clearfix home-content top-buffer" 
 			ng-repeat="conf in getShopping()"
@@ -26,7 +26,7 @@
 					</div>
                     <div class="price">
                         {{conf.nome}}<br>
-                        <span class="desc">{{conf.descrizioneBreve}}</span><br>
+                        <!--<span class="desc hidden">{{conf.descrizioneBreve}}</span>-->
                         <span class="full-price barred hidden">{{calcolaPrezzo(conf)}} €</span><span class="discount-price">{{calcolaPrezzoScontato(conf)}} €</span></div>
                 </a>
 			</div>

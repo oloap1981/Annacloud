@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>AnnaCloud.it</title>
+	<base href="/"/>
+
+	<meta charset="utf-8" />
+	<meta http-equiv="Content-Language" content="en" />
+	<meta name="description" content="Descrizione" />
+	<meta property="og:title" content="AnnaCloud.it" />
+	<meta property="og:description" content="Descrizione" />
+	<meta itemprop="description" content="Descrizione">
+
+	<!--<meta name="robots" content="noindex">--> <!-- RICORDARSI DI TOGLIERE QUESTO METATAG!!!!  -->
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="HandheldFriendly" content="true" />
+
+	<!-- build:css styles/vendor.css -->
+	<link media="screen" rel="stylesheet" type="text/css" href="stylesheets/jquery.mCustomScrollbar.css">
+	<link media="screen" rel="stylesheet" type="text/css" href="stylesheets/pinchzoomer.css">
+	<link media="screen" rel="stylesheet" type="text/css" href="stylesheets/featherlight.css">
+	<link rel="stylesheet" href="node_modules/wip-image-zoom/dist/wip-image-zoom.css">
+	<link rel="stylesheet" href="node_modules/angular-ui-swiper/dist/angular-ui-swiper.css">
+	<link rel="stylesheet" href="node_modules/ui-select/dist/select.css">
+	<link rel="stylesheet" href="node_modules/bootstrap-select/dist/css/bootstrap-select.css">
+	<!-- endbuild -->
+
+	<!-- build:css styles/main.css -->
+	<link media="screen" rel="stylesheet" type="text/css" href="stylesheets/styles.css">
+	<!-- endbuild -->
+
+	<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script><![endif]-->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Krub:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Bai+Jamjuree:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+	<!--<script src='https://www.google.com/recaptcha/api.js?render=6Lc79Y0UAAAAAMuYVQ-lm9jtWcvk6w3v5FdxXml7'></script>-->
+	<base href="/" />
+	<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="assets/safari-pinned-tab.svg" color="#fdfdfd">
+    <meta name="msapplication-TileColor" content="#fdfdfd">
+    <meta name="msapplication-navbutton-color" content="#   fdfdfd">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#fdfdfd">
+	<meta name="theme-color" content="#fdfdfd">
+
+	
+
+	<style>
+		[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+			display: none !important;
+		}
+	</style>
+</head>
+
+<body ng-app="applicationModule" ng-controller="componentsController" class="ng-scope">
+	<page-loader latency="2000" bg-color="#ffffff">
+		<div class="loader">
+			<!--<img class="gif-loader hidden" src="images/annacloud-png-anim-logo.png">-->
+			<div class="la-ball-grid-pulse la-2x custom">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+	</page-loader>
+	<div class="container no-padding" style="box-shadow: 0 0 20px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.0);">
+		<div ng-hide="hideElement()" ng-cloak>
+			<div class="main-header-content">
+				<nav class="navbar main-navbar navbar-default nomargin" role="navigation">
+					<div class="container">
+						<a class="logo-small hidden visible-xs-block text-hide" href="home">AnnaCloud</a>
+						<div class="navbar-header navbar-right">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							<ul class="nav navbar-nav fixed-navbar-right">
+								<li ng-show="user!==null" class="utente">
+									<a href="javascript:void(0)" id="user-menu" data-toggle="dropdown"><i class="unaicon-login"></i> <span class="hidden-xs"></span></a>
+									<ul class="dropdown-menu" aria-labelledby="user-menu">
+										<li ng-hide="isCurrentUserAdmin()"><a href="ordini">I tuoi Ordini</a></li>
+										<li ng-show="isCurrentUserAdmin()"><a href="admin-ordini">Amministrazione Ordini</a></li>
+										<li ng-show="isCurrentUserAdmin()"><a href="admin-clienti">Amministrazione Clienti</a></li>
+										<li><a href="profilo">Profilo</a></li>
+										<li><a href="logout" ng-click="logOut()">Esci</a></li>
+									</ul>
+								</li>
+								<li ng-show="user==null" class="utente">
+									<a href="accedi" id="user-menu"><i class="unaicon-login"></i> <span class="hidden-xs">accedi</span></a>
+								</li>
+								<li class="favoriti">
+									<a href="preferiti"><i class="unaicon-favourite"></i> <span class="hidden-xsx" ng-cloak>({{preferiti.length}})</span></a>
+								</li>
+								<li class="carrello" ng-hide="isCurrentUserAdmin()">
+									<a href="carrello"><i class="unaicon-cart"></i> <span class="hidden-xsx" ng-cloak>({{carrello.length}})</span></a>
+								</li>
+							</ul>
+						</div>
+						<div class="collapse navbar-collapse">
+							<ul class="nav navbar-nav navbar-left">
+								<li ng-show="user!==null">
+									<p class="navbar-text">Benvenuto, <strong ng-cloak>{{nome + " " + cognome}}</strong><strong ng-show="isCurrentUserAdmin()"> - AMMINISTRATORE</strong></p>
+									<!-- {{user.username}} -->
+								</li>
+								<li ng-show="user==null">
+									<p class="navbar-text">Benvenuto, <strong>accedi al tuo profilo</strong> o <strong>crea il tuo account</strong></p>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</nav>
+			</div>
+			<nav class="navbar navbar-default nomargin main-site-navbar">
+				<div class="container">
+					<div class="collapse navbar-collapse navbar-collapse-mobile navbar-ex1-collapse">
+						<div class="hidden-xs main-navbarBACK">
+							<!--<div class="col-sm-4">
+								<ul class="nav navbar-nav navbar-nav-flex">
+									<li>
+										<a href="configura" class="primary" data-toggle="dropdown">Crea</a>
+									</li>
+									<li>
+										<a href="esperienza" class="primary">Scopri</a>
+									</li>
+								</ul>
+							</div>-->
+							<div class="col-sm-3">
+								<ul class="nav navbar-nav navbar-nav-flex">
+									<li>
+										<a href="home" class="logo-big hidden-xs text-hide active link primary">AnnaCloud</a>
+									</li>
+								</ul>
+							</div>
+							<div class="col-sm-9">
+								<ul class="nav navbar-nav navbar-nav-flex">
+                                    <li>
+                                        <a href="configura" class="primary">Crea</a>
+                                    </li>
+                                    <li class="hidden">
+                                        <a href="shopping" class="primary">Shop</a>
+                                    </li>
+                                    <li>
+                                        <a href="esperienza" class="primary">Scopri</a>
+                                    </li>
+									<li>
+										<a href="chi-siamo" class="primary">Chi Siamo</a>
+									</li>
+									<li>
+										<a href="contatti" class="primary">Contattaci</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<ul class="nav navbar-nav mobile-menu visible-xs-block">
+							<li>
+								<a href="configura" class="">Crea</a>
+								<ul class="dropdown-menu hidden" aria-labelledby="user-menu">
+									<li><a href="accedi" ng-click="setAccesso()">Come funziona</a></li>
+									<li><a href="configura" ng-click="setConfigurator()">Configura</a></li>
+								</ul>
+                            </li>
+                            <li class="hidden">
+                                <a href="shopping" class="">Shop</a>
+                            </li>
+                            <li>
+                                <a href="esperienza" class="">Scopri</a>
+                            </li>
+							<li>
+								<a href="chi-siamo" class="">Chi Siamo</a>
+							</li>
+							<li>
+								<a a href="contatti" class="">Contattaci</a>
+								<ul class="dropdown-menu hidden" aria-labelledby="user-menu">
+									<li><a href="team">Team</a></li>
+									<li><a href="contatti">Contatti</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+		<div class="template-content" ng-view autoscroll="true" ng-cloak></div>
+		<footer class="no-padding" ng-hide="hideElement()" ng-cloak>
+			<div class="footer-navbar-container">
+				<div class="container">
+					<div class="col-md-4 col-sm-3">
+						<a class="logo-footer text-hide" href="#">AnnaCloud</a>
+						<p class="address">
+							<b style="font-weight: 500">Anna Cloud</b> &egrave; un marchio <b style="font-weight: 500">Pelletteria Digitale srl</b>.<br>
+							Sede - Via San Tommaso, 21<br>
+							Santa Croce Sull’Arno (PI)<br>
+							CF/P.IVA: 02272250503<br>
+							email: <a href="mailto:info@annacloud.it">info@annacloud.it</a>
+						</p>
+					</div>
+					<div class="col-md-2 col-sm-3 hidden-xs">
+						<h3>Crea</h3>
+						<ul>
+							<!--<li>
+								<a href="#!/home" class="">Come funziona</a>
+							</li>-->
+							<li>
+								<a href="configura" class="">Configura</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-md-2 col-sm-3 hidden-xs">
+						<!--<h3>Atelier</h3>-->
+						<h3>Shop</h3>
+						<ul>
+							<li>
+								<a href="404" class="">Accessori</a>
+							</li>
+							<!--<li>
+									<a href="#!/collezione" class="">Collezione</a>
+							</li>-->
+						</ul>
+					</div>
+					<div class="col-md-2 col-sm-3 hidden-xs">
+						<h3>Scopri</h3>
+						<ul>
+							<!--<li>
+								<a href="#!/visione" class="" ng-click="setVisione()">Visione</a>
+							</li>-->
+							<li>
+								<a href="esperienza" class="" ng-click="setEsperienza()">Esperienza</a>
+							</li>
+							<li>
+								<a href="contatti" class="">Contatti</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-md-2 col-sm-3 hidden">
+						<h3>Chi siamo</h3>
+						<ul>
+							<li>
+								<a href="team" class="">Team</a>
+							</li>
+
+						</ul>
+					</div>
+					<div class="col-md-2 col-sm-3">
+						<h3>Seguici su:</h3>
+						<p class="social">
+							<a href="javascript:void(0);"><i class="unaicon-facebook"></i></a>&nbsp;
+							<!--<a href="javscript:void(0);"><i class="unaicon-twitter"></i></a>&nbsp;-->
+							<a href="javascript:void(0);"><i class="unaicon-instagram"></i></a>
+						</p>
+					</div>
+
+				</div>
+			</div>
+			<div class="copyright">
+				<div class="container">
+					Copyright &reg; 2018 ANNACLOUD
+				</div>
+			</div>
+		</footer>
+		<a href="#" id="back-to-top" title="Back to top">&uarr;</a>
+	</div>
+
+	<!---  LOADER   -->
+	<div id="loaderOverlay" style="visibility:hidden">
+		<div id="loader" class="loader">
+			<!--<img class="gif-loader hidden" src="images/annacloud-png-anim-logo.png">-->
+			<div class="la-ball-grid-pulse la-2x custom">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+	</div>
+
+	<!-- build:js js/vendor.js -->
+
+	<script src="node_modules/angular/angular.js"></script>
+	<script src="node_modules/ui-select/dist/select.js"></script>
+	<script src="node_modules/angular-sanitize/angular-sanitize.js"></script>
+	<script src="node_modules/angular-page-loader/dist/angular-page-loader.min.js"></script>
+	<script src="node_modules/jquery/dist/jquery.js"></script>
+	<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="node_modules/bootstrap-select/dist/js/bootstrap-select.js"></script>
+	<script src="node_modules/angular-ui-swiper/dist/angular-ui-swiper.js"></script>
+	<script src="node_modules/angular-jwt/dist/angular-jwt.min.js"></script>
+	<script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+	<script src="node_modules/angular-aria/angular-aria.min.js"></script>
+	<script src="node_modules/angular-animate/angular-animate.min.js"></script>
+	<script src="node_modules/angular-messages/angular-messages.min.js"></script>
+	<script src="node_modules/angular-route/angular-route.min.js"></script>
+	<script src="node_modules/angular-material/angular-material.min.js"></script>
+	<script src="node_modules/html2canvas/dist/html2canvas.js"></script>
+	<script src="node_modules/wow.js/dist/wow.min.js"></script>
+	<script src="node_modules/aws-sdk/dist/aws-sdk.min.js"></script>
+	<script src="node_modules/amazon-cognito-identity-js/dist/amazon-cognito-identity.min.js"></script>
+	<script src="node_modules/hammerjs/hammer.min.js"></script>
+	<script src="node_modules/angular-translate/dist/angular-translate.js"></script>
+	<script src="node_modules/angular-translate-loader-partial/angular-translate-loader-partial.js"></script>
+	<script src="node_modules/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+	<script src="node_modules/angular-update-meta/dist/update-meta.min.js"></script>
+	<script src="node_modules/angular-touch/angular-touch.min.js"></script>
+    <script src="node_modules/bootstrap-select/dist/js/bootstrap-select.js"></script>
+    
+	<script src="node_modules/clipboard/dist/clipboard.min.js"></script>
+	<script src="node_modules/ngclipboard/dist/ngclipboard.js"></script>
+
+	<script src="src/lib/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script src="src/lib/jquery.mousewheel.js"></script>
+	<!--<script src="src/lib/html2canvas.js"></script>-->
+	<script src="src/lib/spritespin.js"></script>
+	<script src="src/lib/lightbox.min.js"></script>
+	<script src="src/lib/custom.js"></script>
+	<script src="src/lib/TweenMax.js"></script>
+	<script src="src/lib/featherlight.js"></script>
+	<script src="src/lib/jquery.pinchzoomer.js"></script>
+	<script src="src/lib/index.umd.js"></script>
+	<script src="src/lib/index.es2015.js"></script>
+	<!-- endbuild -->
+
+	<!-- paypal  -->
+	<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+
+	<!-- build:js js/scripts.js -->
+	<script src="src/app/app.js"></script>
+	<script src="src/app/common/constants.js"></script>
+	<script src="src/app/common/comuni.js"></script>
+	<script src="src/app/common/mailTemplate.js"></script>
+	<script src="src/app/common/utilFunctionMessageCreator.js"></script>
+
+	<script src="src/app/services/ListeService.js"></script>
+	<script src="src/app/services/StackService.js"></script>
+	<script src="src/app/services/loginService.js"></script>
+	<script src="src/app/services/chiaviService.js"></script>
+	<script src="src/app/services/carrelloService.js"></script>
+	<script src="src/app/services/preferitiService.js"></script>
+	<script src="src/app/services/salvaUtenteService.js"></script>
+	<script src="src/app/services/getOrdiniService.js"></script>
+	<script src="src/app/services/getTuttiOrdiniService.js"></script>
+	<script src="src/app/services/getConfigurazioniService.js"></script>
+	<script src="src/app/services/putOrdineService.js"></script>
+	<script src="src/app/services/putConfigurazioneService.js"></script>
+	<script src="src/app/services/deleteOrdineService.js"></script>
+	<script src="src/app/services/deleteConfigurazioneService.js"></script>
+	<script src="src/app/services/LogService.js"></script>
+
+	<script src="src/app/controllers/contattiController.js"></script>
+	<script src="src/app/controllers/componentsController.js"></script>
+	<script src="src/app/controllers/accessoController.js"></script>
+	<script src="src/app/controllers/preferitiController.js"></script>
+	<script src="src/app/controllers/ordiniController.js"></script>
+	<script src="src/app/controllers/carrelloController.js"></script>
+	<script src="src/app/controllers/profiloController.js"></script>
+	<script src="src/app/controllers/checkoutController.js"></script>
+	<script src="src/app/controllers/paypalController.js"></script>
+	<script src="src/app/controllers/bagsConfiguratorController.js"></script>
+	<script src="src/app/controllers/homeController.js"></script>
+	<script src="src/app/controllers/adminController.js"></script>
+	<script src="src/app/controllers/adminControllerClienti.js"></script>
+	<script src="src/app/controllers/cambioPasswordController.js"></script>
+	<script src="src/app/controllers/schedaProdottoController.js"></script>
+	<script src="src/app/controllers/shoppingController.js"></script>
+	<script src="http://a.b.c:8080/target/target-script-min.js"></script>
+    <!-- endbuild -->
+    
+
+	<style type="text/css">
+		/* N.B. .clearfix per funzionare deve rimanere dichiarato nell'html */
+		.clearfix:after {
+			content: ".";
+			display: block;
+			height: 0;
+			clear: both;
+			visibility: hidden;
+		}
+	</style>
+	<script type="text/javascript">
+		$('.template-content').on('click', '.accordion-toggle', function () {
+			console.log("TEST2!!!!");
+			//Expand or collapse this panel
+			$(this).next().slideToggle('fast');
+			$(this).find('.caret').toggleClass('caret-reversed')
+			//Hide the other panels
+			//$(".accordion-content").not($(this).next()).slideUp('fast');
+
+		})
+		$(document).ready(function () {
+			$(document).click(function (event) {
+				var clickover = $(event.target);
+				var _opened = $(".collapse").hasClass("collapse in");
+
+				if (_opened === true && !clickover.hasClass("navbar-toggle")) {
+					$("button.navbar-toggle").click();
+				}
+			});
+
+			$('.featherlight').on({
+				"click": function (e) {
+					e.stopPropagation();
+				}
+			});
+
+			// I only have one form on the page but you can be more specific if need be.
+			var $form = $('form');
+
+			if ($form.length > 0) {
+				$('form input[type="submit"]').bind('click', function (event) {
+					if (event) event.preventDefault();
+					// validate_input() is a validation function I wrote, you'll have to substitute this with your own.
+					register($form);
+				});
+			}
+		});
+
+		function register($form) {
+			$.ajax({
+				type: $form.attr('method'),
+				url: $form.attr('action'),
+				data: $form.serialize(),
+				cache: false,
+				dataType: 'json',
+				contentType: "application/json; charset=utf-8",
+				error: function (err) {
+					alert("Could not connect to the registration server. Please try again later.");
+				},
+				success: function (data) {
+					if (data.result != "success") {
+						// Something went wrong, do something to notify the user. maybe alert(data.msg);
+						alert("ERRORE!")
+					} else {
+						alert("OK")
+						// It worked, carry on...
+					}
+				}
+			});
+		}
+	</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145305908-1"> </script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-145305908-1');
+    </script>
+
+</body>
+
+</html>

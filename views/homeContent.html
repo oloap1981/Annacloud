@@ -11,24 +11,88 @@
     <!-- inizio banner shopping-->
     <div class="jumbotron quote-section page-header index wow fadeIn hidden visible-xs" data-wow-delay="0.1s">
         <div class="container">
-            <h2 class="title wow fadeIn" data-wow-delay="1s">Testo per lo Shop</h2>
-            <a href="shopping" class="btn btn-conf top-buffer">Acquista ora</a>
-            <!--<h2 class="title wow fadeIn" data-wow-delay="1s" ng-bind-html="'header_1' | translate"></h2>
-             {{ 'header_1_b' | translate }}
-    			<a href="#!/configura" class="btn btn-conf top-buffer">{{ 'header_1_c' | translate }}</a> -->
+            <h2 class="title wow fadeIn" data-wow-delay="1s" ng-bind-html="'jumbotron_shop_content_mobile' | translate"></h2>
         </div>
     </div>
     <section class="swipe hidden-xs">
         <swiper grab-cursor="false" keyboard-control="false" slides-per-view="1" loop="false" effect="fade" autoplay="5000" speed="500" watchOverflow="true">
             <slides>
-                <slide><img src="images/home-header-2.jpg" class="responsive">
-                    <h3 class="slogan-2">
-                        <span>Testo per</span><br>
-                        <span>lo shopping.</span><br>
-                        <a href="shopping">
-                            <span class="cta">Acquista ora <i class="fa fa-chevron-right"></i></span>
-                        </a>
-                    </h3>
+                <slide><img src="images/home-header-shop.jpg" class="responsive">
+                    <h3 class="slogan-2 " ng-bind-html="'jumbotron_shop_content' | translate"></h3>
+                </slide>
+            </slides>
+            <!--<pagination></pagination>-->
+        </swiper>
+    </section>
+    <section class="swipe hidden visible-xs-block">
+        <swiper grab-cursor="false" keyboard-control="false" slides-per-view="1" effect="fade" loop="false" autoplay="5000" speed="500">
+            <slides>
+                <slide>
+                    <img src="images/home-header-shop_xs.jpg" class="responsive">
+                </slide>
+            </slides>
+        </swiper>
+    </section>
+    <!-- fine banner al shopping-->
+    
+    
+    <!-- inizio testo introduttivo shopping-->
+    <div class="jumbotron jumbotron-center quote-section wow fadeIn " data-wow-delay="0.1s">
+        <div class="container top-buffer">
+            <div class="row">
+                <!--<div class="col-sm-4 clearfix">
+                    
+                </div>-->
+                <div class="col-sm-12 clearfix">
+                    <h2 class="title" ng-bind-html="'titolo_area_shop' | translate"></b></h2>
+                    <p class="subtitle" style="max-width: 100%;" ng-bind-html="'testo_area_shop' | translate"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--fine testo introduttivo shopping-->
+    
+    <!--inizio descrizione attività -->
+    <div class="container text-center ">
+        <div class="row top-buffer">
+            <div class="col-sm-6 clearfix  home-content wow fadeInUpSmall bottom-buffer" data-wow-delay=".2s">
+                <img src="images/descrizione_sx.jpg" class="bottom-buffer" style="width: 100%">
+                <!--<h3 class="title section top-buffer hidden"><span ng-bind-html="'titolo_testo_sx_attivita' | translate "></span></h3>-->
+                <p class="subtitle bottom-buffer top-buffer bottom-buffer" ng-bind-html="'testo_5' | translate "></p>
+            </div>
+            <div class="col-sm-6 clearfix  home-content wow fadeInUpSmall bottom-buffer" data-wow-delay=".2s">
+                <img src="images/descrizione_dx.jpg" class="bottom-buffer" style="width: 100%">
+                <!--<h3 class="title section hidden top-buffer"><span ng-bind-html="'titolo_testo_dx_attivita' | translate"></span></h3>-->
+                <p class="subtitle bottom-buffer top-buffer bottom-buffer" ng-bind-html="'testo_6' | translate "></b></p>
+            </div>
+            
+        </div>
+    </div>
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-sm-12 wow fadeInUpSmall" data-wow-delay="1s">
+                <div class="divider"></div>
+            </div>
+        </div>
+    </div>
+    <div class="container text-center bottom-buffer">
+        <div class="row">
+            <div class="col-sm-12 clearfix bottom-buffer home-content wow fadeInUpSmall" data-wow-delay=".2s" ng-bind-html="'testo_4' | translate"></div>
+        </div>
+    </div>
+    <!--fine descrizione attività -->
+
+    <!-- inizio banner al configuratore-->
+    <div class="jumbotron quote-section page-header index wow fadeIn hidden visible-xs" data-wow-delay="0.1s">
+        <div class="container">
+            <h2 class="title wow fadeIn" data-wow-delay="1s" ng-bind-html="'jumbotron_configuratore_content_mobile' | translate"></h2>
+        </div>
+    </div>
+    <section class="swipe hidden-xs">
+        <swiper grab-cursor="false" keyboard-control="false" slides-per-view="1" loop="false" effect="fade" autoplay="5000" speed="500" watchOverflow="true">
+            <slides>
+                <slide><img src="images/home-header-conf.jpg" class="responsive">
+                    <h3 class='slogan-2' ng-bind-html="'jumbotron_configuratore_content' | translate"></h3>
                 </slide>
             </slides>
             <!--<pagination></pagination>-->
@@ -41,7 +105,7 @@
     					<img src="images/home-header-1-xs.jpg" class="responsive">
     				</slide>-->
                 <slide>
-                    <img src="images/home-header-2-xs.jpg" class="responsive">
+                    <img src="images/home-header-conf_xs.jpg" class="responsive">
                 </slide>
                 <!--<slide>
     					<img src="images/home-header-3-xs.jpg" class="responsive">
@@ -50,93 +114,38 @@
             <!--<pagination></pagination>-->
         </swiper>
     </section>
-    <!-- fine banner al shopping-->
+    <!-- fine banner al configuratore-->
     
     
-    <!-- inizio testo introduttivo shopping-->
-    <div class="jumbotron quote-section wow fadeIn " data-wow-delay="0.1s">
+    <!-- inizio testo introduttivo configuratore-->
+    <div class="jumbotron jumbotron-center quote-section wow fadeIn " data-wow-delay="0.1s">
         <div class="container top-buffer">
             <div class="row">
-                <div class="col-sm-4 clearfix">
-                    <h2 class="title">{{ 'testo_1_titolo_a' | translate }} <b>{{ 'testo_1_titolo_b' | translate }}</b></h2>
-    
-                </div>
-                <div class="col-sm-8 clearfix">
-                    <p class="subtitle" style="max-width: 100%;">{{ 'testo_1_corpo_a' | translate }} <b>{{ 'testo_1_corpo_b' | translate }}</b> {{ 'testo_1_corpo_c' | translate }} <b>{{ 'testo_1_corpo_d' | translate }}</b> {{ 'testo_1_corpo_e' | translate }} <br /><b>{{ 'testo_1_corpo_f' | translate }}</b></p>
+                <!--<div class="col-sm-4 clearfix">
+                    
+                </div>-->
+                <div class="col-sm-12 clearfix">
+                    <h2 class="title" ng-bind-html="'titolo_area_configuratore' | translate"></h2>
+                    <p class="subtitle" style="max-width: 100%;" ng-bind-html="'testo_area_configuratore' | translate"></p>
                 </div>
             </div>
         </div>
     </div>
-    <!-- fine testo introduttivo shopping-->
-
-
-
-    <!-- inizio banner al configuratore-->
-	<div class="jumbotron quote-section page-header index wow fadeIn hidden visible-xs" data-wow-delay="0.1s">
-		<div class="container">
-			<h2 class="title wow fadeIn" data-wow-delay="1s" ng-bind-html="'header_1' | translate"></h2>
-				<!-- {{ 'header_1_b' | translate }}
-			<a href="#!/configura" class="btn btn-conf top-buffer">{{ 'header_1_c' | translate }}</a> -->
-		</div>
-	</div>
-	<section class="swipe hidden-xs">
-		<swiper grab-cursor="false" keyboard-control="false" slides-per-view="1" loop="false" effect="fade" autoplay="5000" speed="500" watchOverflow="true">
-			<slides>
-				<slide><img src="images/home-header-2.jpg" class="responsive">
-					<h3 class='slogan-2' ng-bind-html="'header_2' | translate"></h3>
-				</slide>
-			</slides>
-			<!--<pagination></pagination>-->
-		</swiper>
-	</section>
-	<section class="swipe hidden visible-xs-block">
-		<swiper grab-cursor="false" keyboard-control="false" slides-per-view="1" effect="fade" loop="false" autoplay="5000" speed="500">
-			<slides>
-				<!--<slide>
-					<img src="images/home-header-1-xs.jpg" class="responsive">
-				</slide>-->
-				<slide>
-					<img src="images/home-header-2-xs.jpg" class="responsive">
-				</slide>
-				<!--<slide>
-					<img src="images/home-header-3-xs.jpg" class="responsive">
-				</slide>-->
-			</slides>
-			<!--<pagination></pagination>-->
-		</swiper>
-    </section>
-    <!-- fine banner al configuratore-->
-
-
-    <!-- inizio testo introduttivo configuratore-->
-	<div class="jumbotron quote-section wow fadeIn " data-wow-delay="0.1s">
-		<div class="container top-buffer">
-			<div class="row">
-				<div class="col-sm-4 clearfix">
-					<h2 class="title">{{ 'testo_1_titolo_a' | translate }} <b>{{ 'testo_1_titolo_b' | translate }}</b></h2>
-					
-				</div>
-				<div class="col-sm-8 clearfix">
-					<p class="subtitle" style="max-width: 100%;">{{ 'testo_1_corpo_a' | translate }} <b>{{ 'testo_1_corpo_b' | translate }}</b> {{ 'testo_1_corpo_c' | translate }} <b>{{ 'testo_1_corpo_d' | translate }}</b> {{ 'testo_1_corpo_e' | translate }} <br/><b>{{ 'testo_1_corpo_f' | translate }}</b></p>
-				</div>	
-			</div>
-		</div>
-    </div>
     <!-- fine testo introduttivo configuratore-->
 
-   
-	
+
+    <!-- inizio preconfigurate -->
 	<div class="container text-center top-buffer">
-		<div class="row top-buffer">
+        <div class="row top-buffer">
 			<div class="col-sm-12 clearfix bottom-buffer home-content wow fadeInUpSmall" data-wow-delay=".2s">
-				<h3 class="title section top-buffer mot"><span ng-bind-html="'testo_3_titolo' | translate"></span></h3>
-				<p class="subtitle" ng-bind-html="'testo_3' | translate"></p>
+                <h3 class="title section top-buffer mot"><span ng-bind-html="'titolo_preconfigurate' | translate"></span></h3>
+				<p class="subtitle" ng-bind-html="'testo_preconfigurate' | translate"></p>
 			</div>
 		</div>
 		<div class="row top-buffer " ng-if="getPreconfigurati().length != 0" >
-			<section class="swipe swipe-featured">
-				<swiper class="" grab-cursor="true" keyboard-control="true" slides-per-view="4" breakpoints="{ &quot;320&quot;: { &quot;slidesPerView&quot;: &quot;1&quot; },  &quot;480&quot;: { &quot;slidesPerView&quot;: &quot;1&quot; },  &quot;768&quot;: { &quot;slidesPerView&quot;: &quot;3&quot; },  &quot;992&quot;: { &quot;slidesPerView&quot;: &quot;4&quot; },  &quot;1200&quot;: { &quot;slidesPerView&quot;: &quot;4&quot; }}">
-					<slides>
+            <section class="swipe swipe-featured">
+                <swiper class="" grab-cursor="true" keyboard-control="true" slides-per-view="4" breakpoints="{ &quot;320&quot;: { &quot;slidesPerView&quot;: &quot;1&quot; },  &quot;480&quot;: { &quot;slidesPerView&quot;: &quot;1&quot; },  &quot;768&quot;: { &quot;slidesPerView&quot;: &quot;3&quot; },  &quot;992&quot;: { &quot;slidesPerView&quot;: &quot;4&quot; },  &quot;1200&quot;: { &quot;slidesPerView&quot;: &quot;4&quot; }}">
+                    <slides>
 						<slide ng-repeat="conf in getPreconfigurati()"><a href="javascript:void(0);" class="bag-box home-content wow fadeIn" data-wow-delay="0.4s" ng-click="modificaConfig(conf)">
 							<img src="{{conf.urlImmagineInfluencer}}" class="influencer-label" /><div class="img-container"><img ng-src="{{conf.thumbnail}}" /></div><div class="price">{{conf.nome}}<br><span class="full-price barred">{{calcolaPrezzo(conf)}}&euro;</span> <span class="discount-price">{{calcolaPrezzoScontato(conf)}} &euro;</div></a></slide>
 					</slides>
@@ -147,24 +156,9 @@
 			</section>
 		</div>
 	</div>
-	<div class="container text-center top-buffer">
-		<div class="row top-buffer">
-			<div class="col-sm-12 clearfix bottom-buffer home-content wow fadeInUpSmall" data-wow-delay=".2s" ng-bind-html="'testo_4' | translate">
-				<!-- <h3 class="title section mot top-buffer"><span>{{ 'testo_4_titolo' | translate }}</span></h3>
-				<p class="subtitle bottom-buffer">{{ 'testo_4_corpo_a' | translate }}<b>{{ 'testo_4_corpo_b' | translate }}</b>{{ 'testo_4_corpo_c' | translate }}<b>{{ 'testo_4_corpo_d' | translate }}</b><br/>{{ 'testo_4_corpo_e' | translate }}<b>{{ 'testo_4_corpo_f' | translate }}</b></p> -->
-			</div>
-			<div class="col-sm-6 clearfix bottom-buffer home-content wow fadeInUpSmall top-buffer" data-wow-delay=".2s">
-				<img src="images/artigiano-1.jpg" class="bottom-buffer"  style="width: 100%">
-				<h3 class="title section top-buffer hidden"><span ng-bind-html="'testo_5_titolo' | translate "></span></h3>
-				<p class="subtitle bottom-buffer top-buffer" ng-bind-html="'testo_5' | translate ">{{ 'testo_5_corpo_a' | translate }}<b>{{ 'testo_5_corpo_b' | translate }}</b>{{ 'testo_5_corpo_c' | translate }}<b>{{ 'testo_5_corpo_d' | translate }}</b>{{ 'testo_5_corpo_e' | translate }}</p>
-			</div>
-			<div class="col-sm-6 clearfix bottom-buffer home-content wow fadeInUpSmall top-buffer" data-wow-delay=".2s">
-				<img src="images/artigiano-2.jpg" class="bottom-buffer" style="width: 100%">
-				<h3 class="title section hidden top-buffer"><span ng-bind-html="'testo_6_titolo' | translate"></span></h3>
-				<p class="subtitle bottom-buffer top-buffer" ng-bind-html="'testo_6' | translate "></b></p>
-			</div>
-		</div>
-	</div>
+    <!-- fine preconfigurate -->
+
+	
 	<div class="container text-center">
 		<div class="row">
 			<div class="col-sm-12 wow fadeInUpSmall" data-wow-delay="1s">

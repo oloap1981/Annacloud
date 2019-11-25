@@ -328,7 +328,13 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		}
 
 		return tempEntita;
-	};
+    };
+    
+    /*configController.ordinaEntita = function (entitaNonOrdinate) {
+        return entitaNonOrdinate.sort(function (entita1, entita2) {
+            entita1.ordineInterfaccia - entita2.ordineInterfaccia;
+        });
+    };*/
 
 	configController.getResolutionPlaceHolder = function () {
 		var screenWidth = $("#canvasWrapper").innerWidth();
@@ -536,7 +542,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 
 			if(modello.nome == "bucket_paglia"){
 
-				var singolaEntitaFoderaPaglia = configController.getSingolaEntita("fodere", modello.nome, "FODERA_RES_ARTE");
+				var singolaEntitaFoderaPaglia = configController.getSingolaEntita("fodere", modello.nome, "FODERA_RES_NERO");
 				var entitaFoderaPaglia = configController.getInternalEntitaObjct(singolaEntitaFoderaPaglia.categoria, singolaEntitaFoderaPaglia.codice, singolaEntitaFoderaPaglia.nome, singolaEntitaFoderaPaglia.nome, singolaEntitaFoderaPaglia.prezzo, 0, singolaEntitaFoderaPaglia.categoria, singolaEntitaFoderaPaglia.urlStripe, 6, singolaEntitaFoderaPaglia.urlStripe, singolaEntitaFoderaPaglia.nomeStile, singolaEntitaFoderaPaglia.nomeBorchia, singolaEntitaFoderaPaglia.colore, singolaEntitaFoderaPaglia.metallo, [], "");
 				configController.aggiungiElementoAStack(entitaFoderaPaglia.urlStripe, 6, false, entitaFoderaPaglia);
                 
@@ -544,29 +550,29 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			}
 
 			if(modello.nome == "bucket_pelle"){
-				$scope.coloreSelezionato = "anise";
+				$scope.coloreSelezionato = "cherrypie";
 				//creo un set di default di accessori: corda, strozzino, ciondolo (,tracolla?)
-				var singolaEntitaColore = configController.getSingolaEntita("colore", modello.nome, "CORPO_RES_ANISE");
+				var singolaEntitaColore = configController.getSingolaEntita("colore", modello.nome, "CORPO_RES_CHERRYPIE");
 				var entitaColore = configController.getInternalEntitaObjct(singolaEntitaColore.categoria, singolaEntitaColore.codice, singolaEntitaColore.nome, singolaEntitaColore.nome, singolaEntitaColore.prezzo, 0, singolaEntitaColore.categoria, singolaEntitaColore.urlStripe, 5, singolaEntitaColore.urlStripe, singolaEntitaColore.nomeStile, singolaEntitaColore.nomeBorchia, singolaEntitaColore.colore, singolaEntitaColore.metallo, [], "");
 				configController.aggiungiElementoAStack(entitaColore.urlStripe, 5, false, entitaColore);
 
-				var singolaEntitaCorda = configController.getSingolaEntita("corde", modello.nome, "CORDA_RES_ANISE");
+				var singolaEntitaCorda = configController.getSingolaEntita("corde", modello.nome, "CORDA_RES_CHERRYPIE");
 				var entitaCorda = configController.getInternalEntitaObjct(singolaEntitaCorda.categoria, singolaEntitaCorda.codice, singolaEntitaCorda.nome, singolaEntitaCorda.nome, singolaEntitaCorda.prezzo, 0, singolaEntitaCorda.categoria, singolaEntitaCorda.urlStripe, 6, singolaEntitaCorda.urlStripe, singolaEntitaCorda.nomeStile, singolaEntitaCorda.nomeBorchia, singolaEntitaCorda.colore, singolaEntitaCorda.metallo, [], "");
 				configController.aggiungiElementoAStack(entitaCorda.urlStripe, 6, false, entitaCorda);
 
-				var singolaEntitaCiondolo = configController.getSingolaEntita("ciondolo", modello.nome, "CIONDOLO_RES_ANISE");
+				var singolaEntitaCiondolo = configController.getSingolaEntita("ciondolo", modello.nome, "CIONDOLO_RES_CHERRYPIE");
 				var entitaCiondolo = configController.getInternalEntitaObjct(singolaEntitaCiondolo.categoria, singolaEntitaCiondolo.codice, singolaEntitaCiondolo.nome, singolaEntitaCiondolo.nome, singolaEntitaCiondolo.prezzo, 0, singolaEntitaCiondolo.categoria, singolaEntitaCiondolo.urlStripe, 7, singolaEntitaCiondolo.urlStripe, singolaEntitaCiondolo.nomeStile, singolaEntitaCiondolo.nomeBorchia, singolaEntitaCiondolo.colore, singolaEntitaCiondolo.metallo, [], "");
 				configController.aggiungiElementoAStack(entitaCiondolo.urlStripe, 7, false, entitaCiondolo);
 
-				var singolaEntitaStrozzino = configController.getSingolaEntita("strozzino", modello.nome, "STROZZINO_RES_ANISE");
+				var singolaEntitaStrozzino = configController.getSingolaEntita("strozzino", modello.nome, "STROZZINO_RES_CHERRYPIE");
 				var entitaStrozzino = configController.getInternalEntitaObjct(singolaEntitaStrozzino.categoria, singolaEntitaStrozzino.codice, singolaEntitaStrozzino.nome, singolaEntitaStrozzino.nome, singolaEntitaStrozzino.prezzo, 0, singolaEntitaStrozzino.categoria, singolaEntitaStrozzino.urlStripe, 8, singolaEntitaStrozzino.urlStripe, singolaEntitaStrozzino.nomeStile, singolaEntitaStrozzino.nomeBorchia, singolaEntitaStrozzino.colore, singolaEntitaStrozzino.metallo, [], "");
 				configController.aggiungiElementoAStack(entitaStrozzino.urlStripe, 8, false, entitaStrozzino);
 
-				var singolaEntitaFodera = configController.getSingolaEntita("fodere", modello.nome, "FODERA_RES_ARTE");
+				var singolaEntitaFodera = configController.getSingolaEntita("fodere", modello.nome, "FODERA_RES_NERO");
 				var entitaFodera = configController.getInternalEntitaObjct(singolaEntitaFodera.categoria, singolaEntitaFodera.codice, singolaEntitaFodera.nome, singolaEntitaFodera.nome, singolaEntitaFodera.prezzo, 0, singolaEntitaFodera.categoria, singolaEntitaFodera.urlStripe, 10, singolaEntitaFodera.urlStripe, singolaEntitaFodera.nomeStile, singolaEntitaFodera.nomeBorchia, singolaEntitaFodera.colore, singolaEntitaFodera.metallo, [], "");
 				configController.aggiungiElementoAStack(entitaFodera.urlStripe, 10, false, entitaFodera);
 
-				var singolaEntitaTracolla = configController.getSingolaEntita("tracolla", modello.nome, "TRACOLLA_RES_ANISE");
+				var singolaEntitaTracolla = configController.getSingolaEntita("tracolla", modello.nome, "TRACOLLA_RES_CHERRYPIE");
 				var entitaTracolla = configController.getInternalEntitaObjct(singolaEntitaTracolla.categoria, singolaEntitaTracolla.codice, singolaEntitaTracolla.nome, singolaEntitaTracolla.nome, singolaEntitaTracolla.prezzo, 0, singolaEntitaTracolla.categoria, singolaEntitaTracolla.urlStripe, 11, singolaEntitaTracolla.urlStripe, singolaEntitaTracolla.nomeStile, singolaEntitaTracolla.nomeBorchia, singolaEntitaStrozzino.colore, singolaEntitaTracolla.metallo, [], "");
 				configController.aggiungiElementoAStack(entitaTracolla.urlStripe, 11, false, entitaTracolla);
 			}

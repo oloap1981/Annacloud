@@ -169,6 +169,6 @@ console.log(''
 )
 
 
-if (browserName == "Chrome" && navigator.userAgent.match(/Android/i) &&  majorVersion >= "77") {
+/*if (browserName == "Chrome" && navigator.userAgent.match(/Android/i) &&  majorVersion >= "77") {
     alert("attenzione: browser " + browserName + " " + majorVersion + "<br>QUesta versione presenta un bug che inficia l'utilizzo del nostro configuratore. Prego usare un browser alternativo (Firefox, Safari ecc )");
-}
+}*/
