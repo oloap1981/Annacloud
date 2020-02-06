@@ -205,6 +205,14 @@ app.config(['$routeProvider', '$translateProvider', '$translatePartialLoaderProv
 				}]
 			}
 		}).
+		when('/blog', {
+			templateUrl: 'views/blog.html',
+			resolve: {
+				translateReady: ['$translate', function ($translate) {
+					return $translate.onReady();
+				}]
+			}
+		}).
 		otherwise({
 			redirectTo: '/',
 			resolve: {
