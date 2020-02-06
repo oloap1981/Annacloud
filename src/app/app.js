@@ -205,14 +205,6 @@ app.config(['$routeProvider', '$translateProvider', '$translatePartialLoaderProv
 				}]
 			}
 		}).
-		when('/blog', {
-			templateUrl: 'views/blog.html',
-			resolve: {
-				translateReady: ['$translate', function ($translate) {
-					return $translate.onReady();
-				}]
-			}
-		}).
 		otherwise({
 			redirectTo: '/',
 			resolve: {
@@ -221,6 +213,18 @@ app.config(['$routeProvider', '$translateProvider', '$translatePartialLoaderProv
 				}]
 			}
 		});
+
+	/*
+
+	when('/blog', {
+		templateUrl: 'views/blog.html',
+		resolve: {
+			translateReady: ['$translate', function ($translate) {
+				return $translate.onReady();
+			}]
+		}
+	}).
+	*/
 
 	$locationProvider.html5Mode(true);
 
