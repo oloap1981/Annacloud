@@ -380,7 +380,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		}
 		var scontato = (importo / 100) * sconto;
 		return Math.round(scontato);
-	}
+	};
 
 	$scope.ricaricaListe = function (email, page, showLoader) {
 		// if(showLoader){
@@ -1400,15 +1400,15 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 	$scope.addCodiceScontoOrdineInCorso = function (codiceSconto, percentualeSconto) {
 		this.ordineInCorso.codiceSconto = codiceSconto;
 		this.ordineInCorso.percentualeSconto = percentualeSconto;
-	}
+	};
 
 	// res.data.esito.codice != 100 && res.data.esito.codice != 101
 	/* ************************ */
 	/* FUNZIONI GESTIONE RISPOSTA SERVER */
 	/* ************************ */
 	$scope.isErrorResponse = function (response) {
-		return (response.data.esito.codice != 100 && response.data.esito.codice != 101);;
-	}
+		return (response.data.esito.codice != 100 && response.data.esito.codice != 101);
+	};
 
 	$scope.manageErrorResponse = function (response, messageString, showTrace) {
 		console.log(JSON.stringify(response));
@@ -1418,5 +1418,5 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 			messageToShow = messageToShow + ": " + response.data.esito.trace;
 		}
 		$scope.openMessageModal(messageToShow);
-	}
+	};
 }]);

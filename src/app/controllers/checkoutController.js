@@ -58,7 +58,7 @@ angular.module("applicationModule").controller("checkoutController", ["$scope", 
 					$scope.openMessageModal("errore mentre tentavo di riscattare il codice");
 				}
 			);
-		}
+		};
 
 		$scope.inserisciIndirizzoSpedizione = function () {
 			$scope.setPendingCheckout(true);
