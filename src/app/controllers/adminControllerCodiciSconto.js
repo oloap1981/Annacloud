@@ -21,7 +21,7 @@ angular.module("applicationModule").controller("administratorControllerCodiciSco
 		$scope.loadCodici();
 		$scope.loadUsers();
 
-		$scope.newDateString = $scope.convertDate($scope.newDate.getTime());
+		$scope.newDateString = $scope.convertDatePicker($scope.newDate.getTime());
 
 		var altezza = $(window).height() - $('.navbar').outerHeight() - 95;
 		$('.stage').outerHeight(altezza);
@@ -32,10 +32,17 @@ angular.module("applicationModule").controller("administratorControllerCodiciSco
 
 	};
 
-	$scope.convertDate = function (millis) {
+	$scope.convertDatePicker = function (millis) {
 		var n = Number(millis);
 		var date = new Date(n);
 		var dateString = (date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear();
+		return dateString;
+	};
+
+	$scope.convertDate = function (millis) {
+		var n = Number(millis);
+		var date = new Date(n);
+		var dateString = (date.getDate() < 10 ? '0' : '') + date.getDate() + "/" + (date.getMonth() < 9 ? '0' : '') + (date.getMonth() + 1) + "/" + date.getFullYear();
 		return dateString;
 	};
 
