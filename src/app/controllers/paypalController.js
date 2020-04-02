@@ -43,7 +43,7 @@ angular.module("applicationModule").controller("cartController", ["$scope", "log
 							transactions: [
 								{
 									amount: {
-										total: $scope.calcolaPrezzoOrdine($scope.getOrdineInCorso()) + $scope.getCostoSpedizione(),
+										total: $scope.calcolaPrezzoOrdineFinale($scope.getOrdineInCorso()) + $scope.getCostoSpedizione(),
 										//total: 0.1,
 										currency: 'EUR'
 									}

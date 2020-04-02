@@ -1,0 +1,142 @@
+<div ng-controller="administratorControllerCodiciSconto" ng-init="initAdmin()">
+    <div class="container-fluid no-padding" style="min-width: 800px;">
+        <nav class="navbar navbar-default admin nomargin ">
+            <ul class="nav navbar-nav fixed-navbar-left">
+                <li>
+                    <a href="home" class="link"><i class="fa fa-home hidden"></i><img src="images/logonew-big.png" class="hidden-xs" style="height: 25px;"><img src="images/logonew-mobile-conf-big.png" class=" visible-xs-inline-block" style="height: 15px"></a>
+                </li>
+                <li>
+                    <a href="admin-ordini" class="">ORDINI</a>
+                </li>
+                <li>
+                    <a href="admin-clienti" class="">CLIENTI</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" class="">CODICI SCONTO</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav fixed-navbar-right">
+                <li class="">
+                    <a href="accedi" id="user-menu"><i class="unaicon-login"></i> <span class="hidden-xs">Admin</span></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="container-fluid" style="min-width: 800px; max-width: 800px">
+
+        <div class="row">
+            <div class="col-xs-6 stage-label">
+                <h3 class="Slabel">Codici</h3>
+            </div>
+            <div class="col-xs-6 stage-label">
+                <h3 class="Slabel">Nuovo</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 stage-label">
+                <input type="text" placeholder="Cerca il codice" ng-model="query" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6 stage">
+                <div class="ordine " ng-repeat="codice in codiciSconto | filter: search">
+                    <div class="item clearfix">
+                        <h4 class="item-data">Codice: {{codice.codice}}</h4>
+                    </div>
+                    <div class="item clearfix">
+                        <h4 class="item-data">Quantita: {{codice.percentuale}}%</h4>
+                    </div>
+                    <div class="item clearfix">
+                        <h4 class="item-data">Data inizio: {{convertDate(codice.dataInizio)}}</h4>
+                    </div>
+                    <div class="item clearfix">
+                        <h4 class="item-data">Data scadenza: {{convertDate(codice.dataScadenza)}}</h4>
+                    </div>
+                    <div class="item clearfix">
+                        <h4 class="item-data">Tipo codice {{(codice.tipoCodice == 'G' ? 'GENERICO' : 'PERSONALIZZATO')}}</h4>
+                    </div>
+                    <div class="item clearfix" ng-if="codice.tipoCodice == 'P'">
+                        <h4 class="item-data">Utente associato: {{codice.idUtente}}</h4>
+                    </div>
+                    <div class="action">
+                        <a href="javascript:void(0)" ng-click="eliminaCodiceSconto(codice)" style="width: 50%">elimina</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 stage">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="scadenza">Inzio</label>
+                            <!-- <input ng-model="dataInizio" type="datetime-local" placeholder="yyyy-MM-dd" class="form-control" id="inizio" placeholder="Data Inizio"> -->
+                            <datepicker date-format="dd/MM/yyyy" date-set="{{newDateString}}">
+                                <input ng-model="dataInizio" type="text" />
+                            </datepicker>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="scadenza">Scadenza</label>
+                            <!-- <input ng-model="dataScadenza" type="datetime-local" placeholder="yyyy-MM-dd" class="form-control" id="scadenza" placeholder="Data Scadenza"> -->
+                            <datepicker date-format="dd/MM/yyyy" date-set="{{newDateString}}">
+                                <input ng-model="dataScadenza" type="text" />
+                            </datepicker>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="scadenza">Personalizzato</label>
+                            <input ng-model="personalizzato" type="checkbox" class="form-control" id="scadenza" placeholder="Data Scadenza" ng-change="changePersonalizzato()">
+                        </div>
+                    </div>
+                </div>
+                <div class="row" ng-show="tipoCodice == 'P'">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="idUtente">Utente</label>
+                            <input ng-model="idUtente" type="text" name="idUtente" class="form-control" id="idUtente" placeholder="Id Utente" ng-keyup="complete(idUtente)">
+                            <ul class="list-group">
+                                <li class="list-group-item" ng-repeat="user in filterUsers" ng-click="fillTextbox(user)">{{user}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="percentuale">Percentuale</label>
+                            <input ng-model="percentuale" type="number" class="form-control" id="percentuale" placeholder="Percentuale">
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="motivo">Motivo</label>
+                            <input ng-model="motivo" type="text" class="form-control" id="motivo" placeholder="Motivo">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="note">Note</label>
+                            <input ng-model="note" type="text" class="form-control" id="note" placeholder="Note">
+                        </div>
+                    </div>
+                </div> -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <button ng-click="salvaCodiceSconto()" class="btn btn-default btn-save">Crea</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -27,6 +27,7 @@
 	<link rel="stylesheet" href="node_modules/angular-ui-swiper/dist/angular-ui-swiper.css">
 	<link rel="stylesheet" href="node_modules/ui-select/dist/select.css">
 	<link rel="stylesheet" href="node_modules/bootstrap-select/dist/css/bootstrap-select.css">
+	<link rel="stylesheet" href="node_modules/angularjs-datepicker/dist/angular-datepicker.css">
 	<!-- endbuild -->
 
 	<!-- build:css styles/main.css -->
@@ -111,6 +112,7 @@
 										<li ng-hide="isCurrentUserAdmin()"><a href="ordini">I tuoi Ordini</a></li>
 										<li ng-show="isCurrentUserAdmin()"><a href="admin-ordini">Amministrazione Ordini</a></li>
 										<li ng-show="isCurrentUserAdmin()"><a href="admin-clienti">Amministrazione Clienti</a></li>
+										<li ng-show="isCurrentUserAdmin()"><a href="admin-codicisconto">Amministrazione CodiciSconto</a></li>
 										<li><a href="profilo">Profilo</a></li>
 										<li><a href="logout" ng-click="logOut()">Esci</a></li>
 									</ul>
@@ -339,6 +341,7 @@
 	<script src="node_modules/angular-update-meta/dist/update-meta.min.js"></script>
 	<script src="node_modules/angular-touch/angular-touch.min.js"></script>
 	<script src="node_modules/bootstrap-select/dist/js/bootstrap-select.js"></script>
+	<script src="node_modules/angularjs-datepicker/dist/angular-datepicker.js"></script>
 
 	<script src="node_modules/clipboard/dist/clipboard.min.js"></script>
 	<script src="node_modules/ngclipboard/dist/ngclipboard.js"></script>
@@ -354,6 +357,7 @@
 	<script src="src/lib/jquery.pinchzoomer.js"></script>
 	<script src="src/lib/index.umd.js"></script>
 	<script src="src/lib/index.es2015.js"></script>
+
 	<!-- endbuild -->
 
 	<!-- paypal  -->
@@ -381,6 +385,10 @@
 	<script src="src/app/services/deleteOrdineService.js"></script>
 	<script src="src/app/services/deleteConfigurazioneService.js"></script>
 	<script src="src/app/services/LogService.js"></script>
+	<script src="src/app/services/consumaCodiceScontoService.js"></script>
+	<script src="src/app/services/creaCodiceScontoService.js"></script>
+	<script src="src/app/services/deleteCodiceScontoService.js"></script>
+	<script src="src/app/services/getTuttiCodiciScontoService.js"></script>
 
 	<script src="src/app/controllers/contattiController.js"></script>
 	<script src="src/app/controllers/componentsController.js"></script>
@@ -395,6 +403,7 @@
 	<script src="src/app/controllers/homeController.js"></script>
 	<script src="src/app/controllers/adminController.js"></script>
 	<script src="src/app/controllers/adminControllerClienti.js"></script>
+	<script src="src/app/controllers/adminControllerCodiciSconto.js"></script>
 	<script src="src/app/controllers/cambioPasswordController.js"></script>
 	<script src="src/app/controllers/schedaProdottoController.js"></script>
 	<script src="src/app/controllers/shoppingController.js"></script>

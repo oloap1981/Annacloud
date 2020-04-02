@@ -24,6 +24,7 @@
     "angular-ui-router": "^1.0.20",
     "angular-ui-swiper": "^2.3.8",
     "angular-update-meta": "^2.1.0",
+    "angularjs-datepicker": "^2.1.23",
     "aws-sdk": "^2.382.0",
     "bootstrap": "^3.4.1",
     "bootstrap-select": "^1.13.10",
