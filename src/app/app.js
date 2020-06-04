@@ -13,7 +13,15 @@ var app = angular.module('applicationModule', ['ngTouch', 'ngAnimate', 'ui.swipe
 			},
 			templateUrl: 'views/checkoutContent.html'
 		};
-	});
+    }).directive('checkoutRegisterContent', function () {
+        return {
+            restrict: 'E',
+            scope: {
+                customerInfo: '=info'
+            },
+            templateUrl: 'views/checkoutRegisterContent.html'
+        };
+    });
 
 /*app.directive("ngMobileClick", [function () {
 	return function (scope, elem, attrs) {
@@ -111,7 +119,15 @@ app.config(['$routeProvider', '$translateProvider', '$translatePartialLoaderProv
 					return $translate.onReady();
 				}]
 			}
-		}).
+        }).
+        when('/checkout-register', {
+            templateUrl: 'views/checkoutRegisterContent.html',
+            resolve: {
+                translateReady: ['$translate', function ($translate) {
+                    return $translate.onReady();
+                }]
+            }
+        }).
 		when('/collezione', {
 			templateUrl: 'views/collezioneContent.html',
 			resolve: {

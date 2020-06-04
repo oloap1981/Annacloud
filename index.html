@@ -61,8 +61,11 @@
 	<meta name="msapplication-TileColor" content="#fdfdfd">
 	<meta name="msapplication-navbutton-color" content="#   fdfdfd">
 	<meta name="apple-mobile-web-app-status-bar-style" content="#fdfdfd">
-	<meta name="theme-color" content="#fdfdfd">
-<script type="text/javascript">window.$crisp = []; window.CRISP_WEBSITE_ID = "15936471-1886-4a86-9935-0f22004e8cb6"; (function () { d = document; s = d.createElement("script"); s.src = "https://client.crisp.chat/l.js"; s.async = 1; d.getElementsByTagName("head")[0].appendChild(s); })();</script>
+    <meta name="theme-color" content="#fdfdfd">
+    
+    <!-- Crisp Chat -->
+    <script type="text/javascript">window.$crisp = []; window.CRISP_WEBSITE_ID = "15936471-1886-4a86-9935-0f22004e8cb6"; (function () { d = document; s = d.createElement("script"); s.src = "https://client.crisp.chat/l.js"; s.async = 1; d.getElementsByTagName("head")[0].appendChild(s); })();</script>
+
 	<!-- Hotjar Tracking Code for www.annacloud.it -->
 	<script>
 		(function (h, o, t, j, a, r) {
@@ -149,11 +152,12 @@
 						<div class="collapse navbar-collapse">
 							<ul class="nav navbar-nav navbar-left">
 								<li ng-show="user!==null">
-									<p class="navbar-text">Benvenuto, <strong ng-cloak>{{nome + " " + cognome}}</strong><strong ng-show="isCurrentUserAdmin()"> - AMMINISTRATORE</strong></p>
-									<!-- {{user.username}} -->
+									<p class="navbar-text">Benvenuto, <strong ng-cloak>{{nome + " " + cognome}}</strong><strong ng-show="isCurrentUserAdmin()"> - AMMINISTRATORE</strong> - <a href="checkout-register">checkout</a></p>
+                                    
+                                    <!-- {{user.username}} -->
 								</li>
 								<li ng-show="user==null">
-									<p class="navbar-text">Benvenuto, <strong>accedi al tuo profilo</strong> o <strong>crea il tuo account</strong></p>
+									<p class="navbar-text">Benvenuto, <strong>accedi al tuo profilo</strong> o <strong>crea il tuo account</strong> - <a href="checkout-register">checkout</a></p>
 								</li>
 							</ul>
 						</div>
@@ -263,7 +267,7 @@
 						<h3>Shop</h3>
 						<ul>
 							<li>
-								<a href="404" class="">Accessori</a>
+								<a href="shopping" class="">Acquista</a>
 							</li>
 							<!--<li>
 									<a href="#!/collezione" class="">Collezione</a>
@@ -416,6 +420,7 @@
 	<script src="src/app/controllers/carrelloController.js"></script>
 	<script src="src/app/controllers/profiloController.js"></script>
 	<script src="src/app/controllers/checkoutController.js"></script>
+	<script src="src/app/controllers/checkoutRegisterController.js"></script>
 	<script src="src/app/controllers/paypalController.js"></script>
 	<script src="src/app/controllers/bagsConfiguratorController.js"></script>
 	<script src="src/app/controllers/homeController.js"></script>
