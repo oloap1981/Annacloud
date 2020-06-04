@@ -8,24 +8,47 @@
     </div>
     <div class="container top-buffer bottom-buffer ">
         <div class="row ">
-            <div class="col-lg-10 col-lg-offset-1 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 bag-item clearfix">
+            <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 bag-item clearfix">
                 <div class="col-sm-6 no-padding">
+                    <div class="col-sm-12 md-padding">
+                        <h3 class="title-tertiary">Sei già nostro cliente? <a href="javascript:;" data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne">Clicca quì per accedere</a></h3>
+                        <div  id="collapseOne" class="panel-collapse collapse ">
+                            <form style="margin-bottom: 20px;"> 
+                                <div class="form-group">
+                                    <label for="inputEmail" class="sr-only hidden"></label>
+                                    <input type="email" ng-model="loginEmail" class="form-control" id="inputEmail" placeholder="Indirizzo Email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPassword" class="sr-only hidden"></label>
+                                    <input ng-model="loginPassword" type="password" class="form-control" id="inputPassword" placeholder="Password">
+                                </div>
+                                <label class="checkbox-container text-left top-buffer bottom-buffer">
+                                    <small>Ricordami</small>
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="checkbox hidden">
+                                    <label><input type="checkbox" ng-model="remember.value" class="js-switch"> Ricordami</label> <a href="#" onclick="return false">(?)</a>
+                                </div>
+                                <button ng-click="login(loginEmail, loginPassword);" class="btn btn-default btn-save">Accedi</button>
+                                <a href="javascript:void(0);" ng-click="forgotPassword()" class="recover" >Recupera la password</a>
+                            </form>
+                        </div>
+                    </div>
                     <div class="col-sm-12">
                         <h3 class="title-secondary">Dati dell'ordine</h3>
                     </div>
                     <form>
-                        <div class="form-group clearfix">
-                            <div class="col-lg-6 ">
+                        
+                        <div class="col-lg-12 clearfix">
+                            <div class="form-group">
                                 <label for="inputNome" class="sr-only hidden"></label>
                                 <input ng-model="nome" type="text" class="form-control" id="inputNome" placeholder="Nome">
-                                
                             </div>
-                            <div class="col-lg-6 ">
+                            <div class="form-group">
                                 <label for="inputCognome" class="sr-only hidden"></label>
                                 <input ng-model="cognome" type="text" class="form-control" id="inputCognome" placeholder="Cognome">
                             </div>
-                        </div>
-                        <div class="col-lg-12">
                             <div class="form-group">
                                 <label for="inputEmailReg" class="sr-only hidden"></label>
                                 <input ng-model="emailSign" type="email" class="form-control" id="inputEmailReg" placeholder="Indirizzo Email">
@@ -38,13 +61,6 @@
                                 <label for="inputRepeatPasswordReg" class="sr-only hidden"></label>
                                 <input ng-model="passwordSignRep" type="password" class="form-control" id="inputRepeatPasswordReg" placeholder="Ripeti Password">
                             </div>
-                            <button ng-click="signUpCheckEmail(emailSign, nome,cognome, passwordSign)"  ng-model="button"  ng-disabled="!checked" class="btn btn-default btn-save">Registrati</button>
-                            <a href="javascript: void(0)"  class="recover">Informativa sulla privacy</a>
-                            <label class="checkbox-container text-left top-buffer">
-                                <small>Ho preso visione dell’informativa e autorizzo il trattamento dei miei dati secondo quanto in essa riportato.</small>
-                                <input type="checkbox" ng-model="checked">
-                                <span class="checkmark"></span>
-                            </label>
                             <div class="form-group">
                                 <label for="inputNome" class="sr-only hidden"></label>
                                 <input ng-model="nomeSpe" type="text" class="form-control" id="nomeSpe" placeholder="Nome e Cognome per spedizione">
@@ -61,6 +77,14 @@
                                 <label for="capSpe" class="sr-only hidden"></label>
                                 <input ng-model="capSpe" type="text" class="form-control" id="capSpe" placeholder="CAP" maxlength="5">
                             </div>
+                            <!--<button ng-click="signUpCheckEmail(emailSign, nome,cognome, passwordSign)"  ng-model="button"  ng-disabled="!checked" class="btn btn-default btn-save">Registrati</button>
+                            <a href="javascript: void(0)"  class="recover">Informativa sulla privacy</a>
+                            <label class="checkbox-container text-left top-buffer">
+                                <small>Ho preso visione dell’informativa e autorizzo il trattamento dei miei dati secondo quanto in essa riportato.</small>
+                                <input type="checkbox" ng-model="checked">
+                                <span class="checkmark"></span>
+                            </label>-->
+                            
                         </div>
                     </form>
                 </div>
