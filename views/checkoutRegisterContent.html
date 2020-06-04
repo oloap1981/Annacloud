@@ -1,0 +1,137 @@
+<div ng-controller="checkoutRegisterController" ng-init="initCheckOut()">
+    <div class="container top-buffer bottom-buffer ">
+        <div class="row">
+            <div class="col-sm-12 clearfix top-buffer text-center">
+                <h3 class="title section mot"><span>Checkout</span></h3>
+            </div>
+        </div>
+    </div>
+    <div class="container top-buffer bottom-buffer ">
+        <div class="row ">
+            <div class="col-lg-10 col-lg-offset-1 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 bag-item clearfix">
+                <div class="col-sm-6 no-padding">
+                    <div class="col-sm-12">
+                        <h3 class="title-secondary">Dati dell'ordine</h3>
+                    </div>
+                    <form>
+                        <div class="form-group clearfix">
+                            <div class="col-lg-6 ">
+                                <label for="inputNome" class="sr-only hidden"></label>
+                                <input ng-model="nome" type="text" class="form-control" id="inputNome" placeholder="Nome">
+                                
+                            </div>
+                            <div class="col-lg-6 ">
+                                <label for="inputCognome" class="sr-only hidden"></label>
+                                <input ng-model="cognome" type="text" class="form-control" id="inputCognome" placeholder="Cognome">
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label for="inputEmailReg" class="sr-only hidden"></label>
+                                <input ng-model="emailSign" type="email" class="form-control" id="inputEmailReg" placeholder="Indirizzo Email">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPasswordReg" class="sr-only hidden"></label>
+                                <input ng-model="passwordSign" type="password" class="form-control" id="inputPasswordReg" placeholder="Password (lung. minima 6 caratteri)">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputRepeatPasswordReg" class="sr-only hidden"></label>
+                                <input ng-model="passwordSignRep" type="password" class="form-control" id="inputRepeatPasswordReg" placeholder="Ripeti Password">
+                            </div>
+                            <button ng-click="signUpCheckEmail(emailSign, nome,cognome, passwordSign)"  ng-model="button"  ng-disabled="!checked" class="btn btn-default btn-save">Registrati</button>
+                            <a href="javascript: void(0)"  class="recover">Informativa sulla privacy</a>
+                            <label class="checkbox-container text-left top-buffer">
+                                <small>Ho preso visione dell’informativa e autorizzo il trattamento dei miei dati secondo quanto in essa riportato.</small>
+                                <input type="checkbox" ng-model="checked">
+                                <span class="checkmark"></span>
+                            </label>
+                            <div class="form-group">
+                                <label for="inputNome" class="sr-only hidden"></label>
+                                <input ng-model="nomeSpe" type="text" class="form-control" id="nomeSpe" placeholder="Nome e Cognome per spedizione">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputCognome" class="sr-only hidden"></label>
+                                <input ng-model="indSpe" type="text" class="form-control" id="indSpe1" placeholder="Via, Numero Civico">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmailReg" class="sr-only hidden"></label>
+                                <input ng-model="cittaSpe" type="text" class="form-control" id="cittaSpe" placeholder="Citt&agrave; (Provincia)">
+                            </div>
+                            <div class="form-group">
+                                <label for="capSpe" class="sr-only hidden"></label>
+                                <input ng-model="capSpe" type="text" class="form-control" id="capSpe" placeholder="CAP" maxlength="5">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-sm-6 ">
+                    <!--<div class="order-state one summary checkout">
+                        <h4 class="title-tertiary ">Informazioni di contatto e consegna</h4>
+                        <hr>
+                    	<div class="shipment-info" ng-show="canBuy()">
+                            <h5>{{getNomeECognome()}}<br>{{getIndirizzoSpedizione()}} - {{getCittaSpedizione()}} - {{getCAPSpedizione()}}</h5>
+                        </div>
+                        <div class="order-buttons top-buffer text-center" ng-hide="canBuy()">
+                            <span style="color: #c00"><b>Non si puo' procedere all'acquisto,<br>mancano i dati di spedizione</b></span><p class="top-buffer"><a href="javascript:void(0);" ng-click="inserisciIndirizzoSpedizione()" class="btn btn-action btn-block"><b>aggiungi</b></a></p>
+                        </div>
+                    </div>-->
+                    <div class="order-state one summary checkout">
+                        <h4 class="title-tertiary ">Riepilogo del tuo ordine</h4>
+                        
+                    	<div ng-repeat="conf in ordine.configurazioni" >
+                            <hr>
+	                        <div  class="row">
+	                            <div class="col-sm-12 text-left">
+	                                <h5 ng-if="conf.nome" style="text-transform: uppercase">{{conf.nome}} <small ng-repeat="base in conf.elencoEntita" ng-if="base.categoria == 'modello'">({{base.descrizione.replace('_',' ')}})</small></h5><span class="single-price" style="font-size: 1.3em; bottom: auto; top: 5px;">{{calcolaPrezzoScontato(conf)}}&euro;</span>
+	                                <h5 ng-if="!conf.nome" style="text-transform: uppercase">Senza nome <small ng-repeat="base in conf.elencoEntita" ng-if="base.categoria == 'modello'">({{base.descrizione}})</small></h5><span class="single-price" style="font-size: 1.3em; bottom: auto; top: 5px;">{{calcolaPrezzoScontato(conf)}}&euro;</span>
+                                    <p class="riepilogo-accessori">
+                                            <span ng-repeat="base in conf.elencoEntita" ng-if="base.categoria != 'modello'">
+                                                {{base.categoria.toUpperCase()}}: {{traduciNomiOrdini(base)}}<br>
+                                            </span>
+                                        <!-- Colore : {{getColoreConf(conf)}}<br>
+                                        Iniziali: {{getInizialiConf(conf)}} -->
+                                    </p>
+	                                <!-- <p ng-click="eliminaDaOrdine(conf)" class="remove">elimina <small><i class="unaicon-remove"></i></small></p> -->
+                                </div>          
+                            </div>          
+                        </div>
+                    </div>
+                    <div class="order-state one summary checkout">
+                        <label class="checkbox-container text-left">
+                            Richiedi Fattura <small style="font-weight: normal">(verrai ricontattato per i dati)</small>
+                            <input type="checkbox" value="Richiedi Fattura" ng-model="fattura" ng-change="setRichiediFattura(fattura)" />
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="order-state one summary current normal no-border top-buffer bottom-buffer">
+                        <div class="row">
+                            <div class="col-sm-12 text-left">
+                                <span>Subtotale</span>
+                                <span class="single-price"><b>{{subtotale}}&euro;</b></span>
+                            </div>
+                            <div class="col-sm-12 text-left">
+                                <span>spedizione</span>
+                                <span class="single-price"><b>{{costoSpedizione}}&euro;</b></span>
+                            </div>
+                        </div>
+	                    <hr>
+                        <div class="row">
+                            <div class="col-sm-12 text-left">
+                                <span><b>TOTALE</b></span>
+                                <span class="single-price"><b>{{totale}}&euro;</b></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-buttons top-buffer text-center" ng-show="canBuy()">
+                        <!--<a href="#" class="btn btn-action btn-lg btn-block" ng-click="setCheckout()" style="width:auto;">Completa l'ordine</a>-->
+                        <paypal-content info=conf></paypal-content>
+                        <img src="images/paypal-choice.png" style="max-width: 250px; margin-top: 20px;">
+                    </div>
+                    <div class="order-buttons top-buffer text-center" ng-hide="canBuy()">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
