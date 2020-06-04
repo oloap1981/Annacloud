@@ -358,6 +358,30 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		return totale;
 	};
 
+	$scope.calcolaPrezzoOrdineFinale = function (ordine) { // comprende eventuali codici sconto
+		var configurazioni = ordine.configurazioni;
+		var totale = 0;
+		for (var i = 0; i < configurazioni.length; i++) {
+			var configurazione = configurazioni[i];
+			totale += $scope.calcolaPrezzoScontato(configurazione);
+		}
+		if (ordine.codiceSconto != undefined && ordine.codiceSconto != '') {
+			totale = totale - $scope.calcolaPercentuale(totale, ordine.percentualeSconto);
+		}
+		return totale;
+	};
+
+	$scope.calcolaPercentuale = function (importo, sconto) {
+		if (sconto == 0) {
+			return importo;
+		}
+		if (importo == 0) {
+			return 0;
+		}
+		var scontato = (importo / 100) * sconto;
+		return Math.round(scontato);
+	};
+
 	$scope.ricaricaListe = function (email, page, showLoader) {
 		// if(showLoader){
 		// 	$scope.setLoaderMessage("ricarico la lista...");
@@ -778,7 +802,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 	};
 
 	$scope.hideElement = function () {
-		return $location.path().indexOf("configura") != -1 || $location.path().indexOf("admin-ordini") != -1 || $location.path().indexOf("admin-clienti") != -1;
+		return $location.path().indexOf("configura") != -1 || $location.path().indexOf("admin-ordini") != -1 || $location.path().indexOf("admin-clienti") != -1 || $location.path().indexOf("admin-codicisconto") != -1;
 	};
 
 	$scope.wowInit = function (config) {
@@ -1373,4 +1397,26 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		$('#loaderOverlay')[0].style.visibility = 'hidden';
 	};
 
+	$scope.addCodiceScontoOrdineInCorso = function (codiceSconto, percentualeSconto) {
+		this.ordineInCorso.codiceSconto = codiceSconto;
+		this.ordineInCorso.percentualeSconto = percentualeSconto;
+	};
+
+	// res.data.esito.codice != 100 && res.data.esito.codice != 101
+	/* ************************ */
+	/* FUNZIONI GESTIONE RISPOSTA SERVER */
+	/* ************************ */
+	$scope.isErrorResponse = function (response) {
+		return (response.data.esito.codice != 100 && response.data.esito.codice != 101);
+	};
+
+	$scope.manageErrorResponse = function (response, messageString, showTrace) {
+		console.log(JSON.stringify(response));
+		var messageToShow = messageString;
+
+		if (showTrace) {
+			messageToShow = messageToShow + ": " + response.data.esito.trace;
+		}
+		$scope.openMessageModal(messageToShow);
+	};
 }]);

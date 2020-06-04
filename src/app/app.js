@@ -1,4 +1,4 @@
-var app = angular.module('applicationModule', ['ngTouch', 'ngAnimate', 'ui.swiper', 'ui.bootstrap', 'ui.select', 'ngSanitize', 'ngRoute', 'angular-jwt', 'updateMeta', 'angular-page-loader', 'pascalprecht.translate', 'ngclipboard'])
+var app = angular.module('applicationModule', ['ngTouch', 'ngAnimate', 'ui.swiper', 'ui.bootstrap', 'ui.select', 'ngSanitize', 'ngRoute', 'angular-jwt', 'updateMeta', 'angular-page-loader', 'pascalprecht.translate', 'ngclipboard', '720kb.datepicker'])
 	.directive('paypalContent', function () {
 		return {
 			restrict: 'E',
@@ -199,6 +199,14 @@ app.config(['$routeProvider', '$translateProvider', '$translatePartialLoaderProv
 		}).
 		when('/admin-clienti', {
 			templateUrl: 'views/adminClientiContent.html',
+			resolve: {
+				translateReady: ['$translate', function ($translate) {
+					return $translate.onReady();
+				}]
+			}
+		}).
+		when('/admin-codicisconto', {
+			templateUrl: 'views/adminCodiciScontoContent.html',
 			resolve: {
 				translateReady: ['$translate', function ($translate) {
 					return $translate.onReady();
