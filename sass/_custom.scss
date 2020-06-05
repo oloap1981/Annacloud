@@ -790,7 +790,8 @@ a.link {
 
 .modal {
     top: auto;
-    bottom: 40%;
+    bottom: auto;
+    max-height: 100vh
 }
 /*.modal-content {
     //text-align: center;
@@ -2400,6 +2401,27 @@ a.link {
     z-index: 100;
 }
 
+#taglia  {
+    position: absolute;
+    display: block;
+    padding: 8px 13px;
+    top: -35px;
+    border: solid 1px $standard-border-color;
+    border-bottom: none;
+    //border-radius: 0 5px 5px 0;
+    background-color: #fff;
+    z-index: 10;
+    font-size: 12px;
+    margin: 0;
+    left: 50%;
+    margin-left: -100px;
+    width: 200px;
+    text-align: center;
+    @media screen and (min-width: $screen-xs-max) {
+        display: none !important;
+    }
+}
+
 /* panning immagini */
 
 #openZoom, #closeZoom {
@@ -2863,7 +2885,7 @@ a.link {
             font-size: 9px;
             color: #999;
         }
-        .info{
+        .info {
             color: #000;
             font-size: 9px;
             p {
