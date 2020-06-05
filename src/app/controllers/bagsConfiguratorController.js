@@ -81,7 +81,6 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 	$scope.configurazione = {};
 	$scope.user = null;
 	$scope.configThumbnail = "";
-
 	$scope.showDropdownButton = false;
 
 	configController.modelFilter = function (item) { 
@@ -113,9 +112,19 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		fullPrice: 0
 	};
 
+	configController.taglieManager = {
+		listaTaglie: [],
+		tagliaSelezionata: "",
+		nomeModello: ""
+	};
+
 	configController.getModelloSelezionato = function () {
 		if ($scope.modelloSelezionato != "") {
-			return $scope.modelloSelezionato.charAt(0).toUpperCase() + $scope.modelloSelezionato.slice(1);
+			var nomeModello = $scope.modelloSelezionato.charAt(0).toUpperCase() + $scope.modelloSelezionato.slice(1);
+			if(nomeModello.indexOf('_') != -1) {
+				nomeModello = nomeModello.replace('_', ' ');
+			}
+			return nomeModello;
 		} else {
 			return "";
 		}
@@ -489,6 +498,13 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		//$scope.configurazione.nome = modello.nome;
 		
 		configController.priceManager.fullPrice = modello.prezzoPieno;
+
+		var listaTaglie = $scope.getModelSizesLists(modello.nome);
+		configController.taglieManager.listaTaglie = listaTaglie;
+		configController.taglieManager.nomeModello = modello.nome;
+		if (listaTaglie.length > 0) {
+			configController.taglieManager.tagliaSelezionata = listaTaglie[0];
+		}
 
 		//carico solo gli accessori relativi al modello scelto
 		listeService.getAccessori(modello.nome).then(function (res2) {
@@ -1990,4 +2006,26 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		SpriteSpin.updateFrame(moveRight, (moveRight.frame + 1));
 	};
 
+	// MODALE PER SCELTA DELLA TAGLIA
+	$scope.openSceltaTaglia = function (taglieManager) {
+		$scope.modalInstance = $uibModal.open({
+			animation: true,
+			templateUrl: 'views/modaleSceltaTaglia.html',
+			scope: $scope,
+			resolve: {
+				taglieScheda: function () {
+					return taglieManager;
+				}
+			},
+			controller: ['taglieScheda', function (taglieScheda) {
+				$scope.taglieManagerModal = taglieScheda;
+			}]
+		});
+	};
+
+	$scope.scegliTaglia = function(taglia) {
+		configController.taglieManager.tagliaSelezionata = taglia;
+		$scope.configurazione.taglia = taglia;
+		$uibModalStack.dismissAll();
+	};
 });

@@ -25,6 +25,8 @@
                             <div class="col-sm-12">
                                 <h4 ng-if="conf.nome" class="bag">{{conf.nome}}<br><small>ordine n. {{conf.codice}}</small></h4>
                                 <h4 ng-if="!conf.nome" class="bag">Senza nome<br><small>ordine n. {{conf.codice}}</small></h4>
+                                <h5 ng-if="conf.taglia" class="section-small left">Taglia {{conf.taglia}}</h5>
+                                <h5 ng-if="!conf.taglia" class="section-small left">Taglia non specificata</h5>
                             </div>
                             <div class="col-sm-6 base">
                                 <h5 class="section-small left">Base </h5>
@@ -62,6 +64,8 @@
                                     <p ng-click="rimuoviDaCarrello(conf)" class="remove">elimina <small><i class="unaicon-remove"></i></small></p>
                                     <h4 ng-if="conf.nome" class="media-heading bag">{{conf.nome}} - <small>ordine n.{{conf.codice}}</small></h4>
                                     <h4 ng-if="!conf.nome" class="media-heading bag">Senza nome - <small>ordine n.{{conf.codice}}</small></h4>
+                                    <h5 ng-if="conf.taglia" class="section-small left">Taglia {{conf.taglia}}</h5>
+                                    <h5 ng-if="!conf.taglia" class="section-small left">Taglia non specificata</h5>
                                 </div>
                                 <div class="col-md-6 col-sm-12 base">
                                     <h5 class="section-small left">Base </h5>

@@ -28,7 +28,7 @@
                             <hr>
                             <div class="row">
                                 <div class="col-sm-12 text-left">
-                                    <h5 ng-if="conf.nome" style="text-transform: uppercase">{{conf.nome}} <small ng-repeat="base in conf.elencoEntita" ng-if="base.categoria == 'modello'">({{base.descrizione.replace('_',' ')}})</small></h5><span class="single-price" style="font-size: 1.3em; bottom: auto; top: 5px;">{{calcolaPrezzoScontato(conf)}}&euro;</span>
+                                    <h5 ng-if="conf.nome" style="text-transform: uppercase">{{conf.nome}} <small ng-repeat="base in conf.elencoEntita" ng-if="base.categoria == 'modello'">({{base.descrizione.replace('_',' ')}}{{conf.taglia ? ' - ' + conf.taglia : ''}})</small></h5><span class="single-price" style="font-size: 1.3em; bottom: auto; top: 5px;">{{calcolaPrezzoScontato(conf)}}&euro;</span>
                                     <h5 ng-if="!conf.nome" style="text-transform: uppercase">Senza nome <small ng-repeat="base in conf.elencoEntita" ng-if="base.categoria == 'modello'">({{base.descrizione}})</small></h5><span class="single-price" style="font-size: 1.3em; bottom: auto; top: 5px;">{{calcolaPrezzoScontato(conf)}}&euro;</span>
                                     <p class="riepilogo-accessori">
                                         <span ng-repeat="base in conf.elencoEntita" ng-if="base.categoria != 'modello'">

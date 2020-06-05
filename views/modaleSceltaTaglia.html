@@ -1,0 +1,15 @@
+<div class="modal-header">
+    
+    <h3 class="modal-title">Scelta Taglia per modello {{taglieManagerModal.nomeModello.replace('_',' ')}}</h3>
+    <hr style="margin-bottom: 0;">
+</div>
+<div class="modal-body">
+    <div ng-repeat="taglia in taglieManagerModal.listaTaglie">
+        <span ng-click="scegliTaglia(taglia)">
+            {{taglia}}
+        </span>        
+    </div>    
+</div>
+<div class="modal-footer">
+    <hr style="margin-top: 0">    
+</div>
