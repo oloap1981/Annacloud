@@ -790,7 +790,8 @@ a.link {
 
 .modal {
     top: auto;
-    bottom: 40%;
+    bottom: auto;
+    max-height: 100vh
 }
 /*.modal-content {
     //text-align: center;
@@ -1207,7 +1208,6 @@ a.link {
     }
 }
 
-
 .slogan-1, .slogan-2, .slogan-3, .slogan-4, .slogan-5 {
     position: absolute;
     //font-family: 'Butler';
@@ -1309,7 +1309,7 @@ a.link {
     span {
         background: rgba($brand-color-logo, 0);
         padding: 1vw 2vw;
-        line-height: 3vw;//6vw;
+        line-height: 2.2vw;//6vw;
         font-size: 1.75vw;
         @include transition(all 500ms ease-in-out);
         &.cta {
@@ -1322,6 +1322,11 @@ a.link {
                 background: rgba(255,255,255, .9);
                 color: $brand-color;
             }
+        }
+        
+        &.slogan-subtitle {
+            line-height: 4vw;//6vw;
+            font-size: 1.4vw;
         }
         
     }
@@ -1535,8 +1540,12 @@ a.link {
     .jumbotron & {
         text-align: right;
     }
+    .jumbotron-center & {
+        text-align: center;
+    }
     @media screen and (max-width: $screen-xs-max) {
         text-align: center !important;
+        font-size:1.2em !important;
     }  
 }
 
@@ -1552,6 +1561,8 @@ a.link {
         text-align: center !important;
     }  
 }
+
+
 
 .subtitle {
     font-size: 1.3em !important;
@@ -1730,6 +1741,9 @@ a.link {
             //font-size: 2.8em !important;
             margin: 0;
             margin-bottom: 30px;
+            &.main {
+                margin-bottom: 15px;
+            }
             @media screen and (max-width: $screen-xs-max) {
                // font-size:1.4em !important;
                 text-align: center !important;
@@ -1787,6 +1801,11 @@ a.link {
                     font-size:1.3em !important;
                     text-align: center !important;
                     margin: 0 1.3em;
+                    span {
+                        display: inline-block;
+                        padding-top: 10px;
+                        font-size: .8em !important;
+                    }
                 }
             }
             &.index {
@@ -2382,6 +2401,27 @@ a.link {
     z-index: 100;
 }
 
+#taglia  {
+    position: absolute;
+    display: block;
+    padding: 8px 13px;
+    top: -35px;
+    border: solid 1px $standard-border-color;
+    border-bottom: none;
+    //border-radius: 0 5px 5px 0;
+    background-color: #fff;
+    z-index: 10;
+    font-size: 12px;
+    margin: 0;
+    left: 50%;
+    margin-left: -100px;
+    width: 200px;
+    text-align: center;
+    @media screen and (min-width: $screen-xs-max) {
+        display: none !important;
+    }
+}
+
 /* panning immagini */
 
 #openZoom, #closeZoom {
@@ -2845,7 +2885,7 @@ a.link {
             font-size: 9px;
             color: #999;
         }
-        .info{
+        .info {
             color: #000;
             font-size: 9px;
             p {

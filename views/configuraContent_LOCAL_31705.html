@@ -20,17 +20,15 @@
 						<li ng-class="{'disabled':modelliAbilitati}" >
 							<div class="yamm-content  scelta-modelli clearfix">
 								<div class="col-xs-12">
-                                    <h3>Ed ecco a voi, Configo! Il nostro amico configuratore 3D!</h3>
-                                    <h4>Scegli un modello e personalizza la tua borsa</h4>
+									<h3>Scegli un modello</h3>
 									<hr>
 								</div>
 								<div class="col-xs-12 bags-line">
 									<!-- CON IL REPEATER VADO A ELENCARE TUTTI I MODELLI DI BORSA DISPONIBILI  -->
-									<div class="col-lg-6 col-md-6 col-sm-6 col-sm-offset-3 col-xs-12 text-center no-padding bags-line" ng-repeat="modello in modelli | filter: contr.modelFilter">
+									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-center no-margin no-padding bags-line" ng-repeat="modello in modelli | filter: contr.modelFilter">
 										<a href="#" onclick="return false" class="modello-borsa" id="start3dbutton" type="button" ng-click="contr.scegliModello(modello)">
 										<img ng-src="{{modello.urlThumbnail}}" class="hidden visible-xs" style="padding: 20px; padding-bottom: 0;" />
-										<img ng-src="{{modello.urlThumbnailHD}}" class="hidden-xs" />
-										<span class="nome no-margin">{{modello.nome.replace('_', ' ').toUpperCase()}}</span><br>
+										<img ng-src="{{modello.urlThumbnailHD}}" class="hidden-xs" /><h5 class="nome no-margin">{{modello.nome.replace('_', ' ').toUpperCase()}}<br>
 										<span class="bag-size-button" >{{getModelSizesString(modello.nome)}}</span>
 									</div>
 								</div>
@@ -80,7 +78,6 @@
 		</div>
 	</div>
 	<a href="javascript: void(0)" id="openZoom" ng-click="contr.openZoom()"><i class="unaicon-zoom"></i></a>
-	
 	<a href="javascript: void(0)" id="prevFrame" class="hidden-xs" ng-click="contr.previousFrame()"><img src="data:image/svg+xml;base64,PHN2ZyBpZD0iTGl2ZWxsb18xIiBkYXRhLW5hbWU9IkxpdmVsbG8gMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTAwIDUwMCI+PHRpdGxlPnVuYWR1bmEtcmlnaHRfMTwvdGl0bGU+PHBhdGggZD0iTTMyMy41LDgzLjIyYTEwLDEwLDAsMCwxLDE0LjE0LDE0LjE0TDE4Ny43MSwyNDcuMjksMzM3LjY0LDM5Ny4yMWExMCwxMCwwLDAsMS0xNC4xNCwxNC4xNEwxNTkuNDMsMjQ3LjI5WiIgc3R5bGU9ImZpbGw6IzIzMWYyMCIvPjwvc3ZnPg=="></a>
 	<a href="javascript: void(0)" id="nextFrame" class="hidden-xs" ng-click="contr.nextFrame()"><img src="data:image/svg+xml;base64,PHN2ZyBpZD0iTGl2ZWxsb18xIiBkYXRhLW5hbWU9IkxpdmVsbG8gMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTAwIDUwMCI+PHRpdGxlPnVuYWR1bmEtcmlnaHQ8L3RpdGxlPjxwYXRoIGQ9Ik0xNzYuNSw4My4yMmExMCwxMCwwLDAsMC0xNC4xNCwxNC4xNEwzMTIuMjksMjQ3LjI5LDE2Mi4zNiwzOTcuMjFhMTAsMTAsMCwwLDAsMTQuMTQsMTQuMTRMMzQwLjU3LDI0Ny4yOVoiIHN0eWxlPSJmaWxsOiMyMzFmMjAiLz48L3N2Zz4="></a>
 	<div class="zoom">
@@ -97,9 +94,8 @@
 	<div id="price-panel" ng-show="modelloSelezionato != ''">
 		<p class="size">{{contr.getModelloSelezionato()}}<br>
 			<!-- {{getModelSizes(modelloSelezionato)}} cm</p><br> -->
-            {{contr.taglieManager.tagliaSelezionata}} cm
-        </p>
-        <a href="" class="btn btn-default btn-block" ng-if="contr.taglieManager.listaTaglie.length > 1" ng-click="openSceltaTaglia(contr.taglieManager)">Cambia la taglia</a>
+			{{contr.taglieManager.tagliaSelezionata}} cm</p><br>
+			<a ng-if="contr.taglieManager.listaTaglie.length > 1" href="" class="btn btn-default btn-block" ng-click="openSceltaTaglia(contr.taglieManager)">Cambia la taglia</a>
 		<hr>
 		<h3 class="total-price barred">{{contr.priceManager.fullPrice}}&euro;</h3>
 		<h3 class="discount-price ">{{contr.priceManager.price}}&euro;</h3>
@@ -128,7 +124,6 @@
 	</div>
 	<div class="accessori" style="opacity: 0;">
 		<div class="container">
-            <a href="javascript: void(0)" id="taglia"  ng-click="openSceltaTaglia(contr.taglieManager)">{{contr.getModelloSelezionato()}} - {{contr.taglieManager.tagliaSelezionata}} cm</a>
 			<div class="row">
 				<div class="col-lg-12">
 					<section class="swipe">

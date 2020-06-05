@@ -11,14 +11,14 @@
     <!-- inizio banner shopping-->
     <div class="jumbotron quote-section page-header index wow fadeIn hidden visible-xs" data-wow-delay="0.1s">
         <div class="container">
-            <h2 class="title wow fadeIn" data-wow-delay="1s" ng-bind-html="'jumbotron_shop_content_mobile' | translate"></h2>
+            <h2 class="title wow fadeIn" data-wow-delay="1s" ng-bind-html="'jumbotron_home_header_content_mobile' | translate"></h2>
         </div>
     </div>
     <section class="swipe hidden-xs">
         <swiper grab-cursor="false" keyboard-control="false" slides-per-view="1" loop="false" effect="fade" autoplay="5000" speed="500" watchOverflow="true">
             <slides>
                 <slide><img src="images/home-header-shop.jpg" class="responsive">
-                    <h3 class="slogan-2 " ng-bind-html="'jumbotron_shop_content' | translate"></h3>
+                    <h3 class="slogan-2 " ng-bind-html="'jumbotron_home_header_content' | translate"></h3>
                 </slide>
             </slides>
             <!--<pagination></pagination>-->
@@ -44,7 +44,8 @@
                     
                 </div>-->
                 <div class="col-sm-12 clearfix">
-                    <h2 class="title" ng-bind-html="'titolo_area_shop' | translate"></b></h2>
+                    <h2 class="title main" ng-bind-html="'titolo_area_shop' | translate"></h2>
+                    <h3 class="title-secondary" ng-bind-html="'sottotitolo_area_shop' | translate"></h3>
                     <p class="subtitle" style="max-width: 100%;" ng-bind-html="'testo_area_shop' | translate"></p>
                 </div>
             </div>
@@ -58,11 +59,13 @@
             <div class="col-sm-6 clearfix  home-content wow fadeInUpSmall bottom-buffer" data-wow-delay=".2s">
                 <img src="images/descrizione_sx.jpg" class="bottom-buffer" style="width: 100%">
                 <!--<h3 class="title section top-buffer hidden"><span ng-bind-html="'titolo_testo_sx_attivita' | translate "></span></h3>-->
+                <a href="configura" class="btn btn-default bottom-buffer" ng-bind-html="'testo_5_button' | translate "></a></a>
                 <p class="subtitle bottom-buffer top-buffer bottom-buffer" ng-bind-html="'testo_5' | translate "></p>
             </div>
             <div class="col-sm-6 clearfix  home-content wow fadeInUpSmall bottom-buffer" data-wow-delay=".2s">
                 <img src="images/descrizione_dx.jpg" class="bottom-buffer" style="width: 100%">
                 <!--<h3 class="title section hidden top-buffer"><span ng-bind-html="'titolo_testo_dx_attivita' | translate"></span></h3>-->
+                <a href="shopping" class="btn btn-default bottom-buffer" ng-bind-html="'testo_6_button' | translate "></a>
                 <p class="subtitle bottom-buffer top-buffer bottom-buffer" ng-bind-html="'testo_6' | translate "></b></p>
             </div>
             
@@ -154,10 +157,24 @@
                     <pagination></pagination>
 				</swiper>
 			</section>
-		</div>
+        </div>
 	</div>
     <!-- fine preconfigurate -->
-
+    <div class="container text-center">
+		<div class="row">
+			<div class="col-sm-12 wow fadeInUpSmall" data-wow-delay="1s">
+				<div class="divider"></div>
+			</div>
+		</div>
+	</div>
+    
+    <div class="container text-center">
+        <div class="row top-buffer">
+        <div class="col-sm-12 clearfix bottom-buffer home-content wow fadeInUpSmall" data-wow-delay=".2s">
+            <p class="subtitle" ng-bind-html="'testo_post_preconfigurate' | translate"></p>
+        </div>
+    </div>
+   </div>
 	
 	<div class="container text-center">
 		<div class="row">
