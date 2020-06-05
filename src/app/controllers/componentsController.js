@@ -654,7 +654,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 
 			var configMessagePart = MAIL.ORDER_MAIL_CONFIGURATION_TEMPLATE;
 
-			configMessagePart = configMessagePart.replace("CONF_NAME", configurazione.nome);
+			configMessagePart = configMessagePart.replace("CONF_NAME", configurazione.nome + (configurazione.taglia ? ' ('+configurazione.taglia+')' : ''));
 			configMessagePart = configMessagePart.replace("CONF_IMAGE", configurazione.thumbnail.split(',')[0]);
 			//
 			var elencoEntitaPartMessage = "";
@@ -855,6 +855,21 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 			return "21X30";
 		} else {
 			return "";
+		}
+	};
+	$scope.getModelSizesLists = function (modelName) {
+		if (modelName == "shoulderbag") {
+			return ["30X28"];
+		} else if (modelName == "tote") {
+			return ["35X30"];
+		} else if (modelName == "crossbody") {
+			return ["24X15"];
+		} else if (modelName == "bucket_paglia") {
+			return ["21X30", "40X40"];
+		} else if (modelName == "bucket_pelle") {
+			return ["21X30", "50X50"];
+		} else {
+			return ["NON SPECIFICATA"];
 		}
 	};
 

@@ -28,8 +28,7 @@
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-center no-margin no-padding bags-line" ng-repeat="modello in modelli | filter: contr.modelFilter">
 										<a href="#" onclick="return false" class="modello-borsa" id="start3dbutton" type="button" ng-click="contr.scegliModello(modello)">
 										<img ng-src="{{modello.urlThumbnail}}" class="hidden visible-xs" style="padding: 20px; padding-bottom: 0;" />
-										<img ng-src="{{modello.urlThumbnailHD}}" class="hidden-xs" /><h5 class="nome no-margin">{{modello.nome.replace('_', ' ').toUpperCase()}}<!--<br><small>{{getModelSizes(modello.nome)}}cm</small>--></h5></a>
-										<!--<a href="javascript:void()"  onclick="" class="bag-size-button" data-featherlight="images/figurino-{{modello.nome}}.jpg" style="display: inline-block;padding: 2px 15px !important; border: solid 1px #999; margin-bottom: 15px;">{{getModelSizes(modello.nome)}}cm <i style="color: #999; padding-left: 10px;" class="fa fa-search-plus"></i></a>-->
+										<img ng-src="{{modello.urlThumbnailHD}}" class="hidden-xs" /><h5 class="nome no-margin">{{modello.nome.replace('_', ' ').toUpperCase()}}
 										<span class="bag-size-button" >{{getModelSizes(modello.nome)}}cm</span>
 									</div>
 								</div>
@@ -93,7 +92,10 @@
 		</div>
 	</div>
 	<div id="price-panel" ng-show="modelloSelezionato != ''">
-		<p class="size">{{contr.getModelloSelezionato()}}<br>{{getModelSizes(modelloSelezionato)}} cm</p>
+		<p class="size">{{contr.getModelloSelezionato()}}<br>
+			<!-- {{getModelSizes(modelloSelezionato)}} cm</p><br> -->
+			{{contr.taglieManager.tagliaSelezionata}} cm</p><br>
+			<a href="" class="btn btn-default btn-block" ng-click="openSceltaTaglia(contr.taglieManager)">Cambia la taglia</a>
 		<hr>
 		<h3 class="total-price barred">{{contr.priceManager.fullPrice}}&euro;</h3>
 		<h3 class="discount-price ">{{contr.priceManager.price}}&euro;</h3>
