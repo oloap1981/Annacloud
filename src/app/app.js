@@ -144,7 +144,7 @@ app.config(['$routeProvider', '$translateProvider', '$translatePartialLoaderProv
 				}]
 			}
 		}).
-		when('/esperienza', {
+		when('/cloud-land', {
 			templateUrl: 'views/esperienzaContent.html',
 			resolve: {
 				translateReady: ['$translate', function ($translate) {
