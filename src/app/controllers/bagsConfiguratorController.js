@@ -1928,13 +1928,44 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			listeService.getConfigurazione($scope.configurazioneId).then(function (res2) {
 				var configurazione = res2.data.configurazione;
 				if(configurazione != undefined){
+					var nomeModello = configController.getNomeModelloConfigurazione(configurazione);
+					var listaTaglie = $scope.getModelSizesLists(nomeModello);
+					configController.taglieManager.listaTaglie = listaTaglie;
+					configController.taglieManager.nomeModello = modello.nome;
+					if (listaTaglie.length > 0) {
+						configController.taglieManager.tagliaSelezionata = listaTaglie[0];
+					}
 					$scope.setTempConfigurazione(configurazione);
 				}
 				configController.inizializationOperations();
 			});
 		} else {
+			var configurazioneAttuale = $scope.getTempConfigurazione();
+			if (configurazioneAttuale) {
+				var nomeModello = configController.getNomeModelloConfigurazione(configurazioneAttuale);
+				var listaTaglie = $scope.getModelSizesLists(nomeModello);
+				configController.taglieManager.listaTaglie = listaTaglie;
+				configController.taglieManager.nomeModello = nomeModello;
+				if (listaTaglie.length > 0) {
+					configController.taglieManager.tagliaSelezionata = listaTaglie[0];
+				}
+			}
 			configController.inizializationOperations();
 		}
+	};
+
+	configController.getNomeModelloConfigurazione = function(configurazione) {
+		if (!configurazione) {
+			return "";
+		}
+		var elencoEntita = configurazione.elencoEntita;
+		for (var i = 0; i < elencoEntita.length; i++) {
+			if (elencoEntita[i].categoria == "modello")
+			{ 
+				return elencoEntita[i].nome;
+			}
+		}
+		return "";
 	};
 
 	configController.openZoom = function () {

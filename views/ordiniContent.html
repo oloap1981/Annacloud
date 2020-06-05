@@ -29,6 +29,8 @@
                                 <div class="col-sm-9">
                                     <div class="col-sm-12">
                                         <h4 class="bag">{{configurazione.nome}}</h4>
+                                        <h5 ng-if="configurazione.taglia" class="section-small left">Taglia {{configurazione.taglia}}</h5>
+                                        <h5 ng-if="!configurazione.taglia" class="section-small left">Taglia non specificata</h5>
                                     </div>
                                     <div class="col-sm-6 base">
                                         <h5 class="section-small left">Base </h5>
@@ -64,6 +66,8 @@
                                 <div class="media-body">
                                     <div class="col-sm-12">
                                         <h4 class="media-heading bag">{{configurazione.nome}}</h4>
+                                        <h5 ng-if="configurazione.taglia" class="section-small left">Taglia {{configurazione.taglia}}</h5>
+                                        <h5 ng-if="!configurazione.taglia" class="section-small left">Taglia non specificata</h5>
                                     </div>
                                     <div class="col-md-6 col-sm-12 base">
                                         <h5 class="section-small left">Base </h5>

@@ -873,6 +873,19 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		}
 	};
 
+	$scope.getModelSizesString = function(modelName) {
+		var toReturn = "";
+		if (modelName == "") {
+			return toReturn;
+		}
+		var list = $scope.getModelSizesLists(modelName);
+		for(var i = 0; i < list.length; i++) {
+			toReturn += list[i] + " cm, ";
+		}
+
+		return toReturn.substring(0, toReturn.length-2);
+	}
+
 	$scope.salvaOAcquista = function (oldname, isAcquista, richiediNome) {
 		if (richiediNome) {
 			$scope.openConfigNameModal(oldname);
