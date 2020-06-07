@@ -11,7 +11,7 @@
             <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 bag-item clearfix">
                 <div class="col-sm-6 no-padding">
                     <div class="col-sm-12 md-padding">
-                        <h3 class="title-tertiary">Sei già nostro cliente? <a href="javascript:;" data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne">Clicca quì per accedere</a></h3>
+                        <h3 class="title-tertiary">Sei già nostro cliente? <a href="javascript:;" data-toggle="collapse" data-target="#collapseOne">Clicca quì per accedere</a></h3>
                         <div  id="collapseOne" class="panel-collapse collapse ">
                             <form style="margin-bottom: 20px;"> 
                                 <div class="form-group">
@@ -53,6 +53,7 @@
                                 <label for="inputEmailReg" class="sr-only hidden"></label>
                                 <input ng-model="emailSign" type="email" class="form-control" id="inputEmailReg" placeholder="Indirizzo Email">
                             </div>
+                            <!-- blocco condizionale al login di cui sopra-->
                             <div class="form-group">
                                 <label for="inputPasswordReg" class="sr-only hidden"></label>
                                 <input ng-model="passwordSign" type="password" class="form-control" id="inputPasswordReg" placeholder="Password (lung. minima 6 caratteri)">
@@ -61,6 +62,8 @@
                                 <label for="inputRepeatPasswordReg" class="sr-only hidden"></label>
                                 <input ng-model="passwordSignRep" type="password" class="form-control" id="inputRepeatPasswordReg" placeholder="Ripeti Password">
                             </div>
+                            <!-- -->
+                            
                             <div class="form-group">
                                 <label for="inputNome" class="sr-only hidden"></label>
                                 <input ng-model="nomeSpe" type="text" class="form-control" id="nomeSpe" placeholder="Nome e Cognome per spedizione">
@@ -77,13 +80,12 @@
                                 <label for="capSpe" class="sr-only hidden"></label>
                                 <input ng-model="capSpe" type="text" class="form-control" id="capSpe" placeholder="CAP" maxlength="5">
                             </div>
-                            <!--<button ng-click="signUpCheckEmail(emailSign, nome,cognome, passwordSign)"  ng-model="button"  ng-disabled="!checked" class="btn btn-default btn-save">Registrati</button>
-                            <a href="javascript: void(0)"  class="recover">Informativa sulla privacy</a>
                             <label class="checkbox-container text-left top-buffer">
-                                <small>Ho preso visione dell’informativa e autorizzo il trattamento dei miei dati secondo quanto in essa riportato.</small>
-                                <input type="checkbox" ng-model="checked">
+                                <small>Voglio iscrivermi alla newsletter</small>
+                                <input type="checkbox" ng-model="newsletter">
                                 <span class="checkmark"></span>
-                            </label>-->
+                            </label>
+                             
                             
                         </div>
                     </form>
@@ -148,10 +150,22 @@
                                 <span class="single-price"><b>{{totale}}&euro;</b></span>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-sm-12 text-left">
+                                <a href="javascript: void(0)"  class="recover">Informativa sulla privacy</a>
+                                <label class="checkbox-container text-left top-buffer">
+                                    <small>Ho preso visione dell’informativa e autorizzo il trattamento dei miei dati secondo quanto in essa riportato.</small>
+                                    <input type="checkbox" ng-model="checked">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
                     </div>
                     <div class="order-buttons top-buffer text-center" ng-show="canBuy()">
+                       
                         <!--<a href="#" class="btn btn-action btn-lg btn-block" ng-click="setCheckout()" style="width:auto;">Completa l'ordine</a>-->
                         <paypal-content info=conf></paypal-content>
+                        <hr>
                         <img src="images/paypal-choice.png" style="max-width: 250px; margin-top: 20px;">
                     </div>
                     <div class="order-buttons top-buffer text-center" ng-hide="canBuy()">
