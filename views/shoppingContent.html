@@ -11,8 +11,8 @@
 	<div class="container text-center">
 		<div class="row top-buffer">
 			<div class="col-sm-12 clearfix bottom-buffer">
-				<h3 class="title section mot"><span>Shop</span></h3>
-				<!--<p class="subtitle bottom-buffer hidden">Testo introduttivo shop</p>-->
+				<h3 class="title section mot"><span>Non è il solito Shop</span></h3>
+				<p class="subtitle bottom-buffer">Sono le nostre Limited Ediscion, selezionate dalla vostra Anna Cloud. Spoiler: non sono borse qualsiasi!</p>
 			</div>
 			<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 clearfix home-content top-buffer" ng-repeat="conf in getShopping()" ng-init="thumbimage = getConfigurationImagesArray(conf)[0]">
 				<a href="#" class="swiper-slide bag-box shopping" ng-click="schedaProdotto(conf)">
@@ -35,7 +35,37 @@
                 </a>
 			</div> -->
 		</div>
+    </div>
+    <div class="container text-center">
+		<div class="row">
+			<div class="col-sm-12 wow fadeInUpSmall" data-wow-delay="1s">
+				<div class="divider"></div>
+			</div>
+		</div>
 	</div>
+     <!-- inizio preconfigurate -->
+	<div class="container text-center top-buffer">
+        <div class="row top-buffer">
+			<div class="col-sm-12 clearfix bottom-buffer home-content wow fadeInUpSmall" data-wow-delay=".2s">
+                <h3 class="title section top-buffer mot hidden"><span ng-bind-html="'titolo_preconfigurate' | translate"></span></h3>
+				<p class="subtitle">Se invece preferite personalizzarla, ecco alcune ispirazioni by Configo:</p>
+			</div>
+		</div>
+		<div class="row top-buffer " ng-if="getPreconfigurati().length != 0" >
+            <section class="swipe swipe-featured">
+                <swiper class="" grab-cursor="true" keyboard-control="true" slides-per-view="4" breakpoints="{ &quot;320&quot;: { &quot;slidesPerView&quot;: &quot;1&quot; },  &quot;480&quot;: { &quot;slidesPerView&quot;: &quot;1&quot; },  &quot;768&quot;: { &quot;slidesPerView&quot;: &quot;3&quot; },  &quot;992&quot;: { &quot;slidesPerView&quot;: &quot;4&quot; },  &quot;1200&quot;: { &quot;slidesPerView&quot;: &quot;4&quot; }}">
+                    <slides>
+						<slide ng-repeat="conf in getPreconfigurati()"><a href="javascript:void(0);" class="bag-box home-content wow fadeIn" data-wow-delay="0.4s" ng-click="modificaConfig(conf)">
+							<img src="{{conf.urlImmagineInfluencer}}" class="influencer-label" /><div class="img-container"><img ng-src="{{conf.thumbnail}}" /></div><div class="price">{{conf.nome}}<br><span class="full-price barred">{{calcolaPrezzo(conf)}}&euro;</span> <span class="discount-price">{{calcolaPrezzoScontato(conf)}} &euro;</div></a></slide>
+					</slides>
+                    <prev></prev>
+                    <next></next>
+                    <pagination></pagination>
+				</swiper>
+			</section>
+        </div>
+	</div>
+    <!-- fine preconfigurate -->
 	<div class="container text-center">
 		<div class="row">
 			<div class="col-sm-12 wow fadeInUpSmall" data-wow-delay="1s">

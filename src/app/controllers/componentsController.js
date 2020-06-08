@@ -1,4 +1,4 @@
-angular.module("applicationModule").controller("componentsController", ["$scope", "MAIL", "EMAIL_CONFIGURATION", "loginService", "logService", "listeService", "$location", "$uibModal", "$uibModalStack", "jwtHelper", "LOG_TYPES", "ROLES", "ORDERSTATUS", function ($scope, MAIL, EMAIL_CONFIGURATION, loginService, logService, listeService, $location, $uibModal, $uibModalStack, jwtHelper, LOG_TYPES, ROLES, ORDERSTATUS) {
+angular.module("applicationModule").controller("componentsController", ["$scope", "MAIL", "EMAIL_CONFIGURATION", "loginService", "logService", "listeService", "$timeout", "$location", "$uibModal", "$uibModalStack", "jwtHelper", "LOG_TYPES", "ROLES", "ORDERSTATUS", function ($scope, MAIL, EMAIL_CONFIGURATION, loginService, logService, listeService, $timeout, $location, $uibModal, $uibModalStack, jwtHelper, LOG_TYPES, ROLES, ORDERSTATUS) {
 
 	$scope.user = null;
 	$scope.role = "";
@@ -39,7 +39,9 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 	$scope.changePasswordEmail = "";
 	$scope.nextPath = "";
 	$scope.pendingCheckout = false;
-	$scope.richiediFattura = false;
+    $scope.richiediFattura = false;
+    
+    $scope.presentaNewsletter = true;
 
 
 	$scope.replaceOrigin = function (oldUrl) {
@@ -986,7 +988,23 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 			templateUrl: 'views/modalePerEmailCambioPassword.html',
 			scope: $scope
 		});
-	};
+    };
+    
+    $scope.openNewsletter = function () {
+        $scope.presentaNewsletter = false;
+        $scope.modalInstance = $uibModal.open({
+            animation: true,
+            templateUrl: 'views/modalePerInvioNewsletter.html',
+            scope: $scope,
+
+        });
+        
+    };
+
+    $timeout(function () { 
+        if ($scope.presentaNewsletter)
+            $scope.openNewsletter();
+    }, 10000);
 
 	$scope.okEmail = function (email) {
 		$scope.setChangePasswordEmail(email);
@@ -999,7 +1017,6 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 	};
 
 	$scope.openConfigNameModal = function (oldName) {
-
 		$scope.modalInstance = $uibModal.open({
 			animation: true,
 			templateUrl: 'views/modaleNomeConfigurazione.html',
