@@ -11,8 +11,9 @@
 	<div class="container text-center">
 		<div class="row top-buffer">
 			<div class="col-sm-12 clearfix bottom-buffer">
-				<h3 class="title section mot"><span>Non è il solito Shop</span></h3>
-				<p class="subtitle bottom-buffer">Sono le nostre Limited Ediscion, selezionate dalla vostra Anna Cloud. Spoiler: non sono borse qualsiasi!</p>
+                
+				<h3 class="title section mot" ng-bind-html="'shop_titolo' | translate"></h3>
+				<p class="subtitle bottom-buffer"  ng-bind-html="'shop_sottotitolo' | translate"></p>
 			</div>
 			<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 clearfix home-content top-buffer" ng-repeat="conf in getShopping()" ng-init="thumbimage = getConfigurationImagesArray(conf)[0]">
 				<a href="#" class="swiper-slide bag-box shopping" ng-click="schedaProdotto(conf)">
@@ -47,8 +48,8 @@
 	<div class="container text-center top-buffer">
         <div class="row top-buffer">
 			<div class="col-sm-12 clearfix bottom-buffer home-content wow fadeInUpSmall" data-wow-delay=".2s">
-                <h3 class="title section top-buffer mot hidden"><span ng-bind-html="'titolo_preconfigurate' | translate"></span></h3>
-				<p class="subtitle">Se invece preferite personalizzarla, ecco alcune ispirazioni by Configo:</p>
+                <h3 class="title section top-buffer mot hidden" ng-bind-html="'shop_titolo_preconfigurate' | translate"></h3>
+				<p class="subtitle" ng-bind-html="'shop_sottotitolo_preconfigurate' | translate"></p>
 			</div>
 		</div>
 		<div class="row top-buffer " ng-if="getPreconfigurati().length != 0" >

@@ -1,6 +1,6 @@
 <div class="modal-header">
     
-    <h3 class="modal-title">Ordine n° {{ordine.codice}}</h3>
+    <h3 class="modal-title"><span ng-bind-html="'modale_scheda_ordine_header' | translate"></span> {{ordine.codice}}</h3>
     <hr style="margin-bottom: 0;">
 </div>
 <div class="modal-body">
@@ -12,7 +12,7 @@
                 <table style="width: 100%;">
                     <tr>
                         <td>
-                            <h4 style="padding-bottom: 0;">Accessori</h4>
+                            <h4 style="padding-bottom: 0;" ng-bind-html="'modale_scheda_ordine_accessori' | translate"></h4>
                         </td>
                     </tr>
                     <tr>

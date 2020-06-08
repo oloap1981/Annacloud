@@ -1,14 +1,14 @@
 <div ng-controller="ordiniController" class="container text-center" ng-init="initOrdini()">
     <div class="row">
         <div class="col-sm-12 clearfix top-buffer">
-            <h3 class="title section mot"><span>Ordini</span></h3>
+            <h3 class="title section mot" ng-bind-html="'ordini_titolo' | translate"></h3>
         </div>
     </div>
     <div ng-if="listaOrdini.length == 0">
         <div class="row">
             <div class="col-sm-12 clearfix bottom-buffer wow fadeIn" data-wow-delay=".4s">
-                <p class="subtitle">Non hai ancora fatto nessun ordine.</p>
-                <a href="configura" class="btn btn-default btn-lg" style="margin-top: 1em;">Configura adesso</a>
+                <p class="subtitle" ng-bind-html="'ordini_sottotitolo' | translate"></p>
+                <a href="configura" class="btn btn-default btn-lg" style="margin-top: 1em;" ng-bind-html="'configura_adesso' | translate"></a>
             </div>
         </div>
     </div>
@@ -16,7 +16,7 @@
         <div ng-if="listaOrdini.length != 0">
             <div ng-repeat="ord in listaOrdini" class="col-sm-12 bag-item clearfix">
                 <div class="col-sm-12 bottom-buffer text-center">
-                    <p class="subtitle" style="color: #000">Ordine n° {{ord.codice}}</p>
+                    <p class="subtitle" style="color: #000"><span  ng-bind-html="'ordini_numero_ordine' | translate"></span> {{ord.codice}}</p>
                     
                 </div>
                 <div class="col-sm-8">
@@ -29,21 +29,21 @@
                                 <div class="col-sm-9">
                                     <div class="col-sm-12">
                                         <h4 class="bag">{{configurazione.nome}}</h4>
-                                        <h5 ng-if="configurazione.taglia" class="section-small left">Taglia {{configurazione.taglia}}</h5>
-                                        <h5 ng-if="!configurazione.taglia" class="section-small left">Taglia non specificata</h5>
+                                        <h5 ng-if="configurazione.taglia" class="section-small left"><span ng-bind-html="'ordini_taglia' | translate"></span>  {{configurazione.taglia}}</h5>
+                                        <h5 ng-if="!configurazione.taglia" class="section-small left" ng-bind-html="'ordini_taglia_mancante' | translate"></h5>
                                     </div>
                                     <div class="col-sm-6 base">
-                                        <h5 class="section-small left">Base </h5>
+                                        <h5 class="section-small left" ng-bind-html="'ordini_base' | translate"></h5>
                                         <table>
                                             <tr ng-repeat="base in configurazione.elencoEntita" ng-if="base.categoria == 'modello'">
-                                                <td><span>MODELLO:</span></td>
+                                                <td><span ng-bind-html="'ordini_base_modello' | translate"></span></td>
                                                 <td>{{base.descrizione.replace('_', ' ').toUpperCase()}}</td>
                                             </tr>
                                             <tr>
                                         </table>
                                     </div>
                                     <div class="col-sm-6 accessori">
-                                        <h5 class="section-small left">Accessori</h5>
+                                        <h5 class="section-small left" ng-bind-html="'ordini_accessori' | translate"></h5>
                                         <table>
                                             <tr ng-repeat="base in configurazione.elencoEntita" ng-if="base.categoria != 'modello'">
                                                 <td><span><b>{{base.categoria.toUpperCase()}}:</b> </span></td>
@@ -66,20 +66,20 @@
                                 <div class="media-body">
                                     <div class="col-sm-12">
                                         <h4 class="media-heading bag">{{configurazione.nome}}</h4>
-                                        <h5 ng-if="configurazione.taglia" class="section-small left">Taglia {{configurazione.taglia}}</h5>
-                                        <h5 ng-if="!configurazione.taglia" class="section-small left">Taglia non specificata</h5>
+                                        <h5 ng-if="configurazione.taglia" class="section-small left"><span ng-bind-html="'ordini_taglia' | translate"></span> {{configurazione.taglia}}</h5>
+                                        <h5 ng-if="!configurazione.taglia" class="section-small left" ng-bind-html="'ordini_taglia_mancante' | translate"></h5>
                                     </div>
                                     <div class="col-md-6 col-sm-12 base">
-                                        <h5 class="section-small left">Base </h5>
+                                        <h5 class="section-small left" ng-bind-html="'ordini_base' | translate"></h5>
                                         <table>
                                             <tr ng-repeat="base in configurazione.elencoEntita" ng-if="base.categoria == 'modello'">
-                                                <td><span><b>MODELLO:</b></span></td>
+                                                <td><span><b ng-bind-html="'ordini_base_modello' | translate"></b></span></td>
                                                 <td>{{base.descrizione.replace('_', ' ').toUpperCase()}}</td>
                                             </tr>
                                         </table>
                                     </div>
                                     <div class="col-md-6 col-sm-12 accessori">
-                                        <h5 class="section-small left">Accessori</h5>
+                                        <h5 class="section-small left" ng-bind-html="'ordini_accessori' | translate"></h5>
                                         <table>
                                             <tr ng-repeat="base in configurazione.elencoEntita" ng-if="base.categoria != 'modello'">
                                                 <td><span><b>{{base.categoria.toUpperCase()}}:</b> </span></td>
@@ -93,15 +93,15 @@
                     </div>
                 </div>
                 <div class="col-sm-4 ">
-                    <div class="order-state  zero " ng-class="{'current': ord.stato == 0 }">In attesa di pagamento
+                    <div class="order-state  zero " ng-class="{'current': ord.stato == 0 }" ng-bind-html="'ordini_stato_0' | translate">
                         <div ng-if="ord.stato == 0">
-                            <a href="#" onclick="return false" class="btn top-buffer btn-default" ng-click="getCheckout(ord)" style="width:auto;">Concludi l'acquisto</a>
+                            <a href="#" onclick="return false" class="btn top-buffer btn-default" ng-click="getCheckout(ord)" style="width:auto;" ng-bind-html="'ordini_stato_0_concludi_acquisto' | translate"></a>
                         </div>
                     </div>
-                    <div class="order-state  one " ng-class="{'current': ord.stato == 1 }">Ordinato</div>
-                    <div class="order-state  two " ng-class="{'current': (ord.stato == 2 || ord.stato == 3) }">In lavorazione</div>
-                    <div class="order-state  three " ng-class="{'current': ord.stato == 4 }">In spedizione</div>
-                    <p ng-click="eliminaOrdine(ord.codice)" ng-if="ord.stato == 0" class="text-center top-buffer">elimina ordine<small><i class="unaicon-remove"></i></small></p>
+                    <div class="order-state  one " ng-class="{'current': ord.stato == 1 }" ng-bind-html="'ordini_stato_1' | translate"></div>
+                    <div class="order-state  two " ng-class="{'current': (ord.stato == 2 || ord.stato == 3) }" ng-bind-html="'ordini_stato_2_3' | translate"></div>
+                    <div class="order-state  three " ng-class="{'current': ord.stato == 4 }" ng-bind-html="'ordini_stato_4' | translate"></div>
+                    <p ng-click="eliminaOrdine(ord.codice)" ng-if="ord.stato == 0" class="text-center top-buffer" ng-bind-html="'ordini_elimina' | translate"></p>
                 </div>
             </div>
         </div>

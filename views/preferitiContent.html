@@ -2,14 +2,16 @@
     <div class="container text-center">
         <div class="row">
             <div class="col-sm-12 clearfix top-buffer">
-                <h3 class="title section mot"><span ng-hide="isCurrentUserAdmin()">Preferiti</span><span ng-show="isCurrentUserAdmin()">Preconfigurati</span></h3>
+                <h3 class="title section mot" ng-hide="isCurrentUserAdmin()" ng-bind-html="'preferiti_titolo' | translate"></h3>
+                <h3 class="title section mot" ng-show="isCurrentUserAdmin()" ng-bind-html="'preferiti_titolo_admin' | translate"></h3>
             </div>
         </div>
         <div ng-if="getPreferiti().length == 0">
             <div class="row">
                 <div class="col-sm-12 clearfix bottom-buffer wow fadeIn" data-wow-delay=".4s">
-                    <p class="subtitle">Non hai ancora nessun prodotto salvato nei <span ng-hide="isCurrentUserAdmin()">Preferiti</span><span ng-show="isCurrentUserAdmin()">Preconfigurati</span>.</p>
-                    <a href="configura" class="btn btn-default btn-lg" style="margin-top: 1em;">Configura adesso</a>
+                    <p class="subtitle" ng-hide="isCurrentUserAdmin()" ng-bind-html="'preferiti_sottotitolo_blank' | translate"></p>
+                    <p class="subtitle" ng-show="isCurrentUserAdmin()" ng-bind-html="'preferiti_sottotitolo_blank_admin' | translate"></p>
+                    <a href="configura" class="btn btn-default btn-lg" style="margin-top: 1em;" ng-bind-html="'configura_adesso' | translate"></a>
                 </div>
             </div>
         </div>
@@ -24,22 +26,22 @@
                     <div class="col-sm-9">
                         <div class="col-sm-12">
                             <h4 ng-if="conf.nome" class="bag">{{conf.nome}} - URL: {{getPublicUrl(conf)}}</h4>
-                            <h4 ng-if="!conf.nome" class="bag">Senza nome</h4>
-                            <h5 ng-if="conf.taglia" class="section-small left">Taglia {{conf.taglia}}</h5>
-                            <h5 ng-if="!conf.taglia" class="section-small left">Taglia non specificata</h5>
+                            <h4 ng-if="!conf.nome" class="bag" ng-bind-html="'preferiti_no_name' | translate"></h4>
+                            <h5 ng-if="conf.taglia" class="section-small left"><span ng-bind-html="'preferiti_taglia' | translate"></span> {{conf.taglia}}</h5>
+                            <h5 ng-if="!conf.taglia" class="section-small left" ng-bind-html="'preferiti_taglia_mancante' | translate"></h5>
                         </div>
                         <div class="col-sm-6 base">
-                            <h5 class="section-small left">Base </h5>
+                            <h5 class="section-small left" ng-bind-html="'preferiti_base' | translate"></h5>
                             <table>
                                 <tr ng-repeat="base in conf.elencoEntita" ng-if="base.categoria == 'modello'">
-                                    <td><span>MODELLO:</span></td>
+                                    <td><span ng-bind-html="'preferiti_base_modello' | translate"></span></td>
                                     <td>{{base.descrizione.replace('_', ' ').toUpperCase()}}</td>
                                 </tr>
                                 <tr>
                             </table>
                         </div>
                         <div class="col-sm-6 accessori">
-                            <h5 class="section-small left">Accessori</h5>
+                            <h5 class="section-small left" ng-bind-html="'preferiti_base_accessori' | translate"></h5>
                             <table>
                                 <tr ng-repeat="base in conf.elencoEntita" ng-if="base.categoria != 'modello'">
                                     <td><span><b>{{base.categoria.toUpperCase()}}:</b> </span></td>
@@ -51,12 +53,11 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="order-buttons">
-                        <a href="javascript:void(0)" class="btn btn-default " ng-if="conf.tipo != 'SC'" ng-click="goToPage(conf)">modifica il modello</a>
-                        <a href="javascript:void(0)" class="btn btn-default" ng-click="addToCart(conf)" ng-hide="isCurrentUserAdmin()">aggiungi al carrello</a>
-                        <div ng-show="isCurrentUserAdmin()">
-                            <span>Per gestire le preconfigurate, devi visualizzare questa pagina in versione desktop</span>
+                        <a href="javascript:void(0)" class="btn btn-default " ng-if="conf.tipo != 'SC'" ng-click="goToPage(conf)" ng-bind-html="'preferiti_modifica' | translate"></a>
+                        <a href="javascript:void(0)" class="btn btn-default" ng-click="addToCart(conf)" ng-hide="isCurrentUserAdmin()" ng-bind-html="'preferiti_aggiungi_carrello' | translate"></a>
+                        <div ng-show="isCurrentUserAdmin()" ng-bind-html="'preferiti_notifica_versione_desktop_admin' | translate"> 
                         </div>
-                        <p ng-click="eliminaConfigurazione(conf.codice, conf.nome)" class="remove">elimina <small><i class="unaicon-remove"></i></small></p>
+                        <p ng-click="eliminaConfigurazione(conf.codice, conf.nome)" class="remove" ng-bind-html="'preferiti_elimina' | translate"></p>
                     </div>
                 </div>
             </div>
@@ -70,24 +71,24 @@
                         </div>
                         <div class="media-body">
                             <div class="col-sm-12">
-                                <p ng-click="eliminaConfigurazione(conf.codice, conf.nome)" class="remove">elimina <small><i class="unaicon-remove"></i></small></p>
+                                <p ng-click="eliminaConfigurazione(conf.codice, conf.nome)" class="remove" ng-bind-html="'preferiti_elimina' | translate"></p>
                                 <h4 ng-if="conf.nome" class="media-heading bag">{{conf.nome}}  <small  ng-show="isCurrentUserAdmin()"><a class="btn btn-small btn-default" href="javascript:void(0)" ngclipboard data-clipboard-text="{{getPublicUrl(conf)}}"><i class="fa fa-clipboard"></i> Copia indirizzo</a></small></h4>
-                                <h4 ng-if="!conf.nome" class="media-heading bag">Senza nome</h4>
-                                <h5 ng-if="conf.taglia" class="section-small left">Taglia {{conf.taglia}}</h5>
-                                <h5 ng-if="!conf.taglia" class="section-small left">Taglia non specificata</h5>
+                                <h4 ng-if="!conf.nome" class="media-heading bag" ng-bind-html="'preferiti_no_name' | translate"></h4>
+                                <h5 ng-if="conf.taglia" class="section-small left"><span ng-bind-html="'preferiti_taglia' | translate"></span> {{conf.taglia}}</h5>
+                                <h5 ng-if="!conf.taglia" class="section-small left" ng-bind-html="'preferiti_taglia_mancante' | translate"></h5>
                                 
                             </div>
                             <div class="col-md-6 col-sm-12 base">
-                                <h5 class="section-small left">Base </h5>
+                                <h5 class="section-small left" ng-bind-html="'preferiti_base' | translate"></h5>
                                 <table>
                                     <tr ng-repeat="base in conf.elencoEntita" ng-if="base.categoria == 'modello'">
-                                        <td><span>MODELLO:</span></td>
+                                        <td><span ng-bind-html="'preferiti_base_modello' | translate"></span></td>
                                         <td>{{base.descrizione.replace('_', ' ').toUpperCase()}}</td>
                                     </tr>
                                 </table>
                             </div>
                             <div class="col-md-6 col-sm-12 accessori">
-                                <h5 class="section-small left">Accessori</h5>
+                                <h5 class="section-small left" ng-bind-html="'preferiti_base_accessori' | translate"></h5>
                                 <table>
                                     <tr ng-repeat="base in conf.elencoEntita" ng-if="base.categoria != 'modello'">
                                         <td><span><b>{{base.categoria.toUpperCase()}}:</b> </span></td>
@@ -100,7 +101,7 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="order-buttons">
-                        <a href="javascript:void(0)" class="btn btn-default "  ng-if="conf.tipo != 'SC'" ng-click="goToPage(conf)">modifica il modello</a>    
+                        <a href="javascript:void(0)" class="btn btn-default "  ng-if="conf.tipo != 'SC'" ng-click="goToPage(conf)" ng-bind-html="'preferiti_modifica' | translate"></a>    
                         <div ng-show="isCurrentUserAdmin()">
                             <div style="height: 20px;"></div>
                             <div style="margin: 15px 0; width: auto; float: left; margin-right: 10px;">
@@ -114,10 +115,10 @@
                                 </select>
                             </div>
                             <div style="width: 100%; float: left;">
-                            <a href="javascript:void(0)" class="btn btn-default" ng-click="editPreconfig(conf)">salva</a>
+                            <a href="javascript:void(0)" class="btn btn-default" ng-click="editPreconfig(conf)" ng-bind-html="'salva' | translate"></a>
                             </div>
                         </div>        
-                        <a href="javascript:void(0)" class="btn  btn-default" ng-click="addToCart(conf)" ng-hide="isCurrentUserAdmin()">aggiungi al carrello</a>
+                        <a href="javascript:void(0)" class="btn  btn-default" ng-click="addToCart(conf)" ng-hide="isCurrentUserAdmin()" ng-bind-html="'preferiti_aggiungi_carrello' | translate"></a>
                     </div>
                 </div>
             </div>

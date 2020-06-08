@@ -1405,6 +1405,10 @@ a.link {
             .text {
                 font-size: 1.5em;
                 font-family: $font-family-sans-serif;
+                &.enfasi {
+                    font-weight: 300;
+                    font-size: 1.75em;
+                }
             }
             @media screen and (max-width: $screen-xs-max) {
                 margin: 3em;

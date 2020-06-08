@@ -1,10 +1,10 @@
 <div class="modal-header hidden">
     <button type="button" class="close hidden" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h4 class="modal-title">Attenzione</h4>
+    <h4 class="modal-title" ng-bind-html="'attenzione' | translate"></h4>
 </div>
 <div class="modal-body top-buffer">
     <p>{{testoAvviso}}</p>
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-default" ng-click="ok(modalInstance)">Ok</button>
+    <button type="button" class="btn btn-default" ng-click="ok(modalInstance)" ng-bind-html="'ok' | translate"></button>
 </div>

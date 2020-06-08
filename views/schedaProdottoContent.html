@@ -32,10 +32,10 @@
                         <h2 class="bag">{{shoppingSelected.nome}}</h2>
                         <p class="hidden">{{shoppingSelected.descrizioneBreve}}</p>
                         <h3 class="bag top-buffer bottom-buffer">{{prezzo}} &euro;</h3>
-                        <a href="#" class="btn btn-big btn-bigger btn-save" ng-click="shoppingAcquista()">Acquista</a>
+                        <a href="#" class="btn btn-big btn-bigger btn-save" ng-click="shoppingAcquista()" ng-bind-html="'acquista' | translate"></a>
                     </div>
                     <div class="col-sm-12 base">
-                        <h2 class="section-small left">Informazioni</h2>
+                        <h2 class="section-small left" ng-bind-html="'info' | translate"></h2>
                         <div ng-bind-html="shoppingSelected.info"></div>
                     </div>
                 </div>
@@ -53,7 +53,6 @@
                 </div>
             </div>
             <div class="col-md-8 col-md-offset-2 col-sm-12 clearfix bottom-buffer top-buffer home-content wow fadeInUpSmall" data-wow-delay=".2s">
-                <h2 class="title section top-buffer hidden"><span>Titolo</span></h2>
                 <p class="subtitle bottom-buffer" style="text-align :justify" ng-bind-html="shoppingSelected.descrizione"></p>
             </div>
         </div>

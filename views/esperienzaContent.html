@@ -11,8 +11,7 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-sm-12 clearfix">
-					<h2 class="title">La tua borsa &egrave; unica,<br>
-						totalmente componibile e personalizzabile.</h2>
+                    <h2 class="title wow fadeIn" data-wow-delay="1s" ng-bind-html="'jumbotron_cloud_land_header_content_mobile' | translate"></h2>
 				</div>
 			</div>
 		</div>
@@ -20,19 +19,12 @@
 	<div style="position: relative">
 		<img src="images/jumbotron-scopri.jpg" style="width: 100%;height:auto" class=" wow fadeIn hidden-xs" data-wow-delay="0.1s">
 		<img src="images/jumbotron-scopri-xs.jpg" style="width: 100%;height:auto" class=" wow fadeIn hidden visible-xs-block" data-wow-delay="0.1s">
-		<h2 class="slogan-4 hidden-xs"><span>Cloud Land,</span><br>
-			<span>il nostro mondo migliore!</span></h2>
+		<h2 class="slogan-4 hidden-xs"  ng-bind-html="'jumbotron_cloud_land_header_content' | translate"></h2>
 	</div>
 	<div class="container-fluid text-justify">
 		<div class="row narrazione">
 			<div class="col-sm-6 no-padding no-margin  clearfix bottom-buffer  wow fadeInUpSmall"  data-wow-offset="450" >
-				<div class="content">
-					<p class="text" style="font-weight: 300; font-size: 1.75em;text-align: center">Non seguiamo le solite tendenze imposte, dogmi e prezzi eccessivi. Non inseguiamo i soliti ideali di bellezza perfetta delle “modelle grissino”, non siamo alla ricerca di ostentazione e bellezza forzata.</p>
-					<div class="divider"></div>
-					<p class="text">Non pensate che queste parole siano accozzaglie di frasi trovate sui Baci Perugina! (risata)</p>
-                    <p class="text">Noi Nuvoline siamo persone comuni, con pregi e difetti, anche fisici o caratteriali. Siamo però soprattutto persone vere, non influenzabili, innovative e attente alle problematiche ambientali. Queste sono gli ideali della nostra Community!</p>
-                    <a href="https://blog.annacloud.it/" class="btn btn-default btn-lg top-buffer">Vola sul nostro Blog</a>
-				</div>
+				<div class="content" ng-bind-html="'blocco_1' | translate"></div>
 			</div>
 			<div class="col-sm-6 no-padding no-margin clearfix bottom-buffer wow fadeInUpSmall"  data-wow-offset="450" data-wow-delay=".5s" style="background: url(images/esperienza-img-1-bg.jpg) center right no-repeat; background-size: cover; background-color: #fff" >
 				<img src="images/esperienza-img-1-bg.jpg" class="hidden visible-xs">
@@ -41,11 +33,7 @@
 
 		<div class="row narrazione" >
 			<div class="col-sm-6 col-sm-push-6 no-padding no-margin  clearfix bottom-buffer wow fadeInUpSmall"  data-wow-offset="450" >
-				<div class="content">
-                    <p class="text"  style="font-weight: 300; font-size: 1.75em">Beh, pensiamoci bene. Utilizzando il configuratore 3D risolviamo molte problematiche ambientali del mondo Fashion. Producendo solo On Demand azzeriamo gli invenduti, riduciamo gli scarti di produzione, il consumo di acqua e di energia.</p>
-                    <p class="text"  style="font-weight: 300; font-size: 1.75em">Ogni borsa infatti è realizzata solo per te, senza sprechi e utilizzando vera pelle ecologica made in Italy di qualità certificata ambientale. Wow! Che figo quel Configo!</p>
-                    <a href="configura" class="btn btn-default btn-lg top-buffer">Personalizza ora la tua borsa</a>
-				</div>
+				<div class="content" ng-bind-html="'blocco_2' | translate"></div>
 			</div>
 			<div class="col-sm-6 col-sm-pull-6 no-padding no-margin clearfix bottom-buffer wow fadeInUpSmall" data-wow-offset="450" data-wow-delay=".5s" style="background: url(images/esperienza-img-2-bg.jpg) center center no-repeat; background-size: cover; background-color: #fff" >
 				<img src="images/esperienza-img-2-bg.jpg" class="hidden visible-xs">
@@ -54,10 +42,7 @@
         
         <div class="row narrazione">
 			<div class="col-sm-6 no-padding no-margin  clearfix bottom-buffer  wow fadeInUpSmall"  data-wow-offset="450" >
-				<div class="content">
-					 <p class="text"  style="font-weight: 300; font-size: 1.75em">Ed ora parliamo del nostro Team. </p>
-                    <p class="text"  style="font-weight: 300; font-size: 1.75em">Il Team è formato dalla sottoscritta, Anna Cloud, la vostra beniamina digitale! A cui capita di far battute che non fanno ridere! (risata) Poi abbiamo Configo, il nostro configuratore 3D, che permette di personalizzare ogni modello. Ha solo un difetto: è un po' Slow, ma è comunque Fashion! E poi c’è Speedy, la nostra Chat per il Customer Care e per le offese gratuite!</p>
-                    <p class="text"  style="font-weight: 300; font-size: 1.75em">Siamo un team digitale al servizio di un Team di persone che lavora duramente per non farvi mancare niente!</p>
+				<div class="content" ng-bind-html="'blocco_3' | translate">
 				</div>
 			</div>
 			<div class="col-sm-6 no-padding no-margin clearfix bottom-buffer wow fadeInUpSmall"  data-wow-offset="450" data-wow-delay=".5s" style="background: url(images/team-img-2-bg.jpg) center center no-repeat; background-size: cover; background-color: #fff" >
@@ -91,8 +76,8 @@
 	<div class="container text-center top-buffer bottom-buffer">
 		<div class="row">
 			<div class="col-sm-12 clearfix top-buffer bottom-buffer home-content wow fadeInUpSmall" data-wow-delay=".2s">
-				<h3 class="title section">Sappiamo che il tempo ha un valore.</h3>
-				<p class="subtitle">Entra nel nostro mondo.<br>Faremo tesoro della tua email</p>
+				<h3 class="title section" ng-bind-html="'testo_7_titolo' | translate"></h3>
+				<p class="subtitle" ng-bind-html="'testo_7' | translate"></p>
 				<!-- Begin Mailchimp Signup Form -->
 				<div id="mc_embed_signup">
 					<form action="https://annacloud.us20.list-manage.com/subscribe/post?u=2712cd03e689197086c2de54a&amp;id=2318145ba2" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_self" novalidate>

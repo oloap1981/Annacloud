@@ -1,15 +1,14 @@
 <div ng-controller="carrelloController as carrelloContr" class="container text-center ">
     <div class="row">
         <div class="col-sm-12 clearfix top-buffer">
-            <h3 class="title section mot"><span>Carrello</span></h3>
-            <!--<p>in questa area puoi verificare i tuoi ordini, visualizzare e modificare i tuoi preferiti.</p>-->
+            <h3 class="title section mot" ng-bind-html="'carrello_titolo' | translate"></h3>
         </div>
     </div>
     <div ng-if="getCarrello().length == 0">
         <div class="row">
             <div class="col-sm-12 clearfix bottom-buffer wow fadeIn" data-wow-delay=".4s">
-                <p class="subtitle">Non hai ancora aggiunto nessun articolo al Carrello.</p>
-                    <a href="configura" class="btn btn-default btn-lg" style="margin-top: 1em;">Configura adesso</a>
+                <p class="subtitle" ng-bind-html="'carrello_sottotitolo' | translate"></p>
+                <a href="configura" class="btn btn-default btn-lg" style="margin-top: 1em;" ng-bind-html="'configura_adesso' | translate"></a>
             </div>
         </div>
     </div>
@@ -23,23 +22,23 @@
                         </div>
                         <div class="col-sm-9">
                             <div class="col-sm-12">
-                                <h4 ng-if="conf.nome" class="bag">{{conf.nome}}<br><small>ordine n. {{conf.codice}}</small></h4>
-                                <h4 ng-if="!conf.nome" class="bag">Senza nome<br><small>ordine n. {{conf.codice}}</small></h4>
-                                <h5 ng-if="conf.taglia" class="section-small left">Taglia {{conf.taglia}}</h5>
-                                <h5 ng-if="!conf.taglia" class="section-small left">Taglia non specificata</h5>
+                                <h4 ng-if="conf.nome" class="bag">{{conf.nome}}<br><small><span  ng-bind-html="'carrello_numero_ordine' | translate"></span> {{conf.codice}}</small></h4>
+                                <h4 ng-if="!conf.nome" class="bag"><span ng-bind-html="'preferiti_no_name' | translate"></span><br><small><span  ng-bind-html="'carrello_numero_ordine' | translate"></span> {{conf.codice}}</small></h4>
+                                <h5 ng-if="conf.taglia" class="section-small left"><span ng-bind-html="'carrello_taglia' | translate"></span> {{conf.taglia}}</h5>
+                                <h5 ng-if="!conf.taglia" class="section-small left" ng-bind-html="'carrello_taglia_mancante' | translate"></h5>
                             </div>
                             <div class="col-sm-6 base">
-                                <h5 class="section-small left">Base </h5>
+                                <h5 class="section-small left" ng-bind-html="'carrello_base' | translate"></h5>
                                 <table>
                                     <tr ng-repeat="base in conf.elencoEntita" ng-if="base.categoria == 'modello'">
-                                        <td><span>MODELLO:</span></td>
+                                        <td><span ng-bind-html="'carrello_base_modello' | translate"></span></td>
                                         <td>{{base.descrizione.replace('_', ' ').toUpperCase()}}</td>
                                     </tr>
                                     <tr>
                                 </table>
                             </div>
                             <div class="col-sm-6 accessori">
-                                <h5 class="section-small left">Accessori</h5>
+                                <h5 class="section-small left" ng-bind-html="'carrello_base_accessori' | translate"></h5>
                                 <table>
                                     <tr ng-repeat="base in conf.elencoEntita" ng-if="base.categoria != 'modello'">
                                         <td><span><b>{{base.categoria.toUpperCase()}}:</b> </span></td>
@@ -47,7 +46,7 @@
                                     </tr>
                                 </table>
                             </div>
-                            <p ng-click="rimuoviDaCarrello(conf)" class="remove">elimina <small><i class="unaicon-remove"></i></small></p>
+                            <p ng-click="rimuoviDaCarrello(conf)" class="remove" ng-bind-html="'carrello_elimina' | translate"></p>
                         </div>
                     </div>
                 </div>
@@ -61,23 +60,23 @@
                             </div>
                             <div class="media-body">
                                 <div class="col-sm-12">
-                                    <p ng-click="rimuoviDaCarrello(conf)" class="remove">elimina <small><i class="unaicon-remove"></i></small></p>
-                                    <h4 ng-if="conf.nome" class="media-heading bag">{{conf.nome}} - <small>ordine n.{{conf.codice}}</small></h4>
-                                    <h4 ng-if="!conf.nome" class="media-heading bag">Senza nome - <small>ordine n.{{conf.codice}}</small></h4>
-                                    <h5 ng-if="conf.taglia" class="section-small left">Taglia {{conf.taglia}}</h5>
-                                    <h5 ng-if="!conf.taglia" class="section-small left">Taglia non specificata</h5>
+                                    <p ng-click="rimuoviDaCarrello(conf)" class="remove" ng-bind-html="'carrello_elimina' | translate"></p>
+                                    <h4 ng-if="conf.nome" class="media-heading bag">{{conf.nome}} - <small><span  ng-bind-html="'carrello_numero_ordine' | translate"></span>{{conf.codice}}</small></h4>
+                                    <h4 ng-if="!conf.nome" class="media-heading bag"><span ng-bind-html="'preferiti_no_name' | translate"></span> - <small><span  ng-bind-html="'carrello_numero_ordine' | translate"></span>{{conf.codice}}</small></h4>
+                                    <h5 ng-if="conf.taglia" class="section-small left"><span ng-bind-html="'carrello_taglia' | translate"></span> {{conf.taglia}}</h5>
+                                    <h5 ng-if="!conf.taglia" class="section-small left" ng-bind-html="'carrello_taglia_mancante' | translate"></h5>
                                 </div>
                                 <div class="col-md-6 col-sm-12 base">
-                                    <h5 class="section-small left">Base </h5>
+                                    <h5 class="section-small left" ng-bind-html="'carrello_base' | translate"></h5>
                                     <table>
                                         <tr ng-repeat="base in conf.elencoEntita" ng-if="base.categoria == 'modello'">
-                                            <td><span>MODELLO:</span></td>
+                                            <td><span ng-bind-html="'carrello_base_modello' | translate"></span></td>
                                             <td>{{base.descrizione.replace('_', ' ').toUpperCase()}}</td>
                                         </tr>
                                     </table>
                                 </div>
                                 <div class="col-md-6 col-sm-12 accessori">
-                                    <h5 class="section-small left">Accessori</h5>
+                                    <h5 class="section-small left" ng-bind-html="'carrello_base_accessori' | translate"></h5>
                                     <table>
                                         <tr ng-repeat="base in conf.elencoEntita" ng-if="base.categoria != 'modello'">
                                             <td><span><b>{{base.categoria.toUpperCase()}}:</b> </span></td>
@@ -95,26 +94,24 @@
                     <div class="order-state one summary">
                         <div class="row">
                             <div class="col-sm-12 text-left">
-                                <span>Subtotale</span>
+                                <span ng-bind-html="'carrello_subtotale' | translate"></span>
                                 <span class="single-price"><b>{{getTotalAmount()}}&euro;</b></span>
                             </div>
                             <div class="col-sm-12 text-left">
-                                <span>spedizione</span>
+                                <span ng-bind-html="'carrello_spedizione' | translate"></span>
                                 <span class="single-price"><b>{{getCostoSpedizione()}}&euro;</b></span>
                             </div>
                         </div>
                     <hr>
                         <div class="row">
                             <div class="col-sm-12 text-left">
-                                <span>TOTALE</span>
+                                <span ng-bind-html="'carrello_totale' | translate"></span>
                                 <span class="single-price"><b>{{getTotalAmount() + getCostoSpedizione()}}&euro;</b></span>
                             </div>
                         </div>
                     </div>
                     <div class="order-buttons top-buffer text-center">
-                        <a href="#" onclick="return false" class="btn btn-block btn-default btn-reverse" ng-click="getCheckout()" >
-                            Procedi al
-                            checkout</a>
+                        <a href="#" onclick="return false" class="btn btn-block btn-default btn-reverse" ng-click="getCheckout()"  ng-bind-html="'carrello_procedi_al_checkout' | translate"></a>
                     </div>
                 </div>
             </div>
