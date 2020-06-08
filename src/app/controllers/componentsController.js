@@ -1,4 +1,4 @@
-angular.module("applicationModule").controller("componentsController", ["$scope", "MAIL", "EMAIL_CONFIGURATION", "loginService", "logService", "listeService", "$timeout", "$location", "$uibModal", "$uibModalStack", "jwtHelper", "LOG_TYPES", "ROLES", "ORDERSTATUS", function ($scope, MAIL, EMAIL_CONFIGURATION, loginService, logService, listeService, $timeout, $location, $uibModal, $uibModalStack, jwtHelper, LOG_TYPES, ROLES, ORDERSTATUS) {
+angular.module("applicationModule").controller("componentsController", ["$scope", "MAIL", "EMAIL_CONFIGURATION", "loginService", "logService", "listeService", "$timeout", "$location", "$uibModal", "$uibModalStack", "jwtHelper", "LOG_TYPES", "ROLES", "ORDERSTATUS", "$translate", "$route", function ($scope, MAIL, EMAIL_CONFIGURATION, loginService, logService, listeService, $timeout, $location, $uibModal, $uibModalStack, jwtHelper, LOG_TYPES, ROLES, ORDERSTATUS, $translate, $route) {
 
 	$scope.user = null;
 	$scope.role = "";
@@ -43,7 +43,20 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
     
     $scope.presentaNewsletter = true;
 
+    $scope.changeLanguage = function (lang) {
+        $translate.use(lang);
+        
+        $route.reload();
+    };
 
+    $scope.getCurrentLanguage = function() {
+        var lang = $translate.proposedLanguage();
+        if(lang == undefined) {
+            return 'it';
+        }
+        return lang;
+    };
+    
 	$scope.replaceOrigin = function (oldUrl) {
 		return oldUrl.replace("unaduna-images-bucket.s3.eu-central-1.amazonaws.com", "d3ijrzg42gep0a.cloudfront.net");
 	};
