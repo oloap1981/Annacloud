@@ -5,10 +5,11 @@
 </div>
 <div class="modal-body">
     <div ng-repeat="taglia in taglieManagerModal.listaTaglie">
-        <div class="col-lg-6 col-md-6 col-sm-6 col-sm-offset-3 col-xs-12 text-center no-padding bags-line" ng-click="scegliTaglia(taglia)">
+        <div class="col-xs-6 text-center bags-line" ng-click="scegliTaglia(taglia)">
         
             <img src="images/thumb-dummy.jpg" style="width: 100%; height: auto;">
-            {{taglia}}
+            <br>
+            {{taglia}} cm
         </div>        
     </div>    
 </div>

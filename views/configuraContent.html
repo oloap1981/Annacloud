@@ -29,10 +29,19 @@
 									<div class="col-lg-6 col-md-6 col-sm-6 col-sm-offset-3 col-xs-12 text-center no-padding bags-line" ng-repeat="modello in modelli | filter: contr.modelFilter">
 										<a href="#" onclick="return false" class="modello-borsa" id="start3dbutton" type="button" ng-click="contr.scegliModello(modello)">
 										<img ng-src="{{modello.urlThumbnail}}" class="hidden visible-xs" style="padding: 20px; padding-bottom: 0;" />
-										<img ng-src="{{modello.urlThumbnailHD}}" class="hidden-xs" />
+                                        <img ng-src="{{modello.urlThumbnailHD}}" class="hidden-xs" />
+                                        <br>
 										<span class="nome no-margin">{{modello.nome.replace('_', ' ').toUpperCase()}}</span><br>
-										<span class="bag-size-button" >{{getModelSizesString(modello.nome)}}</span>
+                                        <span class="bag-size-button" >{{getModelSizesString(modello.nome)}}</span>
+                                        </a>
 									</div>
+                                </div>
+                                <div class="col-xs-12">
+                                    <hr>
+                                    <h4>Anna Cloud è sostenibile!</h4>
+                                    <p>Tutte le borse sono costruite con pelli che hanno le migliori certificazioni ambientali sul mercato. Ci impegniamo ogni giorno per non avere scarti di produzione e invenduti: per questo i nostri artigiani toscani realizzano una borsa alla volta. Quindi, amiche mie, per avere la borsa Anna Cloud dovrete aspettare fino a 7 giorni lavorativi: il minor tempo possibile per avere la massima attenzione per voi e l’ambiente. Vi prometto però che la borsa che vi spediremo non sarà una borsa qualsiasi: sarà un prodotto unico!
+Non sarà la migliore al mondo, ma sarà l’unica borsa di valore del vostro armadio! Wow!
+</p>
 								</div>
 							</div>
 						</li>
