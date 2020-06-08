@@ -1004,7 +1004,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
     $timeout(function () { 
         if ($scope.presentaNewsletter)
             $scope.openNewsletter();
-    }, 10000);
+    }, 15000);
 
 	$scope.okEmail = function (email) {
 		$scope.setChangePasswordEmail(email);

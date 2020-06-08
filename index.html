@@ -136,6 +136,7 @@
 										<li ng-show="isCurrentUserAdmin()"><a href="admin-codicisconto">Amministrazione CodiciSconto</a></li>
 										<li><a href="profilo">Profilo</a></li>
 										<li><a href="logout" ng-click="logOut()">Esci</a></li>
+										
 									</ul>
 								</li>
 								<li ng-show="user==null" class="utente">
@@ -147,6 +148,8 @@
 								<li class="carrello" ng-hide="isCurrentUserAdmin()">
 									<a href="carrello"><i class="unaicon-cart"></i> <span class="hidden-xsx" ng-cloak>({{carrello.length}})</span></a>
 								</li>
+								<li><a href="" ng-click="changeLanguage('en')">inglese</a></li>
+								<li><a href="" ng-click="changeLanguage('it')">italiano</a></li>
 							</ul>
 						</div>
 						<div class="collapse navbar-collapse">
