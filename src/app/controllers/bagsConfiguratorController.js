@@ -1681,6 +1681,12 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		$scope.changePath('/accedi');
 	};
 
+	configController.salvaTempECheckoutUnregistered = function () {
+		configController.salvaConfigurazioneTemporanea();
+
+		$scope.changePath('/checkout-register');
+	};
+
 	configController.salvaConfigurazione = function (isCarrello) {
 
 		if($scope.configurazione.tipo == undefined){
