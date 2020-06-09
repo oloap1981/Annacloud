@@ -35,6 +35,7 @@ angular.module("applicationModule").controller("administratorController", ["$sco
 				$scope.loadOrders();//valutare se riorganizzare solo internamente
 			},
 			function (reason) {
+				var dataLog = new Date();
 				console.log(reason);
 				logService.saveLog(dataLog.toISOString(), $scope.getUserEmail(), "adminController - Aggiornamento Stato Ordine - putOrdine", "errore salvataggio ordine: " + reason.errorMessage, LOG_TYPES.error);
 				$scope.openMessageModal("errore aggiornamento ordine");

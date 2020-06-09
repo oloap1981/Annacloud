@@ -1,31 +1,43 @@
-angular.module("applicationModule").controller("carrelloController", ["$scope", "listeService", "loginService", "$location", "jwtHelper",
-	function($scope, listeService, loginService, $location, jwtHelper) {
-	
-	$scope.rimuoviDaCarrello = function(conf){
-		if(confirm("Sicuro di voler togliere dal carrello la configurazione "+conf.nome+"?")){
-			conf.carrello = false;
-			$scope.setLoaderMessage("elimino la configurazione dal carrello...");
-			$scope.showLoader();
-			listeService.putConfigurazione(conf).then(
-				function (res){
-					if(res.errorMessage != undefined && res.errorMessage != null){
-						$scope.hideLoader();
-						$scope.openMessageModal("Si è verificato un problema nell'eliminazione della configurazione dal carrello");
-					} else {
-						$scope.ricaricaListe($scope.getUserEmail(), "", true);
-					}
-				},
-				function (reason){
-					console.log(reason);
-					$scope.openMessageModal("errore aggiunta preferiti");
-				}
-			);
+angular.module("applicationModule").controller("carrelloController", ["$scope", "listeService", "loginService", "$location", "jwtHelper", "carrelloService",
+	function($scope, listeService, loginService, $location, jwtHelper, carrelloService) {
+
+		$scope.carrelloContent = [];
+
+		$scope.carrelloInit = function() {
+			$scope.carrelloContent = $scope.getCarrello();
 		}
-		
+
+	$scope.rimuoviDaCarrello = function(conf){
+
+		if ($scope.user == null) {
+			// non sono loggato
+			carrelloService.removeObjectFromCarrello(conf);
+		} else {
+			// sono loggato
+			if (confirm("Sicuro di voler togliere dal carrello la configurazione " + conf.nome + "?")) {
+				conf.carrello = false;
+				$scope.setLoaderMessage("elimino la configurazione dal carrello...");
+				$scope.showLoader();
+				listeService.putConfigurazione(conf).then(
+					function (res) {
+						if (res.errorMessage != undefined && res.errorMessage != null) {
+							$scope.hideLoader();
+							$scope.openMessageModal("Si è verificato un problema nell'eliminazione della configurazione dal carrello");
+						} else {
+							$scope.ricaricaListe($scope.getUserEmail(), "", true);
+						}
+					},
+					function (reason) {
+						console.log(reason);
+						$scope.openMessageModal("errore aggiunta preferiti");
+					}
+				);
+			}
+		}
 	};
 
 	$scope.getCheckout = function(){
-
+		
 		//preparare l'ordine e metterlo in sessione
 		var ordine = {};
 
@@ -43,7 +55,13 @@ angular.module("applicationModule").controller("carrelloController", ["$scope", 
 
 		//metto l'ordine in sessione e vado alla pagina di checkout
 		$scope.setOrdineInCorso(ordine);
-		$location.url('/checkout');
+
+		if (loginService.isLoggedIn()) {
+			$location.url('/checkout');
+		} else {
+			$location.url('/checkout-register');
+		}
+		
 	};
 
 	$scope.getUserEmail = function(){
@@ -57,13 +75,5 @@ angular.module("applicationModule").controller("carrelloController", ["$scope", 
 		return "";
 	};
 
-	$scope.getTotalAmount = function(){
-		var carrello = $scope.getCarrello();
-		var totale = 0;
-		for(var i = 0; i < carrello.length; i++){
-			var configurazione = carrello[i];
-			totale += $scope.calcolaPrezzoScontato(configurazione);
-		}
-		return totale;
-	};
+	
 }]);

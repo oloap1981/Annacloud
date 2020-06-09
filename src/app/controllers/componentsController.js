@@ -1,4 +1,7 @@
-angular.module("applicationModule").controller("componentsController", ["$scope", "MAIL", "EMAIL_CONFIGURATION", "loginService", "logService", "listeService", "$location", "$uibModal", "$uibModalStack", "jwtHelper", "LOG_TYPES", "ROLES", "ORDERSTATUS", "$translate", "$route", function ($scope, MAIL, EMAIL_CONFIGURATION, loginService, logService, listeService, $location, $uibModal, $uibModalStack, jwtHelper, LOG_TYPES, ROLES, ORDERSTATUS, $translate, $route) {
+angular.module("applicationModule").controller("componentsController", ["$scope", "MAIL", "EMAIL_CONFIGURATION", "loginService", "logService", "listeService", "carrelloService", "$location", "$uibModal", "$uibModalStack", "jwtHelper", "LOG_TYPES", "ROLES", "ORDERSTATUS", "$translate", "$route", "$q", "$rootScope", function ($scope, MAIL, EMAIL_CONFIGURATION, loginService, logService, listeService, carrelloService, $location, $uibModal, $uibModalStack, jwtHelper, LOG_TYPES, ROLES, ORDERSTATUS, $translate, $route, $q, $rootScope) {
+
+	$scope.deferred = $q.defer();
+	$scope.promise = $scope.deferred.promise;
 
 	$scope.user = null;
 	$scope.role = "";
@@ -220,15 +223,29 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 	};
 
 	$scope.getCarrello = function () {
-		return $scope.carrello;
+		if ($scope.user == null) {
+			var carrelloCookies = carrelloService.getCarrelloCookiesContent();
+			if (carrelloCookies == null) {
+				carrelloCookies = [];
+			}
+			return carrelloCookies;
+		} else {
+			return $scope.carrello;
+		}
+		
 	};
 
-	$scope.initCarrello = function (carrello) {
-		$scope.carrello = carrello;
-	};
+	// $scope.initCarrello = function (carrello) {
+	// 	$scope.carrello = carrello;
+	// };
 
 	$scope.addToCarrello = function (oggetto) {
-		$scope.carrello.push(oggetto);
+		// $scope.carrello.push(oggetto);
+		if ($scope.user == null) {
+			carrelloService.addObjectToCarrello(oggetto);
+		} else {
+			$scope.carrello.push(oggetto);
+		}
 	};
 
 	$scope.getCarrelloSize = function () {
@@ -891,6 +908,30 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		return toReturn.substring(0, toReturn.length-2);
 	}
 
+	$scope.salvaOAcquistaDaCookies = function (configurazione) {
+
+		var userInSession = $scope.getUser();
+		var user = {};
+		if (userInSession != null) {
+			// 	user.email = userInSession.email;
+			var idToken = jwtHelper.decodeToken(userInSession.signInUserSession.idToken.jwtToken);
+			var email = idToken.email;
+			user.email = email;
+		}
+		configurazione.utente = user;
+
+		//controllo se esiste già il nome. Se esiste faccio un lavoro sui suffissi
+		var presente = $scope.checkNomePresente(configurazione.nome, false);
+		$scope.setTempConfigurazione(configurazione);
+		if (presente) {
+			//duplico la configurazione, gli creo un nome uguale con un suffisso, salvo quella duplicata
+			$scope.salvaConfigurazioneDuplicata(true);
+		} else {
+			//salvo la configurazione con il nome che già possiede
+			$scope.salvaPerCookies(configurazione.nome == "" ? "TEMP" : configurazione.nome);
+		}
+	};
+
 	$scope.salvaOAcquista = function (oldname, isAcquista, richiediNome) {
 		if (richiediNome) {
 			$scope.openConfigNameModal(oldname);
@@ -932,6 +973,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 				$scope.setTempConfigurazione(configurazioneDuplicata);
 				//$scope.addToPreferiti($scope.getTempConfigurazione());//aggiunge ai preferiti locali
 				$scope.ricaricaListe($scope.getUserEmail(), "", true);
+				$scope.aggiornaOrdine();
 				$scope.hideLoader();
 				if (configurazioneDuplicata.carrello) {
 					//$scope.addToCarrello($scope.getTempConfigurazione());//aggiunge ai preferiti locali
@@ -1141,6 +1183,24 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 				console.log(reason);
 				logService.saveLog(dataLog.toISOString(), $scope.getUserEmail(), "componentsController - okConfig - putConfigurazione", "errore salvataggio configurazione " + $scope.getTempConfigurazione().nome + ": " + reason.errorMessage, LOG_TYPES.error);
 				$scope.hideLoader();
+				$scope.openMessageModal("errore salvataggio configurazione");
+			}
+		);
+	};
+
+	$scope.salvaPerCookies = function (configName) {
+		$scope.getTempConfigurazione().nome = configName;
+		listeService.putConfigurazione($scope.getTempConfigurazione()).then(
+			function (res) {
+				console.log(res);
+				$scope.getTempConfigurazione().codice = res.data.codiceConfigurazioneRisposta;
+				//$scope.addToPreferiti($scope.getTempConfigurazione());//aggiunge ai preferiti locali
+				$scope.ricaricaListe($scope.getUserEmail(), "", true);
+				$scope.aggiornaOrdine();
+			},
+			function (reason) {
+				console.log(reason);
+				logService.saveLog(dataLog.toISOString(), $scope.getUserEmail(), "componentsController - okConfig - putConfigurazione", "errore salvataggio configurazione " + $scope.getTempConfigurazione().nome + ": " + reason.errorMessage, LOG_TYPES.error);
 				$scope.openMessageModal("errore salvataggio configurazione");
 			}
 		);
@@ -1452,4 +1512,69 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		}
 		$scope.openMessageModal(messageToShow);
 	};
+
+	$scope.capitalizeString = function (toCapitalize) {
+		//prima la metto lowercase
+		var result = toCapitalize.toLowerCase();
+
+		result = result.charAt(0).toUpperCase() + result.slice(1);
+
+		return result;
+	};
+
+	$scope.riversaCarrelloCookiesInUtente = function (email) {
+		var carrelloCookies = carrelloService.getCarrelloCookiesContent();
+		if(carrelloCookies != null) {
+			for (var i = 0; i < carrelloCookies.length; i++) {
+				$scope.salvaOAcquistaDaCookies(carrelloCookies[i]);
+			}
+			carrelloService.svuotaCarrello();
+			$scope.aggiornaOrdine();
+		}
+	};
+
+	$scope.aggiornaOrdine = function() {
+		var ordineInCorso = $scope.getOrdineInCorso();
+		if(!ordineInCorso) {
+			ordineInCorso = {}
+		}
+		ordineInCorso.costo = $scope.getTotalAmount();
+		ordineInCorso.costiSpedizione = $scope.getCostoSpedizione();
+		ordineInCorso.stato = 0;
+		ordineInCorso.pagato = false;
+
+		utenteOrdine = {};
+		utenteOrdine.email = $scope.getUserEmail();
+		ordineInCorso.utente = utenteOrdine;
+		ordineInCorso.email = utenteOrdine.email;
+
+		ordineInCorso.configurazioni = $scope.getCarrello();
+
+		//metto l'ordine in sessione e vado alla pagina di checkout
+		$scope.setOrdineInCorso(ordineInCorso);
+		$scope.deferred.resolve();
+		// $rootScope.$apply();
+	};
+
+	$scope.getTotalAmount = function () {
+		var carrello = $scope.getCarrello();
+		var totale = 0;
+		for (var i = 0; i < carrello.length; i++) {
+			var configurazione = carrello[i];
+			totale += $scope.calcolaPrezzoScontato(configurazione);
+		}
+		return totale;
+	};
+
+	$scope.ordineAsyncPromise = function() {
+		return $q(function (resolve, reject) {
+			setTimeout(function () {
+				if (okToGreet(name)) {
+					resolve('Hello, ' + name + '!');
+				} else {
+					reject('Greeting ' + name + ' is not allowed.');
+				}
+			}, 1000);
+		});
+	}
 }]);

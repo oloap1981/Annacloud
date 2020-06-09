@@ -194,10 +194,15 @@ angular.module("applicationModule").service("listeService", ["$http", "UtilFunct
 	this.saveImage = function (base64Image, filename) {
 		var config = {
 			headers: {
-				'Content-Type': 'application/json',
-				'Authorization': loginService.getPostAccessToken()
+				'Content-Type': 'application/json'
 			}
 		};
+		// var config = {
+		// 	headers: {
+		// 		'Content-Type': 'application/json',
+		// 		'Authorization': loginService.getPostAccessToken()
+		// 	}
+		// };
 
 		var message = UtilFunctionMessagesCreator.saveImageMessage(base64Image, filename);
 		return $http.post(AWS_SERVICE_URLS.urlOtherService, message, config);

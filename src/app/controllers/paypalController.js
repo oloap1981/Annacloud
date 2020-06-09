@@ -3,7 +3,7 @@ angular.module("applicationModule").controller("cartController", ["$scope", "log
 
 		paypal.Button.render(
 			{
-				env: 'production', // sandbox | production
+				env: 'sandbox', // sandbox | production
 
 				// Specify the style of the button
 				style: {

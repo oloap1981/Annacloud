@@ -1,4 +1,4 @@
-angular.module("applicationModule").controller("accessoController", ["$scope", "listeService", "loginService", "logService", "salvaUtenteService", "jwtHelper", "LOG_TYPES", "ROLES", function($scope, listeService, loginService, logService, salvaUtenteService, jwtHelper, LOG_TYPES, ROLES) {
+angular.module("applicationModule").controller("accessoController", ["$scope", "listeService", "loginService", "logService", "carrelloService", "jwtHelper", "LOG_TYPES", "ROLES", function ($scope, listeService, loginService, logService, carrelloService, jwtHelper, LOG_TYPES, ROLES) {
 	
 	$scope.remember = {
 		       value : true,
@@ -23,6 +23,10 @@ angular.module("applicationModule").controller("accessoController", ["$scope", "
 						}
 
 						$scope.reloadAttributes();
+
+						// se ci sono oggetti nel carrelloCookies li riverso nel carrello utente e svuoto il carrelloCookies
+						$scope.riversaCarrelloCookiesInUtente(email);
+
 						$scope.ricaricaListe(user.eMail, "");
 
 						//loggo informazioni sull'utente loggato
@@ -177,12 +181,5 @@ angular.module("applicationModule").controller("accessoController", ["$scope", "
 		$scope.passwordSignRep = "";
 	};
 
-	$scope.capitalizeString = function(toCapitalize){
-		//prima la metto lowercase
-		var result = toCapitalize.toLowerCase();
 
-		result = result.charAt(0).toUpperCase() + result.slice(1);
-
-		return result;
-	};
 }]);

@@ -1,4 +1,4 @@
-var app = angular.module('applicationModule', ['ngTouch', 'ngAnimate', 'ui.swiper', 'ui.bootstrap', 'ui.select', 'ngSanitize', 'ngRoute', 'angular-jwt', 'updateMeta', 'angular-page-loader', 'pascalprecht.translate', 'ngclipboard', '720kb.datepicker'])
+var app = angular.module('applicationModule', ['ngTouch', 'ngAnimate', 'ui.swiper', 'ui.bootstrap', 'ui.select', 'ngSanitize', 'ngRoute', 'angular-jwt', 'updateMeta', 'angular-page-loader', 'pascalprecht.translate', 'ngclipboard', '720kb.datepicker', 'ngCookies'])
 	.directive('paypalContent', function () {
 		return {
 			restrict: 'E',

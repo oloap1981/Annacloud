@@ -1,4 +1,4 @@
-angular.module('applicationModule').controller('unadunaConfiguratorController2', function ($scope, listeService, loginService, logService, $uibModal, $uibModalStack, $log, jwtHelper, $translatePartialLoader, LOG_TYPES, $routeParams) {
+angular.module('applicationModule').controller('unadunaConfiguratorController2', function ($scope, listeService, loginService, carrelloService, logService, $uibModal, $uibModalStack, $log, jwtHelper, $translatePartialLoader, LOG_TYPES, $routeParams) {
 
 	//$translatePartialLoader.addPart('configurator');
 	$scope.configurazioneId = $routeParams.id;
@@ -1682,8 +1682,9 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 	};
 
 	configController.salvaTempECheckoutUnregistered = function () {
-		configController.salvaConfigurazioneTemporanea();
-
+		
+		// aggiungo la configurazione al carrello cookies
+		configController.addConfigurazioneACarrelloCookies();
 		$scope.changePath('/checkout-register');
 	};
 
@@ -1746,13 +1747,18 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 							$scope.hideLoader();
 						} else {
 							$scope.configurazione.thumbnail = res2.data.imageUrl;
-							configController.assegnaUtenteAConfigurazione();
-
-							var configDaSalvare = configController.salvaConfigurazioneTemporanea();
-
 							$scope.hideLoader();
-							$scope.salvaOAcquista(configDaSalvare.nome, isCarrello, $scope.askForName);
-							$scope.askForName = false;
+							if (configController.isLogged()) {
+								configController.assegnaUtenteAConfigurazione();
+								var configDaSalvare = configController.salvaConfigurazioneTemporanea();
+
+								$scope.salvaOAcquista(configDaSalvare.nome, isCarrello, $scope.askForName);
+								$scope.askForName = false;
+							} else {
+								// metto la config nel carrello cookies
+								configController.addConfigurazioneACarrelloCookies();
+								$scope.changePath('/checkout-register');
+							}							
 						}
 					});
 			};
@@ -1770,6 +1776,25 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 			$scope.configurazione.elencoEntita.splice(index, 1);
 		}
 	};
+
+	configController.addConfigurazioneACarrelloCookies = function() {
+		var elencoEntita = $scope.configurazione.elencoEntita;
+		if ($scope.inizialiPreview != "") {
+			var entitaIniziali = configController.generateEntitaIniziali();
+			configController.rimuoviEntitaIniziali();
+			elencoEntita.push(entitaIniziali);
+		}
+
+		// var elencoTotaleEntita = elencoEntita.concat(arrayIniziali);
+
+		$scope.configurazione.nome = configController.taglieManager.nomeModello;
+		$scope.configurazione.taglia = configController.taglieManager.tagliaSelezionata;
+
+		$scope.configurazione.elencoEntita = elencoEntita;
+
+		var configurazioneNormalizzata = configController.normalizeConfig($scope.configurazione);
+		carrelloService.addObjectToCarrello(configurazioneNormalizzata);
+	}
 
 	configController.salvaConfigurazioneTemporanea = function () {
 		// var arrayIniziali = configController.generateArrayEntitaIniziali();

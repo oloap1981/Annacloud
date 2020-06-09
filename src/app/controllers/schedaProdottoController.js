@@ -1,5 +1,5 @@
-angular.module("applicationModule").controller("schedaProdottoController", ["$scope", "$location", "$translatePartialLoader", "$translate", "$routeParams", "loginService", "jwtHelper", "listeService",
-	function ($scope, $location, $translatePartialLoader, $translate, $routeParams, loginService, jwtHelper, listeService) {
+angular.module("applicationModule").controller("schedaProdottoController", ["$scope", "$location", "$translatePartialLoader", "$translate", "$routeParams", "loginService", "jwtHelper", "listeService", "carrelloService",
+	function ($scope, $location, $translatePartialLoader, $translate, $routeParams, loginService, jwtHelper, listeService, carrelloService) {
 
 		$scope.configurazioneId = $routeParams.id;
 
@@ -50,7 +50,8 @@ angular.module("applicationModule").controller("schedaProdottoController", ["$sc
 			if ($scope.isLogged()) {
 				$scope.aggiungiAlCarrello();
 			} else {
-				$scope.salvaTempELogin();
+				// $scope.salvaTempELogin();
+				$scope.aggiungiConfigurazioneACarrelloCookies();
 			}
 		};
 
@@ -63,6 +64,15 @@ angular.module("applicationModule").controller("schedaProdottoController", ["$sc
 			$scope.setNextPath("/scheda-prodotto");
 			$scope.changePath('/accedi');
 		};
+
+		$scope.aggiungiConfigurazioneACarrelloCookies = function() {
+			// carrelloService.svuotaCarrello();
+			$scope.shoppingSelected.carrello = true;
+			$scope.shoppingSelected.codice = ""; // in questo modo ne crea una nuova
+			$scope.shoppingSelected.tipo = "SC"; // Shopping Cliente
+
+			carrelloService.addObjectToCarrello($scope.shoppingSelected);
+		}
 
 		$scope.salvaConfigurazione = function (isCarrello) {
 

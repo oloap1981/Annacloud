@@ -36,7 +36,7 @@
                                 <div class="checkbox hidden">
                                     <label><input type="checkbox" ng-model="remember.value" class="js-switch"> Ricordami</label> <a href="#" onclick="return false">(?)</a>
                                 </div>
-                                <button ng-click="login(loginEmail, loginPassword);" class="btn btn-default btn-save">Accedi</button>
+                                <button ng-click="login(loginEmail, loginPassword);" class="btn btn-default btn-save" ng-disabled="isLoginInputValid()">Accedi</button>
                                 <a href="javascript:void(0);" ng-click="forgotPassword()" class="recover" >Recupera la password</a>
                             </div>
                         </form>
@@ -72,10 +72,16 @@
                             <div class="form-group">
                                 <label for="inputPasswordReg" class="sr-only hidden"></label>
                                 <input ng-model="passwordSign" type="password" class="form-control" id="inputPasswordReg" placeholder="Password (lung. minima 6 caratteri)">
+                                <span class="error text-danger" ng-show="isPasswordValid()">
+                                    Password troppo corta
+                                </span>
                             </div>
                             <div class="form-group">
                                 <label for="inputRepeatPasswordReg" class="sr-only hidden"></label>
                                 <input ng-model="passwordSignRep" type="password" class="form-control" id="inputRepeatPasswordReg" placeholder="Ripeti Password">
+                                <span class="error text-danger" ng-show="isPasswordRepValid()">
+                                    La password non coincide
+                                </span>
                             </div>
                             <!-- -->
 
@@ -175,11 +181,8 @@
                             <span class="checkmark"></span>
                         </label>
                         <hr>
-                        <div  ng-show="canBuy()">
-                        <!--<a href="#" class="btn btn-action btn-lg btn-block" ng-click="setCheckout()" style="width:auto;">Completa l'ordine</a>-->
-                        <paypal-content info=conf></paypal-content>
-                        <hr>
-                        <img src="images/paypal-choice.png" style="max-width: 250px; margin-top: 20px;">
+                        <div ng-show="formValido()">
+                            <a href="#" ng-click="registerAndLogin()">PROCEDI</a>
                         </div>
                     </div>
                     <div class="order-buttons top-buffer text-center" ng-hide="canBuy()">

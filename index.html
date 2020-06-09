@@ -139,14 +139,14 @@
 										
 									</ul>
 								</li>
-								<li ng-show="user==null" class="utente">
+								<li ng-show="user == null" class="utente">
 									<a href="accedi" id="user-menu"><i class="unaicon-login"></i> <span class="hidden-xs">accedi</span></a>
 								</li>
-								<li class="favoriti">
+								<li ng-show="user != null" class="favoriti">
 									<a href="preferiti"><i class="unaicon-favourite"></i> <span class="hidden-xsx" ng-cloak>({{preferiti.length}})</span></a>
 								</li>
 								<li class="carrello" ng-hide="isCurrentUserAdmin()">
-									<a href="carrello"><i class="unaicon-cart"></i> <span class="hidden-xsx" ng-cloak>({{carrello.length}})</span></a>
+									<a href="carrello"><i class="unaicon-cart"></i> <span class="hidden-xsx" ng-cloak>({{getCarrello().length}})</span></a>
 								</li>
 								<li><a href="" ng-click="changeLanguage('en')">inglese</a></li>
 								<li><a href="" ng-click="changeLanguage('it')">italiano</a></li>
@@ -314,6 +314,7 @@
 	<!-- build:js js/vendor.js -->
 
 	<script src="node_modules/angular/angular.js"></script>
+	<script src="node_modules/angular-cookies/angular-cookies.js"></script>
 	<script src="node_modules/ui-select/dist/select.js"></script>
 	<script src="node_modules/angular-sanitize/angular-sanitize.js"></script>
 	<script src="node_modules/angular-page-loader/dist/angular-page-loader.min.js"></script>
@@ -373,6 +374,7 @@
 	<script src="src/app/services/loginService.js"></script>
 	<script src="src/app/services/chiaviService.js"></script>
 	<script src="src/app/services/carrelloService.js"></script>
+	<script src="src/app/services/cookiesService.js"></script>
 	<script src="src/app/services/preferitiService.js"></script>
 	<script src="src/app/services/salvaUtenteService.js"></script>
 	<script src="src/app/services/getOrdiniService.js"></script>

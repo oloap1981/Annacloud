@@ -1,11 +1,11 @@
-<div ng-controller="carrelloController as carrelloContr" class="container text-center ">
+<div ng-controller="carrelloController as carrelloContr" class="container text-center " ng-init="carrelloInit()">
     <div class="row">
         <div class="col-sm-12 clearfix top-buffer">
             <h3 class="title section mot"><span>Carrello</span></h3>
             <!--<p>in questa area puoi verificare i tuoi ordini, visualizzare e modificare i tuoi preferiti.</p>-->
         </div>
     </div>
-    <div ng-if="getCarrello().length == 0">
+    <div ng-if="carrelloContent.length == 0">
         <div class="row">
             <div class="col-sm-12 clearfix bottom-buffer wow fadeIn" data-wow-delay=".4s">
                 <p class="subtitle">Non hai ancora aggiunto nessun articolo al Carrello.</p>
@@ -16,7 +16,7 @@
     <div ng-if="getCarrello().length != 0" class="row bag-list">
         <div class="col-sm-12 no-padding">
             <div class="col-sm-8 no-padding">
-                <div ng-repeat="conf in getCarrello()" class="col-sm-12 bag-item clearfix visible-xs">
+                <div ng-repeat="conf in carrelloContent" class="col-sm-12 bag-item clearfix visible-xs">
                     <div class="col-sm-8 no-padding">
                         <div class="col-sm-3">
                             <img  ng-src="{{conf.thumbnail.split(',')[0]}}" class="bag-sample">
@@ -51,7 +51,7 @@
                         </div>
                     </div>
                 </div>
-                <div ng-repeat="conf in getCarrello()" class="col-sm-12 bag-item clearfix hidden-xs">
+                <div ng-repeat="conf in carrelloContent" class="col-sm-12 bag-item clearfix hidden-xs">
                     <div class="col-sm-12">
                         <div class="media">
                             <div class="media-left">
