@@ -12,7 +12,7 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-sm-12 clearfix">
-					<h2 class="title">Contattaci</h2>
+					<h2 class="title" ng-bind-html="'contatti_titolo_mobile' | translate"></h2>
 				</div>
 			</div>
 		</div>
@@ -26,13 +26,13 @@
 		
 		<div class="row quote text-center"  style="background-color: #fff; border-bottom: solid 1px #eee">
 			<div class="col-sm-12 clearfix top-buffer home-content wow fadeInUpSmall" data-wow-delay=".2s">
-				<h3 class="title section hidden"><span>Contattaci</span></h3>
-				<h4 class="text">Contattaci per qualunque informazione sui nostri prodotti e servizi, o per richiederci dei singoli componenti da aggiungere alla tua borsa!</h4>
+				<h3 class="title section hidden" ng-bind-html="'contatti_titolo' | translate"></h3>
+				<h4 class="text" ng-bind-html="'contatti_sottotitolo' | translate"></h4>
 			</div>
 			<div class="col-sm-6 clearfix bottom-buffer wow fadeInUpSmall" data-wow-delay=".2s" >
 				<div class="content contatti first">
-					<p class="text top-buffer">Email: <a href="mailto:info@annacloud.it">info@annacloud.it</a></p>
-					<p class="text top-buffer">Tel: 0571/1776800<br>Customer Care<br>dal lunedì al venerdì<br>dalle 9 alle 18.</p>
+					<p class="text top-buffer" ng-bind-html="'contatti_info1' | translate"></p>
+					<p class="text top-buffer" ng-bind-html="'contatti_info2' | translate"></p>
 				</div>
 				
 			</div>
@@ -43,28 +43,28 @@
 							<div class="col-sm-12">
 								<div class="form-group">
 									<label for="nome" class="sr-only hidden"></label>
-									<input  type="text" class="form-control" ng-model="name" id="nome" name="nome" placeholder="Nome">
+									<input  type="text" class="form-control" ng-model="name" id="nome" name="nome" placeholder="{{ 'campo_nome' | translate }}">
 								</div>
 								<div class="form-group">
 									<label for="cognome" class="sr-only hidden"></label>
-									<input  type="text" class="form-control" ng-model="surname" id="cognome" name="cognome" placeholder="Cognome">
+									<input  type="text" class="form-control" ng-model="surname" id="cognome" name="cognome" placeholder="{{ 'campo_cognome' | translate }}">
 								</div>
 								<div class="form-group">
 									<label for="email" class="sr-only hidden"></label>
-									<input  type="text" class="form-control" ng-model="email" id="email" name="email" placeholder="email">
+									<input  type="text" class="form-control" ng-model="email" id="email" name="email" placeholder="{{ 'campo_email' | translate }}">
 								</div>
 								<div class="form-group">
 									<label for="commenti" class="sr-only hidden"></label>
-									<textarea  class="form-control" row="5" ng-model="comments" id="commenti" name="messaggio" placeholder="messaggio"></textarea>
+									<textarea  class="form-control" row="5" ng-model="comments" id="commenti" name="messaggio" placeholder="{{ 'campo_messaggio' | translate }}"></textarea>
 								</div>
 							</div>
 						</div>
 						<div class="text-left" style="display: inline-block;width: 100%; max-width: 400px;">
-							<button ng-click="submit()" ng-model="button" class="btn btn-default" ng-disabled="!checked" style="width: 100px;">Invia</button>
-							<a href="javascript:void(0)" class="recover">Informativa sulla privacy</a>
+							<button ng-click="submit()" ng-model="button" class="btn btn-default" ng-disabled="!checked" style="width: 100px;" ng-bind-html="'invia' | translate"></button>
+							<a href="javascript:void(0)" class="recover" ng-bind-html="'info_privacy' | translate"></a>
 						</div>
 						<label class="checkbox-container text-left top-buffer" style="display: inline-block;margin-left: 2px; max-width: 400px;">
-							<small>Ho preso visione dell’informativa e autorizzo il trattamento dei miei dati secondo quanto in essa riportato.</small>
+							<small ng-bind-html="'privacy_confirm' | translate"></small>
 							<input type="checkbox" ng-model="checked">
 							<span class="checkmark"></span>
 						</label>

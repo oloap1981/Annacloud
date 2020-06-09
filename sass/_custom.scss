@@ -973,7 +973,7 @@ a.link {
     }
 }
 .carrello {
-    margin-right: 18px;
+    //margin-right: 18px;
 }
 
 @media screen and (max-width: $screen-xs-max) {
@@ -2168,6 +2168,18 @@ a.link {
 
         }
 
+    }
+    .checklist-bag {
+        padding: 0;
+        li {
+            padding: 5px 0;
+            list-style: square outside none;
+            @media screen and (max-width: $screen-sm) {
+                //list-style: none;
+                text-align: left;
+                margin-left:  15px;
+            }
+        }
     }
 }
 
