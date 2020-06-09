@@ -12,60 +12,57 @@
     <div class="container top-buffer bottom-buffer ">
         <div class="row">
             <div class="col-sm-12 clearfix top-buffer bottom-buffer text-center">
-                <p class="subtitle"><b>Accedi</b> o <b>registrati</b> per fare i tuoi acquisti</p>
+                <p class="subtitle" ng-bind-html="'accedi_o_registrati_titolo' | translate"></p>
             </div>
         </div>
         <div class="row access">   
             <div class="col-sm-6">
-                <h3 class="title-secondary">Accedi</h3>
+                <h3 class="title-secondary" ng-bind-html="'accedi_titolo' | translate"></h3>
                 <form>
                     <div class="form-group">
                         <label for="inputEmail" class="sr-only hidden"></label>
-                        <input type="email" ng-model="loginEmail" class="form-control" id="inputEmail" placeholder="Indirizzo Email">
+                        <input type="email" ng-model="loginEmail" class="form-control" id="inputEmail" placeholder="{{ 'campo_email' | translate }}">
                     </div>
                     <div class="form-group">
                         <label for="inputPassword" class="sr-only hidden"></label>
-                        <input ng-model="loginPassword" type="password" class="form-control" id="inputPassword" placeholder="Password">
+                        <input ng-model="loginPassword" type="password" class="form-control" id="inputPassword" placeholder="{{ 'campo_password' | translate }}">
                     </div>
                     <label class="checkbox-container text-left top-buffer bottom-buffer">
-                        <small>Ricordami</small>
-                        <input type="checkbox">
+                        <small ng-bind-html="'accedi_ricordami' | translate"></small>
+                        <input type="checkbox" ng-model="remember.value">
                         <span class="checkmark"></span>
                     </label>
-                    <div class="checkbox hidden">
-                        <label><input type="checkbox" ng-model="remember.value" class="js-switch"> Ricordami</label> <a href="#" onclick="return false">(?)</a>
-                    </div>
-                    <button ng-click="login(loginEmail, loginPassword);" class="btn btn-default btn-save">Accedi</button>
-                    <a href="javascript:void(0);" ng-click="forgotPassword()" class="recover" >Recupera la password</a>
+                    <button ng-click="login(loginEmail, loginPassword);" class="btn btn-default btn-save" ng-bind-html="'accedi' | translate"></button>
+                    <a href="javascript:void(0);" ng-click="forgotPassword()" class="recover" ng-bind-html="'recupera_password' | translate"></a>
                 </form>
             </div>
             <div class="col-sm-6">
-                <h3 class="title-secondary">Crea il tuo account</h3>
+                <h3 class="title-secondary" ng-bind-html="'registrati_titolo' | translate"></h3>
                 <form>
                     <div class="form-group">
                         <label for="inputNome" class="sr-only hidden"></label>
-                        <input ng-model="nome" type="text" class="form-control" id="inputNome" placeholder="Nome">
+                        <input ng-model="nome" type="text" class="form-control" id="inputNome" placeholder="{{ 'campo_nome' | translate }}">
                     </div>
                     <div class="form-group">
                         <label for="inputCognome" class="sr-only hidden"></label>
-                        <input ng-model="cognome" type="text" class="form-control" id="inputCognome" placeholder="Cognome">
+                        <input ng-model="cognome" type="text" class="form-control" id="inputCognome" placeholder="{{ 'campo_cognome' | translate }}">
                     </div>
                     <div class="form-group">
                         <label for="inputEmailReg" class="sr-only hidden"></label>
-                        <input ng-model="emailSign" type="email" class="form-control" id="inputEmailReg" placeholder="Indirizzo Email">
+                        <input ng-model="emailSign" type="email" class="form-control" id="inputEmailReg" placeholder="{{ 'campo_email' | translate }}">
                     </div>
                     <div class="form-group">
                         <label for="inputPasswordReg" class="sr-only hidden"></label>
-                        <input ng-model="passwordSign" type="password" class="form-control" id="inputPasswordReg" placeholder="Password (lung. minima 6 caratteri)">
+                        <input ng-model="passwordSign" type="password" class="form-control" id="inputPasswordReg" placeholder="{{ 'campo_password_min' | translate }}">
                     </div>
                     <div class="form-group">
                         <label for="inputRepeatPasswordReg" class="sr-only hidden"></label>
-                        <input ng-model="passwordSignRep" type="password" class="form-control" id="inputRepeatPasswordReg" placeholder="Ripeti Password">
+                        <input ng-model="passwordSignRep" type="password" class="form-control" id="inputRepeatPasswordReg" placeholder="{{ 'campo_ripeti_password' | translate }}">
                     </div>
-                    <button ng-click="signUpCheckEmail(emailSign, nome,cognome, passwordSign)"  ng-model="button"  ng-disabled="!checked" class="btn btn-default btn-save">Registrati</button>
-                    <a href="javascript: void(0)"  class="recover">Informativa sulla privacy</a>
+                    <button ng-click="signUpCheckEmail(emailSign, nome,cognome, passwordSign)"  ng-model="button"  ng-disabled="!checked" class="btn btn-default btn-save" ng-bind-html="'registrati' | translate"></button>
+                    <a href="javascript: void(0)"  class="recover" ng-bind-html="'info_privacy' | translate"></a>
                     <label class="checkbox-container text-left top-buffer">
-                        <small>Ho preso visione dell’informativa e autorizzo il trattamento dei miei dati secondo quanto in essa riportato.</small>
+                        <small ng-bind-html="'privacy_confirm' | translate"></small>
                         <input type="checkbox" ng-model="checked">
                         <span class="checkmark"></span>
                     </label>

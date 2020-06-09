@@ -1,195 +1,374 @@
 <div ng-controller="checkoutRegisterController" ng-init="initCheckOut()">
-    <div class="container top-buffer bottom-buffer ">
-        <div class="row">
-            <div class="col-sm-12 clearfix top-buffer text-center">
-                <h3 class="title section mot"><span>Checkout</span></h3>
-            </div>
-        </div>
+  <div class="container top-buffer bottom-buffer">
+    <div class="row">
+      <div class="col-sm-12 clearfix top-buffer text-center">
+        <h3
+          class="title section mot"
+          ng-bind-html="'checkout_titolo' | translate"
+        ></h3>
+      </div>
     </div>
-    <div class="container top-buffer bottom-buffer ">
-        <div class="row">
-            <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 bag-item clearfix">
-                <div class="col-sm-12 no-padding">
-                    <p class="subtitle text-center">Non sei ancora iscritta?<br>Non ti preoccupare, unisciti subito a noi!<br>
-                    Ci mettiamo un minuto netto.</p>
-                    <h3 class="title-tertiary text-center">Sei già nostro cliente? <a href="javascript:;" data-toggle="collapse" data-target="#collapseOne">Clicca quì per accedere</a></h3>
-                    <div  id="collapseOne" class="panel-collapse collapse ">
-                        <form style="margin-bottom: 20px;"> 
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="inputEmail" class="sr-only hidden"></label>
-                                    <input type="email" ng-model="loginEmail" class="form-control" id="inputEmail" placeholder="Indirizzo Email">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="inputPassword" class="sr-only hidden"></label>
-                                    <input ng-model="loginPassword" type="password" class="form-control" id="inputPassword" placeholder="Password">
-                                </div>
-                            </div>
-                            <div class="col-sm-12">
-                                <label class="checkbox-container text-left top-buffer bottom-buffer">
-                                    <small>Ricordami</small>
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <div class="checkbox hidden">
-                                    <label><input type="checkbox" ng-model="remember.value" class="js-switch"> Ricordami</label> <a href="#" onclick="return false">(?)</a>
-                                </div>
-                                <button ng-click="login(loginEmail, loginPassword);" class="btn btn-default btn-save" ng-disabled="isLoginInputValid()">Accedi</button>
-                                <a href="javascript:void(0);" ng-click="forgotPassword()" class="recover" >Recupera la password</a>
-                            </div>
-                        </form>
-                    </div>
+  </div>
+  <div class="container top-buffer bottom-buffer">
+    <div class="row">
+      <div
+        class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 bag-item clearfix"
+      >
+        <div class="col-sm-12 no-padding">
+          <p
+            class="subtitle text-center"
+            ng-bind-html="'checkout_not_logged_sottotitolo' | translate"
+          ></p>
+          <h3
+            class="title-tertiary text-center"
+            ng-bind-html="'chiedi_se_cliente' | translate"
+          ></h3>
+          <div id="collapseOne" class="panel-collapse collapse">
+            <form style="margin-bottom: 20px;">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="inputEmail" class="sr-only hidden"></label>
+                  <input
+                    type="email"
+                    ng-model="loginEmail"
+                    class="form-control"
+                    id="inputEmail"
+                    placeholder="Indirizzo Email"
+                  />
                 </div>
-            </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="inputPassword" class="sr-only hidden"></label>
+                  <input
+                    ng-model="loginPassword"
+                    type="password"
+                    class="form-control"
+                    id="inputPassword"
+                    placeholder="Password"
+                  />
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <label
+                  class="checkbox-container text-left top-buffer bottom-buffer"
+                >
+                  <small ng-bind-html="'accedi_ricordami' | translate"></small>
+                  <input type="checkbox" ng-model="remember.value" />
+                  <span class="checkmark"></span>
+                </label>
+                <button
+                  ng-click="login(loginEmail, loginPassword);"
+                  class="btn btn-default btn-save"
+                  ng-bind-html="'accedi' | translate"
+                ></button>
+                <a
+                  href="javascript:void(0);"
+                  ng-click="forgotPassword()"
+                  class="recover"
+                  ng-bind-html="'recupera_password' | translate"
+                ></a>
+              </div>
+            </form>
+          </div>
         </div>
+      </div>
     </div>
-    <div class="container top-buffer bottom-buffer ">
-        <div class="row ">
-            <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 bag-item clearfix">
-                <div class="col-sm-6 no-padding">
-                    
-                    <div class="col-sm-12">
-                        <h3 class="title-secondary">Dati dell'ordine</h3>
-                    </div>
-                    <form>
-                        
-                        <div class="col-lg-12 clearfix">
-                            <div class="form-group">
-                                <label for="inputNome" class="sr-only hidden"></label>
-                                <input ng-model="nome" type="text" class="form-control" id="inputNome" placeholder="Nome">
-                            </div>
-                            <div class="form-group">
-                                <label for="inputCognome" class="sr-only hidden"></label>
-                                <input ng-model="cognome" type="text" class="form-control" id="inputCognome" placeholder="Cognome">
-                            </div>
-                            <div class="form-group">
-                                <label for="inputEmailReg" class="sr-only hidden"></label>
-                                <input ng-model="emailSign" type="email" class="form-control" id="inputEmailReg" placeholder="Indirizzo Email">
-                            </div>
-                            <!-- blocco condizionale al login di cui sopra-->
-                            <div class="form-group">
-                                <label for="inputPasswordReg" class="sr-only hidden"></label>
-                                <input ng-model="passwordSign" type="password" class="form-control" id="inputPasswordReg" placeholder="Password (lung. minima 6 caratteri)">
-                                <span class="error text-danger" ng-show="isPasswordValid()">
-                                    Password troppo corta
-                                </span>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputRepeatPasswordReg" class="sr-only hidden"></label>
-                                <input ng-model="passwordSignRep" type="password" class="form-control" id="inputRepeatPasswordReg" placeholder="Ripeti Password">
-                                <span class="error text-danger" ng-show="isPasswordRepValid()">
-                                    La password non coincide
-                                </span>
-                            </div>
-                            <!-- -->
+  </div>
+  <div class="container top-buffer bottom-buffer">
+    <div class="row">
+      <div
+        class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 bag-item clearfix"
+      >
+        <div class="col-sm-6 no-padding">
+          <div class="col-sm-12">
+            <h3
+              class="title-secondary"
+              ng-bind-html="'checkout_not_logged_dati_ordine' | translate"
+            ></h3>
+          </div>
+          <form>
+            <div class="col-lg-12 clearfix">
+              <div class="form-group">
+                <label for="inputNome" class="sr-only hidden"></label>
+                <input
+                  ng-model="nome"
+                  type="text"
+                  class="form-control"
+                  id="inputNome"
+                  placeholder="{{ 'campo_nome' | translate }}"
+                />
+              </div>
+              <div class="form-group">
+                <label for="inputCognome" class="sr-only hidden"></label>
+                <input
+                  ng-model="cognome"
+                  type="text"
+                  class="form-control"
+                  id="inputCognome"
+                  placeholder="{{ 'campo_cognome' | translate }}"
+                />
+              </div>
+              <div class="form-group">
+                <label for="inputEmailReg" class="sr-only hidden"></label>
+                <input
+                  ng-model="emailSign"
+                  type="email"
+                  class="form-control"
+                  id="inputEmailReg"
+                  placeholder="{{ 'campo_email' | translate }}"
+                />
+              </div>
+              <!-- blocco condizionale al login di cui sopra-->
+              <div class="form-group">
+                <label for="inputPasswordReg" class="sr-only hidden"></label>
+                <input
+                  ng-model="passwordSign"
+                  type="password"
+                  class="form-control"
+                  id="inputPasswordReg"
+                  placeholder="{{ 'campo_password_min' | translate }}"
+                />
+                <span class="error text-danger" ng-show="isPasswordValid()">
+                    Password troppo corta
+                </span>
+              </div>
+              <div class="form-group">
+                <label
+                  for="inputRepeatPasswordReg"
+                  class="sr-only hidden"
+                ></label>
+                <input
+                  ng-model="passwordSignRep"
+                  type="password"
+                  class="form-control"
+                  id="inputRepeatPasswordReg"
+                  placeholder="{{ 'campo_ripeti_password' | translate }}"
+                />
+                <span class="error text-danger" ng-show="isPasswordRepValid()">
+                    La password non coincide
+                </span>
+              </div>
+              <!-- -->
 
-                            <div class="form-group">
-                                <label for="inputNome" class="sr-only hidden"></label>
-                                <input ng-model="nomeSpe" type="text" class="form-control" id="nomeSpe" placeholder="Nome e Cognome per spedizione">
-                            </div>
-                            <div class="form-group">
-                                <label for="inputCognome" class="sr-only hidden"></label>
-                                <input ng-model="indSpe" type="text" class="form-control" id="indSpe1" placeholder="Via, Numero Civico">
-                            </div>
-                            <div class="form-group">
-                                <label for="inputEmailReg" class="sr-only hidden"></label>
-                                <input ng-model="cittaSpe" type="text" class="form-control" id="cittaSpe" placeholder="Citt&agrave; (Provincia)">
-                            </div>
-                            <div class="form-group">
-                                <label for="capSpe" class="sr-only hidden"></label>
-                                <input ng-model="capSpe" type="text" class="form-control" id="capSpe" placeholder="CAP" maxlength="5">
-                            </div>
-                            <label class="checkbox-container text-left top-buffer">
-                                <small>Voglio iscrivermi alla newsletter</small>
-                                <input type="checkbox" ng-model="newsletter">
-                                <span class="checkmark"></span>
-                            </label>
-                             
-                            
-                        </div>
-                    </form>
-                </div>
-                <div class="col-sm-6 ">
-                    <!--<div class="order-state one summary checkout">
-                        <h4 class="title-tertiary ">Informazioni di contatto e consegna</h4>
+              <div class="form-group">
+                <label for="inputNome" class="sr-only hidden"></label>
+                <input
+                  ng-model="nomeSpe"
+                  type="text"
+                  class="form-control"
+                  id="nomeSpe"
+                  placeholder="{{ 'campo_nome_spedizione' | translate }}"
+                />
+              </div>
+              <div class="form-group">
+                <label for="inputCognome" class="sr-only hidden"></label>
+                <input
+                  ng-model="indSpe"
+                  type="text"
+                  class="form-control"
+                  id="indSpe1"
+                  placeholder="{{ 'campo_indirizzo_spedizione' | translate }}"
+                />
+              </div>
+              <div class="form-group">
+                <label for="inputEmailReg" class="sr-only hidden"></label>
+                <input
+                  ng-model="cittaSpe"
+                  type="text"
+                  class="form-control"
+                  id="cittaSpe"
+                  placeholder="{{ 'campo_citta_spedizione' | translate }}"
+                />
+              </div>
+              <div class="form-group">
+                <label for="capSpe" class="sr-only hidden"></label>
+                <input
+                  ng-model="capSpe"
+                  type="text"
+                  class="form-control"
+                  id="capSpe"
+                  placeholder="{{ 'campo_cap_spedizione' | translate }}"
+                  maxlength="5"
+                />
+              </div>
+              <label class="checkbox-container text-left top-buffer">
+                <small
+                  ng-bind-html="'registrati_newsletter' | translate"
+                ></small>
+                <input type="checkbox" ng-model="newsletter" />
+                <span class="checkmark"></span>
+              </label>
+            </div>
+          </form>
+        </div>
+        <div class="col-sm-6">
+          <!-- <div class="order-state one summary checkout">
+                        <h4 class="title-tertiary " ng-bind-html="'checkout_info_consegna' | translate"></h4>
                         <hr>
-                    	<div class="shipment-info" ng-show="canBuy()">
+                        <div class="shipment-info" ng-show="canBuy()">
                             <h5>{{getNomeECognome()}}<br>{{getIndirizzoSpedizione()}} - {{getCittaSpedizione()}} - {{getCAPSpedizione()}}</h5>
                         </div>
                         <div class="order-buttons top-buffer text-center" ng-hide="canBuy()">
-                            <span style="color: #c00"><b>Non si puo' procedere all'acquisto,<br>mancano i dati di spedizione</b></span><p class="top-buffer"><a href="javascript:void(0);" ng-click="inserisciIndirizzoSpedizione()" class="btn btn-action btn-block"><b>aggiungi</b></a></p>
+                            <span style="color: #c00" ng-bind-html="'checkout_info_consegna_errore' | translate"></span>
+                            <p class="top-buffer"><a href="javascript:void(0);" ng-click="inserisciIndirizzoSpedizione()" class="btn btn-action btn-block"><b ng-bind-html="'aggiungi' | translate"></b></a></p>
                         </div>
                     </div>-->
-                    <div class="col-sm-12">
-                        <h3 class="title-secondary">&nbsp;</h3>
-                    </div>
-                    <div class="order-state one summary checkout">
-                        <h4 class="title-tertiary ">Riepilogo del tuo ordine</h4>
-                        
-                    	<div ng-repeat="conf in ordine.configurazioni" >
-                            <hr>
-	                        <div  class="row">
-	                            <div class="col-sm-12 text-left">
-	                                <h5 ng-if="conf.nome" style="text-transform: uppercase">{{conf.nome}} <small ng-repeat="base in conf.elencoEntita" ng-if="base.categoria == 'modello'">({{base.descrizione.replace('_',' ')}})</small></h5><span class="single-price" style="font-size: 1.3em; bottom: auto; top: 5px;">{{calcolaPrezzoScontato(conf)}}&euro;</span>
-	                                <h5 ng-if="!conf.nome" style="text-transform: uppercase">Senza nome <small ng-repeat="base in conf.elencoEntita" ng-if="base.categoria == 'modello'">({{base.descrizione}})</small></h5><span class="single-price" style="font-size: 1.3em; bottom: auto; top: 5px;">{{calcolaPrezzoScontato(conf)}}&euro;</span>
-                                    <p class="riepilogo-accessori">
-                                            <span ng-repeat="base in conf.elencoEntita" ng-if="base.categoria != 'modello'">
-                                                {{base.categoria.toUpperCase()}}: {{traduciNomiOrdini(base)}}<br>
-                                            </span>
-                                        <!-- Colore : {{getColoreConf(conf)}}<br>
+          <div class="col-sm-12">
+            <h3 class="title-secondary">&nbsp;</h3>
+          </div>
+          <div class="order-state one summary checkout">
+            <h4
+              class="title-tertiary"
+              ng-bind-html="'checkout_riepilogo_ordine' | translate"
+            ></h4>
+
+            <div ng-repeat="conf in ordine.configurazioni">
+              <hr />
+              <div class="row">
+                <div class="col-sm-12 text-left">
+                  <h5 ng-if="conf.nome" style="text-transform: uppercase;">
+                    {{conf.nome}}
+                    <small
+                      ng-repeat="base in conf.elencoEntita"
+                      ng-if="base.categoria == 'modello'"
+                      >({{base.descrizione.replace('_',' ')}})</small
+                    >
+                  </h5>
+                  <span
+                    class="single-price"
+                    style="font-size: 1.3em; bottom: auto; top: 5px;"
+                    >{{calcolaPrezzoScontato(conf)}}&euro;</span
+                  >
+                  <h5 ng-if="!conf.nome" style="text-transform: uppercase;">
+                    Senza nome
+                    <small
+                      ng-repeat="base in conf.elencoEntita"
+                      ng-if="base.categoria == 'modello'"
+                      >({{base.descrizione}})</small
+                    >
+                  </h5>
+                  <span
+                    class="single-price"
+                    style="font-size: 1.3em; bottom: auto; top: 5px;"
+                    >{{calcolaPrezzoScontato(conf)}}&euro;</span
+                  >
+                  <p class="riepilogo-accessori">
+                    <span
+                      ng-repeat="base in conf.elencoEntita"
+                      ng-if="base.categoria != 'modello'"
+                    >
+                      {{base.categoria.toUpperCase()}}:
+                      {{traduciNomiOrdini(base)}}<br />
+                    </span>
+                    <!-- Colore : {{getColoreConf(conf)}}<br>
                                         Iniziali: {{getInizialiConf(conf)}} -->
-                                    </p>
-	                                <!-- <p ng-click="eliminaDaOrdine(conf)" class="remove">elimina <small><i class="unaicon-remove"></i></small></p> -->
-                                </div>          
-                            </div>          
-                        </div>
-                    </div>
-                    <div class="order-state one summary checkout">
-                        <label class="checkbox-container text-left">
-                            Richiedi Fattura <small style="font-weight: normal">(verrai ricontattato per i dati)</small>
-                            <input type="checkbox" value="Richiedi Fattura" ng-model="fattura" ng-change="setRichiediFattura(fattura)" />
-                            <span class="checkmark"></span>
-                        </label>
-                    </div>
-                    <div class="order-state one summary current normal no-border top-buffer bottom-buffer">
-                        <div class="row">
-                            <div class="col-sm-12 text-left">
-                                <span>Subtotale</span>
-                                <span class="single-price"><b>{{subtotale}}&euro;</b></span>
-                            </div>
-                            <div class="col-sm-12 text-left">
-                                <span>spedizione</span>
-                                <span class="single-price"><b>{{costoSpedizione}}&euro;</b></span>
-                            </div>
-                        </div>
-	                    <hr>
-                        <div class="row">
-                            <div class="col-sm-12 text-left">
-                                <span><b>TOTALE</b></span>
-                                <span class="single-price"><b>{{totale}}&euro;</b></span>
-                            </div>
-                        </div>
-                       <hr>
-                    </div>
-                    <div class="order-buttons top-buffer text-center">
-                        <a href="javascript: void(0)"  class="">Informativa sulla privacy</a>
-                        <label class="checkbox-container text-left top-buffer">
-                            <small>Ho preso visione dell’informativa e autorizzo il trattamento dei miei dati secondo quanto in essa riportato.</small>
-                            <input type="checkbox" ng-model="checked">
-                            <span class="checkmark"></span>
-                        </label>
-                        <hr>
-                        <div ng-show="formValido()">
-                            <a href="#" ng-click="registerAndLogin()">PROCEDI</a>
-                        </div>
-                    </div>
-                    <div class="order-buttons top-buffer text-center" ng-hide="canBuy()">
-                        
-                    </div>
+                  </p>
+                  <!-- <p ng-click="eliminaDaOrdine(conf)" class="remove">elimina <small><i class="unaicon-remove"></i></small></p> -->
                 </div>
+              </div>
             </div>
+          </div>
+          <div class="order-state one summary checkout">
+            <h4
+              class="title-tertiary"
+              ng-bind-html="'checkout_riscatta_codice' | translate"
+            ></h4>
+            <input
+              type="text"
+              class="form-control readonly"
+              ng-model="codiceCodiceSconto"
+            /><a
+              href="#"
+              onclick="return false"
+              class="btn btn-block btn-default btn-reverse"
+              ng-click="riscattaCodiceSconto()"
+              ng-bind-html="'riscatta' | translate"
+              >RISCATTA</a
+            >
+          </div>
+          <div class="order-state one summary checkout">
+            <label class="checkbox-container text-left">
+              <span
+                ng-bind-html="'checkout_richiedi_fattura' | translate"
+              ></span>
+              <input
+                type="checkbox"
+                value="Richiedi Fattura"
+                ng-model="fattura"
+                ng-change="setRichiediFattura(fattura)"
+              />
+              <span class="checkmark"></span>
+            </label>
+          </div>
+          <div
+            class="order-state one summary current normal no-border top-buffer bottom-buffer"
+          >
+            <div class="row">
+              <div class="col-sm-12 text-left">
+                <span ng-bind-html="'checkout_subtotale' | translate"></span>
+                <span class="single-price"><b>{{subtotale}}&euro;</b></span>
+              </div>
+              <div class="col-sm-12 text-left" ng-if="applicaSconto">
+                <span ng-bind-html="'checkout_sconto' | translate"></span>
+                <span class="single-price"
+                  ><b>{{percentualeCodiceSconto}}%</b></span
+                >
+              </div>
+              <div class="col-sm-12 text-left" ng-if="applicaSconto">
+                <span
+                  ng-bind-html="'checkout_subtotale_scontato' | translate"
+                ></span>
+                <span class="single-price"
+                  ><b>{{subtotaleSconto}}&euro;</b></span
+                >
+              </div>
+              <div class="col-sm-12 text-left">
+                <span ng-bind-html="'checkout_spedizione' | translate"></span>
+                <span class="single-price"
+                  ><b>{{costoSpedizione}}&euro;</b></span
+                >
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-12 text-left">
+                <span
+                  ><b ng-bind-html="'checkout_totale' | translate"></b
+                ></span>
+                <span class="single-price"><b>{{totale}}&euro;</b></span>
+              </div>
+            </div>
+            <hr />
+          </div>
+          <div class="order-buttons top-buffer text-center">
+            <a
+              href="javascript: void(0)"
+              class=""
+              ng-bind-html="'info_privacy' | translate"
+            ></a>
+            <label class="checkbox-container text-left top-buffer">
+              <small ng-bind-html="'privacy_confirm' | translate"></small>
+              <input type="checkbox" ng-model="checked" />
+              <span class="checkmark"></span>
+            </label>
+            <hr />
+            <div ng-show="canBuy()">
+              <!--<a href="#" class="btn btn-action btn-lg btn-block" ng-click="setCheckout()" style="width:auto;">Completa l'ordine</a>-->
+              <paypal-content info="conf"></paypal-content>
+              <hr />
+              <img
+                src="images/paypal-choice.png"
+                style="max-width: 250px; margin-top: 20px;"
+              />
+            </div>
+          </div>
+          <div
+            class="order-buttons top-buffer text-center"
+            ng-hide="canBuy()"
+          ></div>
         </div>
+      </div>
     </div>
+  </div>
 </div>

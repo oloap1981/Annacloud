@@ -561,16 +561,16 @@ button:active {opacity:1 !important};
 }
 
 .btn-save {
-    /*color: #fff;
+    color: #fff;
     font-weight: 500;
-    background: rgba($brand-color-logo-dark, 0.85);*/
+    background: rgba($brand-color-logo-dark, 0.85);
     font-size: .9em !important;
-    /*border-color: rgba($brand-color-logo-dark, 1);
+    border-color: rgba($brand-color-logo-dark, 1);
     &:hover, &:active, &:focus {
         background: #fff !important;
         color: $brand-primary !important;
         border-color: $brand-primary;
-    }*/
+    }
 }
 
 .btn-transp {
@@ -581,6 +581,12 @@ button:active {opacity:1 !important};
         color: $brand-primary !important;
         border-color: $brand-primary;
     }
+}
+.btn-bigger {
+    font-size: 1.25em;
+    padding-top: 15px;
+    padding-bottom: 15px;
+
 }
 
 .active { // stilizzazione  freccia
@@ -967,7 +973,7 @@ a.link {
     }
 }
 .carrello {
-    margin-right: 18px;
+    //margin-right: 18px;
 }
 
 @media screen and (max-width: $screen-xs-max) {
@@ -1399,6 +1405,10 @@ a.link {
             .text {
                 font-size: 1.5em;
                 font-family: $font-family-sans-serif;
+                &.enfasi {
+                    font-weight: 300;
+                    font-size: 1.75em;
+                }
             }
             @media screen and (max-width: $screen-xs-max) {
                 margin: 3em;
@@ -2158,6 +2168,18 @@ a.link {
 
         }
 
+    }
+    .checklist-bag {
+        padding: 0;
+        li {
+            padding: 5px 0;
+            list-style: square outside none;
+            @media screen and (max-width: $screen-sm) {
+                //list-style: none;
+                text-align: left;
+                margin-left:  15px;
+            }
+        }
     }
 }
 

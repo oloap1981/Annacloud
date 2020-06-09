@@ -1,6 +1,6 @@
 <div class="modal-header ">
     <button type="button" class="close hidden" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h4 class="modal-title">Dai un nome alla tua configurazione</h4>
+    <h4 class="modal-title" ng-bind-html="'modale_nome_configurazione_header' | translate"></h4>
 </div>
 <div class="modal-body">
     <div class="form-group">
@@ -9,6 +9,6 @@
     </div>
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancelConfig()">Annulla</button>
-    <button type="button" class="btn btn-primary" ng-click="okConfig(nomeConfigurazione, true)" ng-disabled="!nome">Salva</button>
+    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancelConfig()" ng-bind-html="'annulla' | translate">Annulla</button>
+    <button type="button" class="btn btn-primary" ng-click="okConfig(nomeConfigurazione, true)" ng-disabled="!nome" ng-bind-html="'salva' | translate"></button>
 </div>

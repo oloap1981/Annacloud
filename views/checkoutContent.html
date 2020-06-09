@@ -2,7 +2,7 @@
     <div class="container top-buffer bottom-buffer ">
         <div class="row">
             <div class="col-sm-12 clearfix top-buffer text-center">
-                <h3 class="title section mot"><span>Checkout</span></h3>
+                <h3 class="title section mot" ng-bind-html="'checkout_titolo' | translate"></h3>
             </div>
         </div>
     </div>
@@ -11,18 +11,18 @@
             <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 bag-item clearfix">
                 <div class="col-sm-12 no-padding ">
                     <div class="order-state one summary checkout">
-                        <h4 class="title-tertiary ">Informazioni di contatto e consegna</h4>
+                        <h4 class="title-tertiary " ng-bind-html="'checkout_info_consegna' | translate"></h4>
                         <hr>
                         <div class="shipment-info" ng-show="canBuy()">
                             <h5>{{getNomeECognome()}}<br>{{getIndirizzoSpedizione()}} - {{getCittaSpedizione()}} - {{getCAPSpedizione()}}</h5>
                         </div>
                         <div class="order-buttons top-buffer text-center" ng-hide="canBuy()">
-                            <span style="color: #c00"><b>Non si puo' procedere all'acquisto,<br>mancano i dati di spedizione</b></span>
-                            <p class="top-buffer"><a href="javascript:void(0);" ng-click="inserisciIndirizzoSpedizione()" class="btn btn-action btn-block"><b>aggiungi</b></a></p>
+                            <span style="color: #c00" ng-bind-html="'checkout_info_consegna_errore' | translate"></span>
+                            <p class="top-buffer"><a href="javascript:void(0);" ng-click="inserisciIndirizzoSpedizione()" class="btn btn-action btn-block"><b ng-bind-html="'aggiungi' | translate"></b></a></p>
                         </div>
                     </div>
                     <div class="order-state one summary checkout">
-                        <h4 class="title-tertiary ">Riepilogo del tuo ordine</h4>
+                        <h4 class="title-tertiary" ng-bind-html="'checkout_riepilogo_ordine' | translate"></h4>
 
                         <div ng-repeat="conf in ordine.configurazioni">
                             <hr>
@@ -43,12 +43,12 @@
                         </div>
                     </div>
                     <div class="order-state one summary checkout">
-                        <label class="checkbox-container">Riscatta il codice</label>
-                        <input type="text" class="form-control readonly" ng-model="codiceCodiceSconto"><a href="#" onclick="return false" class="btn btn-block btn-default btn-reverse" ng-click="riscattaCodiceSconto()">RISCATTA</a>
+                        <h4 class="title-tertiary" ng-bind-html="'checkout_riscatta_codice' | translate"></h4>
+                        <input type="text" class="form-control readonly" ng-model="codiceCodiceSconto"><a href="#" onclick="return false" class="btn btn-block btn-default btn-reverse" ng-click="riscattaCodiceSconto()" ng-bind-html="'riscatta' | translate">RISCATTA</a>
                     </div>
                     <div class="order-state one summary checkout">
                         <label class="checkbox-container text-left">
-                            Richiedi Fattura <small style="font-weight: normal">(verrai ricontattato per i dati)</small>
+                            <span ng-bind-html="'checkout_richiedi_fattura' | translate"></span>
                             <input type="checkbox" value="Richiedi Fattura" ng-model="fattura" ng-change="setRichiediFattura(fattura)" />
                             <span class="checkmark"></span>
                         </label>
@@ -56,26 +56,26 @@
                     <div class="order-state one summary current normal no-border top-buffer bottom-buffer">
                         <div class="row">
                             <div class="col-sm-12 text-left">
-                                <span>Subtotale</span>
+                                <span ng-bind-html="'checkout_subtotale' | translate"></span>
                                 <span class="single-price"><b>{{subtotale}}&euro;</b></span>
                             </div>
                             <div class="col-sm-12 text-left" ng-if="applicaSconto">
-                                <span>Sconto (codice riscattato)</span>
+                                <span ng-bind-html="'checkout_sconto' | translate"></span>
                                 <span class="single-price"><b>{{percentualeCodiceSconto}}%</b></span>
                             </div>
                             <div class="col-sm-12 text-left" ng-if="applicaSconto">
-                                <span>Subtotale scontato</span>
+                                <span ng-bind-html="'checkout_subtotale_scontato' | translate"></span>
                                 <span class="single-price"><b>{{subtotaleSconto}}&euro;</b></span>
                             </div>
                             <div class="col-sm-12 text-left">
-                                <span>spedizione</span>
+                                <span ng-bind-html="'checkout_spedizione' | translate"></span>
                                 <span class="single-price"><b>{{costoSpedizione}}&euro;</b></span>
                             </div>
                         </div>
                         <hr>
                         <div class="row">
                             <div class="col-sm-12 text-left">
-                                <span><b>TOTALE</b></span>
+                                <span><b ng-bind-html="'checkout_totale' | translate"></b></span>
                                 <span class="single-price"><b>{{totale}}&euro;</b></span>
                             </div>
                         </div>

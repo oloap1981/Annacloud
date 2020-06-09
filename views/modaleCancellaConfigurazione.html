@@ -1,8 +1,8 @@
 <div class="modal-header ">
     <button type="button" class="close hidden" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h4 class="modal-title">Cambiando modello le modifiche all'attuale configurazione non salvate andranno perse. Procedere?</h4>
+    <h4 class="modal-title" ng-bind-html="'modale_cancella_configurazione_header' | translate"></h4>
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancel()">Annulla</button>
-    <button type="button" class="btn btn-primary" ng-click="ok()">Procedi</button>
+    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancel()" ng-bind-html="'annulla' | translate"></button>
+    <button type="button" class="btn btn-primary" ng-click="ok()" ng-bind-html="'procedi' | translate"></button>
 </div>

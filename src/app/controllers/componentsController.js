@@ -1,4 +1,4 @@
-angular.module("applicationModule").controller("componentsController", ["$scope", "MAIL", "EMAIL_CONFIGURATION", "loginService", "logService", "listeService", "carrelloService", "$location", "$uibModal", "$uibModalStack", "jwtHelper", "LOG_TYPES", "ROLES", "ORDERSTATUS", "$translate", "$route", "$q", "$rootScope", function ($scope, MAIL, EMAIL_CONFIGURATION, loginService, logService, listeService, carrelloService, $location, $uibModal, $uibModalStack, jwtHelper, LOG_TYPES, ROLES, ORDERSTATUS, $translate, $route, $q, $rootScope) {
+angular.module("applicationModule").controller("componentsController", ["$scope", "MAIL", "EMAIL_CONFIGURATION", "loginService", "logService", "listeService", "carrelloService", "$location", "$uibModal", "$uibModalStack", "jwtHelper", "LOG_TYPES", "ROLES", "ORDERSTATUS", "$translate", "$route", "$q", "$rootScope", "$timeout", function ($scope, MAIL, EMAIL_CONFIGURATION, loginService, logService, listeService, carrelloService, $location, $uibModal, $uibModalStack, jwtHelper, LOG_TYPES, ROLES, ORDERSTATUS, $translate, $route, $q, $rootScope, $timeout) {
 
 	$scope.deferred = $q.defer();
 	$scope.promise = $scope.deferred.promise;
@@ -42,14 +42,24 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 	$scope.changePasswordEmail = "";
 	$scope.nextPath = "";
 	$scope.pendingCheckout = false;
-	$scope.richiediFattura = false;
+    $scope.richiediFattura = false;
+    
+    $scope.presentaNewsletter = true;
 
+    $scope.changeLanguage = function (lang) {
+        $translate.use(lang);
+        
+        $route.reload();
+    };
 
-	$scope.changeLanguage = function(lang) {
-		$translate.use(lang);
-		$route.reload();
-	};
-
+    $scope.getCurrentLanguage = function() {
+        var lang = $translate.proposedLanguage();
+        if(lang == undefined) {
+            return 'it';
+        }
+        return lang;
+    };
+    
 	$scope.replaceOrigin = function (oldUrl) {
 		return oldUrl.replace("unaduna-images-bucket.s3.eu-central-1.amazonaws.com", "d3ijrzg42gep0a.cloudfront.net");
 	};
@@ -1033,7 +1043,23 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 			templateUrl: 'views/modalePerEmailCambioPassword.html',
 			scope: $scope
 		});
-	};
+    };
+    
+    $scope.openNewsletter = function () {
+        $scope.presentaNewsletter = false;
+        $scope.modalInstance = $uibModal.open({
+            animation: true,
+            templateUrl: 'views/modalePerInvioNewsletter.html',
+            scope: $scope,
+
+        });
+        
+    };
+
+    $timeout(function () { 
+        if ($scope.presentaNewsletter)
+            $scope.openNewsletter();
+    }, 15000);
 
 	$scope.okEmail = function (email) {
 		$scope.setChangePasswordEmail(email);
@@ -1046,7 +1072,6 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 	};
 
 	$scope.openConfigNameModal = function (oldName) {
-
 		$scope.modalInstance = $uibModal.open({
 			animation: true,
 			templateUrl: 'views/modaleNomeConfigurazione.html',

@@ -130,17 +130,22 @@
 								<li ng-show="user!==null" class="utente">
 									<a href="javascript:void(0)" id="user-menu" data-toggle="dropdown"><i class="unaicon-login"></i> <span class="hidden-xs"></span></a>
 									<ul class="dropdown-menu" aria-labelledby="user-menu">
-										<li ng-hide="isCurrentUserAdmin()"><a href="ordini">I tuoi Ordini</a></li>
-										<li ng-show="isCurrentUserAdmin()"><a href="admin-ordini">Amministrazione Ordini</a></li>
-										<li ng-show="isCurrentUserAdmin()"><a href="admin-clienti">Amministrazione Clienti</a></li>
-										<li ng-show="isCurrentUserAdmin()"><a href="admin-codicisconto">Amministrazione CodiciSconto</a></li>
-										<li><a href="profilo">Profilo</a></li>
-										<li><a href="logout" ng-click="logOut()">Esci</a></li>
+										<li ng-hide="isCurrentUserAdmin()"><a href="ordini" ng-bind-html="'menu_ordini' | translate"></a></li>
+										<li ng-show="isCurrentUserAdmin()"><a href="admin-ordini" ng-bind-html="'menu_amm_ordini' | translate"></a></li>
+										<li ng-show="isCurrentUserAdmin()"><a href="admin-clienti" ng-bind-html="'menu_amm_clienti' | translate"></a></li>
+										<li ng-show="isCurrentUserAdmin()"><a href="admin-codicisconto" ng-bind-html="'menu_amm_codici_sconto' | translate"></a></li>
+										<li><a href="profilo" ng-bind-html="'profilo' | translate">Profilo</a></li>
+										<li><a href="logout" ng-click="logOut()" ng-bind-html="'esci' | translate"></a></li>
 										
 									</ul>
 								</li>
+<<<<<<< HEAD
 								<li ng-show="user == null" class="utente">
 									<a href="accedi" id="user-menu"><i class="unaicon-login"></i> <span class="hidden-xs">accedi</span></a>
+=======
+								<li ng-show="user==null" class="utente">
+									<a href="accedi" id="user-menu"><i class="unaicon-login"></i> <span class="hidden-xs" ng-bind-html="'accedi' | translate"></span></a>
+>>>>>>> d92e0e286c3a87e4eb21f625d51c6882cccf76fc
 								</li>
 								<li ng-show="user != null" class="favoriti">
 									<a href="preferiti"><i class="unaicon-favourite"></i> <span class="hidden-xsx" ng-cloak>({{preferiti.length}})</span></a>
@@ -148,19 +153,17 @@
 								<li class="carrello" ng-hide="isCurrentUserAdmin()">
 									<a href="carrello"><i class="unaicon-cart"></i> <span class="hidden-xsx" ng-cloak>({{getCarrello().length}})</span></a>
 								</li>
-								<li><a href="" ng-click="changeLanguage('en')">inglese</a></li>
-								<li><a href="" ng-click="changeLanguage('it')">italiano</a></li>
+								<li><a href="" ng-click="changeLanguage('en')" ng-if="getCurrentLanguage() == 'it'">en</a></li>
+								<li><a href="" ng-click="changeLanguage('it')" ng-if="getCurrentLanguage() == 'en'">it</a></li>
 							</ul>
 						</div>
 						<div class="collapse navbar-collapse">
 							<ul class="nav navbar-nav navbar-left">
 								<li ng-show="user!==null">
-									<p class="navbar-text">Benvenuto, <strong ng-cloak>{{nome + " " + cognome}}</strong><strong ng-show="isCurrentUserAdmin()"> - AMMINISTRATORE</strong> - <a href="checkout-register">checkout</a></p>
-                                    
-                                    <!-- {{user.username}} -->
+									<p class="navbar-text"><span ng-bind-html="'welcome' | translate"></span>, <strong ng-cloak>{{nome + " " + cognome}}</strong><strong ng-show="isCurrentUserAdmin()"> - AMMINISTRATORE</strong> - <a href="checkout-register">checkout</a></p>
 								</li>
 								<li ng-show="user==null">
-									<p class="navbar-text">Benvenuto, <strong>accedi al tuo profilo</strong> o <strong>crea il tuo account</strong> - <a href="checkout-register">checkout</a></p>
+									<p class="navbar-text" ng-bind-html="'welcome_not_logged' | translate"></p>
 								</li>
 							</ul>
 						</div>
@@ -171,16 +174,6 @@
 				<div class="container">
 					<div class="collapse navbar-collapse navbar-collapse-mobile navbar-ex1-collapse">
 						<div class="hidden-xs main-navbarBACK">
-							<!--<div class="col-sm-4">
-								<ul class="nav navbar-nav navbar-nav-flex">
-									<li>
-										<a href="configura" class="primary" data-toggle="dropdown">Crea</a>
-									</li>
-									<li>
-										<a href="esperienza" class="primary">Scopri</a>
-									</li>
-								</ul>
-							</div>-->
 							<div class="col-sm-3">
 								<ul class="nav navbar-nav navbar-nav-flex">
 									<li>
@@ -191,56 +184,39 @@
 							<div class="col-sm-9">
 								<ul class="nav navbar-nav navbar-nav-flex">
 									<li>
-										<a href="configura" class="primary">Configo!</a>
+										<a href="configura" class="primary" ng-bind-html="'menu_voice_configo' | translate"></a>
 									</li>
 									<li>
-										<a href="shopping" class="primary">Shop</a>
+										<a href="shopping" class="primary" ng-bind-html="'menu_voice_shop' | translate"></a>
 									</li>
 									<li>
-										<a href="cloud-land" class="primary">Cloud Land</a>
+										<a href="cloud-land" class="primary" ng-bind-html="'menu_voice_cloudland' | translate"></a>
 									</li>
-									<!--<li>
-										<a href="chi-siamo" class="primary">Chi Siamo</a>
-									</li>-->
 									<li>
-										<a href="contatti" class="primary">Contattaci</a>
+										<a href="contatti" class="primary" ng-bind-html="'menu_voice_contatti' | translate"></a>
 									</li>
 									 <li>
-										<a href="https://blog.annacloud.it/" class="primary">Blog</a>
+										<a href="https://blog.annacloud.it/" class="primary" ng-bind-html="'menu_voice_blog' | translate"></a>
 									</li> 
 								</ul>
 							</div>
 						</div>
 						<ul class="nav navbar-nav mobile-menu visible-xs-block">
 							<li>
-								<a href="configura" class="">Configo!</a>
-								<ul class="dropdown-menu hidden" aria-labelledby="user-menu">
-									<li><a href="accedi" ng-click="setAccesso()">Come funziona</a></li>
-									<li><a href="configura" ng-click="setConfigurator()">Configura</a></li>
-								</ul>
+								<a href="configura" class="" ng-bind-html="'menu_voice_configo' | translate"></a>
 							</li>
 							<li>
-								<a href="shopping" class="">Shop</a>
+								<a href="shopping" class="" ng-bind-html="'menu_voice_shop' | translate"></a>
 							</li>
 							<li>
-								<a href="cloud-land" class="">Cloud Land</a>
+								<a href="cloud-land" class=""ng-bind-html="'menu_voice_cloudland' | translate"></a>
 							</li>
 							<li>
-								<a href="https://blog.annacloud.it" class="">Blog</a>
+								<li><a href="contatti" ng-bind-html="'menu_voice_contatti' | translate"></a></li>
 							</li>
 							<li>
-								<li><a href="contatti">Contatti</a></li>
+								<a href="https://blog.annacloud.it" class=""ng-bind-html="'menu_voice_blog' | translate"></a>
 							</li>
-							<!--<li>
-								<a href="chi-siamo" class="">Chi Siamo</a>
-							</li>
-							<li>
-								<a a href="contatti" class="">Contattaci</a>
-								<ul class="dropdown-menu hidden" aria-labelledby="user-menu">
-									<li><a href="team">Team</a></li>
-									<li><a href="contatti">Contatti</a></li>
-								</ul>
-							</li>-->
 						</ul>
 					</div>
 				</div>
@@ -261,20 +237,20 @@
 						</p>
 					</div>
 					<div class="col-md-2 col-sm-3 hidden-xs">
-						<h3><a href="configura" class="">Configo!</a></h3>
+						<h3><a href="configura" class="" ng-bind-html="'menu_voice_configo' | translate"></a></h3>
 						
 					</div>
 					<div class="col-md-2 col-sm-3 hidden-xs">
 						<!--<h3>Atelier</h3>-->
-						<h3><a href="scopri" class="">Cloud Land</a></h3>
+						<h3><a href="scopri" class="" ng-bind-html="'menu_voice_configo' | translate"></a></h3>
 						
 					</div>
 					<div class="col-md-2 col-sm-3 hidden-xs">
-						<h3><a href="https://blog.annacloud.it" class="">Blog</a></h3>
+						<h3><a href="https://blog.annacloud.it" class="" ng-bind-html="'menu_voice_configo' | translate"></a></h3>
 						
 					</div>
 					<div class="col-md-2 col-sm-3">
-						<h3>Seguici su:</h3>
+						<h3 ng-bind-html="'seguici_su' | translate"></h3>
 						<p class="social">
 							<a href="https://www.facebook.com/annacloud.bag/" target="_blank"><i class="unaicon-facebook"></i></a>&nbsp;
 							<!--<a href="javscript:void(0);"><i class="unaicon-twitter"></i></a>&nbsp;-->
