@@ -14,22 +14,29 @@ angular.module("applicationModule").controller("checkoutController", ["$scope", 
 
 		$scope.initCheckOut = function () {
 
-			$scope.ordine = $scope.ordineInCorso;
+			// $scope.ordine = $scope.ordineInCorso;
 			$scope.subtotale = $scope.calcolaPrezzoOrdine($scope.ordineInCorso);
-			$scope.subtotaleSconto = $scope.calcolaPrezzoOrdineFinale($scope.ordine);
+			$scope.subtotaleSconto = $scope.calcolaPrezzoOrdineFinale($scope.ordineInCorso);
 			$scope.costoSpedizione = $scope.getCostoSpedizione();
 			$scope.totale = $scope.subtotaleSconto + $scope.costoSpedizione;
 
-			// if ($scope.getOrdineInCorso() == null || $scope.getOrdineInCorso() == undefined) {
+			$scope.promise.then(function() {
+				$scope.subtotale = $scope.calcolaPrezzoOrdine($scope.ordineInCorso);
+				$scope.subtotaleSconto = $scope.calcolaPrezzoOrdineFinale($scope.ordineInCorso);
+				$scope.costoSpedizione = $scope.getCostoSpedizione();
+				$scope.totale = $scope.subtotaleSconto + $scope.costoSpedizione;
+			});
+
+			// if ($scope.ordineInCorso == null || $scope.ordineInCorso == undefined) {
 			// 	$scope.openMessageModal("non ci sono ordini da processare");
 			// 	$scope.changePath('/preferiti');
-			// } else if ($scope.getOrdineInCorso().configurazioni == undefined || $scope.getOrdineInCorso().configurazioni == null || $scope.getOrdineInCorso().configurazioni.length == 0) {
+			// } else if ($scope.ordineInCorso.configurazioni == undefined || $scope.ordineInCorso.configurazioni == null || $scope.ordineInCorso.configurazioni.length == 0) {
 			// 	$scope.openMessageModal("l'ordine è vuoto");
 			// 	$scope.changePath('/preferiti');
 			// } else {
 			// 	$scope.ordine = $scope.getOrdineInCorso();
-			// 	$scope.subtotale = $scope.calcolaPrezzoOrdine($scope.ordine);
-			// 	$scope.subtotaleSconto = $scope.calcolaPrezzoOrdineFinale($scope.ordine);
+			// 	$scope.subtotale = $scope.calcolaPrezzoOrdine($scope.ordineInCorso);
+			// 	$scope.subtotaleSconto = $scope.calcolaPrezzoOrdineFinale($scope.ordineInCorso);
 			// 	$scope.costoSpedizione = $scope.getCostoSpedizione();
 			// 	$scope.totale = $scope.subtotaleSconto + $scope.costoSpedizione;
 			// }

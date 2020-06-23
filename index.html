@@ -139,13 +139,8 @@
 										
 									</ul>
 								</li>
-<<<<<<< HEAD
-								<li ng-show="user == null" class="utente">
-									<a href="accedi" id="user-menu"><i class="unaicon-login"></i> <span class="hidden-xs">accedi</span></a>
-=======
 								<li ng-show="user==null" class="utente">
 									<a href="accedi" id="user-menu"><i class="unaicon-login"></i> <span class="hidden-xs" ng-bind-html="'accedi' | translate"></span></a>
->>>>>>> d92e0e286c3a87e4eb21f625d51c6882cccf76fc
 								</li>
 								<li ng-show="user != null" class="favoriti">
 									<a href="preferiti"><i class="unaicon-favourite"></i> <span class="hidden-xsx" ng-cloak>({{preferiti.length}})</span></a>

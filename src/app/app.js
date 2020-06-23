@@ -257,7 +257,7 @@ app.config(['$routeProvider', '$translateProvider', '$translatePartialLoaderProv
 	$translateProvider.useSanitizeValueStrategy('sanitizeParameters');
 	$translateProvider.preferredLanguage('it');
 	$translateProvider.useLoader('$translatePartialLoader', {
-		urlTemplate: 'https://s3.eu-central-1.amazonaws.com/unaduna-resources-bucket/i18n/{part}/{lang}.json'
+		urlTemplate: 'https://s3.eu-central-1.amazonaws.com/unaduna-resources-bucket/i18n/{part}/{lang}_dev.json'
 	});
 
 

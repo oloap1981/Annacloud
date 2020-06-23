@@ -58,7 +58,7 @@
                   <span class="checkmark"></span>
                 </label>
                 <button
-                  ng-click="login(loginEmail, loginPassword);"
+                  ng-click="loginAlreadyRegistered();"
                   class="btn btn-default btn-save"
                   ng-bind-html="'accedi' | translate"
                 ></button>
@@ -353,14 +353,8 @@
               <span class="checkmark"></span>
             </label>
             <hr />
-            <div ng-show="canBuy()">
-              <!--<a href="#" class="btn btn-action btn-lg btn-block" ng-click="setCheckout()" style="width:auto;">Completa l'ordine</a>-->
-              <paypal-content info="conf"></paypal-content>
-              <hr />
-              <img
-                src="images/paypal-choice.png"
-                style="max-width: 250px; margin-top: 20px;"
-              />
+            <div ng-show="formValido()">
+              <a href="#" class="btn btn-action btn-lg btn-block" ng-click="registerAndLogin()" style="width:auto;">Completa l'ordine</a>
             </div>
           </div>
           <div

@@ -1,4 +1,5 @@
-angular.module("applicationModule").controller("componentsController", ["$scope", "MAIL", "EMAIL_CONFIGURATION", "loginService", "logService", "listeService", "carrelloService", "$location", "$uibModal", "$uibModalStack", "jwtHelper", "LOG_TYPES", "ROLES", "ORDERSTATUS", "$translate", "$route", "$q", "$rootScope", "$timeout", function ($scope, MAIL, EMAIL_CONFIGURATION, loginService, logService, listeService, carrelloService, $location, $uibModal, $uibModalStack, jwtHelper, LOG_TYPES, ROLES, ORDERSTATUS, $translate, $route, $q, $rootScope, $timeout) {
+angular.module("applicationModule").controller("componentsController", ["$scope", "MAIL", "EMAIL_CONFIGURATION", "loginService", "logService", "listeService", "carrelloService", "$location", "$uibModal", "$uibModalStack", "jwtHelper", "LOG_TYPES", "ROLES", "ORDERSTATUS", "$translate", "$route", "$q", "$rootScope", "$timeout", 
+	function ($scope, MAIL, EMAIL_CONFIGURATION, loginService, logService, listeService, carrelloService, $location, $uibModal, $uibModalStack, jwtHelper, LOG_TYPES, ROLES, ORDERSTATUS, $translate, $route, $q, $rootScope, $timeout) {
 
 	$scope.deferred = $q.defer();
 	$scope.promise = $scope.deferred.promise;
@@ -129,6 +130,10 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 	};
 
 	$scope.setOrdineInCorso = function (ordineInCorso) {
+		$scope.ordineInCorso = ordineInCorso;
+	};
+
+	$scope.setOrdineInCorsoAsync = function (ordineInCorso) {
 		$scope.ordineInCorso = ordineInCorso;
 	};
 
@@ -1554,13 +1559,15 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 				$scope.salvaOAcquistaDaCookies(carrelloCookies[i]);
 			}
 			carrelloService.svuotaCarrello();
-			$scope.aggiornaOrdine();
+			
 		}
+		return $scope.aggiornaOrdine();
 	};
 
 	$scope.aggiornaOrdine = function() {
+
 		var ordineInCorso = $scope.getOrdineInCorso();
-		if(!ordineInCorso) {
+		if (!ordineInCorso) {
 			ordineInCorso = {}
 		}
 		ordineInCorso.costo = $scope.getTotalAmount();
@@ -1578,7 +1585,6 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		//metto l'ordine in sessione e vado alla pagina di checkout
 		$scope.setOrdineInCorso(ordineInCorso);
 		$scope.deferred.resolve();
-		// $rootScope.$apply();
 	};
 
 	$scope.getTotalAmount = function () {
