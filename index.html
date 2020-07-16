@@ -148,8 +148,8 @@
 								<li class="carrello" ng-hide="isCurrentUserAdmin()">
 									<a href="carrello"><i class="unaicon-cart"></i> <span class="hidden-xsx" ng-cloak>({{getCarrello().length}})</span></a>
 								</li>
-								<li><a href="" ng-click="changeLanguage('en')" ng-if="getCurrentLanguage() == 'it'">en</a></li>
-								<li><a href="" ng-click="changeLanguage('it')" ng-if="getCurrentLanguage() == 'en'">it</a></li>
+								<li ng-if="getCurrentLanguage() == 'it'"><a href="" ng-click="changeLanguage('en')">en</a></li>
+								<li ng-if="getCurrentLanguage() == 'en'"><a href="" ng-click="changeLanguage('it')">it</a></li>
 							</ul>
 						</div>
 						<div class="collapse navbar-collapse">

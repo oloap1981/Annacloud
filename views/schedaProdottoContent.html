@@ -30,13 +30,13 @@
                 <div class="col-sm-6 clearfix bottom-buffer home-content top-buffer">
                     <div class="col-sm-12 base">
                         <h2 class="bag">{{shoppingSelected.nome}}</h2>
-                        <p class="hidden">{{shoppingSelected.descrizioneBreve}}</p>
+                        <!--<p class="hidden">{{shoppingSelected.descrizioneBreve}}</p>-->
                         <h3 class="bag top-buffer bottom-buffer">{{prezzo}} &euro;</h3>
                         <a href="#" class="btn btn-big btn-bigger btn-save" ng-click="shoppingAcquista()" ng-bind-html="'acquista' | translate"></a>
                     </div>
-                    <div class="col-sm-12 base">
-                        <h2 class="section-small left" ng-bind-html="'info' | translate"></h2>
-                        <!--<div ng-bind-html="shoppingSelected.info"></div>-->
+                    <div class="col-sm-12 base"  ng-bind-html="'shop_scheda_dati' | translate">
+                        <!--<h2 class="section-small left" ng-bind-html="'info' | translate"></h2>
+                        <div ng-bind-html="shoppingSelected.info"></div>
                         <p>Un Pratico secchiello realizzata con morbida nappa.</p>
                         <ul class='checklist-bag'>
                             <li>interno foderato con un resistente cotone.</li>
@@ -67,7 +67,7 @@
                             </tbody>
                         </table>
                         <hr>
-                        <p>Made in Italy</p>
+                        <p>Made in Italy</p>-->
                     </div>
                 </div>
             </div>
