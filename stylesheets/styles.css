@@ -13170,6 +13170,10 @@ a.link {
 .slogan-1.paneled span, .slogan-2.paneled span, .slogan-3.paneled span, .slogan-4.paneled span, .slogan-5.paneled span {
   background: rgba(255, 255, 255, 0.65);
   padding: 0.5vw 2vw;
+  line-height: 3.5vw;
+  margin-left: 0 !important;
+}
+.slogan-1.paneled span.slogan-subtitle, .slogan-2.paneled span.slogan-subtitle, .slogan-3.paneled span.slogan-subtitle, .slogan-4.paneled span.slogan-subtitle, .slogan-5.paneled span.slogan-subtitle {
   line-height: 3vw;
 }
 .slogan-1 a, .slogan-2 a, .slogan-3 a, .slogan-4 a, .slogan-5 a {
@@ -13254,7 +13258,7 @@ a.link {
 
 .slogan-2 {
   left: 4vw;
-  top: 4vw;
+  top: 2vw;
   text-align: left;
 }
 @media screen and (max-width: 480px) {
