@@ -1,0 +1,147 @@
+{
+  "carrello": 0,
+  "codice": "1594890880",
+  "descrizione": "Le nostre borse sono realizzate con prodotti dell’economia circolare: la plastica riciclabile al 100% si mescola alla pelle di qualità e conciata in modo green. Il risultato è un prodotto fashion, di tendenza, realizzato con cura dai nostri artigiani toscani e rispettoso dell’ambiente.<br/><br/>La nostra filosofia sposa l’innovazione, la tradizione e l’ecosostenibilità in ogni accessorio.",
+  "descrizioneBreve": "Descrizione dell'oggetto",
+  "elencoEntita": [
+    {
+      "accessori": [
+
+      ],
+      "categoria": "modello",
+      "codice": "7",
+      "descrizione": "shopping1",
+      "nome": "shopping1",
+      "ordine": 0,
+      "prezzo": 139,
+      "prezzoPieno": 159,
+      "tipoEntita": "shopping"
+    }
+  ],
+  "info": "<table><tr><td><span>Corpo:</span></td><td>tessuto ricavato da plastica riciclata 100%</td></tr><tr><td><span>Bande orizzontali:</span></td><td>cvelour colore piombo, tapenade e celyon conciati in modo ecologico</td></tr><tr><td><span>Fodera:</span></td><td>nera in cotone biologico</td></tr><tr><td><span>Tracolla:</span></td><td>velour conciato in modo ecologico colore celyon enastro in cotone organico</td></tr><tr><td><span>Laccio:</span></td><td>in corda di cotone</td></tr><tr><td><span>Etichetta:</span></td><td>prodotta con filati ricavati da bottiglie riciclate</td></tr><tr><td><span>Etichetta tubolare:</span></td><td>prodotta con filati ricavati da bottiglie riciclate e occhiello a vela</td></tr><tr><td><span>Occhielli:</span></td><td>a vela colore canna di fucile</td></tr><tr><td><span>D Ring:</span></td><td>canna di fucile</td></tr><tr><td><span>Moschettoni:</span></td><td>canna di fucile</td></tr><tr><td><span>Anello rettangolare:</span></td><td>canna di fucile</td></tr><tr><td><span>Scorrevole:</span></td><td>canna di fucile</td></tr><tr><td><span>Cerniera e cursore:</span></td><td>colorecanna di fucile</td></tr></table>",
+  "nome": "Anita",
+  "ordineInterfaccia": 0,
+  "thumbnail": "https://unaduna-images-bucket.s3.eu-central-1.amazonaws.com/testshopping/anita-fronte.jpg,https://unaduna-images-bucket.s3.eu-central-1.amazonaws.com/testshopping/anita-retro.jpg",
+  "tipo": "S",
+  "utente": {
+    "email": "annacloud.ordini@gmail.com"
+  }
+}
+
+
+{
+    "carrello": 0,
+    "codice": "1594891226",
+    "descrizione": "Le nostre borse sono realizzate con prodotti dell’economia circolare: la plastica riciclabile al 100% si mescola alla pelle di qualità e conciata in modo green. Il risultato è un prodotto fashion, di tendenza, realizzato con cura dai nostri artigiani toscani e rispettoso dell’ambiente.<br/><br/>La nostra filosofia sposa l’innovazione, la tradizione e l’ecosostenibilità in ogni accessorio.",
+    "descrizioneBreve": "Descrizione dell'oggetto",
+    "elencoEntita": [
+        {
+            "accessori": [],
+            "categoria": "modello",
+            "codice": "7",
+            "descrizione": "shopping1",
+            "nome": "shopping1",
+            "ordine": 0,
+            "prezzo": 139,
+            "prezzoPieno": 159,
+            "tipoEntita": "shopping"
+        }
+    ],
+    "info": "<table><tr><td><span>Corpo:</span></td><td>tessuto ricavato da plastica riciclata 100%</td></tr><tr><td><span>Bande orizzontali:</span></td><td>cvelour colore piombo, tapenade e celyon conciati in modo ecologico</td></tr><tr><td><span>Fodera:</span></td><td>nera in cotone biologico</td></tr><tr><td><span>Tracolla:</span></td><td>velour conciato in modo ecologico colore celyon enastro in cotone organico</td></tr><tr><td><span>Laccio:</span></td><td>in corda di cotone</td></tr><tr><td><span>Etichetta:</span></td><td>prodotta con filati ricavati da bottiglie riciclate</td></tr><tr><td><span>Etichetta tubolare:</span></td><td>prodotta con filati ricavati da bottiglie riciclate e occhiello a vela</td></tr><tr><td><span>Occhielli:</span></td><td>a vela colore canna di fucile</td></tr><tr><td><span>D Ring:</span></td><td>canna di fucile</td></tr><tr><td><span>Moschettoni:</span></td><td>canna di fucile</td></tr><tr><td><span>Anello rettangolare:</span></td><td>canna di fucile</td></tr><tr><td><span>Scorrevole:</span></td><td>canna di fucile</td></tr><tr><td><span>Cerniera e cursore:</span></td><td>colorecanna di fucile</td></tr></table>",
+    "nome": "Nina",
+    "ordineInterfaccia": 0,
+    "thumbnail": "https://unaduna-images-bucket.s3.eu-central-1.amazonaws.com/testshopping/nina-fronte.jpg,https://unaduna-images-bucket.s3.eu-central-1.amazonaws.com/testshopping/nina-retro.jpg",
+    "tipo": "S",
+    "utente": {
+        "email": "annacloud.ordini@gmail.com"
+    }
+}
+
+
+
+{
+    "carrello": 0,
+    "codice": "1594891293",
+    "descrizione": "Le nostre borse sono realizzate con prodotti dell’economia circolare: la plastica riciclabile al 100% si mescola alla pelle di qualità e conciata in modo green. Il risultato è un prodotto fashion, di tendenza, realizzato con cura dai nostri artigiani toscani e rispettoso dell’ambiente.<br/><br/>La nostra filosofia sposa l’innovazione, la tradizione e l’ecosostenibilità in ogni accessorio.",
+    "descrizioneBreve": "Descrizione dell'oggetto",
+    "elencoEntita": [
+        {
+            "accessori": [],
+            "categoria": "modello",
+            "codice": "7",
+            "descrizione": "shopping1",
+            "nome": "shopping1",
+            "ordine": 0,
+            "prezzo": 139,
+            "prezzoPieno": 159,
+            "tipoEntita": "shopping"
+        }
+    ],
+    "info": "<table><tr><td><span>Corpo:</span></td><td>tessuto ricavato da plastica riciclata 100%</td></tr><tr><td><span>Bande orizzontali:</span></td><td>cvelour colore piombo, tapenade e celyon conciati in modo ecologico</td></tr><tr><td><span>Fodera:</span></td><td>nera in cotone biologico</td></tr><tr><td><span>Tracolla:</span></td><td>velour conciato in modo ecologico colore celyon enastro in cotone organico</td></tr><tr><td><span>Laccio:</span></td><td>in corda di cotone</td></tr><tr><td><span>Etichetta:</span></td><td>prodotta con filati ricavati da bottiglie riciclate</td></tr><tr><td><span>Etichetta tubolare:</span></td><td>prodotta con filati ricavati da bottiglie riciclate e occhiello a vela</td></tr><tr><td><span>Occhielli:</span></td><td>a vela colore canna di fucile</td></tr><tr><td><span>D Ring:</span></td><td>canna di fucile</td></tr><tr><td><span>Moschettoni:</span></td><td>canna di fucile</td></tr><tr><td><span>Anello rettangolare:</span></td><td>canna di fucile</td></tr><tr><td><span>Scorrevole:</span></td><td>canna di fucile</td></tr><tr><td><span>Cerniera e cursore:</span></td><td>colorecanna di fucile</td></tr></table>",
+    "nome": "Billie",
+    "ordineInterfaccia": 0,
+    "thumbnail": "https://unaduna-images-bucket.s3.eu-central-1.amazonaws.com/testshopping/billie-fronte.jpg,https://unaduna-images-bucket.s3.eu-central-1.amazonaws.com/testshopping/billie-retro.jpg",
+    "tipo": "S",
+    "utente": {
+        "email": "annacloud.ordini@gmail.com"
+    }
+}
+
+
+
+{
+    "carrello": 0,
+    "codice": "1594891370",
+    "descrizione": "Le nostre borse sono realizzate con prodotti dell’economia circolare: la plastica riciclabile al 100% si mescola alla pelle di qualità e conciata in modo green. Il risultato è un prodotto fashion, di tendenza, realizzato con cura dai nostri artigiani toscani e rispettoso dell’ambiente.<br/><br/>La nostra filosofia sposa l’innovazione, la tradizione e l’ecosostenibilità in ogni accessorio.",
+    "descrizioneBreve": "Descrizione dell'oggetto",
+    "elencoEntita": [
+        {
+            "accessori": [],
+            "categoria": "modello",
+            "codice": "7",
+            "descrizione": "shopping1",
+            "nome": "shopping1",
+            "ordine": 0,
+            "prezzo": 139,
+            "prezzoPieno": 159,
+            "tipoEntita": "shopping"
+        }
+    ],
+    "info": "<table><tr><td><span>Corpo:</span></td><td>tessuto ricavato da plastica riciclata 100%</td></tr><tr><td><span>Bande orizzontali:</span></td><td>cvelour colore piombo, tapenade e celyon conciati in modo ecologico</td></tr><tr><td><span>Fodera:</span></td><td>nera in cotone biologico</td></tr><tr><td><span>Tracolla:</span></td><td>velour conciato in modo ecologico colore celyon enastro in cotone organico</td></tr><tr><td><span>Laccio:</span></td><td>in corda di cotone</td></tr><tr><td><span>Etichetta:</span></td><td>prodotta con filati ricavati da bottiglie riciclate</td></tr><tr><td><span>Etichetta tubolare:</span></td><td>prodotta con filati ricavati da bottiglie riciclate e occhiello a vela</td></tr><tr><td><span>Occhielli:</span></td><td>a vela colore canna di fucile</td></tr><tr><td><span>D Ring:</span></td><td>canna di fucile</td></tr><tr><td><span>Moschettoni:</span></td><td>canna di fucile</td></tr><tr><td><span>Anello rettangolare:</span></td><td>canna di fucile</td></tr><tr><td><span>Scorrevole:</span></td><td>canna di fucile</td></tr><tr><td><span>Cerniera e cursore:</span></td><td>colorecanna di fucile</td></tr></table>",
+    "nome": "Peggy",
+    "ordineInterfaccia": 0,
+    "thumbnail": "https://unaduna-images-bucket.s3.eu-central-1.amazonaws.com/testshopping/peggy-fronte.jpg,https://unaduna-images-bucket.s3.eu-central-1.amazonaws.com/testshopping/peggy-retro.jpg",
+    "tipo": "S",
+    "utente": {
+        "email": "annacloud.ordini@gmail.com"
+    }
+}
+
+
+{
+    "carrello": 0,
+    "codice": "1594891406",
+    "descrizione": "Le nostre borse sono realizzate con prodotti dell’economia circolare: la plastica riciclabile al 100% si mescola alla pelle di qualità e conciata in modo green. Il risultato è un prodotto fashion, di tendenza, realizzato con cura dai nostri artigiani toscani e rispettoso dell’ambiente.<br/><br/>La nostra filosofia sposa l’innovazione, la tradizione e l’ecosostenibilità in ogni accessorio.",
+    "descrizioneBreve": "Descrizione dell'oggetto",
+    "elencoEntita": [
+        {
+            "accessori": [],
+            "categoria": "modello",
+            "codice": "7",
+            "descrizione": "shopping1",
+            "nome": "shopping1",
+            "ordine": 0,
+            "prezzo": 139,
+            "prezzoPieno": 159,
+            "tipoEntita": "shopping"
+        }
+    ],
+    "info": "<table><tr><td><span>Corpo:</span></td><td>tessuto ricavato da plastica riciclata 100%</td></tr><tr><td><span>Bande orizzontali:</span></td><td>cvelour colore piombo, tapenade e celyon conciati in modo ecologico</td></tr><tr><td><span>Fodera:</span></td><td>nera in cotone biologico</td></tr><tr><td><span>Tracolla:</span></td><td>velour conciato in modo ecologico colore celyon enastro in cotone organico</td></tr><tr><td><span>Laccio:</span></td><td>in corda di cotone</td></tr><tr><td><span>Etichetta:</span></td><td>prodotta con filati ricavati da bottiglie riciclate</td></tr><tr><td><span>Etichetta tubolare:</span></td><td>prodotta con filati ricavati da bottiglie riciclate e occhiello a vela</td></tr><tr><td><span>Occhielli:</span></td><td>a vela colore canna di fucile</td></tr><tr><td><span>D Ring:</span></td><td>canna di fucile</td></tr><tr><td><span>Moschettoni:</span></td><td>canna di fucile</td></tr><tr><td><span>Anello rettangolare:</span></td><td>canna di fucile</td></tr><tr><td><span>Scorrevole:</span></td><td>canna di fucile</td></tr><tr><td><span>Cerniera e cursore:</span></td><td>colorecanna di fucile</td></tr></table>",
+    "nome": "Ella",
+    "ordineInterfaccia": 0,
+    "thumbnail": "https://unaduna-images-bucket.s3.eu-central-1.amazonaws.com/testshopping/ella-fronte.jpg,https://unaduna-images-bucket.s3.eu-central-1.amazonaws.com/testshopping/ella-retro.jpg",
+    "tipo": "S",
+    "utente": {
+        "email": "annacloud.ordini@gmail.com"
+    }
+}

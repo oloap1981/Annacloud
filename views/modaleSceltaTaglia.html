@@ -4,15 +4,17 @@
     <hr style="margin-bottom: 0;">
 </div>
 <div class="modal-body">
-    <div ng-repeat="taglia in taglieManagerModal.listaTaglie">
-        <div class="col-xs-6 text-center bags-line" ng-click="scegliTaglia(taglia)">
-        
-            <img src="images/thumb-dummy.jpg" style="width: 100%; height: auto;">
-            <br>
-            {{taglia}} cm
-        </div>        
-    </div>    
+    <div class="col-xs-12 text-center bags-line">
+        <img src="images/thumb-dummy.jpg" style="width: 75%; height: auto;">
+    </div>
 </div>
 <div class="modal-footer">
-    <hr style="margin-top: 0">    
+    <hr>    
+    <div ng-repeat="taglia in taglieManagerModal.listaTaglie">
+        <div class="col-xs-6 text-center bags-line top-buffer" >
+            <button class="btn btn-default" ng-click="scegliTaglia(taglia)">
+            {{taglia}} cm
+            </button>
+        </div>        
+    </div>    
 </div>

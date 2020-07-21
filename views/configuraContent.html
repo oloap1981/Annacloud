@@ -14,15 +14,15 @@
 					<a href="home" class="link" ><i class="fa fa-home hidden"></i><img src="images/logonew-mobile-conf-big.png" class="hidden-xs" style="height: 25px;padding:5px"><img src="images/logonew-mobile-conf-big.png" class=" visible-xs-inline-block" style="height: 15px"></a>
 				</li>
 				<li class="dropdown yamm-fw keep-open">
-					<a id="nuovaConfigurazioneToggle" href="javascript:void(0)" class="active dropdown-toggle active link modello" ng-click="contr.switchShowDropdown()" ng-show="showDropdownButton"><i class="unaicon-bag-reset visible-xs"></i> <span class="hidden-xs">cambia modello</span></a>
+					<a id="nuovaConfigurazioneToggle" href="javascript:void(0)" class="active dropdown-toggle active link modello" ng-click="contr.switchShowDropdown()" ng-show="showDropdownButton"><i class="unaicon-bag-reset visible-xs"></i> <span class="hidden-xs" ng-bind-html="'cambia_modello' | translate"></span></a>
 					<!-- <ul class="dropdown-menu scelta-modelli"> -->
 					<ul class="dropdown-cambio-modello scelta-modelli" ng-show="!showDropdownButton">
 						<li ng-class="{'disabled':modelliAbilitati}" >
 							<div class="yamm-content  scelta-modelli clearfix">
-								<div class="col-xs-12">
-                                    <h3>Ed ecco a voi, Configo! Il nostro amico configuratore 3D!</h3>
+								<div class="col-xs-12" ng-bind-html="'presentazione' | translate">
+                                    <!--<h3>Ed ecco a voi, Configo! Il nostro amico configuratore 3D!</h3>
                                     <h4>Scegli un modello e personalizza la tua borsa</h4>
-									<hr>
+									<hr>-->
 								</div>
 								<div class="col-xs-12 bags-line">
 									<!-- CON IL REPEATER VADO A ELENCARE TUTTI I MODELLI DI BORSA DISPONIBILI  -->
@@ -36,30 +36,29 @@
                                         </a>
 									</div>
                                 </div>
-                                <div class="col-xs-12">
-                                    <hr>
+                                <div class="col-xs-12" ng-bind-html="'sostenibile' | translate">
+                                    <!--<hr>
                                     <h4>Anna Cloud è sostenibile!</h4>
                                     <p>Tutte le borse sono costruite con pelli che hanno le migliori certificazioni ambientali sul mercato. Ci impegniamo ogni giorno per non avere scarti di produzione e invenduti: per questo i nostri artigiani toscani realizzano una borsa alla volta. Quindi, amiche mie, per avere la borsa Anna Cloud dovrete aspettare fino a 7 giorni lavorativi: il minor tempo possibile per avere la massima attenzione per voi e l’ambiente. Vi prometto però che la borsa che vi spediremo non sarà una borsa qualsiasi: sarà un prodotto unico!
 Non sarà la migliore al mondo, ma sarà l’unica borsa di valore del vostro armadio! Wow!
-</p>
+</p>-->
 								</div>
 							</div>
 						</li>
 					</ul>
 				</li>
 			</ul>
-			<h1 class="navbar-brand navbar-left nomargin hidden-xs hidden" id="edit-text">Borsa #1</h1>
 			<ul class="nav navbar-nav navbar-right fixed-navbar-right">
 				<li ng-show="contr.isLogged()" class="utente">
 					<a href="" id="user-menu" data-toggle="dropdown"><i class="unaicon-login"></i> <span class="hidden-xs"></span></a>
 					<ul class="dropdown-menu" aria-labelledby="user-menu">
-						<li ng-hide="isCurrentUserAdmin()"><a href="ordini">I tuoi Ordini</a></li>
-						<li><a href="profilo">Profilo</a></li>
-						<li><a href="logout" ng-click="logOut()">Esci</a></li>
+						<li ng-hide="isCurrentUserAdmin()"><a href="ordini" ng-bind-html="'menu_ordini' | translate"></a></li>
+						<li><a href="profilo"ng-bind-html="'profilo' | translate"></a></li>
+						<li><a href="logout" ng-click="logOut()" ng-bind-html="'esci' | translate"></a></li>
 					</ul>
 				</li>
 				<li ng-show="!contr.isLogged()">
-					<a href="accedi" id="user-menu" ng-click="setAccesso()"><i class="unaicon-login"></i> <span class="hidden-xs">accedi</span></a>
+					<a href="accedi" id="user-menu" ng-click="setAccesso()"><i class="unaicon-login"></i> <span class="hidden-xs"ng-bind-html="'accedi' | translate"></span></a>
 			
 				</li>
 				<li class="favoriti">
@@ -108,17 +107,17 @@ Non sarà la migliore al mondo, ma sarà l’unica borsa di valore del vostro ar
 			<!-- {{getModelSizes(modelloSelezionato)}} cm</p><br> -->
             {{contr.taglieManager.tagliaSelezionata}} cm
         </p>
-        <a href="" class="btn btn-default btn-block" ng-if="contr.taglieManager.listaTaglie.length > 1" ng-click="openSceltaTaglia(contr.taglieManager)">Cambia la taglia</a>
+        <a href="" class="btn btn-default btn-block" ng-if="contr.taglieManager.listaTaglie.length > 1" ng-click="openSceltaTaglia(contr.taglieManager)" ng-bind-html="'cambia_taglia' | translate"></a>
 		<hr>
 		<h3 class="total-price barred">{{contr.priceManager.fullPrice}}&euro;</h3>
 		<h3 class="discount-price ">{{contr.priceManager.price}}&euro;</h3>
-		<p class="price-detail">22% IVA inc.<br>spedizione gratuita<br>consegna in 7 giorni lavorativi</p>
+		<p class="price-detail" ng-bind-html="'dettagli_prezzo' | translate"></p>
 		<div ng-if="contr.isLogged()">
-			<a href="" class="btn btn-default btn-block" ng-click="contr.aggiungiAlCarrello()" ng-hide="isCurrentUserAdmin()">Acquista</a>
-			<a href="" style="padding-top: 5px; display: block;"  ng-click="contr.aggiungiAiPreferiti()"><small>salva</small></a>
+			<a href="" class="btn btn-default btn-block" ng-click="contr.aggiungiAlCarrello()" ng-hide="isCurrentUserAdmin()" ng-bind-html="'acquista' | translate"></a>
+			<a href="" style="padding-top: 5px; display: block;"  ng-click="contr.aggiungiAiPreferiti()"><small  ng-bind-html="'salva' | translate"></small></a>
 		</div>
 		<div ng-if="!contr.isLogged()">
-			<a href="" class="btn btn-default btn-block" ng-click="contr.aggiungiAlCarrello()">Acquista</a>
+			<a href="" class="btn btn-default btn-block" ng-click="contr.aggiungiAlCarrello()" ng-hide="isCurrentUserAdmin()" ng-bind-html="'acquista' | translate"></a>
 			<!-- <a href="" style="padding-top: 5px; display: block;"  ng-click="contr.salvaTempELogin()"><small>Accedi per salvare</small></a> -->
 		</div>
 	</div>
@@ -416,31 +415,31 @@ Non sarà la migliore al mondo, ma sarà l’unica borsa di valore del vostro ar
 				</div>
 				<div ng-if="contr.isLogged()">
 					<div class="col-xs-4 text-center" style="padding:0px;">
-						<a href="" class="btn btn-default" ng-click="contr.aggiungiAlCarrello()" ng-hide="isCurrentUserAdmin()">Acquista</a>
+						<a href="" class="btn btn-default" ng-click="contr.aggiungiAlCarrello()" ng-hide="isCurrentUserAdmin()" ng-bind-html="'acquista' | translate"></a>
 					</div>
 					<div class="col-xs-4 text-center" style="padding-left:5px;">
-						<a href="" class="btn" ng-click="contr.aggiungiAiPreferiti()">Salva</a>
+						<a href="" class="btn" ng-click="contr.aggiungiAiPreferiti()" ng-bind-html="'salva' | translate"></a>
 					</div>
 				</div>
 				<div ng-if="!contr.isLogged()">
 					<div class="col-xs-4 text-center" style="padding-left:0px;">
-                        <a href="" class="btn  btn-default" ng-click="contr.salvaTempELogin()">Acquista</a>
+                        <a href="" class="btn  btn-default" ng-click="contr.salvaTempELogin()" ng-bind-html="'acquista' | translate"></a>
 					</div>
 					<div class="col-xs-4 text-center" style="padding-left:5px;">
-                        <a href="" class="btn" ng-click="contr.salvaTempELogin()" style="position: relative; top: -6px;">Accedi<br><span style="position: absolute; bottom: -5px; left: 0; width: 100%;font-size: 10px;">per salvare</span></a>
+                        <a href="" class="btn" ng-click="contr.salvaTempELogin()" style="position: relative; top: -6px;" ng-bind-html="'accedi_salvare' | translate"></a>
 					</div>
 				</div>
 			</div>
 			<div class="row info ">
 				<div class="col-sm-12 text-center clearfix">
-					<p>22% IVA inc. spedizione gratuita consegna in 7 giorni lavorativi</p>
+					<p ng-bind-html="'dettagli_prezzo_mobile' | translate"></p></p>
 				</div>
 			</div>
 		</div>
 		<div class="container credits-container">
 			<div class="row">
 				<div class="col-sm-12 text-center clearfix">
-					<small>Copyright AnnaCloud 2018</small>
+					<small ng-bind-html="'copyright' | translate"></small>
 				</div>
 			</div>
 		</div>

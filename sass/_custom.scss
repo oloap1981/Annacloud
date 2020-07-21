@@ -1247,13 +1247,26 @@ a.link {
         span {
             &.cta {
                 border: solid 2px $brand-color;
-                background: rgba(#fff, .1) !important;
+                background: rgba(#fff, .3) !important;
                 &:hover {
                     background: rgba($brand-color, 1) !important;
                     color: #fff;
                 }
             }
         }
+    }
+    &.paneled {
+        span {
+
+            background: rgba(255,255,255, .65);
+            padding: 0.5vw 2vw;
+            line-height: 3.5vw;
+            margin-left:0 !important;
+            &.slogan-subtitle {
+                line-height: 3vw;//6vw;
+            }
+        }
+        
     }
     a {
         color: inherit;
@@ -1340,7 +1353,7 @@ a.link {
 .slogan-2 { // temporaneamente l'unico visibile
     //right: 0;
     left: 4vw;
-    top: 4vw;
+    top: 2vw;
     //text-align: right; 
     text-align: left; 
     span {
