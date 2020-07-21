@@ -923,6 +923,27 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		return toReturn.substring(0, toReturn.length-2);
 	}
 
+	$scope.normalizzaConfigurazionePerSalvataggioInBlocco = function(configurazioni) {
+		var userInSession = $scope.getUser();
+		var user = {};
+		if (userInSession != null) {
+			// 	user.email = userInSession.email;
+			var idToken = jwtHelper.decodeToken(userInSession.signInUserSession.idToken.jwtToken);
+			var email = idToken.email;
+			user.email = email;
+		}
+		configurazione.utente = user;
+
+		var configurazioniNormalizzate = [];
+		for(var i = 0; i < configurazioni.length; i++) {
+			var configurazione = configurazioni[i];
+			configurazione.utente = user;
+			configurazioniNormalizzate.push(configurazione);
+		}
+		
+		return configurazioniNormalizzate;
+	}
+
 	$scope.salvaOAcquistaDaCookies = function (configurazione) {
 
 		var userInSession = $scope.getUser();
@@ -1554,6 +1575,10 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 
 	$scope.riversaCarrelloCookiesInUtente = function (email) {
 		var carrelloCookies = carrelloService.getCarrelloCookiesContent();
+
+		var configurazioniNormalizzate = $scope.normalizzaConfigurazionePerSalvataggioInBlocco(carrelloCookies);
+
+
 		if(carrelloCookies != null) {
 			for (var i = 0; i < carrelloCookies.length; i++) {
 				$scope.salvaOAcquistaDaCookies(carrelloCookies[i]);
