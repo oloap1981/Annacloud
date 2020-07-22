@@ -19,10 +19,10 @@ angular.module("applicationModule").controller("schedaProdottoController", ["$sc
 				$scope.showLoader();
 				listeService.getConfigurazione($scope.configurazioneId).then(function (res2) {
 
-
 					if (res2.data.configurazione != undefined) {
 						//$scope.setTempConfigurazione(configurazione);
 						$scope.shoppingSelected = res2.data.configurazione;
+						$scope.shoppingSelected.taglia = 'piccola';
 						$scope.prezzo = "" + $scope.calcolaPrezzoScontato($scope.shoppingSelected);
 						$scope.thumbnails = $scope.shoppingSelected.thumbnail.split(",");
 						$scope.hideLoader();
@@ -111,5 +111,9 @@ angular.module("applicationModule").controller("schedaProdottoController", ["$sc
 			var config = [];
 			config.nome = "";
 			config.descrizioneBreve = "";
+		};
+
+		$scope.scegliTagliaShopping = function (taglia) {
+			$scope.shoppingSelected.taglia = taglia;
 		};
 	}]);

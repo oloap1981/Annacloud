@@ -142,7 +142,7 @@ angular.module("applicationModule").service("UtilFunctionMessagesCreator", funct
 	this.deleteConfigurazioneMessage = function (codice) {
 		var message = {};
 		message.functionName = "UnaDunaDeleteConfigurazione";
-		message.idCodiceSconto = codice;
+		message.codiceConfigurazione = codice;
 		return message;
 	};
 

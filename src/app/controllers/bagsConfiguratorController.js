@@ -503,7 +503,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 		configController.taglieManager.listaTaglie = listaTaglie;
 		configController.taglieManager.nomeModello = modello.nome;
 		if (listaTaglie.length > 0) {
-			configController.taglieManager.tagliaSelezionata = listaTaglie[0];
+			$scope.scegliTaglia(listaTaglie[0]);
 		}
 
 		//carico solo gli accessori relativi al modello scelto

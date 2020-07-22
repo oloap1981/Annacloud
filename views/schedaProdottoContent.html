@@ -34,7 +34,8 @@
                         <h3 class="bag top-buffer bottom-buffer">{{prezzo}} &euro;</h3>
                         <hr>
                         <p ng-bind-html="'taglia' | translate"></p>
-                        <a href="#" class="btn btn-save" style="min-width: auto" ng-bind-html="'piccola' | translate"></a><a href="#" class="btn btn-default" style="min-width: auto" ng-bind-html="'grande' | translate"></a>
+                        <a href="#" ng-click="scegliTagliaShopping('piccola')" class="btn" ng-class="{'btn-save':shoppingSelected.taglia === 'piccola', 'btn-default': shoppingSelected.taglia === 'grande'}" style="min-width: auto" ng-bind-html="'piccola' | translate"></a>
+                        <a href="#" ng-click="scegliTagliaShopping('grande')" class="btn" ng-class="{'btn-save':shoppingSelected.taglia === 'grande', 'btn-default': shoppingSelected.taglia === 'piccola'}" style="min-width: auto" ng-bind-html="'grande' | translate"></a>
                         <hr>
                         <a href="#" class="btn btn-big btn-bigger btn-save" style="text-transform: uppercase;" ng-click="shoppingAcquista()" ng-bind-html="'acquista' | translate"></a>
                     </div>
