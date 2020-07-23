@@ -39,7 +39,8 @@
                         <hr>
                         <a href="#" class="btn btn-big btn-bigger btn-save" style="text-transform: uppercase;" ng-click="shoppingAcquista()" ng-bind-html="'acquista' | translate"></a>
                     </div>
-                    <div class="col-sm-12 base"  ng-bind-html="'shop_scheda_dati' | translate">
+                    <div class="col-sm-12 base" ng-show="shoppingSelected.taglia === 'piccola'"  ng-bind-html="'shop_scheda_dati_piccola' | translate">
+                        
                         <!--<h2 class="section-small left" ng-bind-html="'info' | translate"></h2>
                         <div ng-bind-html="shoppingSelected.info"></div>
                         <p>Un Pratico secchiello realizzata con morbida nappa.</p>
@@ -63,7 +64,7 @@
                                 </tr>
                                 <tr>
                                     <td><span>Altezza:</span></td>
-                                    <td>29cm</td>
+                                    <td>piccola_ 29cm</td>
                                 </tr>
                                 <tr>
                                     <td><span>Diametro:</span></td>
@@ -73,6 +74,9 @@
                         </table>
                         <hr>
                         <p>Made in Italy</p>-->
+                    </div>
+
+                    <div class="col-sm-12 base" ng-show="shoppingSelected.taglia === 'grande'"  ng-bind-html="'shop_scheda_dati_grande' | translate">
                     </div>
                 </div>
             </div>
