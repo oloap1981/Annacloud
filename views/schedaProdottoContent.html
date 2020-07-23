@@ -33,11 +33,11 @@
                         <!--<p class="hidden">{{shoppingSelected.descrizioneBreve}}</p>-->
                         <h3 class="bag top-buffer bottom-buffer">{{prezzo}} &euro;</h3>
                         <hr>
-                        <p ng-bind-html="'taglia' | translate"></p>
-                        <a href="#" ng-click="scegliTagliaShopping('piccola')" class="btn" ng-class="{'btn-save':shoppingSelected.taglia === 'piccola', 'btn-default': shoppingSelected.taglia === 'grande'}" style="min-width: auto" ng-bind-html="'piccola' | translate"></a>
-                        <a href="#" ng-click="scegliTagliaShopping('grande')" class="btn" ng-class="{'btn-save':shoppingSelected.taglia === 'grande', 'btn-default': shoppingSelected.taglia === 'piccola'}" style="min-width: auto" ng-bind-html="'grande' | translate"></a>
+                        <p ng-if="isLogged()" ng-bind-html="'taglia' | translate"></p>
+                        <a ng-if="isLogged()" href="#" ng-click="scegliTagliaShopping('piccola')" class="btn" ng-class="{'btn-save':shoppingSelected.taglia === 'piccola', 'btn-default': shoppingSelected.taglia === 'grande'}" style="min-width: auto" ng-bind-html="'piccola' | translate"></a>
+                        <a ng-if="isLogged()" href="#" ng-click="scegliTagliaShopping('grande')" class="btn" ng-class="{'btn-save':shoppingSelected.taglia === 'grande', 'btn-default': shoppingSelected.taglia === 'piccola'}" style="min-width: auto" ng-bind-html="'grande' | translate"></a>
                         <hr>
-                        <a href="#" class="btn btn-big btn-bigger btn-save" style="text-transform: uppercase;" ng-click="shoppingAcquista()" ng-bind-html="'acquista' | translate"></a>
+                        <a ng-if="isLogged()" href="#" class="btn btn-big btn-bigger btn-save" style="text-transform: uppercase;" ng-click="shoppingAcquista()" ng-bind-html="'acquista' | translate"></a>
                     </div>
                     <div class="col-sm-12 base" ng-show="shoppingSelected.taglia === 'piccola'"  ng-bind-html="'shop_scheda_dati_piccola' | translate">
                         

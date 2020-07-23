@@ -142,10 +142,10 @@
 								<li ng-show="user==null" class="utente">
 									<a href="accedi" id="user-menu"><i class="unaicon-login"></i> <span class="hidden-xs" ng-bind-html="'accedi' | translate"></span></a>
 								</li>
-								<li ng-show="user != null" class="favoriti">
+								<li ng-show="user!=null" class="favoriti">
 									<a href="preferiti"><i class="unaicon-favourite"></i> <span class="hidden-xsx" ng-cloak>({{preferiti.length}})</span></a>
 								</li>
-								<li class="carrello" ng-hide="isCurrentUserAdmin()">
+								<li class="carrello" ng-hide="isCurrentUserAdmin() || user == null">
 									<a href="carrello"><i class="unaicon-cart"></i> <span class="hidden-xsx" ng-cloak>({{getCarrello().length}})</span></a>
 								</li>
 								<li ng-if="getCurrentLanguage() == 'it'"><a href="" ng-click="changeLanguage('en')">en</a></li>

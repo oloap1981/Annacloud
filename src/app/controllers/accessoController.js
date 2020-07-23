@@ -25,7 +25,7 @@ angular.module("applicationModule").controller("accessoController", ["$scope", "
 						$scope.reloadAttributes();
 
 						// se ci sono oggetti nel carrelloCookies li riverso nel carrello utente e svuoto il carrelloCookies
-						$scope.riversaCarrelloCookiesInUtente(email);
+						// $scope.riversaCarrelloCookiesInUtente(email);
 
 						$scope.ricaricaListe(user.eMail, "");
 

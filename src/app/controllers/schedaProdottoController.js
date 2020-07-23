@@ -51,7 +51,8 @@ angular.module("applicationModule").controller("schedaProdottoController", ["$sc
 				$scope.aggiungiAlCarrello();
 			} else {
 				// $scope.salvaTempELogin();
-				$scope.aggiungiConfigurazioneACarrelloCookies();
+				// $scope.aggiungiConfigurazioneACarrelloCookies();
+				$scope.openMessageModal("Per acquistare devi essere loggato");
 			}
 		};
 
