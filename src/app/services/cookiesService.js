@@ -9,7 +9,7 @@ angular.module("applicationModule").service("cookiesService", ["$cookies", "$win
 
     this.addCookie = function(key, value) {
         // $cookies.putObject(key, value);
-        var valueToStore = value
+        var valueToStore = value;
         if (valueToStore == null){
             valueToStore = "";
         } else {
@@ -20,7 +20,7 @@ angular.module("applicationModule").service("cookiesService", ["$cookies", "$win
 
     this.removeCookie = function(key) {
         // $cookies.remove(key);
-        $window.localStorage.removeItem(key)
+        $window.localStorage.removeItem(key);
     };
 
     this.json2string = function(jsonObject) {
