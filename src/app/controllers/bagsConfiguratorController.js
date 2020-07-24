@@ -1748,17 +1748,25 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 						} else {
 							$scope.configurazione.thumbnail = res2.data.imageUrl;
 							$scope.hideLoader();
-							if (configController.isLogged()) {
-								configController.assegnaUtenteAConfigurazione();
-								var configDaSalvare = configController.salvaConfigurazioneTemporanea();
 
-								$scope.salvaOAcquista(configDaSalvare.nome, isCarrello, $scope.askForName);
-								$scope.askForName = false;
-							} else {
-								// metto la config nel carrello cookies
-								configController.addConfigurazioneACarrelloCookies();
-								$scope.changePath('/checkout-register');
-							}							
+							configController.assegnaUtenteAConfigurazione();
+							var configDaSalvare = configController.salvaConfigurazioneTemporanea();
+
+							$scope.salvaOAcquista(configDaSalvare.nome, isCarrello, $scope.askForName);
+							$scope.askForName = false;
+
+
+							// if (configController.isLogged()) {
+							// 	configController.assegnaUtenteAConfigurazione();
+							// 	var configDaSalvare = configController.salvaConfigurazioneTemporanea();
+
+							// 	$scope.salvaOAcquista(configDaSalvare.nome, isCarrello, $scope.askForName);
+							// 	$scope.askForName = false;
+							// } else {
+							// 	// metto la config nel carrello cookies
+							// 	configController.addConfigurazioneACarrelloCookies();
+							// 	$scope.changePath('/checkout-register');
+							// }							
 						}
 					});
 			};
