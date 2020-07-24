@@ -32,10 +32,10 @@
                         <h2 class="bag">{{shoppingSelected.nome}}</h2>
                         <!--<p class="hidden">{{shoppingSelected.descrizioneBreve}}</p>-->
                         <h3 class="bag top-buffer bottom-buffer">{{prezzo}} &euro;</h3>
-                        <hr>
+                        <hr ng-if="isLogged()" >
                         <p ng-bind-html="'taglia' | translate"></p>
-                        <a href="#" ng-click="scegliTagliaShopping('piccola')" class="btn" ng-class="{'btn-save':shoppingSelected.taglia === 'piccola', 'btn-default': shoppingSelected.taglia === 'grande'}" style="min-width: auto" ng-bind-html="'piccola' | translate"></a>
-                        <a href="#" ng-click="scegliTagliaShopping('grande')" class="btn" ng-class="{'btn-save':shoppingSelected.taglia === 'grande', 'btn-default': shoppingSelected.taglia === 'piccola'}" style="min-width: auto" ng-bind-html="'grande' | translate"></a>
+                        <a href="#" ng-click="scegliTagliaShopping('piccola')" class="btn btn-shop" ng-class="{'btn-save':shoppingSelected.taglia === 'piccola', 'btn-default': shoppingSelected.taglia === 'grande'}" style="min-width: auto" ng-bind-html="'piccola' | translate"></a>
+                        <a href="#" ng-click="scegliTagliaShopping('grande')" class="btn btn-shop" ng-class="{'btn-save':shoppingSelected.taglia === 'grande', 'btn-default': shoppingSelected.taglia === 'piccola'}" style="min-width: auto" ng-bind-html="'grande' | translate"></a>
                         <hr>
                         <a ng-if="isLogged()" href="#" class="btn btn-big btn-bigger btn-save" style="text-transform: uppercase;" ng-click="shoppingAcquista()" ng-bind-html="'acquista' | translate"></a>
                         <a ng-if="!isLogged()" href="accedi" class="btn btn-big btn-bigger btn-save" style="text-transform: uppercase;" ng-bind-html="'accedi_per_acquistare' | translate"></a>
