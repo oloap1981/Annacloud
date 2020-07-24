@@ -921,7 +921,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		}
 
 		return toReturn.substring(0, toReturn.length-2);
-	}
+	};
 
 	$scope.normalizzaConfigurazionePerSalvataggioInBlocco = function(configurazioni) {
 		var userInSession = $scope.getUser();
@@ -942,7 +942,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		}
 		
 		return configurazioniNormalizzate;
-	}
+	};
 
 	$scope.salvaOAcquistaDaCookies = function (configurazione) {
 
@@ -1593,7 +1593,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 
 		var ordineInCorso = $scope.getOrdineInCorso();
 		if (!ordineInCorso) {
-			ordineInCorso = {}
+			ordineInCorso = {};
 		}
 		ordineInCorso.costo = $scope.getTotalAmount();
 		ordineInCorso.costiSpedizione = $scope.getCostoSpedizione();
@@ -1632,5 +1632,5 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 				}
 			}, 1000);
 		});
-	}
+	};
 }]);

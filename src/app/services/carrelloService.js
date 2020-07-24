@@ -3,21 +3,21 @@ angular.module("applicationModule").service("carrelloService", ["$http" , "$q", 
 
 	this.getCarrelloCookiesContent = function() {
 		return cookiesService.getCookie('carrello');
-	}
+	};
 
 	this.saveCarrelloCookiesContent = function(carrelloCookies) {
 		cookiesService.addCookie('carrello', carrelloCookies);
-	}
+	};
 
 	this.svuotaCarrello = function() {
 		cookiesService.removeCookie('carrello');
-	}
+	};
 
 	this.addObjectToCarrello = function(object) {
 		var carrelloCookies = cookiesService.getCookie('carrello');
 		if (carrelloCookies == null) {
 			carrelloCookies = [];
-		}
+		};
 
 		var isNomePresente = this.checkNomePresenteCookies(object.nome, carrelloCookies);
 		if (isNomePresente) {
@@ -27,7 +27,7 @@ angular.module("applicationModule").service("carrelloService", ["$http" , "$q", 
 		carrelloCookies.push(object);
 		cookiesService.addCookie('carrello', carrelloCookies);
 		$route.reload();
-	}
+	};
 
 	this.checkNomePresenteCookies = function (configName, carrello) {
 		var presente = false;
@@ -92,5 +92,5 @@ angular.module("applicationModule").service("carrelloService", ["$http" , "$q", 
 			cookiesService.addCookie('carrello', carrelloCookies);
 			$route.reload();
 		}		
-	}
+	};
 }]);

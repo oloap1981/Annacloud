@@ -5,7 +5,7 @@ angular.module("applicationModule").controller("carrelloController", ["$scope", 
 
 		$scope.carrelloInit = function() {
 			$scope.carrelloContent = $scope.getCarrello();
-		}
+		};
 
 	$scope.rimuoviDaCarrello = function(conf){
 

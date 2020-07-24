@@ -136,7 +136,7 @@ angular.module("applicationModule").controller("checkoutRegisterController", ["$
 				$scope.openMessageModal("C'è stato un problema nella registrazione dell'utente: " + reason);
 			}
 		);
-	}
+	};
 
 	$scope.loginAlreadyRegistered = function() {
 		loginService.login($scope.loginEmail, $scope.loginPassword).then(
@@ -193,7 +193,7 @@ angular.module("applicationModule").controller("checkoutRegisterController", ["$
 				}
 			}
 		);
-	}
+	};
 
 	$scope.cambiaIndirizzoSpedizione = function (ns, i1s, cs, caps) {
 		var attributeList = [];
@@ -236,11 +236,11 @@ angular.module("applicationModule").controller("checkoutRegisterController", ["$
 	};
 
 	$scope.isPasswordValid = function() {
-		return $scope.passwordSign.length < 6 && $scope.passwordSign.length > 0
+		return $scope.passwordSign.length < 6 && $scope.passwordSign.length > 0;
 	};
 
 	$scope.isPasswordRepValid = function () {
-		return $scope.passwordSignRep !== $scope.passwordSign && $scope.passwordSignRep.length > 0
+		return $scope.passwordSignRep !== $scope.passwordSign && $scope.passwordSignRep.length > 0;
 	};
 
 	$scope.initCheckOut = function(){

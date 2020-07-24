@@ -73,7 +73,7 @@ angular.module("applicationModule").controller("schedaProdottoController", ["$sc
 			$scope.shoppingSelected.tipo = "SC"; // Shopping Cliente
 
 			carrelloService.addObjectToCarrello($scope.shoppingSelected);
-		}
+		};
 
 		$scope.salvaConfigurazione = function (isCarrello) {
 

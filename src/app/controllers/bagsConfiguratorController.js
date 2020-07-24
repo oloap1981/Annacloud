@@ -1794,7 +1794,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
 
 		var configurazioneNormalizzata = configController.normalizeConfig($scope.configurazione);
 		carrelloService.addObjectToCarrello(configurazioneNormalizzata);
-	}
+	};
 
 	configController.salvaConfigurazioneTemporanea = function () {
 		// var arrayIniziali = configController.generateArrayEntitaIniziali();
