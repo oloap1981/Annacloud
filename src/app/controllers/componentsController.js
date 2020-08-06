@@ -932,7 +932,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 			var email = idToken.email;
 			user.email = email;
 		}
-		configurazione.utente = user;
+		//configurazione.utente = user;
 
 		var configurazioniNormalizzate = [];
 		for(var i = 0; i < configurazioni.length; i++) {

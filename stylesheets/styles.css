@@ -12796,8 +12796,8 @@ a.link {
 /*-------------------------------*/
 /* customizzazione navbar */
 .main-navbar {
-  background-color: #f6f6f6;
-  color: #f6f6f6 !important;
+  background-color: #e8f3f9;
+  color: #e8f3f9 !important;
   font-family: "Montserrat", sans-serif;
   border: none;
 }
@@ -12807,15 +12807,15 @@ a.link {
   z-index: 1000;
   left: 50%;
   display: block;
-  width: 100px;
+  width: 140px;
   height: 50px;
   text-align: center;
-  background: url("/images/logonew-big.png") no-repeat center center;
+  background: url("/images/logonew-big2.png") no-repeat center center;
   background-size: contain;
 }
 @media screen and (max-width: 767px) {
   .logo-small {
-    width: 100px;
+    width: 140px;
   }
 }
 
@@ -12825,10 +12825,10 @@ a.link {
   left: 50%;
   top: 70px;*/
   display: inline-block;
-  width: 132px;
+  width: 200px;
   height: 24px;
   text-align: center;
-  background: url("/images/logonew-big@2.png") no-repeat center center;
+  background: url("/images/logonew-big2@2.png") no-repeat center center;
   background-size: contain;
 }
 
@@ -12845,7 +12845,7 @@ a.link {
 
 .navbar > .container .logo-small,
 .navbar > .container-fluid .logo-small {
-  margin-left: -65px;
+  margin-left: -75px;
 }
 @media screen and (max-width: 480px) {
   .navbar > .container .logo-small,
@@ -12877,6 +12877,9 @@ a.link {
 .fixed-navbar-left > li a {
   line-height: 2.2em !important;
   padding: 11px !important;
+}
+.fixed-navbar-left > li a.logo-conf {
+  position: relative;
 }
 
 .favoriti, .carrello, .utente {
@@ -12916,7 +12919,7 @@ a.link {
     padding: 11px;
   }
   .fixed-navbar-right > li .dropdown-menu, .fixed-navbar-right > li .dropdown-cambio-modello {
-    background-color: #f6f6f6 !important;
+    background-color: #e8f3f9 !important;
     border-bottom: solid 1px #bfbfbf !important;
     border-left: solid 1px #bfbfbf !important;
     position: absolute !important;
@@ -12938,6 +12941,10 @@ a.link {
   .fixed-navbar-left li a:not(.link) {
     padding: 0;
   }
+  .fixed-navbar-left li .logo-conf {
+    padding-left: 0 !important;
+    padding-right: 50px !important;
+  }
 }
 .navbar [class*='unaicon-']:before {
   font-size: 1.5em;
@@ -12952,7 +12959,7 @@ a.link {
 .main-header-content {
   height: auto;
   /* old 150px */
-  color: #f6f6f6 !important;
+  color: #e8f3f9 !important;
   position: relative;
 }
 @media screen and (max-width: 767px) {
@@ -12961,7 +12968,7 @@ a.link {
   }
 }
 .main-header-content a:hover, .main-header-content a:active {
-  background-color: #f6f6f6 !important;
+  background-color: #e8f3f9 !important;
 }
 
 .main-site-navbar {
@@ -13037,7 +13044,7 @@ a.link {
   font-size: .8em;
 }
 .main-site-navbar .navbar-collapse .navbar-nav li a.secondary:hover, .main-site-navbar .navbar-collapse .navbar-nav li a.secondary:active {
-  background-color: #f6f6f6 !important;
+  background-color: #e8f3f9 !important;
 }
 .main-site-navbar .navbar-collapse .navbar-nav li a.primary {
   color: #0d0d0d;
@@ -13067,7 +13074,7 @@ a.link {
 }
 .main-site-navbar .navbar-collapse .navbar-nav li a.primary:after {
   margin-top: -2px;
-  border-color: #f6f6f6 transparent transparent;
+  border-color: #e8f3f9 transparent transparent;
 }
 .main-site-navbar .navbar-collapse .navbar-nav li a.primary:hover {
   -webkit-transition: all 150ms ease-in-out;
@@ -13136,7 +13143,7 @@ a.link {
   font-weight: lighter;
 }
 .slogan-1 span, .slogan-2 span, .slogan-3 span, .slogan-4 span, .slogan-5 span {
-  background: rgba(102, 102, 102, 0.8);
+  background: rgba(45, 128, 176, 0.8);
   padding: 1vw 2vw;
   line-height: 6vw;
   font-size: 2.75vw;
@@ -13313,7 +13320,7 @@ a.link {
 }
 
 .esperienza-content .narrazione, .visione-content .narrazione, .collezione-content .narrazione, .contatti-content .narrazione {
-  background-color: #F6F6F6;
+  background-color: #e8f3f9;
   position: relative;
 }
 .esperienza-content .narrazione .content, .visione-content .narrazione .content, .collezione-content .narrazione .content, .contatti-content .narrazione .content {
@@ -13350,7 +13357,7 @@ a.link {
   }
 }
 .esperienza-content .quote, .visione-content .quote, .collezione-content .quote, .contatti-content .quote {
-  background-color: #F6F6F6;
+  background-color: #e8f3f9;
 }
 .esperienza-content .quote .content, .visione-content .quote .content, .collezione-content .quote .content, .contatti-content .quote .content {
   margin: 5em;
@@ -13433,7 +13440,7 @@ a.link {
 }
 
 .title {
-  color: #0d0d0d;
+  color: #2d80b0;
   font-weight: 400;
   font-size: 1.8em !important;
 }
@@ -13466,7 +13473,7 @@ a.link {
 }
 
 .title-secondary {
-  color: #0d0d0d;
+  color: #2d80b0;
   font-weight: lighter;
   font-size: 1.5em !important;
   margin-top: 0px;
@@ -13486,7 +13493,7 @@ a.link {
 }
 
 .title-tertiary {
-  color: #0d0d0d;
+  color: #2d80b0;
   font-weight: lighter;
   font-size: 1.15em !important;
 }
@@ -13658,7 +13665,7 @@ a.link {
 .jumbotron.quote-section {
   height: auto;
   background-image: none;
-  background-color: #F6F6F6;
+  background-color: #e8f3f9;
   margin-bottom: 0;
 }
 .jumbotron.quote-section .title {
@@ -13704,7 +13711,7 @@ a.link {
 .jumbotron.quote-section.page-header {
   margin: 0;
   padding: 40px 0;
-  background-color: #666;
+  background-color: #2d80b0;
 }
 @media screen and (max-width: 480px) {
   .jumbotron.quote-section.page-header {
@@ -14164,18 +14171,18 @@ a.link {
   z-index: 1;
 }
 .order-state.done {
-  color: #f6f6f6;
+  color: #e8f3f9;
   z-index: 5;
 }
 .order-state.done.active:before {
-  border-color: #f6f6f6 transparent transparent;
+  border-color: #e8f3f9 transparent transparent;
 }
 .order-state.just-done {
   color: #595959;
   z-index: 5;
 }
 .order-state.just-done.active:before {
-  border-color: #e9e9e9 transparent transparent;
+  border-color: #d3e8f4 transparent transparent;
 }
 .order-state.current {
   border: solid 1px gray;
@@ -15096,16 +15103,16 @@ footer .address {
   }
 }
 footer .footer-navbar-container {
-  background-color: #f6f6f6 !important;
+  background-color: #e8f3f9 !important;
   padding: 20px 0 30px 0;
 }
 footer .logo-footer {
   display: inline-block;
-  width: 140px;
-  height: 50px;
+  width: 170px;
+  height: 90px;
   margin-bottom: 10px;
   text-align: center;
-  background: url("/images/logonew-footer-big.png") no-repeat center left;
+  background: url("/images/logonew-footer-big2.png") no-repeat center left;
   background-size: contain;
 }
 footer h3 {

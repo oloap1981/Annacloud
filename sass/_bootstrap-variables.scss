@@ -31,7 +31,9 @@ $brand-primary-light:      lighten($brand-primary-medium, 15%);
 //## Custom color
 
 $standard-border-color: lighten($brand-primary-medium, 55);
-$brand-secondary: #f6f6f6;
+//$brand-secondary: #f6f6f6;
+$brand-secondary: lighten(#55a6d4, 36%);
+$brand-secondary-darker: darken(#55a6d4, 15%);
 
 //== Scaffolding
 //

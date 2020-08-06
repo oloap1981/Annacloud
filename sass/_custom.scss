@@ -891,13 +891,13 @@ a.link {
     z-index: 1000;
     left: 50%;
     display: block;
-    width: 100px;
+    width: 140px;
     height: 50px;
     text-align: center;
-    background: url('/images/logonew-big.png') no-repeat center center;
+    background: url('/images/logonew-big2.png') no-repeat center center;
     background-size: contain;
      @media screen and (max-width: $screen-xs-max) {
-        width: 100px;
+        width: 140px;
     }
 }
 
@@ -907,10 +907,10 @@ a.link {
     left: 50%;
     top: 70px;*/
     display: inline-block;
-    width: 132px;
+    width: 200px;
     height: 24px;
     text-align: center;
-    background: url('/images/logonew-big@2.png') no-repeat center center;
+    background: url('/images/logonew-big2@2.png') no-repeat center center;
     background-size: contain;
 }
 
@@ -924,7 +924,7 @@ a.link {
 
 .navbar>.container .logo-small,
 .navbar>.container-fluid .logo-small {
-    margin-left: -65px;
+    margin-left: -75px;
     @media screen and (max-width: $screen-xs) {
         margin-left: -90px;
     }
@@ -949,7 +949,10 @@ a.link {
         margin-right: -1px;
         a {
             line-height: 2.2em !important;
-            padding: 11px !important;
+            padding: 11px !important;  //11px con il logo vecchio
+            &.logo-conf {
+                position: relative;
+            }
         }
     }
 }
@@ -1015,6 +1018,10 @@ a.link {
             float: left;
             a:not(.link) {
                 padding: 0;
+            }
+            .logo-conf {
+                padding-left: 0 !important; 
+                padding-right: 50px !important;
             }
         }
     }
@@ -1225,7 +1232,7 @@ a.link {
     color: #fff;
     font-weight: lighter;
     span {
-        background: rgba($brand-color-logo, .8);
+        background: rgba($brand-secondary-darker, .8);
         padding: 1vw 2vw;
         line-height: 6vw;
         font-size: 2.75vw;
@@ -1413,7 +1420,7 @@ a.link {
 .esperienza-content, .visione-content, .collezione-content, .contatti-content {
     .narrazione {
         //min-height: 500px;
-        background-color: #F6F6F6;
+        background-color: $brand-secondary;
         position: relative;
          
         .content {
@@ -1445,7 +1452,8 @@ a.link {
         }
     }
     .quote {
-         background-color: #F6F6F6;
+         //background-color: #F6F6F6;
+         background-color: $brand-secondary;
          .content {
             margin: 5em;
             font-weight: lighter;
@@ -1525,7 +1533,7 @@ a.link {
 
 .title {
     //font-family: $font-family-sans-serif;
-    color: $brand-primary;
+    color: $brand-secondary-darker; //$brand-primary;
     font-weight: 400;
     font-size:1.8em !important;
     .jumbotron & {
@@ -1559,7 +1567,7 @@ a.link {
 }
 .title-secondary {
     //font-family: $font-family-sans-serif;
-    color: $brand-primary;
+    color: $brand-secondary-darker; // $brand-primary;
     font-weight: lighter;
     font-size:1.5em !important;
     margin-top: 0px;
@@ -1578,7 +1586,7 @@ a.link {
 
 .title-tertiary {
     //font-family: $font-family-sans-serif;
-    color: $brand-primary;
+    color: $brand-secondary-darker; //$brand-primary;
     font-weight: lighter;
     font-size:1.15em !important;
     .jumbotron & {
@@ -1759,7 +1767,8 @@ a.link {
     &.quote-section {
         height: auto;
         background-image: none; 
-        background-color: #F6F6F6;
+        //background-color: #F6F6F6;
+        background-color: $brand-secondary;
         margin-bottom: 0; //50px;
         @media screen and (max-width: $screen-xs) {
             //margin-bottom: 40px;
@@ -1812,7 +1821,7 @@ a.link {
         &.page-header {
             margin: 0;
             padding: 40px 0;
-            background-color: $brand-color-logo;
+            background-color: $brand-secondary-darker;
             @media screen and (max-width: $screen-xs) {
                 padding: 20px 0;
             }
@@ -3287,11 +3296,11 @@ footer {
     }
     .logo-footer {
         display: inline-block;
-        width: 140px;
-        height: 50px;
+        width: 170px;
+        height: 90px;
         margin-bottom: 10px;
         text-align: center;
-        background: url('/images/logonew-footer-big.png') no-repeat center left;
+        background: url('/images/logonew-footer-big2.png') no-repeat center left;
         background-size: contain;
     }
     h3 {
