@@ -394,7 +394,7 @@ body {
     margin: 0;
     padding: 0;
     font-family:  $font-family-sans-serif-title;
-
+    color: $brand-secondary-darker !important;
 }
 h1,h2,h3,h4,h5,h6 {
     font-family:  $font-family-sans-serif-title;
@@ -405,6 +405,16 @@ img {
     height   : auto;
     &.responsive {
         width: 100%;
+    }
+}
+
+a {
+    color: $brand-secondary-base;
+    &:link {
+        color: $brand-secondary-base;
+    }
+    &:hover {
+        color: $brand-secondary-darker;
     }
 }
 table {
@@ -428,7 +438,7 @@ input {
     border-top: none;
     border-left: none;
     border-right: none;
-    border-bottom: solid 1px $standard-border-color;
+    border-bottom: solid 1px /*$standard-border-color*/ $brand-secondary-base;
     &::placeholder {
         color: darken($standard-border-color, 10);
     }
@@ -508,21 +518,21 @@ button:active {opacity:1 !important};
 .btn-default, .btn-save, .btn-action {
     color: $brand-primary;
     &:hover{
-        background: rgba($brand-color-logo-dark, .85) !important;
+        background: rgba($brand-secondary-darker, .85) !important;
         color: #fff !important;
     }
     &:focus {
-       background: rgba($brand-color-logo-dark, .85) !important;
+       background: rgba($brand-secondary-darker, .85) !important;
        color: #fff !important;
    }
     &:active {
-        background: rgba($brand-color-logo-dark, 1) !important;
+        background: rgba($brand-secondary-darker, 1) !important;
         color: #fff !important;
     }
 }
 
 .btn-reverse {
-    background: rgba($brand-color-logo-dark, 0.85);
+    background: rgba($brand-secondary-darker, 0.85);
     color: #fff;
     &:hover{
         background-color: transparent !important;
@@ -561,11 +571,11 @@ button:active {opacity:1 !important};
 }
 
 .btn-save {
-    color: #fff;
+    color: #fff !important;
     font-weight: 500;
-    background: rgba($brand-color-logo-dark, 0.85);
+    background: rgba($brand-secondary-darker, 0.85);
     font-size: .9em !important;
-    border-color: rgba($brand-color-logo-dark, 1);
+    border-color: rgba($brand-secondary-darker, 1);
     &:hover, &:active, &:focus {
         background: #fff !important;
         color: $brand-primary !important;
@@ -1026,10 +1036,22 @@ a.link {
         }
     }
 }
+
+.navbar-nav {
+    display: flex;
+    justify-content: space-around;
+    float: none;
+    a {
+        color: $brand-secondary-darker !important;
+    }
+}
+.navbar-default .navbar-text {
+    color: $brand-secondary-darker !important;
+}
 .navbar {
     [class*='unaicon-']:before{
         font-size: 1.5em;
-        color: $brand-primary;
+        color: $brand-secondary-darker;
         @media screen and (max-width: $screen-xs-max) {
             font-size: 1.3em;
         }
@@ -1069,7 +1091,7 @@ a.link {
             display: flex;
             justify-content: space-around;
             float: none;
-            
+            color: $brand-secondary-darker !important;
             align-items: center;
             &.navbar-nav-flex {
                 align-items: center;
@@ -1113,7 +1135,7 @@ a.link {
                     }
                 }
                 a.secondary {
-                    color: $brand-primary;
+                    color: $brand-secondary-base;
                     padding: 10px;
                     white-space: nowrap;
                     font-size: .8em;
@@ -1122,7 +1144,7 @@ a.link {
                     }
                 }
                 a.primary {
-                    color: $brand-primary;
+                    color: $brand-secondary-base;
                     position: relative;
                     @include transition(all 150ms ease-in-out);
                     padding: 25px;
@@ -1254,13 +1276,13 @@ a.link {
         text-shadow: 1px 1px 1px rgba(0,0,0,.75);
     }
     &.dark {
-        color: $brand-primary;
+        color: $brand-secondary-darker;
         span {
             &.cta {
-                border: solid 2px $brand-color;
-                background: rgba(#fff, .3) !important;
+                border: solid 2px $brand-secondary-base;
+                background: rgba(#fff, .7) !important;
                 &:hover {
-                    background: rgba($brand-color, 1) !important;
+                    background: rgba($brand-secondary-base, 1) !important;
                     color: #fff;
                 }
             }
@@ -1603,7 +1625,7 @@ a.link {
     font-size: 1.3em !important;
     line-height:1.6em !important;
     font-weight: lighter !important;
-    color: $brand-primary-light;
+    color: /*$brand-primary-light*/ $brand-secondary-darker;
     font-family: $font-family-sans-serif-title;
     //max-width: 480px;
     margin-left: auto;
@@ -2036,7 +2058,7 @@ a.link {
         font-weight: 400;
         font-size: 1.25em; 
         //background: #f00;
-        color: #000;
+        color: $brand-secondary-base;
         padding: 2px;
         font-size: 1.25em;
 
@@ -2621,10 +2643,6 @@ a.link {
 
 
 .configuratore {
-
-
-    
-
     .unaicon-unaduna-logo {
         font-size: 1.5em;
         line-height: 1em;
@@ -2638,7 +2656,7 @@ a.link {
     position: absolute;
     top: 0;left: 0;
     a, a:link {
-        color: $brand-color !important;
+        color: $brand-secondary-darker !important;
         font-family: $font-family-sans-serif-title;
     }
     a.btn:hover, a.btn:focus {

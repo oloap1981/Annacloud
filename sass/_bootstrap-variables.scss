@@ -16,7 +16,7 @@
 // $gray-light:             lighten($gray-base, 46.7%) // #777
 // $gray-lighter:           lighten($gray-base, 93.5%) // #eee
 $brand-color: #333;//#A87481;
-$brand-color-logo: #666; //#A87481;
+$brand-color-logo: #55a6d4; //#A87481;
 $brand-color-logo-dark: #333;//#6D404B;
 
 //$brand-primary-medium:     #A87481;//#A87481;
@@ -31,7 +31,7 @@ $brand-primary-light:      lighten($brand-primary-medium, 15%);
 //## Custom color
 
 $standard-border-color: lighten($brand-primary-medium, 55);
-//$brand-secondary: #f6f6f6;
+$brand-secondary-base: /*#f6f6f6*/ #55a6d4;
 $brand-secondary: lighten(#55a6d4, 36%);
 $brand-secondary-darker: darken(#55a6d4, 15%);
 
