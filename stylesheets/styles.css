@@ -2,7 +2,9 @@
 /* bootstrap stuff */
 /*#333*/
 /* #ccc*/
+/*$gray*/
 /*#ccc*/
+/*#999*/
 /*#f8f8f8*/
 /*darken($navbar-default-bg, 6.5%)*/
 /*#333*/
@@ -3136,7 +3138,7 @@ output {
   padding-top: 7px;
   font-size: 14px;
   line-height: 1.42857;
-  color: #555555;
+  color: #2d80b0;
 }
 
 .form-control {
@@ -3146,10 +3148,10 @@ output {
   padding: 6px 12px;
   font-size: 14px;
   line-height: 1.42857;
-  color: #555555;
+  color: #2d80b0;
   background-color: #fff;
   background-image: none;
-  border: 1px solid #bfbfbf;
+  border: 1px solid #55a6d4;
   border-radius: 0px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -3164,14 +3166,14 @@ output {
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
 }
 .form-control::-moz-placeholder {
-  color: #999;
+  color: #2d80b0;
   opacity: 1;
 }
 .form-control:-ms-input-placeholder {
-  color: #999;
+  color: #2d80b0;
 }
 .form-control::-webkit-input-placeholder {
-  color: #999;
+  color: #2d80b0;
 }
 .form-control::-ms-expand {
   border: 0;
@@ -4422,10 +4424,10 @@ tbody.collapse.in {
   font-size: 14px;
   font-weight: normal;
   line-height: 1;
-  color: #555555;
+  color: #2d80b0;
   text-align: center;
   background-color: #eeeeee;
-  border: 1px solid #bfbfbf;
+  border: 1px solid #55a6d4;
   border-radius: 0px;
 }
 .input-group-addon.input-sm,
@@ -12321,6 +12323,9 @@ body {
   font-family: "Montserrat", sans-serif;
   color: #2d80b0 !important;
 }
+body.site {
+  background-color: #fcfdfe;
+}
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Montserrat", sans-serif;
@@ -12452,7 +12457,8 @@ button:active {
 }
 
 .btn-default, .btn-save, .btn-action {
-  color: #0d0d0d;
+  color: #2d80b0;
+  border-color: #2d80b0;
 }
 .btn-default:hover, .btn-save:hover, .btn-action:hover {
   background: rgba(45, 128, 176, 0.85) !important;
@@ -12469,19 +12475,19 @@ button:active {
 
 .btn-reverse {
   background: rgba(45, 128, 176, 0.85);
-  color: #fff;
+  color: #fff !important;
 }
 .btn-reverse:hover {
   background-color: transparent !important;
-  color: #0d0d0d !important;
+  color: #2d80b0 !important;
 }
 .btn-reverse:focus {
   background-color: transparent !important;
-  color: #0d0d0d !important;
+  color: #2d80b0 !important;
 }
 .btn-reverse:active {
   background-color: transparent !important;
-  color: #0d0d0d !important;
+  color: #2d80b0 !important;
 }
 
 .btn-hero {
@@ -12960,7 +12966,6 @@ a.link {
 .navbar-nav {
   display: flex;
   justify-content: space-around;
-  float: none;
 }
 .navbar-nav a {
   color: #2d80b0 !important;
@@ -13000,7 +13005,7 @@ a.link {
   font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
   border: none;
-  border-bottom: solid 1px #bfbfbf;
+  border-bottom: solid 1px #92c6e3;
 }
 .main-site-navbar .navbar-collapse {
   text-align: center;
@@ -13128,7 +13133,7 @@ a.link {
   margin-left: -8px;
 }
 .main-site-navbar .navbar-collapse .navbar-nav li a.primary.active:before {
-  border-color: #bfbfbf transparent transparent;
+  border-color: #92c6e3 transparent transparent;
 }
 .main-site-navbar .navbar-collapse .navbar-nav li a.primary.active:after {
   margin-top: -2px;
@@ -13155,6 +13160,11 @@ a.link {
 /*  @group Contenitore generale  */
 /*-------------------------------*/
 /* @group Stili ed elementi content */
+.container.general {
+  background-color: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1), 0 0 5px transparent;
+}
+
 .home-content .btn {
   min-width: 250px;
   padding-left: 30px !important;
@@ -14011,6 +14021,10 @@ a.link {
   width: 150px;
 }
 
+small {
+  color: #55a6d4;
+}
+
 .bag-list {
   text-align: left;
 }
@@ -14160,10 +14174,10 @@ a.link {
   font-family: "Montserrat", sans-serif;
   text-align: center;
   padding: 15px;
-  border: solid 1px #b3b3b3;
+  border: solid 1px #2d80b0;
   margin: 4px 0px;
   background-color: #fff;
-  color: gray;
+  color: #2d80b0;
   font-size: 1em;
   /*&.summary {
       p {
@@ -14200,19 +14214,19 @@ a.link {
   z-index: 5;
 }
 .order-state.done.active:before {
-  border-color: #e8f3f9 transparent transparent;
+  border-color: #2d80b0 transparent transparent;
 }
 .order-state.just-done {
   color: #595959;
   z-index: 5;
 }
 .order-state.just-done.active:before {
-  border-color: #d3e8f4 transparent transparent;
+  border-color: #27729c transparent transparent;
 }
 .order-state.current {
-  border: solid 1px gray;
+  border: solid 1px #55a6d4;
   z-index: 4;
-  color: #0d0d0d;
+  color: #55a6d4;
   font-size: 1.3em;
   margin: 4px -5px;
   padding: 10px 15px;
@@ -14589,7 +14603,7 @@ a.link {
 }
 .configuratore .yamm-content {
   -webkit-overflow-scrolling: touch !important;
-  border: solid 1px #bfbfbf;
+  border: solid 1px #92c6e3;
   border-top: none;
   padding: 0;
 }
@@ -14614,16 +14628,24 @@ a.link {
 }
 .configuratore .main-configurator-navbar {
   margin-top: 1px;
+  border-color: #92c6e3;
+}
+.configuratore .main-configurator-navbar .navbar-nav {
+  display: flex;
+  justify-content: space-around;
+}
+.configuratore .main-configurator-navbar .navbar-nav a {
+  color: #2d80b0 !important;
 }
 .configuratore .main-configurator-navbar a.link {
   padding: 15px;
 }
 .configuratore .main-configurator-navbar a.link:hover {
-  color: #000;
+  color: #2d80b0;
 }
 .configuratore .main-configurator-navbar a.link.modello {
-  border-left: solid 1px #ccc;
-  border-right: solid 1px #ccc;
+  border-left: solid 1px #55a6d4;
+  border-right: solid 1px #55a6d4;
   padding-left: 20px !important;
   padding-right: 20px !important;
 }
@@ -14642,7 +14664,7 @@ a.link {
   margin-left: -8px;
 }
 .configuratore .main-configurator-navbar a.link.active:before {
-  border-color: #bfbfbf transparent transparent;
+  border-color: #92c6e3 transparent transparent;
 }
 .configuratore .main-configurator-navbar a.link.active:after {
   margin-top: -2px;
@@ -14731,7 +14753,7 @@ a.link {
   left: 0;
   z-index: 2;
   overflow: visible;
-  border-top: solid 1px #bfbfbf;
+  border-top: solid 1px #92c6e3;
   background-color: #fff;
   font-family: "Montserrat", sans-serif;
   -webkit-transition: opacity 1s linear;
@@ -14744,7 +14766,7 @@ a.link {
   position: absolute;
   left: 0;
   width: 100%;
-  border-top: solid 1px #bfbfbf;
+  border-top: solid 1px #92c6e3;
 }
 .configuratore #price-panel {
   display: none;
@@ -14752,7 +14774,7 @@ a.link {
   padding: 10px 15px;
   top: 80px;
   right: 0;
-  border: solid 1px #bfbfbf;
+  border: solid 1px #92c6e3;
   border-right: none;
   background-color: #fff;
   z-index: 10;
@@ -14798,7 +14820,7 @@ a.link {
   bottom: 0;
   padding-top: 5px;
   padding-bottom: 5px;
-  border-top: solid 1px #bfbfbf;
+  border-top: solid 1px #92c6e3;
 }
 .configuratore .riepilogo .price {
   font-size: 22px;
@@ -14820,7 +14842,7 @@ a.link {
   margin: 0;
   padding: 0;
   font-size: 9px;
-  color: #999;
+  color: #55a6d4;
 }
 .configuratore .riepilogo .info {
   color: #000;
@@ -14903,10 +14925,10 @@ a.link {
   left: -1px;
 }
 .configuratore .accessori-categoria .swiper-slide {
-  border-right: solid 1px #bfbfbf;
+  border-right: solid 1px #92c6e3;
 }
 .configuratore .accessori-categoria .swiper-slide:first-child {
-  border-left: solid 1px #bfbfbf;
+  border-left: solid 1px #92c6e3;
 }
 .configuratore .accessori-categoria a {
   width: 100%;
