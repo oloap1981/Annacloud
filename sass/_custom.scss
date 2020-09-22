@@ -394,7 +394,10 @@ body {
     margin: 0;
     padding: 0;
     font-family:  $font-family-sans-serif-title;
-
+    color: $brand-secondary-darker !important;
+    &.site {
+        background-color: lighten($brand-secondary, 5);
+    }
 }
 h1,h2,h3,h4,h5,h6 {
     font-family:  $font-family-sans-serif-title;
@@ -405,6 +408,16 @@ img {
     height   : auto;
     &.responsive {
         width: 100%;
+    }
+}
+
+a {
+    color: $brand-secondary-base;
+    &:link {
+        color: $brand-secondary-base;
+    }
+    &:hover {
+        color: $brand-secondary-darker;
     }
 }
 table {
@@ -428,7 +441,7 @@ input {
     border-top: none;
     border-left: none;
     border-right: none;
-    border-bottom: solid 1px $standard-border-color;
+    border-bottom: solid 1px /*$standard-border-color*/ $brand-secondary-base;
     &::placeholder {
         color: darken($standard-border-color, 10);
     }
@@ -506,35 +519,36 @@ button:active {opacity:1 !important};
 }
 
 .btn-default, .btn-save, .btn-action {
-    color: $brand-primary;
+    color: $brand-secondary-darker;
+    border-color: $brand-secondary-darker;
     &:hover{
-        background: rgba($brand-color-logo-dark, .85) !important;
+        background: rgba($brand-secondary-darker, .85) !important;
         color: #fff !important;
     }
     &:focus {
-       background: rgba($brand-color-logo-dark, .85) !important;
+       background: rgba($brand-secondary-darker, .85) !important;
        color: #fff !important;
    }
     &:active {
-        background: rgba($brand-color-logo-dark, 1) !important;
+        background: rgba($brand-secondary-darker, 1) !important;
         color: #fff !important;
     }
 }
 
 .btn-reverse {
-    background: rgba($brand-color-logo-dark, 0.85);
-    color: #fff;
+    background: rgba($brand-secondary-darker, 0.85);
+    color: #fff !important;
     &:hover{
         background-color: transparent !important;
-        color: $brand-primary !important;
+        color: $brand-secondary-darker !important;
     }
     &:focus {
         background-color: transparent !important;
-        color: $brand-primary !important;
+        color: $brand-secondary-darker !important;
     }
     &:active {
         background-color: transparent !important;
-        color: $brand-primary !important;
+        color: $brand-secondary-darker !important;
     }
 }
 
@@ -561,11 +575,11 @@ button:active {opacity:1 !important};
 }
 
 .btn-save {
-    color: #fff;
+    color: #fff !important;
     font-weight: 500;
-    background: rgba($brand-color-logo-dark, 0.85);
+    background: rgba($brand-secondary-darker, 0.85);
     font-size: .9em !important;
-    border-color: rgba($brand-color-logo-dark, 1);
+    border-color: rgba($brand-secondary-darker, 1);
     &:hover, &:active, &:focus {
         background: #fff !important;
         color: $brand-primary !important;
@@ -891,13 +905,13 @@ a.link {
     z-index: 1000;
     left: 50%;
     display: block;
-    width: 100px;
+    width: 140px;
     height: 50px;
     text-align: center;
-    background: url('/images/logonew-big.png') no-repeat center center;
+    background: url('/images/logonew-big2.png') no-repeat center center;
     background-size: contain;
      @media screen and (max-width: $screen-xs-max) {
-        width: 100px;
+        width: 140px;
     }
 }
 
@@ -907,10 +921,10 @@ a.link {
     left: 50%;
     top: 70px;*/
     display: inline-block;
-    width: 132px;
+    width: 200px;
     height: 24px;
     text-align: center;
-    background: url('/images/logonew-big@2.png') no-repeat center center;
+    background: url('/images/logonew-big2@2.png') no-repeat center center;
     background-size: contain;
 }
 
@@ -924,7 +938,7 @@ a.link {
 
 .navbar>.container .logo-small,
 .navbar>.container-fluid .logo-small {
-    margin-left: -65px;
+    margin-left: -75px;
     @media screen and (max-width: $screen-xs) {
         margin-left: -90px;
     }
@@ -949,7 +963,10 @@ a.link {
         margin-right: -1px;
         a {
             line-height: 2.2em !important;
-            padding: 11px !important;
+            padding: 11px !important;  //11px con il logo vecchio
+            &.logo-conf {
+                position: relative;
+            }
         }
     }
 }
@@ -1016,13 +1033,29 @@ a.link {
             a:not(.link) {
                 padding: 0;
             }
+            .logo-conf {
+                padding-left: 0 !important; 
+                padding-right: 50px !important;
+            }
         }
     }
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: space-around;
+    //float: none;
+    a {
+        color: $brand-secondary-darker !important;
+    }
+}
+.navbar-default .navbar-text {
+    color: $brand-secondary-darker !important;
 }
 .navbar {
     [class*='unaicon-']:before{
         font-size: 1.5em;
-        color: $brand-primary;
+        color: $brand-secondary-darker;
         @media screen and (max-width: $screen-xs-max) {
             font-size: 1.3em;
         }
@@ -1046,7 +1079,7 @@ a.link {
     text-transform: uppercase;
     border: none;
     //border-top: solid 1px $standard-border-color;
-    border-bottom: solid 1px $standard-border-color;
+    border-bottom: solid 1px /*$standard-border-color*/ lighten($brand-secondary-base, 15);
     .navbar-collapse {
         .main-navbar {
             padding-left: 100px;
@@ -1062,7 +1095,7 @@ a.link {
             display: flex;
             justify-content: space-around;
             float: none;
-            
+            color: $brand-secondary-darker !important;
             align-items: center;
             &.navbar-nav-flex {
                 align-items: center;
@@ -1106,7 +1139,7 @@ a.link {
                     }
                 }
                 a.secondary {
-                    color: $brand-primary;
+                    color: $brand-secondary-base;
                     padding: 10px;
                     white-space: nowrap;
                     font-size: .8em;
@@ -1115,7 +1148,7 @@ a.link {
                     }
                 }
                 a.primary {
-                    color: $brand-primary;
+                    color: $brand-secondary-base;
                     position: relative;
                     @include transition(all 150ms ease-in-out);
                     padding: 25px;
@@ -1164,7 +1197,7 @@ a.link {
                             margin-left: -8px;
                         }
                         &:before {
-                            border-color: $standard-border-color transparent transparent;
+                            border-color: /*$standard-border-color*/ lighten($brand-secondary-base, 15) transparent transparent;
                         }
                         &:after {
                             margin-top: -2px;
@@ -1204,9 +1237,12 @@ a.link {
 /* @group Stili ed elementi content */
 
 
-// .container {
-    //     // min-height: 100%;
-// }
+.container {
+    &.general {
+        background-color: #fff;
+        box-shadow: 0 0 20px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.0);
+    }
+ }
 
 .home-content {
     .btn {
@@ -1225,7 +1261,7 @@ a.link {
     color: #fff;
     font-weight: lighter;
     span {
-        background: rgba($brand-color-logo, .8);
+        background: rgba($brand-secondary-darker, .8);
         padding: 1vw 2vw;
         line-height: 6vw;
         font-size: 2.75vw;
@@ -1247,13 +1283,13 @@ a.link {
         text-shadow: 1px 1px 1px rgba(0,0,0,.75);
     }
     &.dark {
-        color: $brand-primary;
+        color: $brand-secondary-darker;
         span {
             &.cta {
-                border: solid 2px $brand-color;
-                background: rgba(#fff, .3) !important;
+                border: solid 2px $brand-secondary-base;
+                background: rgba(#fff, .7) !important;
                 &:hover {
-                    background: rgba($brand-color, 1) !important;
+                    background: rgba($brand-secondary-base, 1) !important;
                     color: #fff;
                 }
             }
@@ -1413,7 +1449,7 @@ a.link {
 .esperienza-content, .visione-content, .collezione-content, .contatti-content {
     .narrazione {
         //min-height: 500px;
-        background-color: #F6F6F6;
+        background-color: $brand-secondary;
         position: relative;
          
         .content {
@@ -1445,7 +1481,8 @@ a.link {
         }
     }
     .quote {
-         background-color: #F6F6F6;
+         //background-color: #F6F6F6;
+         background-color: $brand-secondary;
          .content {
             margin: 5em;
             font-weight: lighter;
@@ -1525,7 +1562,7 @@ a.link {
 
 .title {
     //font-family: $font-family-sans-serif;
-    color: $brand-primary;
+    color: $brand-secondary-darker; //$brand-primary;
     font-weight: 400;
     font-size:1.8em !important;
     .jumbotron & {
@@ -1559,7 +1596,7 @@ a.link {
 }
 .title-secondary {
     //font-family: $font-family-sans-serif;
-    color: $brand-primary;
+    color: $brand-secondary-darker; // $brand-primary;
     font-weight: lighter;
     font-size:1.5em !important;
     margin-top: 0px;
@@ -1578,7 +1615,7 @@ a.link {
 
 .title-tertiary {
     //font-family: $font-family-sans-serif;
-    color: $brand-primary;
+    color: $brand-secondary-darker; //$brand-primary;
     font-weight: lighter;
     font-size:1.15em !important;
     .jumbotron & {
@@ -1595,7 +1632,7 @@ a.link {
     font-size: 1.3em !important;
     line-height:1.6em !important;
     font-weight: lighter !important;
-    color: $brand-primary-light;
+    color: /*$brand-primary-light*/ $brand-secondary-darker;
     font-family: $font-family-sans-serif-title;
     //max-width: 480px;
     margin-left: auto;
@@ -1759,7 +1796,8 @@ a.link {
     &.quote-section {
         height: auto;
         background-image: none; 
-        background-color: #F6F6F6;
+        //background-color: #F6F6F6;
+        background-color: $brand-secondary;
         margin-bottom: 0; //50px;
         @media screen and (max-width: $screen-xs) {
             //margin-bottom: 40px;
@@ -1812,7 +1850,7 @@ a.link {
         &.page-header {
             margin: 0;
             padding: 40px 0;
-            background-color: $brand-color-logo;
+            background-color: $brand-secondary-darker;
             @media screen and (max-width: $screen-xs) {
                 padding: 20px 0;
             }
@@ -2027,7 +2065,7 @@ a.link {
         font-weight: 400;
         font-size: 1.25em; 
         //background: #f00;
-        color: #000;
+        color: $brand-secondary-base;
         padding: 2px;
         font-size: 1.25em;
 
@@ -2059,6 +2097,10 @@ a.link {
         width: 150px;
     }
 }
+
+    small {
+        color: $brand-secondary-base;
+    }
 .bag-list {
     text-align: left;
     @media screen and (max-width: $screen-xs-max) {
@@ -2214,10 +2256,10 @@ a.link {
     font-family: $font-family-sans-serif-title;
     text-align: center;
     padding: 15px;
-    border: solid 1px lighten($brand-primary-light, 35);
+    border: solid 1px $brand-secondary-darker;
     margin: 4px 0px;
     background-color: #fff;
-    color: lighten($brand-primary-light, 15);
+    color: $brand-secondary-darker;
     //margin-left: auto;
     //margin-right: auto;
     font-size: 1em;
@@ -2237,20 +2279,20 @@ a.link {
         color: $brand-secondary;
         z-index: 5;
         &.active:before {
-            border-color: $brand-secondary transparent transparent;
+            border-color: $brand-secondary-darker transparent transparent;
         }
     }
     &.just-done {
         color: $brand-primary-light;
         z-index: 5;
         &.active:before {
-            border-color: darken($brand-secondary, 5) transparent transparent;
+            border-color: darken($brand-secondary-darker, 5) transparent transparent;
         }
     }
     &.current {
-        border: solid 1px lighten($brand-primary-light, 15);
+        border: solid 1px lighten($brand-secondary-darker, 15);
         z-index: 4;
-        color:  $brand-primary;
+        color:  $brand-secondary-base;
         font-size: 1.3em;
         margin: 4px -5px;
         padding: 10px 15px;
@@ -2612,10 +2654,6 @@ a.link {
 
 
 .configuratore {
-
-
-    
-
     .unaicon-unaduna-logo {
         font-size: 1.5em;
         line-height: 1em;
@@ -2629,7 +2667,7 @@ a.link {
     position: absolute;
     top: 0;left: 0;
     a, a:link {
-        color: $brand-color !important;
+        color: $brand-secondary-darker !important;
         font-family: $font-family-sans-serif-title;
     }
     a.btn:hover, a.btn:focus {
@@ -2644,7 +2682,7 @@ a.link {
     }
     .yamm-content {
         -webkit-overflow-scrolling: touch !important;
-        border: solid 1px $standard-border-color;
+        border: solid 1px lighten($brand-secondary-base, 15);
         border-top: none;
         //border-bottom: none;
         padding: 0;
@@ -2675,14 +2713,22 @@ a.link {
     .main-configurator-navbar {
         // top: $navbar-height+3px;
         margin-top: 1px;
+        border-color: lighten($brand-secondary-base, 15);
+        .navbar-nav {
+            display: flex;
+            justify-content: space-around;
+            a {
+                color: $brand-secondary-darker !important;
+            }
+        }
         a.link {
             padding: 15px ;
             &:hover {
-                color: #000;
+                color: $brand-secondary-darker;
             }
             &.modello {
-               border-left: solid 1px #ccc;
-               border-right: solid 1px #ccc;
+               border-left: solid 1px $brand-secondary-base;
+               border-right: solid 1px $brand-secondary-base;
                padding-left: 20px !important;
                padding-right: 20px !important;
                @media screen and (max-width: $screen-xs-max) {
@@ -2704,7 +2750,7 @@ a.link {
                     margin-left: -8px;
                 }
                 &:before {
-                    border-color: $standard-border-color transparent transparent;
+                    border-color: lighten($brand-secondary-base, 15) transparent transparent;
                 }
                 &:after {
                     margin-top: -2px;
@@ -2792,7 +2838,7 @@ a.link {
         left: 0;
         z-index: 2;
         overflow: visible;
-        border-top: solid 1px $standard-border-color;
+        border-top: solid 1px lighten($brand-secondary-base, 15);
         background-color: $body-bg;
         font-family: $font-family-sans-serif-title;
         @include transition(opacity 1s linear);
@@ -2803,7 +2849,7 @@ a.link {
             left: 0;
             // top: 45px;
             width: 100%;
-            border-top: solid 1px $standard-border-color;
+            border-top: solid 1px lighten($brand-secondary-base, 15);
         }
         // &:after {
         //     content: "";
@@ -2854,7 +2900,7 @@ a.link {
         padding: 10px 15px;
         top: 80px;
         right: 0;
-        border: solid 1px $standard-border-color;
+        border: solid 1px lighten($brand-secondary-base, 15);
         border-right: none;
         //border-radius:  5px 0 0 5px ;
         background-color: #fff;
@@ -2900,7 +2946,7 @@ a.link {
         bottom: 0;
         padding-top: 5px;
         padding-bottom: 5px;
-        border-top: solid 1px $standard-border-color;
+        border-top: solid 1px lighten($brand-secondary-base, 15);
         .price {
             font-size: 22px;
             font-weight: 100;
@@ -2922,7 +2968,7 @@ a.link {
             margin: 0;
             padding: 0;
             font-size: 9px;
-            color: #999;
+            color: $brand-secondary-base;
         }
         .info {
             color: #000;
@@ -3024,9 +3070,9 @@ a.link {
     .accessori-categoria {
         //overflow: visible;
         .swiper-slide {
-            border-right: solid 1px $standard-border-color;
+            border-right: solid 1px lighten($brand-secondary-base, 15);
             &:first-child  {
-                border-left: solid 1px $standard-border-color;
+                border-left: solid 1px lighten($brand-secondary-base, 15);
             }
         }
         a {
@@ -3287,11 +3333,11 @@ footer {
     }
     .logo-footer {
         display: inline-block;
-        width: 140px;
-        height: 50px;
+        width: 170px;
+        height: 90px;
         margin-bottom: 10px;
         text-align: center;
-        background: url('/images/logonew-footer-big.png') no-repeat center left;
+        background: url('/images/logonew-footer-big2.png') no-repeat center left;
         background-size: contain;
     }
     h3 {

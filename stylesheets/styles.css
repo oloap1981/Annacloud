@@ -2,7 +2,9 @@
 /* bootstrap stuff */
 /*#333*/
 /* #ccc*/
+/*$gray*/
 /*#ccc*/
+/*#999*/
 /*#f8f8f8*/
 /*darken($navbar-default-bg, 6.5%)*/
 /*#333*/
@@ -3136,7 +3138,7 @@ output {
   padding-top: 7px;
   font-size: 14px;
   line-height: 1.42857;
-  color: #555555;
+  color: #2d80b0;
 }
 
 .form-control {
@@ -3146,10 +3148,10 @@ output {
   padding: 6px 12px;
   font-size: 14px;
   line-height: 1.42857;
-  color: #555555;
+  color: #2d80b0;
   background-color: #fff;
   background-image: none;
-  border: 1px solid #bfbfbf;
+  border: 1px solid #55a6d4;
   border-radius: 0px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -3164,14 +3166,14 @@ output {
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
 }
 .form-control::-moz-placeholder {
-  color: #999;
+  color: #2d80b0;
   opacity: 1;
 }
 .form-control:-ms-input-placeholder {
-  color: #999;
+  color: #2d80b0;
 }
 .form-control::-webkit-input-placeholder {
-  color: #999;
+  color: #2d80b0;
 }
 .form-control::-ms-expand {
   border: 0;
@@ -4422,10 +4424,10 @@ tbody.collapse.in {
   font-size: 14px;
   font-weight: normal;
   line-height: 1;
-  color: #555555;
+  color: #2d80b0;
   text-align: center;
   background-color: #eeeeee;
-  border: 1px solid #bfbfbf;
+  border: 1px solid #55a6d4;
   border-radius: 0px;
 }
 .input-group-addon.input-sm,
@@ -12319,6 +12321,10 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Montserrat", sans-serif;
+  color: #2d80b0 !important;
+}
+body.site {
+  background-color: #fcfdfe;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -12331,6 +12337,16 @@ img {
 }
 img.responsive {
   width: 100%;
+}
+
+a {
+  color: #55a6d4;
+}
+a:link {
+  color: #55a6d4;
+}
+a:hover {
+  color: #2d80b0;
 }
 
 table {
@@ -12355,7 +12371,7 @@ input {
   border-top: none;
   border-left: none;
   border-right: none;
-  border-bottom: solid 1px #bfbfbf;
+  border-bottom: solid 1px #55a6d4;
 }
 input::placeholder {
   color: #a6a6a6;
@@ -12441,36 +12457,37 @@ button:active {
 }
 
 .btn-default, .btn-save, .btn-action {
-  color: #0d0d0d;
+  color: #2d80b0;
+  border-color: #2d80b0;
 }
 .btn-default:hover, .btn-save:hover, .btn-action:hover {
-  background: rgba(51, 51, 51, 0.85) !important;
+  background: rgba(45, 128, 176, 0.85) !important;
   color: #fff !important;
 }
 .btn-default:focus, .btn-save:focus, .btn-action:focus {
-  background: rgba(51, 51, 51, 0.85) !important;
+  background: rgba(45, 128, 176, 0.85) !important;
   color: #fff !important;
 }
 .btn-default:active, .btn-save:active, .btn-action:active {
-  background: #333333 !important;
+  background: #2d80b0 !important;
   color: #fff !important;
 }
 
 .btn-reverse {
-  background: rgba(51, 51, 51, 0.85);
-  color: #fff;
+  background: rgba(45, 128, 176, 0.85);
+  color: #fff !important;
 }
 .btn-reverse:hover {
   background-color: transparent !important;
-  color: #0d0d0d !important;
+  color: #2d80b0 !important;
 }
 .btn-reverse:focus {
   background-color: transparent !important;
-  color: #0d0d0d !important;
+  color: #2d80b0 !important;
 }
 .btn-reverse:active {
   background-color: transparent !important;
-  color: #0d0d0d !important;
+  color: #2d80b0 !important;
 }
 
 .btn-hero {
@@ -12494,11 +12511,11 @@ button:active {
 }
 
 .btn-save {
-  color: #fff;
+  color: #fff !important;
   font-weight: 500;
-  background: rgba(51, 51, 51, 0.85);
+  background: rgba(45, 128, 176, 0.85);
   font-size: .9em !important;
-  border-color: #333333;
+  border-color: #2d80b0;
 }
 .btn-save:hover, .btn-save:active, .btn-save:focus {
   background: #fff !important;
@@ -12630,7 +12647,7 @@ button:active {
   background: rgba(255, 255, 255, 0.1);
 }
 .btn-conf:active, .btn-conf:focus {
-  color: #666;
+  color: #55a6d4;
   background: white;
 }
 
@@ -12796,8 +12813,8 @@ a.link {
 /*-------------------------------*/
 /* customizzazione navbar */
 .main-navbar {
-  background-color: #f6f6f6;
-  color: #f6f6f6 !important;
+  background-color: #e8f3f9;
+  color: #e8f3f9 !important;
   font-family: "Montserrat", sans-serif;
   border: none;
 }
@@ -12807,15 +12824,15 @@ a.link {
   z-index: 1000;
   left: 50%;
   display: block;
-  width: 100px;
+  width: 140px;
   height: 50px;
   text-align: center;
-  background: url("/images/logonew-big.png") no-repeat center center;
+  background: url("/images/logonew-big2.png") no-repeat center center;
   background-size: contain;
 }
 @media screen and (max-width: 767px) {
   .logo-small {
-    width: 100px;
+    width: 140px;
   }
 }
 
@@ -12825,10 +12842,10 @@ a.link {
   left: 50%;
   top: 70px;*/
   display: inline-block;
-  width: 132px;
+  width: 200px;
   height: 24px;
   text-align: center;
-  background: url("/images/logonew-big@2.png") no-repeat center center;
+  background: url("/images/logonew-big2@2.png") no-repeat center center;
   background-size: contain;
 }
 
@@ -12845,7 +12862,7 @@ a.link {
 
 .navbar > .container .logo-small,
 .navbar > .container-fluid .logo-small {
-  margin-left: -65px;
+  margin-left: -75px;
 }
 @media screen and (max-width: 480px) {
   .navbar > .container .logo-small,
@@ -12877,6 +12894,9 @@ a.link {
 .fixed-navbar-left > li a {
   line-height: 2.2em !important;
   padding: 11px !important;
+}
+.fixed-navbar-left > li a.logo-conf {
+  position: relative;
 }
 
 .favoriti, .carrello, .utente {
@@ -12916,7 +12936,7 @@ a.link {
     padding: 11px;
   }
   .fixed-navbar-right > li .dropdown-menu, .fixed-navbar-right > li .dropdown-cambio-modello {
-    background-color: #f6f6f6 !important;
+    background-color: #e8f3f9 !important;
     border-bottom: solid 1px #bfbfbf !important;
     border-left: solid 1px #bfbfbf !important;
     position: absolute !important;
@@ -12938,10 +12958,26 @@ a.link {
   .fixed-navbar-left li a:not(.link) {
     padding: 0;
   }
+  .fixed-navbar-left li .logo-conf {
+    padding-left: 0 !important;
+    padding-right: 50px !important;
+  }
 }
+.navbar-nav {
+  display: flex;
+  justify-content: space-around;
+}
+.navbar-nav a {
+  color: #2d80b0 !important;
+}
+
+.navbar-default .navbar-text {
+  color: #2d80b0 !important;
+}
+
 .navbar [class*='unaicon-']:before {
   font-size: 1.5em;
-  color: #0d0d0d;
+  color: #2d80b0;
 }
 @media screen and (max-width: 767px) {
   .navbar [class*='unaicon-']:before {
@@ -12952,7 +12988,7 @@ a.link {
 .main-header-content {
   height: auto;
   /* old 150px */
-  color: #f6f6f6 !important;
+  color: #e8f3f9 !important;
   position: relative;
 }
 @media screen and (max-width: 767px) {
@@ -12961,7 +12997,7 @@ a.link {
   }
 }
 .main-header-content a:hover, .main-header-content a:active {
-  background-color: #f6f6f6 !important;
+  background-color: #e8f3f9 !important;
 }
 
 .main-site-navbar {
@@ -12969,7 +13005,7 @@ a.link {
   font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
   border: none;
-  border-bottom: solid 1px #bfbfbf;
+  border-bottom: solid 1px #92c6e3;
 }
 .main-site-navbar .navbar-collapse {
   text-align: center;
@@ -12989,6 +13025,7 @@ a.link {
   display: flex;
   justify-content: space-around;
   float: none;
+  color: #2d80b0 !important;
   align-items: center;
 }
 .main-site-navbar .navbar-collapse .navbar-nav.navbar-nav-flex {
@@ -13031,16 +13068,16 @@ a.link {
   border-color: #fff transparent transparent;
 }
 .main-site-navbar .navbar-collapse .navbar-nav li a.secondary {
-  color: #0d0d0d;
+  color: #55a6d4;
   padding: 10px;
   white-space: nowrap;
   font-size: .8em;
 }
 .main-site-navbar .navbar-collapse .navbar-nav li a.secondary:hover, .main-site-navbar .navbar-collapse .navbar-nav li a.secondary:active {
-  background-color: #f6f6f6 !important;
+  background-color: #e8f3f9 !important;
 }
 .main-site-navbar .navbar-collapse .navbar-nav li a.primary {
-  color: #0d0d0d;
+  color: #55a6d4;
   position: relative;
   -webkit-transition: all 150ms ease-in-out;
   -o-transition: all 150ms ease-in-out;
@@ -13067,7 +13104,7 @@ a.link {
 }
 .main-site-navbar .navbar-collapse .navbar-nav li a.primary:after {
   margin-top: -2px;
-  border-color: #f6f6f6 transparent transparent;
+  border-color: #e8f3f9 transparent transparent;
 }
 .main-site-navbar .navbar-collapse .navbar-nav li a.primary:hover {
   -webkit-transition: all 150ms ease-in-out;
@@ -13096,7 +13133,7 @@ a.link {
   margin-left: -8px;
 }
 .main-site-navbar .navbar-collapse .navbar-nav li a.primary.active:before {
-  border-color: #bfbfbf transparent transparent;
+  border-color: #92c6e3 transparent transparent;
 }
 .main-site-navbar .navbar-collapse .navbar-nav li a.primary.active:after {
   margin-top: -2px;
@@ -13123,6 +13160,11 @@ a.link {
 /*  @group Contenitore generale  */
 /*-------------------------------*/
 /* @group Stili ed elementi content */
+.container.general {
+  background-color: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1), 0 0 5px transparent;
+}
+
 .home-content .btn {
   min-width: 250px;
   padding-left: 30px !important;
@@ -13136,7 +13178,7 @@ a.link {
   font-weight: lighter;
 }
 .slogan-1 span, .slogan-2 span, .slogan-3 span, .slogan-4 span, .slogan-5 span {
-  background: rgba(102, 102, 102, 0.8);
+  background: rgba(45, 128, 176, 0.8);
   padding: 1vw 2vw;
   line-height: 6vw;
   font-size: 2.75vw;
@@ -13161,14 +13203,14 @@ a.link {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.75);
 }
 .slogan-1.dark, .slogan-2.dark, .slogan-3.dark, .slogan-4.dark, .slogan-5.dark {
-  color: #0d0d0d;
+  color: #2d80b0;
 }
 .slogan-1.dark span.cta, .slogan-2.dark span.cta, .slogan-3.dark span.cta, .slogan-4.dark span.cta, .slogan-5.dark span.cta {
-  border: solid 2px #333;
-  background: rgba(255, 255, 255, 0.3) !important;
+  border: solid 2px #55a6d4;
+  background: rgba(255, 255, 255, 0.7) !important;
 }
 .slogan-1.dark span.cta:hover, .slogan-2.dark span.cta:hover, .slogan-3.dark span.cta:hover, .slogan-4.dark span.cta:hover, .slogan-5.dark span.cta:hover {
-  background: #333333 !important;
+  background: #55a6d4 !important;
   color: #fff;
 }
 .slogan-1.paneled span, .slogan-2.paneled span, .slogan-3.paneled span, .slogan-4.paneled span, .slogan-5.paneled span {
@@ -13235,7 +13277,7 @@ a.link {
   font-weight: lighter;
 }
 .slogan-2 span {
-  background: rgba(102, 102, 102, 0);
+  background: rgba(85, 166, 212, 0);
   padding: 1vw 2vw;
   line-height: 2.2vw;
   font-size: 1.75vw;
@@ -13313,7 +13355,7 @@ a.link {
 }
 
 .esperienza-content .narrazione, .visione-content .narrazione, .collezione-content .narrazione, .contatti-content .narrazione {
-  background-color: #F6F6F6;
+  background-color: #e8f3f9;
   position: relative;
 }
 .esperienza-content .narrazione .content, .visione-content .narrazione .content, .collezione-content .narrazione .content, .contatti-content .narrazione .content {
@@ -13350,7 +13392,7 @@ a.link {
   }
 }
 .esperienza-content .quote, .visione-content .quote, .collezione-content .quote, .contatti-content .quote {
-  background-color: #F6F6F6;
+  background-color: #e8f3f9;
 }
 .esperienza-content .quote .content, .visione-content .quote .content, .collezione-content .quote .content, .contatti-content .quote .content {
   margin: 5em;
@@ -13433,7 +13475,7 @@ a.link {
 }
 
 .title {
-  color: #0d0d0d;
+  color: #2d80b0;
   font-weight: 400;
   font-size: 1.8em !important;
 }
@@ -13466,7 +13508,7 @@ a.link {
 }
 
 .title-secondary {
-  color: #0d0d0d;
+  color: #2d80b0;
   font-weight: lighter;
   font-size: 1.5em !important;
   margin-top: 0px;
@@ -13486,7 +13528,7 @@ a.link {
 }
 
 .title-tertiary {
-  color: #0d0d0d;
+  color: #2d80b0;
   font-weight: lighter;
   font-size: 1.15em !important;
 }
@@ -13503,7 +13545,7 @@ a.link {
   font-size: 1.3em !important;
   line-height: 1.6em !important;
   font-weight: lighter !important;
-  color: #595959;
+  color: #2d80b0;
   font-family: "Montserrat", sans-serif;
   margin-left: auto;
   margin-right: auto;
@@ -13658,7 +13700,7 @@ a.link {
 .jumbotron.quote-section {
   height: auto;
   background-image: none;
-  background-color: #F6F6F6;
+  background-color: #e8f3f9;
   margin-bottom: 0;
 }
 .jumbotron.quote-section .title {
@@ -13704,7 +13746,7 @@ a.link {
 .jumbotron.quote-section.page-header {
   margin: 0;
   padding: 40px 0;
-  background-color: #666;
+  background-color: #2d80b0;
 }
 @media screen and (max-width: 480px) {
   .jumbotron.quote-section.page-header {
@@ -13937,7 +13979,7 @@ a.link {
 .bag-box .discount-price {
   font-weight: 400;
   font-size: 1.25em;
-  color: #000;
+  color: #55a6d4;
   padding: 2px;
   font-size: 1.25em;
 }
@@ -13977,6 +14019,10 @@ a.link {
 .bag-sample.media-object {
   max-width: inherit !important;
   width: 150px;
+}
+
+small {
+  color: #55a6d4;
 }
 
 .bag-list {
@@ -14128,10 +14174,10 @@ a.link {
   font-family: "Montserrat", sans-serif;
   text-align: center;
   padding: 15px;
-  border: solid 1px #b3b3b3;
+  border: solid 1px #2d80b0;
   margin: 4px 0px;
   background-color: #fff;
-  color: gray;
+  color: #2d80b0;
   font-size: 1em;
   /*&.summary {
       p {
@@ -14164,23 +14210,23 @@ a.link {
   z-index: 1;
 }
 .order-state.done {
-  color: #f6f6f6;
+  color: #e8f3f9;
   z-index: 5;
 }
 .order-state.done.active:before {
-  border-color: #f6f6f6 transparent transparent;
+  border-color: #2d80b0 transparent transparent;
 }
 .order-state.just-done {
   color: #595959;
   z-index: 5;
 }
 .order-state.just-done.active:before {
-  border-color: #e9e9e9 transparent transparent;
+  border-color: #27729c transparent transparent;
 }
 .order-state.current {
-  border: solid 1px gray;
+  border: solid 1px #55a6d4;
   z-index: 4;
-  color: #0d0d0d;
+  color: #55a6d4;
   font-size: 1.3em;
   margin: 4px -5px;
   padding: 10px 15px;
@@ -14542,7 +14588,7 @@ a.link {
   top: 0;
 }
 .configuratore a, .configuratore a:link {
-  color: #333 !important;
+  color: #2d80b0 !important;
   font-family: "Montserrat", sans-serif;
 }
 .configuratore a.btn:hover, .configuratore a.btn:focus {
@@ -14557,7 +14603,7 @@ a.link {
 }
 .configuratore .yamm-content {
   -webkit-overflow-scrolling: touch !important;
-  border: solid 1px #bfbfbf;
+  border: solid 1px #92c6e3;
   border-top: none;
   padding: 0;
 }
@@ -14582,16 +14628,24 @@ a.link {
 }
 .configuratore .main-configurator-navbar {
   margin-top: 1px;
+  border-color: #92c6e3;
+}
+.configuratore .main-configurator-navbar .navbar-nav {
+  display: flex;
+  justify-content: space-around;
+}
+.configuratore .main-configurator-navbar .navbar-nav a {
+  color: #2d80b0 !important;
 }
 .configuratore .main-configurator-navbar a.link {
   padding: 15px;
 }
 .configuratore .main-configurator-navbar a.link:hover {
-  color: #000;
+  color: #2d80b0;
 }
 .configuratore .main-configurator-navbar a.link.modello {
-  border-left: solid 1px #ccc;
-  border-right: solid 1px #ccc;
+  border-left: solid 1px #55a6d4;
+  border-right: solid 1px #55a6d4;
   padding-left: 20px !important;
   padding-right: 20px !important;
 }
@@ -14610,7 +14664,7 @@ a.link {
   margin-left: -8px;
 }
 .configuratore .main-configurator-navbar a.link.active:before {
-  border-color: #bfbfbf transparent transparent;
+  border-color: #92c6e3 transparent transparent;
 }
 .configuratore .main-configurator-navbar a.link.active:after {
   margin-top: -2px;
@@ -14699,7 +14753,7 @@ a.link {
   left: 0;
   z-index: 2;
   overflow: visible;
-  border-top: solid 1px #bfbfbf;
+  border-top: solid 1px #92c6e3;
   background-color: #fff;
   font-family: "Montserrat", sans-serif;
   -webkit-transition: opacity 1s linear;
@@ -14712,7 +14766,7 @@ a.link {
   position: absolute;
   left: 0;
   width: 100%;
-  border-top: solid 1px #bfbfbf;
+  border-top: solid 1px #92c6e3;
 }
 .configuratore #price-panel {
   display: none;
@@ -14720,7 +14774,7 @@ a.link {
   padding: 10px 15px;
   top: 80px;
   right: 0;
-  border: solid 1px #bfbfbf;
+  border: solid 1px #92c6e3;
   border-right: none;
   background-color: #fff;
   z-index: 10;
@@ -14766,7 +14820,7 @@ a.link {
   bottom: 0;
   padding-top: 5px;
   padding-bottom: 5px;
-  border-top: solid 1px #bfbfbf;
+  border-top: solid 1px #92c6e3;
 }
 .configuratore .riepilogo .price {
   font-size: 22px;
@@ -14788,7 +14842,7 @@ a.link {
   margin: 0;
   padding: 0;
   font-size: 9px;
-  color: #999;
+  color: #55a6d4;
 }
 .configuratore .riepilogo .info {
   color: #000;
@@ -14871,10 +14925,10 @@ a.link {
   left: -1px;
 }
 .configuratore .accessori-categoria .swiper-slide {
-  border-right: solid 1px #bfbfbf;
+  border-right: solid 1px #92c6e3;
 }
 .configuratore .accessori-categoria .swiper-slide:first-child {
-  border-left: solid 1px #bfbfbf;
+  border-left: solid 1px #92c6e3;
 }
 .configuratore .accessori-categoria a {
   width: 100%;
@@ -15096,16 +15150,16 @@ footer .address {
   }
 }
 footer .footer-navbar-container {
-  background-color: #f6f6f6 !important;
+  background-color: #e8f3f9 !important;
   padding: 20px 0 30px 0;
 }
 footer .logo-footer {
   display: inline-block;
-  width: 140px;
-  height: 50px;
+  width: 170px;
+  height: 90px;
   margin-bottom: 10px;
   text-align: center;
-  background: url("/images/logonew-footer-big.png") no-repeat center left;
+  background: url("/images/logonew-footer-big2.png") no-repeat center left;
   background-size: contain;
 }
 footer h3 {
@@ -15474,7 +15528,7 @@ footer .copyright {
   pointer-events: none;
 }
 .swipe-featured .swiper-container-horizontal > .swiper-pagination .swiper-pagination-bullet {
-  background: #666 !important;
+  background: #55a6d4 !important;
   opacity: .2 !important;
   width: 10px;
   height: 10px;
@@ -15517,7 +15571,7 @@ footer .copyright {
   display: block !important;
 }
 .scheda-prodotto .swipe-featured .swiper-container-horizontal > .swiper-pagination .swiper-pagination-bullet {
-  background: #666 !important;
+  background: #55a6d4 !important;
   opacity: .2 !important;
   width: 15px;
   height: 15px;

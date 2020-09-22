@@ -17,7 +17,7 @@ angular.module("applicationModule").service("carrelloService", ["$http" , "$q", 
 		var carrelloCookies = cookiesService.getCookie('carrello');
 		if (carrelloCookies == null) {
 			carrelloCookies = [];
-		};
+		}
 
 		var isNomePresente = this.checkNomePresenteCookies(object.nome, carrelloCookies);
 		if (isNomePresente) {
@@ -51,20 +51,20 @@ angular.module("applicationModule").service("carrelloService", ["$http" , "$q", 
 		} else {
 			if (!isNaN(parseInt(split[split.length - 1], 10))) {
 				var number = parseInt(split[split.length - 1]);
-				var nuovoNome = "";
+				var nuovoNome1 = "";
 				for (var i = 0; i < split.length - 1; i++) {
-					if (nuovoNome == "") {
-						nuovoNome = split[i];
+					if (nuovoNome1 == "") {
+						nuovoNome1 = split[i];
 					} else {
-						nuovoNome = nuovoNome + "_" + split[i];
+						nuovoNome1 = nuovoNome1 + "_" + split[i];
 					}
 				}
-				nuovoNome = nuovoNome + "_" + (number + 1);
-				if (this.checkNomePresenteCookies(nuovoNome, carrello)) {
+				nuovoNome1 = nuovoNome1 + "_" + (number + 1);
+				if (this.checkNomePresenteCookies(nuovoNome1, carrello)) {
 					//ricorsione fino a che non trovo un nome che non c'è
-					return this.generaNuovoNomeCookies(nuovoNome, carrello);
+					return this.generaNuovoNomeCookies(nuovoNome1, carrello);
 				} else {
-					return nuovoNome;
+					return nuovoNome1;
 				}
 			} else {
 				return vecchioNome + "_1";

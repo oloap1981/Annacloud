@@ -16,7 +16,7 @@
 // $gray-light:             lighten($gray-base, 46.7%) // #777
 // $gray-lighter:           lighten($gray-base, 93.5%) // #eee
 $brand-color: #333;//#A87481;
-$brand-color-logo: #666; //#A87481;
+$brand-color-logo: #55a6d4; //#A87481;
 $brand-color-logo-dark: #333;//#6D404B;
 
 //$brand-primary-medium:     #A87481;//#A87481;
@@ -31,7 +31,9 @@ $brand-primary-light:      lighten($brand-primary-medium, 15%);
 //## Custom color
 
 $standard-border-color: lighten($brand-primary-medium, 55);
-$brand-secondary: #f6f6f6;
+$brand-secondary-base: /*#f6f6f6*/ #55a6d4;
+$brand-secondary: lighten(#55a6d4, 36%);
+$brand-secondary-darker: darken(#55a6d4, 15%);
 
 //== Scaffolding
 //
@@ -212,9 +214,9 @@ $btn-action-border:                 $brand-primary;
 // $input-bg-disabled:              $gray-lighter
 
 //** Text color for `<input>`s
-// $input-color:                    $gray
+ $input-color:                    $brand-secondary-darker; /*$gray*/
 //** `<input>` border color
-$input-border:                      $standard-border-color; /*#ccc*/
+$input-border:                      $brand-secondary-base/*$standard-border-color*/; /*#ccc*/
 
 // TODO: Rename `$input-border-radius` to `$input-border-radius-base` in v4
 //** Default `.form-control` border radius
@@ -229,7 +231,7 @@ $input-border:                      $standard-border-color; /*#ccc*/
 // $input-border-focus:             #66afe9
 
 //** Placeholder text color
-// $input-color-placeholder:        #999
+$input-color-placeholder:           $brand-secondary-darker;/*#999*/
 
 //** Default `.form-control` height
 // $input-height-base:              ($line-height-computed + ($padding-base-vertical * 2) + 2)

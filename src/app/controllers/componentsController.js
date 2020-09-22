@@ -886,9 +886,9 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 			return "35X30";
 		} else if (modelName == "crossbody") {
 			return "24X15";
-		} else if (modelName == "bucket_paglia") {
+		} else if (modelName == "bucket_paglia") { // NON USATO
 			return "21X30";
-		} else if (modelName == "bucket_pelle") {
+		} else if (modelName == "bucket_pelle") { // VECCHO NOME DELLA CIRCLE
 			return "21X30";
 		} else {
 			return "";
@@ -901,9 +901,11 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 			return ["35X30"];
 		} else if (modelName == "crossbody") {
 			return ["24X15"];
-		} else if (modelName == "bucket_paglia") {
+		} else if (modelName == "bucket_paglia") { // NON USATO
 			return ["21X30", "40X40"];
-		} else if (modelName == "bucket_pelle") {
+		} else if (modelName == "bucket_pelle") { // VECCHO NOME DELLA CIRCLE
+			return ["21X30", "50X50"];
+		} else if (modelName == "circle") {
 			return ["21X30", "50X50"];
 		} else {
 			return ["NON SPECIFICATA"];
@@ -932,7 +934,7 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 			var email = idToken.email;
 			user.email = email;
 		}
-		configurazione.utente = user;
+		//configurazione.utente = user;
 
 		var configurazioniNormalizzate = [];
 		for(var i = 0; i < configurazioni.length; i++) {

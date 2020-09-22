@@ -565,7 +565,7 @@ angular.module('applicationModule').controller('unadunaConfiguratorController2',
                 
 			}
 
-			if(modello.nome == "bucket_pelle"){
+			if(modello.nome == "circle"){
 				$scope.coloreSelezionato = "cherrypie";
 				//creo un set di default di accessori: corda, strozzino, ciondolo (,tracolla?)
 				var singolaEntitaColore = configController.getSingolaEntita("colore", modello.nome, "CORPO_RES_CHERRYPIE");
