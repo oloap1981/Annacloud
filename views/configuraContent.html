@@ -26,7 +26,8 @@
 								</div>
 								<div class="col-xs-12 bags-line">
 									<!-- CON IL REPEATER VADO A ELENCARE TUTTI I MODELLI DI BORSA DISPONIBILI  -->
-									<div class="col-lg-6 col-md-6 col-sm-6 col-sm-offset-3 col-xs-12 text-center no-padding bags-line" ng-repeat="modello in modelli | filter: contr.modelFilter">
+									<!--<div class="col-lg-6 col-md-6 col-sm-6 col-sm-offset-3 col-xs-12 text-center no-padding bags-line" ng-repeat="modello in modelli | filter: contr.modelFilter">-->
+									<div class="col-md-4 text-center no-padding bags-line" ng-repeat="modello in modelli | filter: contr.modelFilter">
 										<a href="#" onclick="return false" class="modello-borsa" id="start3dbutton" type="button" ng-click="contr.scegliModello(modello)">
 										<img ng-src="{{modello.urlThumbnail}}" class="hidden visible-xs" style="padding: 20px; padding-bottom: 0;" />
                                         <img ng-src="{{modello.urlThumbnailHD}}" class="hidden-xs" />
