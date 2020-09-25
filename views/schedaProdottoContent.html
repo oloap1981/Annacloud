@@ -33,53 +33,17 @@
                         <h2 class="bag">{{shoppingSelected.nome}}</h2>
                         <!--<p class="hidden">{{shoppingSelected.descrizioneBreve}}</p>-->
                         <h3 class="bag top-buffer bottom-buffer">{{prezzo}} &euro;</h3>
-                        <hr ng-if="isLogged()" >
+                        <!--<hr ng-if="isLogged()" >
                         <p ng-bind-html="'taglia' | translate"></p>
                         <a href="#" ng-click="scegliTagliaShopping('piccola')" class="btn btn-shop" ng-class="{'btn-save':shoppingSelected.taglia === 'piccola', 'btn-default': shoppingSelected.taglia === 'grande'}" style="min-width: auto" ng-bind-html="'piccola' | translate"></a>
                         <a href="#" ng-click="scegliTagliaShopping('grande')" class="btn btn-shop" ng-class="{'btn-save':shoppingSelected.taglia === 'grande', 'btn-default': shoppingSelected.taglia === 'piccola'}" style="min-width: auto" ng-bind-html="'grande' | translate"></a>
-                        <hr>
+                        <hr>-->
                         <a ng-if="isLogged()" href="#" class="btn btn-big btn-bigger btn-save" style="text-transform: uppercase;" ng-click="shoppingAcquista()" ng-bind-html="'acquista' | translate"></a>
                         <a ng-if="!isLogged()" href="accedi" class="btn btn-big btn-bigger btn-save" style="text-transform: uppercase;" ng-bind-html="'accedi_per_acquistare' | translate"></a>
                     </div>
-                    <div class="col-sm-12 base" ng-show="shoppingSelected.taglia === 'piccola'"  ng-bind-html="'shop_scheda_dati_piccola' | translate">
-                        
-                        <!--<h2 class="section-small left" ng-bind-html="'info' | translate"></h2>
-                        <div ng-bind-html="shoppingSelected.info"></div>
-                        <p>Un Pratico secchiello realizzata con morbida nappa.</p>
-                        <ul class='checklist-bag'>
-                            <li>interno foderato con un resistente cotone.</li>
-                            <li>offre una comoda tasca con chiusura zip.</li>
-                            <li>chiusura a strozzo del secchiello decorata con timbro a caldo.</li>
-                            <li>Tracolla regolabile che ti permette di indossarla a spalla o a tracolla.</li>
-                            <li>La combinazione colori preferita dal nostro team creativo.</li>
-                        </ul>
-                        <hr>
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <td><span>Composizione:</span></td>
-                                    <td>Pelle</td>
-                                </tr>
-                                <tr>
-                                    <td><span>Accessori metallici:</span></td>
-                                    <td>Colore nickel</td>
-                                </tr>
-                                <tr>
-                                    <td><span>Altezza:</span></td>
-                                    <td>piccola_ 29cm</td>
-                                </tr>
-                                <tr>
-                                    <td><span>Diametro:</span></td>
-                                    <td>22cm</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <hr>
-                        <p>Made in Italy</p>-->
-                    </div>
-
-                    <div class="col-sm-12 base" ng-show="shoppingSelected.taglia === 'grande'"  ng-bind-html="'shop_scheda_dati_grande' | translate">
-                    </div>
+                    <div class="col-sm-12 base" ng-bind-html="shoppingSelected.info"></div>
+                    <!--<div class="col-sm-12 base" ng-show="shoppingSelected.taglia === 'piccola'"  ng-bind-html="'shop_scheda_dati_piccola' | translate"></div>
+                    <div class="col-sm-12 base" ng-show="shoppingSelected.taglia === 'grande'"  ng-bind-html="'shop_scheda_dati_grande' | translate"></div>-->
                 </div>
             </div>
         </div>
