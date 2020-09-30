@@ -27,7 +27,7 @@
     "angular-update-meta": "^2.1.0",
     "angularjs-datepicker": "^2.1.23",
     "aws-sdk": "^2.690.0",
-    "bootstrap": "^3.4.1",
+    "bootstrap": "^4.5.0",
     "bootstrap-select": "^1.13.17",
     "clipboard": "^2.0.6",
     "gulp-rename": "^1.4.0",
