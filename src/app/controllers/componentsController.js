@@ -906,7 +906,11 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 		} else if (modelName == "bucket_pelle") { // VECCHO NOME DELLA CIRCLE
 			return ["21X30", "50X50"];
 		} else if (modelName == "circle") {
-			return ["21X30", "50X50"];
+			return ["22X16,5"];
+		} else if (modelName == "exagon") {
+			return ["12x18x13"];
+		} else if (modelName == "triangle") {
+			return ["18x29,5x21"];
 		} else {
 			return ["NON SPECIFICATA"];
 		}
@@ -1336,6 +1340,30 @@ angular.module("applicationModule").controller("componentsController", ["$scope"
 						}
 						break;
 					case "corde":
+						splitted = entita.nome.split("_");
+						if (splitted.length == 3) {
+							result = splitted[2];
+						} else {
+							result = entita.nome;
+						}
+						break;
+					case "pattina":
+						splitted = entita.nome.split("_");
+						if (splitted.length == 3) {
+							result = splitted[2];
+						} else {
+							result = entita.nome;
+						}
+						break;
+					case "laterali":
+						splitted = entita.nome.split("_");
+						if (splitted.length == 3) {
+							result = splitted[2];
+						} else {
+							result = entita.nome;
+						}
+						break;
+					case "maniglia":
 						splitted = entita.nome.split("_");
 						if (splitted.length == 3) {
 							result = splitted[2];

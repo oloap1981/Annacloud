@@ -15,7 +15,7 @@
 				<h3 class="title section mot" ng-bind-html="'shop_titolo' | translate"></h3>
 				<p class="subtitle bottom-buffer"  ng-bind-html="'shop_sottotitolo' | translate"></p>
 			</div>
-			<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 clearfix home-content top-buffer" ng-repeat="conf in getShopping()" ng-init="thumbimage = getConfigurationImagesArray(conf)[0]">
+			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 clearfix home-content top-buffer" ng-repeat="conf in getShopping()" ng-init="thumbimage = getConfigurationImagesArray(conf)[0]">
 				<a href="#" class="swiper-slide bag-box shopping" ng-click="schedaProdotto(conf)">
 					<div class="img-container" ng-mouseover="thumbimage = getConfigurationImagesArray(conf)[1]" ng-mouseout="thumbimage = getConfigurationImagesArray(conf)[0]">
 						<img ng-src="{{thumbimage}}">
