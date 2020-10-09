@@ -21,7 +21,7 @@ var config = {
     views: 'views/*.*',
     temp: 'temp/',
     eb: '.ebextensions/*.*'
-}
+};
 
 var dist = {
 	path: 'dist/',
@@ -30,7 +30,7 @@ var dist = {
     assets: 'assets/',
     views: 'views/',
     eb: '.ebextensions/'
-}
+};
 
 gulp.task('build', ['copy-views', 'copy-eb', 'copy-assets', 'copy-fonts', 'copy-images', 'copy-sitemap', 'copy-htaccess', 'minifyjs'], function(){
     del(config.temp);

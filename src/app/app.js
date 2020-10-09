@@ -252,12 +252,19 @@ app.config(['$routeProvider', '$translateProvider', '$translatePartialLoaderProv
 
 	$locationProvider.html5Mode(true);
 
+	if ( window.location.host == '127.0.0.1:8080' ) {
+		urlAlt = '/files_traduzioni/home/{lang}.json';
+	} else {
+		urlAlt = 'https://s3.eu-central-1.amazonaws.com/unaduna-resources-bucket/i18n/{part}/{lang}.json';
+
+	}
+
 	//gestione testi e traduzioni
 	$translatePartialLoaderProvider.addPart('home');
 	$translateProvider.useSanitizeValueStrategy('sanitizeParameters');
 	$translateProvider.preferredLanguage('it');
 	$translateProvider.useLoader('$translatePartialLoader', {
-		urlTemplate: 'https://s3.eu-central-1.amazonaws.com/unaduna-resources-bucket/i18n/{part}/{lang}_dev.json'
+		urlTemplate: urlAlt
 	});
 
 

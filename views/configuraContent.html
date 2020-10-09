@@ -33,7 +33,7 @@
                                         <img ng-src="{{modello.urlThumbnailHD}}" class="hidden-xs" />
                                         <br>
 										<span class="nome no-margin">{{modello.nome.replace('_', ' ').toUpperCase()}}</span><br>
-                                        <span class="bag-size-button" >{{getModelSizesString(modello.nome)}}</span>
+                                        <span class="bag-size-button hidden" >{{getModelSizesString(modello.nome)}}</span>
                                         </a>
 									</div>
                                 </div>
@@ -104,10 +104,11 @@ Non sarà la migliore al mondo, ma sarà l’unica borsa di valore del vostro ar
 		</div>
 	</div>
 	<div id="price-panel" ng-show="modelloSelezionato != ''">
-		<p class="size">{{contr.getModelloSelezionato()}}<br>
-			<!-- {{getModelSizes(modelloSelezionato)}} cm</p><br> -->
-            {{contr.taglieManager.tagliaSelezionata}} cm
-        </p>
+		<h4 class="size">
+			{{contr.getModelloSelezionato()}}<br>
+			<!-- {{getModelSizes(modelloSelezionato)}} cm</p><br> 
+            <small>{{contr.taglieManager.tagliaSelezionata}} cm</small>-->
+        </h4>
         <a href="" class="btn btn-default btn-block" ng-if="contr.taglieManager.listaTaglie.length > 1" ng-click="openSceltaTaglia(contr.taglieManager)" ng-bind-html="'cambia_taglia' | translate"></a>
 		<hr>
 		<h3 class="total-price barred">{{contr.priceManager.fullPrice}}&euro;</h3>
@@ -137,7 +138,7 @@ Non sarà la migliore al mondo, ma sarà l’unica borsa di valore del vostro ar
 	</div>
 	<div class="accessori" style="opacity: 0;">
 		<div class="container">
-            <a href="javascript: void(0)" id="taglia"  ng-click="openSceltaTaglia(contr.taglieManager)">{{contr.getModelloSelezionato()}} - {{contr.taglieManager.tagliaSelezionata}} cm</a>
+            <a href="javascript: void(0)" id="taglia"  ng-click="openSceltaTaglia(contr.taglieManager)">{{contr.getModelloSelezionato()}} <!-- - {{contr.taglieManager.tagliaSelezionata}} cm--></a>
 			<div class="row">
 				<div class="col-lg-12">
 					<section class="swipe">
