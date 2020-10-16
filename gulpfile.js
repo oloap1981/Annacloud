@@ -32,6 +32,8 @@ var dist = {
     eb: '.ebextensions/'
 };
 
+gulp.task( 'default', [ 'build' ] );
+
 gulp.task('build', ['copy-views', 'copy-eb', 'copy-assets', 'copy-fonts', 'copy-images', 'copy-sitemap', 'copy-htaccess', 'minifyjs'], function(){
     del(config.temp);
 });

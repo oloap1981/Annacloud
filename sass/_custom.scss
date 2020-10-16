@@ -1322,6 +1322,9 @@ a.link {
             text-decoration: none;    
         }
     }
+    .smaller {
+        font-size: 1.75vw;
+    }
     @media screen and (max-width: $screen-xs) {
         span {
             padding: 1vw 2vw;
@@ -1342,6 +1345,9 @@ a.link {
             i {
                 font-size: 2.75vw;
             }
+        }
+        .smaller {
+            font-size: 3.75vw;
         }
     }
 } 
@@ -1427,8 +1433,7 @@ a.link {
     bottom: 5vw;
     text-align: left; 
     span {
-        padding-left: 8vw;
-        
+        padding-left: 5vw;
         &.cta {
             padding-right: .35vw
         }

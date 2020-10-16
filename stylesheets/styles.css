@@ -13233,6 +13233,9 @@ a.link {
 .slogan-1 a:hover, .slogan-2 a:hover, .slogan-3 a:hover, .slogan-4 a:hover, .slogan-5 a:hover {
   text-decoration: none;
 }
+.slogan-1 .smaller, .slogan-2 .smaller, .slogan-3 .smaller, .slogan-4 .smaller, .slogan-5 .smaller {
+  font-size: 1.75vw;
+}
 @media screen and (max-width: 480px) {
   .slogan-1 span, .slogan-2 span, .slogan-3 span, .slogan-4 span, .slogan-5 span {
     padding: 1vw 2vw;
@@ -13250,6 +13253,9 @@ a.link {
   }
   .slogan-1 a i, .slogan-2 a i, .slogan-3 a i, .slogan-4 a i, .slogan-5 a i {
     font-size: 2.75vw;
+  }
+  .slogan-1 .smaller, .slogan-2 .smaller, .slogan-3 .smaller, .slogan-4 .smaller, .slogan-5 .smaller {
+    font-size: 3.75vw;
   }
 }
 
@@ -13336,7 +13342,7 @@ a.link {
   text-align: left;
 }
 .slogan-4 span {
-  padding-left: 8vw;
+  padding-left: 5vw;
 }
 .slogan-4 span.cta {
   padding-right: 0.35vw;
