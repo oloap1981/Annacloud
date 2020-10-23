@@ -1035,7 +1035,7 @@ angular
           );
           configController.aggiungiElementoAStack(
             entitaTracollaExagon.urlStripe,
-            8,
+            11,
             false,
             entitaTracollaExagon
           );
@@ -1164,7 +1164,7 @@ angular
           );
           configController.aggiungiElementoAStack(
             entitaManigliaTriangle.urlStripe,
-            8,
+            9,
             false,
             entitaManigliaTriangle
           );
@@ -1196,7 +1196,7 @@ angular
           );
           configController.aggiungiElementoAStack(
             entitaTracollaTriangle.urlStripe,
-            9,
+            11,
             false,
             entitaTracollaTriangle
           );
