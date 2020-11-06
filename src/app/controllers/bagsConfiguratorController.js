@@ -573,9 +573,9 @@ angular
       if (nomeAccessorio == "corde") {
         return "filo";
       }
-      if (nomeAccessorio == "fodere") {
+      /*if (nomeAccessorio == "fodere") {
         return "fodera";
-      }
+      }*/
       return nomeAccessorio;
     };
 
@@ -851,7 +851,7 @@ angular
             entitaStrozzino
           );
 
-          var singolaEntitaFodera = configController.getSingolaEntita(
+          /*var singolaEntitaFodera = configController.getSingolaEntita(
             "fodere",
             modello.nome,
             "FODERA_RES_NERO"
@@ -880,7 +880,7 @@ angular
             false,
             entitaFodera
           );
-
+*/
           var singolaEntitaTracolla = configController.getSingolaEntita(
             "tracolla",
             modello.nome,
@@ -1472,8 +1472,8 @@ angular
             entita.categoria == "ciondolo" ||
             entita.categoria == "laterali" ||
             entita.categoria == "maniglia" ||
-            entita.categoria == "pattina" ||
-            entita.categoria == "fodere"
+            entita.categoria == "pattina" /*||
+            entita.categoria == "fodere"*/
           );
         }
       }
@@ -1845,7 +1845,7 @@ angular
         entita.ordine,
         entita.categoria != "colore" &&
           entita.categoria != "metalleria" &&
-          entita.categoria != "fodere" &&
+          /*entita.categoria != "fodere" &&*/
           entita.categoria != "strozzino" &&
           entita.categoria != "tracolla" &&
           entita.categoria != "corde",
