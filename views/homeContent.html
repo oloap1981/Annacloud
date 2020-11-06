@@ -1,12 +1,12 @@
-<update-title title="Anna Cloud: borse personalizzate e  sostenibilità!"></update-title>
-<update-meta http-equiv="Content-Language" content="es"></update-meta>
-<update-meta name="description" content="Ciao, mi chiamo Anna Cloud e voglio cambiare il mondo del Fashion. Vuoi aiutarmi? Vieni a provare Configo, il primo configuratore 3D per borse ecosostenibili!"></update-meta>
-<update-meta property="og:title" content="Anna Cloud: borsepersonalizzate e sostenibilità!"></update-meta>
-<update-meta property="og:description" content="Ciao, mi chiamo Anna Cloud e voglio cambiare il mondo del Fashion. Vuoi aiutarmi? Vieni a provare Configo, il primo configuratore 3D per borse ecosostenibili!"></update-meta>
-<update-meta itemprop="description" content="Ciao, mi chiamo Anna Cloud e voglio cambiare il mondo del Fashion. Vuoi aiutarmi? Vieni a provare Configo, il primo configuratore 3D per borse ecosostenibili!"></update-meta>
-<update-script content="structuredData" type="application/ld+json"></update-script>
-
 <div class="home-content wow" ng-controller="homeController" ng-init="homeInit({boxClasses:'home-content wow'})">
+    
+    <update-title title="{{ 'home-meta-title' | translate }}"></update-title>
+    <update-meta http-equiv="Content-Language" content="es"></update-meta>
+    <update-meta name="description" content="{{ 'home-meta-description' | translate }}"></update-meta>
+    <update-meta property="og:title" content="{{ 'home-meta-title' | translate }}"></update-meta>
+    <update-meta property="og:description" content="{{ 'home-meta-description' | translate }}"></update-meta>
+    <update-meta itemprop="description" content="{{ 'home-meta-description' | translate }}"></update-meta>
+    <update-script content="structuredData" type="application/ld+json"></update-script>
 
     <!-- inizio banner shopping-->
     <div class="jumbotron quote-section page-header index wow fadeIn hidden visible-xs" data-wow-delay="0.1s">

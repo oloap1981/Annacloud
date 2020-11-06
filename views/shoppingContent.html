@@ -1,12 +1,12 @@
-<update-title title="Annacloud.it - Home Page"></update-title>
-<update-meta http-equiv="Content-Language" content="es"></update-meta>
-<update-meta name="description" content="Dove le nuove tecnologie incontrano innovazione, sostenibilità e artigianato."></update-meta>
-<update-meta property="og:title" content="Annacloud.it - Home Page"></update-meta>
-<update-meta property="og:description" content="Dove le nuove tecnologie incontrano innovazione, sostenibilità e artigianato."></update-meta>
-<update-meta itemprop="description" content="Dove le nuove tecnologie incontrano innovazione, sostenibilità e artigianato."></update-meta>
-<update-script content="structuredData" type="application/ld+json"></update-script>
-
 <div class="home-content wow" ng-controller="shoppingController" ng-init="initShopping()">
+
+	<update-title title="{{ 'shop-meta-title' | translate }}"></update-title>
+    <update-meta http-equiv="Content-Language" content="es"></update-meta>
+    <update-meta name="description" content="{{ 'shop-meta-description' | translate }}"></update-meta>
+    <update-meta property="og:title" content="{{ 'shop-meta-title' | translate }}"></update-meta>
+    <update-meta property="og:description" content="{{ 'shop-meta-description' | translate }}"></update-meta>
+    <update-meta itemprop="description" content="{{ 'shop-meta-description' | translate }}"></update-meta>
+    <update-script content="structuredData" type="application/ld+json"></update-script>
 
 	<div class="container text-center">
 		<div class="row top-buffer">

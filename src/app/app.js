@@ -252,7 +252,7 @@ app.config(['$routeProvider', '$translateProvider', '$translatePartialLoaderProv
 
 	$locationProvider.html5Mode(true);
 
-	if ( window.location.host == '127.0.0.1:8080' ) {
+	if ( window.location.host == '127.0.0.1:8081' ) {
 		urlAlt = '/files_traduzioni/home/{lang}.json';
 	} else {
 		urlAlt = 'https://s3.eu-central-1.amazonaws.com/unaduna-resources-bucket/i18n/{part}/{lang}.json';

@@ -196,7 +196,7 @@
 	"preferiti_base_modello": "MODELLO:",
 	"preferiti_base_accessori": "Accessori",
 	"": "",
-	"Preferiti_modifica": "Modifica il modello",
+	"preferiti_modifica": "Modifica il modello",
 	"preferiti_aggiungi_carrello": "Aggiungi al carrello",
 	"preferiti_notifica_versione_desktop_admin": "<span>Per gestire le preconfigurate, devi visualizzare questa pagina in versione desktop</span>",
 	"preferiti_elimina": "elimina <small><i class='unaicon-remove'></i></small>",
