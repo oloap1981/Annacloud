@@ -375,7 +375,7 @@
     "esci": "Logout",
     "accedi": "Login",
     "welcome": "Welcome",
-    "welcome_not_logged": "Welcome, <strong>login to your profile</strong> or <strong>register a new account</strong> - <a href='checkout-register'>checkout</a>",
+    "welcome_not_logged": "Welcome, <strong>login to your profile</strong> or <strong>register a new account</strong>",
     "": "",
     "": "",
     "": "",
